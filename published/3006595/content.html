@@ -1,0 +1,48 @@
+<p>The Oakley Airwave goggle contains lots of the sensors and radios that handheld devices have, and a few they don’t: accelerometer, low energy Bluetooth, temp sensor, barometer, GPS, and gyroscope. The whole platform, built by Canadian company Recon, is open to developers, but creating apps for the mountain means testing them on the mountain--not exactly the typical milieu for a QA session.</p>
+
+<p>The destination was San Carlos de Bariloche in Argentina, home of a world class ski and mountaineering destination. There, the team spent a week skiing and mountaineering in high winds, logging bugs during the day and transmitting them back to Recon HQ at night. The next day, the team would have a new build and a new list of priorities.</p>
+
+<figure class="inline-video inline"><iframe src="http://www.youtube.com/embed/2-9UAJ4v_8M?rel=1&amp;autoplay=0" width="631" height="380" frameborder="0"></iframe></figure>
+
+<p><p class="interview-question">What did you learn about wearable device testing in the Argentina QA session?</p></p>
+
+<p><p class="interview-answer"><strong>Ryan Saylor, Director of Optics Technology at Oakley:</strong> UI and UX experience are the two key drivers. When you have a bunch of mechanical engineers and electronics engineers, a lot of things seem really easy. But my experience was: Take the consumer perspective. Don't assume they know how to navigate screens, and don’t assume they know how to connect three devices with Bluetooth. That has to be intentional: dumbing down the process. </p></p>
+
+<p><p class="interview-question">What specifically were you testing on the platform?</p></p>
+
+<p><p class="interview-answer"><strong>Mike Jensen, QA Tester and Snowboarder at Recon:</strong> Following our beta testing trip with Oakley at the beginning of the year, we had redesigned our GUI, navigation app, and for the first time achieved iOS integration. </p></p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/03/3006595-inline-inline-1-how-oakley-tested-their-wearable-computing-platform-mountains-argentina.jpg" alt=""/>
+</figure>
+
+<p><p class="interview-question">How big was your team?</p></p>
+
+<p><p class="interview-answer"><strong>Saylor:</strong> We had seven people with a good understanding of what to look for: recording bugs, recording issues with the UI and OS, and quantifying feedback on the performance of the goggle.</p></p>
+
+<p><p class="interview-question">How did each person contribute to testing?</p></p>
+
+<p><p class="interview-answer"><strong>Saylor:</strong> Each person on the trip documented their feedback thru the day, have lunch talking about what we'd each found, so we could focus more on other areas to see if we could reproduce bugs. We would consolidate the information at night in a round-table. Looking for common themes and larger. We'll typically use something on an Phone--notes or voice recordings. We'll use numbers (1 thru 10) and assign categories of feedback: all the verticals: connectivity of device, phone and remote; music control, which is new; navigation, which includes the compass calibration and mountain maps and buddy tracker; dashboard which shows metrics; notifications, screen where you can see if you've reached a new performance.</p></p>
+
+<aside class="info"><div class="info-inner"><p>ABOUT THE PLATFORM<br />
+The Airwave is built on a HUD platform device by the Canadian company Recon. The goggle can support third-party apps that make use of the sensors and the wireless connection of a paired smartphone. Features include high-performance data caching so most apps are usable offline. Maps are preloaded with terrain views of 600 different resorts and POIs, and are oriented to the viewer's perspective. View texts and calls in the HUD, or connect with a Contour helmet camera and Polar heart monitor for full-cyborg mode.</p></div></aside>
+
+<p><p class="interview-question">What did you do once you logged the bugs?</p></p>
+
+<p><p class="interview-answer"><strong>Saylor:</strong> We had nightly review sessions, and the Recon guys would work through the night. We'd have app revision to test in the morning. <strong>Jensen:</strong> The testing group was made up of seven riders, so I had to ensure that we had sufficient HUDs for testing that were updated daily, as I was receiving software builds with new improvements constantly from Recon head office in Vancouver. To update the units more effectively, a colleague of mine built a program that allowed for multiple units to be automatically updated at once from a USB hub, while showing the status of the update process. This really helped manage time. </p></p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/03/3006595-inline-inline-3-how-oakley-tested-their-wearable-computing-platform-mountains-argentina.jpg" alt=""/>
+</figure>
+
+<p><p class="interview-question">How did Oakley and Recon divvy up the work?</p></p>
+
+<p><p class="interview-answer"><strong>Saylor:</strong> There were two pieces of content in the review sessions: the hardware/software/app component, where Recon was working hard to revise their brand new iOS app, and the UI, which Oakley was heavily focussed on. So, Oakley was optimizing for the consumer experience, and manipulating the app how the thing interfaces with the device, and a whole host of other apps. Those were the two different areas to focus on. <strong>Jensen:</strong> While out in the field I would make sure to ride the chairlift with different members of the group throughout the day, and take notes about bugs and problems that my fellow testers had run into, ideas they had, or experiences they had enjoyed. All of this was relayed back to Recon through daily reports. The time difference [in Argentina] really helped this process, as we were four hours ahead of the Vancouver head office--when I would be finishing a ski day, the development teams would be in the office, taking my report and building a new software package based on the points testers raised. It was a lot of work for everyone, but it ended up playing to our advantage. </p></p>
+
+<p><p class="interview-question">Did you segment the system and assign different people areas to test?</p></p>
+
+<p><p class="interview-answer"><strong>Saylor:</strong> Not at first. For the first day or two, no segmentation of people looking for any particular thing: just a general assessment. After we got a feel for system arch and performance, day 2 and 3 we took a different tactic, focusing our efforts individually over the next four days.</p></p>
+
+<p><p class="interview-question">Why did you do this in such an awesome location?</p></p>
+
+<p><p class="interview-answer"><strong>Saylor:</strong> We rely on South America in the summer for foul weather: the lowest common denominator. We backed it up with a follow-up trip focusing on the iOS app, where we wanted to address in the UI and the functionality. We came back to CA, then did a trip to Mt. Hood with Recon Team, since that's near Recon's office. Then another trip to Whistler, not to ski, but capitalize on immersion and testing the maps. We also rode mountain bikes in the goggle--it ended up being pretty productive.</p></p>

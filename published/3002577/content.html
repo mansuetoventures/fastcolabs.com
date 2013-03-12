@@ -1,0 +1,286 @@
+<p>HowAboutWe.com was boot-strapped into life in April 2010 at the apex of the iPhone’s market ascendency. Like rookies (we were rookies) we built a basic web app. No API. No native apps. No real mobile strategy. And yet, in creating HowAboutWe--a dating service in which users post the actual places they want to go on dates--we had built a mobility dream of location-based, on-the-go, high-converting repeat usage. Obviously the “offline dating site” should be the “offline dating app.” We realized this pretty quickly and so began the process of retroactively becoming a mobile-first product.</p>
+
+<p>IOS was the obvious first platform. Like hundreds of thousands of other companies we built a native iPhone app. We launched it with great success; it was the number-one new featured app when it came out, has acquired hundreds of thousands of downloads, is top in in-app purchases, and has usage correlated with our very highest subscription conversion rates. We thought we could take our beautiful iPhone app, make a few tweaks for Android, and call ourselves ready for development. After all, we had seen this pattern from dozens of other highly successful apps. But after diving into design research, we realized this project would be a lot more complicated.</p>
+
+<p>The seven questions below stake out a path of inquiry that will help you translating your own design language from iOS to Android.</p>
+
+<aside class="info"><div class="info-inner"><p><u>How To Use This Guide</u><br />
+<ul>
+  <li><span>The first four topics in this guide are semi-technical, and intended for designers, developers and Android fans of all abilities. We'll cover design, platform alignment, custom UI elements, navigation patterns, and notifications.</span></li>
+  <li><span>The next four topics are technical, and intended for developers who are ready to build. We'll discuss Android IDEs, backward compatibility, testing, continuous integration. </span></li>
+  <li><span>The literature on these patterns is relatively scant, so we hope this guide can be a genuine help to people building for this incredibly powerful and growing platform.</span></li>
+</ul></p></div></aside>
+
+<h3><a name="Yes_Android_is_worth_it">Yes, Android is worth it</a></h3>
+
+<p>We had high hopes for Android, and it hasn't disappointed. In December 2012, we launched HowAboutWe for Android and, in its first few weeks, the app has been installed over 20,000 times with about a 65 percent conversion rate from install to complete sign-up. We’re seeing over 10 percent conversion rates from sign-up to subscription (we launched with a seven-day free trial subscription that auto-converts into paid membership).</p>
+
+<p>In fact, in some ways our Android users are showing up the folks on iOS. Key engagement rates (such as photos uploads) are 20 percent higher on Android than they are on the web. Early data indicates high repeat usage rates with an average of three sessions per day per active user. And all of this is based on the limited feature set with which we launched. We've come to believe strongly that Android will be a great source of ongoing user acquisition, retention, and monetization.</p>
+
+<p>We seriously considered doubling up our mobile web and Android approach by building an HTML5 app and throwing it into a wrapper for Android, but our early prototypes indicated that we would never be able to achieve with a PhoneGap-type solution the kind of design elegance that was our standard. Native it was.</p>
+
+<p>Around that time, two big things happened. First, Google released its <a href="http://developer.android.com/design/index.html" target="_blank">Android Design Guidelines</a>, changing the entire trajectory of our Android strategy for the better. It’s only in the last six to 12 months that Android design and development patterns have come to mature, making 2013 an auspicious time to dive into Android development.</p>
+
+<p>Second, we hired a top tier in-house Android engineering team, and charged them with building an app based on Android development best practices, not a mere duplication of our iOS architecture. (The team is pictured below: Matt Lim, Chuck Greb and Baldur Gudbjornsson respectively.)  They immediately set about asking and answering the following seven questions.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/10/3002577-inline-android-team-combined.png" alt=""/><figcaption>Click to enlarge</figcaption>
+</figure>
+
+<h2><a name="1_Whats_the_goal_of_crossplatform_consistency">1. What's the goal of cross-platform consistency?</a></h2>
+
+<p>Android, iOS, and mobile web each have their own <a href="http://developer.android.com/design/patterns/index.html" target="_blank">design patterns</a> and conventions. In designing for these platforms, the goal is to achieve both cross-platform brand consistency and alignment with the conventions specific to the platform. The truth is that almost no actual users outside your QA team will use both your iOS and Android apps, so consistency of <em>interaction</em> isn't the goal. It can be annoying (at best) and downright confusing (at worst) to users to be presented with interactions that are not consistent with the general patterns followed by other apps on their phone. And yet, while you seek to avoid <a href="https://plus.google.com/104844169030193199790/posts" target="_blank">anti-patterns</a>, you also want to pursue breakthrough UI innovation. This is the mogul course of cross-platform design.</p>
+
+<p>Let’s take the HowAboutWe messaging interface as an example. (Below, our original iOS-like Gingerbread inbox, our Jelly Bean inbox, and our iOS inbox.)</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/10/3002577-inline-image-1.png" alt=""/><figcaption>Click to enlarge</figcaption>
+</figure>
+
+<p>IPhone and Android each convey essentially the same information, but the visual treatment and interactions are quite different. The primary information shown here is a list of messages, tabs for each label, read/unread status, and an indicator showing if a reply has been sent. Tapping on any of the messages opens a new screen with the full conversation thread, and some other peripheral functionality is there, too.</p>
+
+<p>Android’s <a href="http://developer.android.com/design/patterns/actionbar.html" target="_blank">Action Bar</a> follows a few key, differentiated patterns. In all three applications, tapping the top-left most icon opens the main menu of the application. But the visual treatment of these icons is quite different. Android uses the app logo (or "home" icon) and the title is left-aligned on Android, showing the <a href="http://developer.android.com/guide/topics/ui/actionbar.html#Up" target="_blank">“up” navigation</a> to the left of the home icon, which indicates additional content is available.</p>
+
+<p>Android also uses scrolling tabs rather than iOS style buttons to display the labels for inbox, sent, and archive, and hides additional functionality behind action icons. Rather than showing an indicator icon on unread messages like iOS, Android relies on changing the background color of the cell. Also, notice on Android the absence of the iOS convention of a right-pointing caret on each line to show it is clickable.</p>
+
+<p>In short, what look like two similar views really aren't the same from the standpoint of interaction.</p>
+
+<p>Our original designs copied the iOS patterns almost exactly, but the <a href="http://developer.android.com/design/index.html" target="_blank">new Android Design Guidelines</a> called for a significantly updated, and more native UI. It was only once we internalized the native Android design patterns that we were able to get away from our original, iOS-derivative designs.</p>
+
+<h2><a name="2_Which_UI_elements_should_we_customize">2. Which UI elements should we customize?</a></h2>
+
+<p>When should you use the system default widgets? When should you create custom widgets?</p>
+
+<p>On Android, the look and feel (and sometimes even behavior) of system default components will vary significantly depending on platform version, device manufacturer, and theme. Recently, Android has been trying to reduce style inconsistencies, but this is still a significant challenge for developers.</p>
+
+<p>The only way to truly ensure style and layout consistency across various platform versions, manufacturers, screen sizes and densities is by using custom UI components. This can mean anything from simply swapping a different image asset to be used as the background to coding a brand new view class with the desired look and functionality. There is an increased cost in terms of design, development, and QA time for any custom solution, but it can lead to a more consistent, brand-aligned result. (Below, side-by-side respective comparisons of similar buttons in Jelly Bean and Gingerbread; Jelly Bean and Gingerbread; Gingerbread and Jelly Bean.)<br />
+ <br />
+<figure class="inline-large inline"><br />
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/10/3002577-inline-image-2.png" alt=""/><figcaption>Click to enlarge</figcaption><br />
+</figure></p>
+
+<p><a href="http://developer.android.com/design/building-blocks/buttons.html" target="_blank">Buttons</a> are one of the easiest components to customize, so start your customizations there. Typically, functionality for a button is not going to change. But the look and feel is drastically different between pre-Honeycomb and post-Honeycomb devices. Developers can simply drop in alternative assets for each <a href="http://developer.android.com/guide/practices/screens_support.html#density-independence" target="_blank">screen density</a> and <a href="http://developer.android.com/guide/topics/resources/drawable-resource.html#StateList" target="_blank">state</a> to make the buttons look the same across all platform versions.</p>
+
+<p>We chose to customize many of the buttons that appear in HowAboutWe, and the workload was minimal because we are able to reuse the same handful of button styles throughout the app. This allows us to keep a more consistent, branded look and feel across all platform versions and devices.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/10/3002577-inline-image-3.png" alt=""/><figcaption>Click to enlarge</figcaption>
+</figure>
+
+<p><a href="http://developer.android.com/design/building-blocks/spinners.html" target="_blank">Spinners</a> (also known as dropdown menus) look very different on pre-Honeycomb devices. This can affect not only the look and feel of the individual component but the overall layout of a screen. (Above, spinners as they appear in Gingerbread, Jelly Bean, Gingerbread, and Jelly Bean respectively.)</p>
+
+<p>For the screen that allows a user to edit his or her basic information, we wanted to use spinners since the user is limited to a select set of responses for most fields. However, we knew the layout would look too cluttered on Gingerbread and Froyo devices with the old big gray box style that opens a separate dialog over the screen. We customized this to create consistency. Since the theme of the application is based on Holo, we decided to use the new spinner style even on older devices. We achieved this result by creating a custom style for the spinners using the new assets from <a href="http://source.android.com/" target="_blank">AOSP</a>.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/10/3002577-inline-image-4.png" alt=""/><figcaption>Click to enlarge</figcaption>
+</figure>
+
+<p>In some cases, customization felt too costly to be worth it, despite the consistency gains we would reap. For instance, we decided not to customize <a href="http://developer.android.com/design/building-blocks/text-fields.html" target="_blank">Text Fields</a> (ex. "CAREER/JOB"), so older devices and newer devices still have a different look and feel for these components. (Above, similar screens in Gingerbread and Jelly Bean show their different text fields side-by-side.)</p>
+
+<h2><a name="3_What_should_the_home_screen_look_like">3. What should the home screen look like?</a></h2>
+
+<p>In designing the UI pattern for the HowAboutWe app, we wanted to provide an elegant full-screen experience, keeping navigation quarantined in a secondary area. However, we also wanted to provide the capacity for rapid switching between tasks.</p>
+
+<p>Our initial designs used the fullscreen dashboard view pattern seen in the earlier version of the Facebook Android app and the 2011 Google I/O app. We eventually moved to a sliding drawer, and here's why.</p>
+
+<p>Initially, the advantages of the grid UI seemed obvious. The options are presented to the user in a simple, easy-to-digest grid. And, from an implementation standpoint, it’s fairly simple and straightforward.</p>
+
+<p>However, from a user's perspective, there are significant downsides. The navigational experience  disruptively occupies the entire screen. It makes navigation a primary act rather than a facilitative one. In this way, it’s a bit of a monolithic design choice. (Our old grid layout next to Facebook and Google's former designs, below.)</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/10/3002577-inline-image-5.png" alt=""/><figcaption>Click to enlarge</figcaption>
+</figure>
+
+<p>Within the last year, the sliding drawer model has become increasingly popular, perhaps first made popular by the Twitter iPad app. Visually compelling, easeful, and fun to use, it has since been adopted by Facebook, YouTube, Google+, Path and many, many others. We decided to go with this less interruptive, more elegant pattern.</p>
+
+<p>For implementation, we decided to use <a href="https://github.com/jfeinstein10" target="_blank">jfeinstein10</a>’s public SlidingMenu library project which is available on Github <a href="https://github.com/jfeinstein10/SlidingMenu" target="_blank">here</a>. It gave us a base FragmentActivity that hosts an easily configurable sliding drawer contained in a Fragment. This is significant because it is stateful, has access to useful lifecycle methods, and allows clean interaction between itself and its hosting activity.  When opened, the active fragment slides its left edge to the right, just short of being completely offscreen. The vertically scrolling list is just an AdapterView, so it is possible to implement conditionally displayed items with different layouts, states, and even badges. (Below, our drawers as seen in mobile Safari, iPhone, iPad, and two Jelly Bean views, one which shows our Free Trial Membership banner.)</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/10/3002577-inline-image-6.png" alt=""/><figcaption>Click to enlarge</figcaption>
+</figure>
+
+<p>Based on our Android work, we went back and reworked our iPhone and mobile web navigation, implementing the sliding drawer across all of our mobile products. This is one case where cross-platform interaction consistency makes sense, but it's the exception, not the rule.</p>
+
+<h2><a name="4_When_should_we_notify_users_of_events_inapp">4. When should we notify users of events in-app?</a></h2>
+
+<p>The HowAboutWe Dating app relies on numerous <a href="http://developer.android.com/design/patterns/notifications.html" target="_blank">Status Bar Notifications</a> for asynchronous messaging to the user. Some of these are generated by the application itself, and others are server push notifications powered by <a href="http://developer.android.com/google/gcm/index.html" target="_blank">Google Cloud Messaging</a> (GCM).</p>
+
+<p>With the introduction of <a href="http://developer.android.com/about/versions/android-4.1.html#UI" target="_blank">rich notifications</a>, status bar notifications became much more visually appealing and powerful. Now more information can now be conveyed to the user via notifications along with additional options for taking action. (Below, notifications as they appear in our Android apps. At left, a new message in Jelly Bean; a successful upload; pending upload; Gingerbread notifications; and a failed upload.)</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/10/3002577-inline-image-7.png" alt=""/><figcaption>Click to enlarge</figcaption>
+</figure>
+
+<p>HowAboutWe uses notifications in Android for processes it might not in iOS. When a user uploads a new profile photo, for example, this requires transferring a non-trivial amount of data over the network. Instead of blocking the Android app's UI with a loading dialog to communicate the status of the upload, a series of notifications is used to convey this information.</p>
+
+<p>When the upload is started, the application generates a status bar notification to let the user know the upload is in progress. The network data transfer itself is processed on a background thread, so while the upload is pending, the user can continue to interact with the application.</p>
+
+<p>Then, once the upload is complete, the application fires a second notification to let the user know the upload is complete. If for some reason the upload failed (say, a network error) a failure notification is shown instead. If the upload pending notification is still showing in the status bar, this notification is updated. The point is that the user never sees both pending and success notifications at the same time.</p>
+
+<p>When the user receives a new message, a push notification is sent from using Google Cloud Messenger to notify the user. Rather than showing the classic “[USER] sent you a new message” text in the notification, using <a href="https://developer.android.com/reference/android/app/Notification.BigTextStyle.html" target="_blank">BigTextStyle</a> for expandable rich notifications (on Jelly Bean devices), the user can actually read the full text of the message right in the notification. Also the profile photo of the user who sent the message is shown as the icon. Using the rich notification format (on ICS and Jelly Bean devices), we can even display a clipped version of the actual photo that was uploaded. Using the <a href="https://developer.android.com/reference/android/support/v4/app/NotificationCompat.Builder.html" target="_blank">NotificationCompat.Builder</a> class in the <a href="http://developer.android.com/tools/extras/support-library.html" target="_blank">Support Library</a>, these notifications gracefully degrade on older devices.</p>
+
+<h2><a name="5_Which_developer_environment_should_we_use">5. Which developer environment should we use?</a></h2>
+
+<p>Engineers thrive on good tools that save them time and help them write better code. Over the years, engineers have built vast integrated development environments, or IDEs, that allow other developers to dive right into high level implementation without needing to lay the groundwork. Instead, a few clicks and keystrokes allow you to compile, deploy, and commit your work back to version control. Before these lovely IDEs, programmers had to manually compile source files into object files, link them together, and ensure that all of their library paths were correct; writing a good, flexible Make script is a non-trivial undertaking. Further, IDEs can now inspect our code, optimize it, and refactor it--usually better, faster, and with fewer mistakes than our human hands.</p>
+
+<p>In this section, we will attempt to compare the two most popular Java IDEs for Android development: <a href="http://www.eclipse.org/" target="_blank">Eclipse</a> and <a href="http://www.jetbrains.com/idea/" target="_blank">IntelliJ</a>. We will also include a supplementary comparison with <a href="https://developer.apple.com/xcode/" target="_blank">Xcode</a>, the official IDE for iOS development. We'll focus on the following areas:</p>
+
+<h4><a name="Text_editing_facilityUI_operability">Text editing facility/UI operability</a></h4>
+
+<ul>
+  <li><span>Keymapping: how customizable is everything?</span></li>
+  <li><span>Window management/manipulation: how easy is it to toggle between different tool views, and can you do it using the keyboard?</span></li>
+</ul>
+
+<h4><a name="Code_manipulation">Code manipulation</a></h4>
+
+<ul>
+  <li><span>Introspection: how well does the IDE examine your code and alert you to optimizations, improvements, and unused items?</span></li>
+  <li><span>Refactoring: what kind of refactoring operations are available and how powerful are they?</span></li>
+</ul>
+
+<h4><a name="Version_control_integration">Version control integration</a></h4>
+
+<ul>
+  <li><span>Source control manipulation: what kind of operations can you do from within the IDE, and what is the UI experience around it?</span></li>
+  <li><span>Interleaved command line use: if you switch branches on the commandline, does the IDE choke or does it keep up?</span></li>
+</ul>
+
+<h3><a name="Eclipse">Eclipse</a></h3>
+
+<p>The first IDE to be officially supported by Google for the AOSP was Eclipse. Eclipse by itself does not come with Android support out of the box; it is added via Google’s Android Developer Tools plug-in. Previously, this was a separate installation, but Eclipse and the ADT plug-in are now available on the Android Developer website <a href="http://developer.android.com/sdk/index.html" target="_blank">as a bundle</a>.</p>
+
+<p>The layout of Eclipse, IntelliJ, and Xcode is very similar; collapsible, resizeable tool panes on the left, bottom, and right edges of the application window with the editor window in the center. In Eclipse, these tool panes can be anchored to nearly all edges of the screen, can be minimized and can be popped out of the UI into separate windows. They can be summoned with a keystroke if they are not currently shown, but they cannot be hidden this way--you’ll need to reach for the mouse.</p>
+
+<p>Introspection is quite powerful; it will warn you of unused variables and missing imports at the source level via a red (error) or yellow (warning) squiggly underline. Hovering the mouse over the offending token will show the Quick-Fix menu. The Quick-Fix menu offers helpful solutions to simple errors, and sometimes it suggests improvements or offers to do things like generate getters and setters for private variables. It is also accessible with a handy keystroke (⌘1). This is incredibly convenient--you can go straight from writing code to fixing it, without reaching for the mouse and reorienting your eyes to find the mouse pointer. (Below, the Eclipse Quickfix menu at left and refactoring menu at right.)</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/10/3002577-inline-image-8.png" alt=""/><figcaption>Click to enlarge</figcaption>
+</figure>
+
+<p>This, and countless other small opportunities for seamless operations can truly add up to extended periods of uninterrupted concentration.</p>
+
+<p>Refactoring features of Eclipse are varied and are well-implemented. Changing method signatures, promoting local variables to member variables, extracting blocks of code into methods--all of these are easy to do. These functions can be accessed using the secondary mouse button menu.</p>
+
+<p>These refactoring features are incredibly powerful and can save lots of time, but more importantly, can truly prevent mistakes when changes ripple across multiple files.</p>
+
+<p>As far as version control integration, Eclipse comes with nothing out of the box--like the Android support, it requires a plug-in that is easy to find. There are several plug-ins available for git, Subversion, and probably anything else you’d want to use.</p>
+
+<h3><a name="IntelliJ">IntelliJ</a></h3>
+
+<p>Beginning with version 9, the JetBrains’ IntelliJ IDE added out-of-the-box support for Android. As of version 10, it became available in the <a href="http://www.jetbrains.com/idea/download/index.html" target="_blank">free Community Edition</a> version of IntelliJ, which opened it up for much more widespread use. The layout of this IDE is very similar to Eclipse w/tool panes on the bottom, left, and right edges of the IDE and the editor in the center. Also like Eclipse, these panels can be summoned with a keystroke, but unlike Eclipse, they can be hidden with the same keystroke, allowing fast toggling of tool panes exactly when you need them. This is incredibly useful in the contexts of quickly needing to browse the project hierarchy, checking to see which files have been modified since the last commit, or hiding and showing the console window, for example. It effortlessly surfaces information in a clear, concise manner and doesn’t make the user pay for it when switching back to coding. (Below, the IntelliJ commit view at left, and the IntelliJ changes pane at right.)</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/10/3002577-inline-image-9.png" alt=""/><figcaption>Click to enlarge</figcaption>
+</figure>
+
+<p>Like Eclipse, IntelliJ’s introspection features are thorough. It alerts the user to unused variables and unused code, but instead of using a single callout that signifies all generic warnings, it alerts the user to unused variables by subtle syntax coloring hints. Unused variables and functions are dimmed a darker shade, and they are never colored this way for any other reason--other more complex warnings are underlined and typically require manual identification.  Such informative visual cues are effective and non-interruptive. Yellow underlined items in IntelliJ are not always warnings--occasionally they are simple optimizations and quick wins. Sometimes it will point out that a member variable can become a local variable, or that a boolean expression is more complicated than it needs to be. This is great, as it constantly enforces good style and better code. Nearly all of these features can be quickly activated via IntelliJ’s Show Intention Actions feature, very similar to Eclipse’s Quick-Fix menu as described above--also bound to a handy keystroke.</p>
+
+<p>IntelliJ’s refactor menu looks almost identical to Eclipse’s, though IntelliJ’s seems to be more of a superset. More features doesn’t always necessarily mean better, but it does offer a few things that Eclipse doesn’t.</p>
+
+<p>Out of the box, IntelliJ offers VCS support for Git, Mercurial, Subversion, and CVS. You can even import projects directly from a repository URL, often without very much additional fiddling. This is by no means impossible in Eclipse, but it is incredibly convenient that it requires no extra plug-ins or components. First-party support for these features offers another level of comfort that just doesn’t come with third-party plug-ins. Mentioned earlier, the Changes pane in IntelliJ shows all changes made on all repository files since the last commit. In practice, this can be a priceless asset. After an hour of work, if you realize you are on the wrong branch and need to switch to another one that will require an ugly rebase--no problem! Shelve all, some, or parts of some of your changes to a changelist, do what you need to do on the command line, come back to IntelliJ and reapply as desired. Changing branches on the command line between trips back and forth to the IDE never produces any error-like dialogs asking if files need to be refreshed--they are refreshed automatically. The currently checked out branch is also always visible in the status bar.</p>
+
+<p>All in all, raw code editing features across the three IDEs are similar. Each powerfully supports the user to quickly write clean code that is easy to change and reorganize. The experiences across the IDEs vary, though. Eclipse and IntelliJ have almost the same layout and featureset, yet these features are considerably easier to discover and are better implemented in IntelliJ. The overall look and feel of IntelliJ is more streamlined, more informative, and more responsive. Eclipse’s use patterns and appearance feel dated in comparison. When minimizing certain tool panes in Eclipse, sometimes it’s not obvious where they went or how to retrieve them. When popping windows out of the main window in Eclipse, they behave normally when dragged alone--but then dragging the main window causes the popped out windows to move along with it. It’s less than cute. In contrast, IntelliJ’s tool panes are all clearly labeled, cleverly placed, and easily toggleable. IntelliJ offers tremendous assistance and intervention without becoming intrusive.  </p>
+
+<p>Make no mistake: Eclipse is far from unusable; however, it definitely hasn’t aged well, considering IntelliJ has been around for just as long. For Android, IntelliJ is a much smoother, more streamlined experience with a shallower learning curve. It feels like a modern piece of software, as software for making software should.</p>
+
+<h3><a name="Xcode_4">Xcode 4</a></h3>
+
+<p>Without delving into too many differences between iOS and Android implementation, we wanted to briefly discuss how the two most widely used Android IDEs compare, from an experience perspective, to Xcode. Once again, the same kind of overall layout is present here: central editor windows with collapsible tool panes on the outer edges. Like IntelliJ, these panels are toggleable with convenient keystrokes, but, as an added bonus, they sweep in and out of view with eye-pleasing, eased animations. Not required, but definitely neat.</p>
+
+<p>Introspection in Xcode is definitely thorough, but it needs to be triggered, either from a clean, a compilation cycle, or with a pass of the static analyzer. In other words, not all errors and warnings are detected at source-level, many of them are only ever reported at compile time, which is more of a result of the platform architecture rather than the IDE. That said, the static analyzer is incredibly informative and graphical--it will draw arrows procedurally through code in order to illustrate where errors originate, and it explains how and why with associated textual cues.</p>
+
+<p>Refactoring features in Xcode are comparatively limited. Automatically changing method signatures is not possible, only method renaming can be done. Blocks of code can be extracted into new functions or methods, but not into external protocols or categories. Getter/setter generation is possible through the Encapsulate option, but is not immediately useful since this can generally be achieved more concisely using properties. (Below top, the Xcode static analyzer; below left, the Xcode commit view; below right the Xcode refactor menu.)</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/10/3002577-inline-xcodestaticanalzyer.png" alt=""/>
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/10/3002577-inline-image-10.png" alt=""/><figcaption>Click to enlarge</figcaption>
+</figure>
+
+<p>Version Control Integration via Git or Subversion is thoroughly supported out of the box. As is possible in IntelliJ, it is possible to import projects directly from a repository URL, and repository creation is possible as well. For the same reasons as discussed before, this is immensely powerful. There are facilities for comparing changes and performing selective, detailed commits to specific branches.</p>
+
+<h2><a name="6_Should_our_app_be_backwards_compatible">6. Should our app be backwards compatible?</a></h2>
+
+<p>According to the <a href="http://developer.android.com/about/dashboards/index.html" target="_blank">current distribution graph</a>, as of December 5, 2012, the majority of Android devices are still running Gingerbread (50.8%). A non-trivial number of devices are still running Froyo (10.3%). And roughly only one third of devices are running Honeycomb or newer versions (35.8%) of the operating system.</p>
+
+<p>At first glance as an Android developer it might be tempting to decide to only use features available in all platform versions you will support. This is not a very good approach. To quote Mark Murphy, in <a href="http://commonsware.com/Android/" target="_blank">his book</a> <u>The Busy Coder’s Guide to Android Development</u> (v4.2):</p>
+
+<p><br />
+<blockquote><p>Aiming to support older releases is noble. Ignoring what has happened since those releases is stupid, if you are trying to distribute your app to the public via the Play Store or similar mass-distribution means. You want your app to be distinctive, not decomposing.</p></blockquote></p>
+
+<p><br />
+When building HowAboutWe Dating for Android, we knew that we wanted to take advantage of recent advancements in the platform including <a href="http://developer.android.com/guide/components/fragments.html" target="_blank">fragments</a>, <a href="http://developer.android.com/guide/topics/ui/actionbar.html" target="_blank">action bar</a>, <a href="http://developer.android.com/guide/topics/ui/notifiers/notifications.html" target="_blank">rich notifications</a>, and the <a href="http://developer.android.com/design/style/themes.html" target="_blank">Holo theme</a>. Fortunately there are open source tools and strategies we found to help us deliver a modern and rich experience to users with the latest versions of the the platform, yet still provide a gracefully degraded experience to the rest of users and devices.</p>
+
+<h3><a name="Action_bar">Action bar</a></h3>
+
+<p>The <a href="http://developer.android.com/tools/extras/support-library.html" target="_blank">Support Library</a> allows many platform features introduced in Honeycomb and later to be used on earlier versions of Android. However the Support Library is just a minimal set of APIs and only gets you so far. (Below, the action bar in Jelly Bean; the action bar in Gingerbread; and the action bar as it appears in the Jelly Bean inbox.)</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/10/3002577-inline-image-11.png" alt=""/><figcaption>Click to enlarge</figcaption>
+</figure>
+
+<p>Jake Wharton’s <a href="http://actionbarsherlock.com/" target="_blank">ActionBarSherlock</a> project enables a fully functional backwards compatible version of the Action Bar and the Holo theme with very little work on the part of the developer. We leveraged both of these libraries in HowAboutWe Dating to provide a rich experience on all supported versions of Android. ActionBarSherlock even offers more flexibility than the system components in some instances, like allowing 3 action icons to be shown on smaller screens rather than the overflow menu.</p>
+
+<h3><a name="Fragments">Fragments</a></h3>
+
+<p>Early on we decided to take a fragment first approach to developing the app. The advantages of using fragments on a phone are readily apparent when using something like a <a href="https://developer.android.com/reference/android/support/v4/view/ViewPager.html" target="_blank">ViewPager</a>. For example, in the Messages section of the application, there are 3 fragments in a single activity using a ViewPager (Inbox, Sent, and Archive). Users can swipe or tap on the tab indicators to switch between the various fragments.</p>
+
+<p>Even when only one fragment is active at a time, we still decided to implement the majority of functionality using fragments, to take advantage of the fragment lifecycle, APIs, and to ease the transition to tablets in the future. Most of our activities ended up as simple wrappers for the fragments they contained. On most screens, the activity handles high level functionality such as the Action Bar, broadcasts, and result intents, whereas the fragment handles the layout, user inputs, and basically everything else.</p>
+
+<h3><a name="Custom_backports">Custom back-ports</a></h3>
+
+<p>Sometimes even the tools available don’t give you everything you want. For example, in the sign up flow, we wanted to implement smart and stylish number pickers for birthdate and age preferences. While the <a href="https://developer.android.com/reference/android/widget/DatePicker.html" target="_blank">DatePicker widget</a> has existed since <a href="https://developer.android.com/reference/android/os/Build.VERSION_CODES.html#BASE" target="_blank">API level 1 (Base)</a>, the standalone <a href="https://developer.android.com/reference/android/widget/NumberPicker.html" target="_blank">NumberPicker widget</a> has only existed since <a href="https://developer.android.com/reference/android/os/Build.VERSION_CODES.html#HONEYCOMB" target="_blank">API level 11 (Honeycomb)</a>. (Below, the number pickers in Jelly Bean and Gingerbread, respectively.)</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/10/3002577-inline-image-12.png" alt=""/><figcaption>Click to enlarge</figcaption>
+</figure>
+
+<p>To build an age range picker in the same style as the date picker on Gingerbread and Froyo required implementing a custom backport of this component. (You can see both versions above.) Fortunately the NumberPicker widget is available as an <a href="https://github.com/android/platform_frameworks_base/blob/android-cts-2.3_r10/core/java/android/widget/NumberPicker.java" target="_blank">internal component</a> on earlier versions of the platform. After porting this widget from the Android source code into our project, all that was left was creating a wrapper class to use the correct implementation based on the current version of Android running on the device. See a <a href="https://gist.github.com/4438510" target="_blank">code sample hosted on Github here</a>.</p>
+
+<h2><a name="7_How_do_we_test_our_code">7. How do we test our code?</a></h2>
+
+<p>Automated testing on Android is still not as simple as one might hope. Several solutions come bundled with the SDK including the <a href="http://developer.android.com/tools/testing/testing_android.html" target="_blank">Android Testing Framework</a>, <a href="http://developer.android.com/tools/help/monkeyrunner_concepts.html" target="_blank">Monkey Runner</a>, and <a href="http://developer.android.com/tools/testing/testing_android.html#JUnit" target="_blank">JUnit</a>. However the version of JUnit that comes with the Android SDK is JUnit 3. <a href="http://junit.sourceforge.net/" target="_blank">JUnit 4</a> can be integrated separately for unit testing but is not compatible with <a href="http://developer.android.com/tools/testing/testing_android.html#Instrumentation" target="_blank">Instrumentation</a>. Finally, there is <a href="http://pivotal.github.com/robolectric/" target="_blank">Robolectric</a>, an open source tool developed by Pivotal Labs that allows you to unit test Android code in the JVM.</p>
+
+<p>There are also a number of testing services that have cropped up like <a href="http://testdroid.com/" target="_blank">TestDroid</a>, <a href="https://appthwack.com/" target="_blank">AppThwak</a>, and <a href="https://www.apkudo.com/index.html" target="_blank">Apkudo</a>. And of course there is good old-fashioned manual device testing. Each of these solutions has its own costs (time and/or money).</p>
+
+<p>When building HowAboutWe Dating, we knew that we want to take a test-driven approach. The benefits of <a href="http://en.wikipedia.org/wiki/Test-driven_development" target="_blank">Test-Driven Development (TDD)</a> are well documented by industry leaders like <a href="http://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530" target="_blank">Kent Beck</a>, <a href="http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd" target="_blank">Uncle Bob</a>, and <a href="http://www.artima.com/weblogs/viewpost.jsp?thread=42486" target="_blank">Michael Feathers, who we'll quote below</a>.</p>
+
+<blockquote><p>I don't care how good you think your design is. If I can't walk in and write a test for an arbitrary method of yours in five minutes its not as good as you think it is, and whether you know it or not, you're paying a price for it.</p></blockquote>
+
+<p>The Android Testing Framework is well designed for integration tests that run on an emulator or device. Automated tests are written in a separate test project that runs in the same process as your application. Using instrumentation, activities, and services can be tested running in a real environment.</p>
+
+<p>However because this method requires you to compile, dex, and deploy TWO applications onto an emulator or device this is prohibitively slow for test-driven development. And as we all know, when tests are slow, the tendency is not to run them.</p>
+
+<p>Pure JUnit, while fast, has the limitation of not being able to test any code that loads a class from the Android SDK. All business logic must be extracted into POJOs that are then invoked by the activity or service. While noble in principle, this quickly leads to cumbersome architecture. And you are still unable to test any logic that is linked to the lifecycle of Android components such as an <a href="https://developer.android.com/reference/android/app/Activity.html" target="_blank">Activity</a> or <a href="https://developer.android.com/reference/android/app/Fragment.html" target="_blank">Fragment</a>.</p>
+
+<p><a href="http://pivotal.github.com/robolectric/" target="_blank">Robolectric</a>, however, provides the best of both worlds. Using a proxy for the Android SDK, unit tests can be run in the JVM without deploying to an emulator or device, and still invoke Android specific code. However, Robolectric is only as good as its coverage of the Android framework. But since it is open source, developers are encouraged to contribute to the project if you run into a part of the framework that does not yet have a proxy implemented.</p>
+
+<p>With extensive unit test coverage, we are able to implement new features and refactor the code base with confidence, since ideally any regressions will be caught by the existing tests. This also gives us a high degree of confidence in the business logic that controls the application.</p>
+
+<p>Beyond unit testing to cover our logic, to weed out issues related to differences between devices and OS versions we relied heavily on manual testing. With a big device library, we are able to test the final product on a representative array of devices to root out issues related screen sizes, densities, manufacturers, and OS versions. While this can seem daunting, thanks to our unit tests very few issues related to core logic are found at this stage which greatly reduces manual testing time.</p>
+
+<p>While local builds work well for development phase, to ensure a high degree of consistency at the QA and release phases of the project we rely on a robust Continuous Integration (CI) environment. (For more on setting up your own continuous integration environment, check out <a href="http://www.fastcompany.com/3004044/startups-yes-you-can-move-fast-without-breaking-things" target="_self">this guide</a>.)</p>
+
+<p>QA and release versions of the app are built using <a href="http://maven.apache.org/" target="_blank">Apache Maven</a> and the <a href="http://code.google.com/p/maven-android-plugin/" target="_blank">Android Maven Plugin</a> running on Jenkins. Dependencies and artifacts are stored on an internal repository server using <a href="http://www.sonatype.org/nexus/" target="_blank">Sonatype Nexus</a>.</p>
+
+<p>When a new commit is pushed to GitHub, our build server pulls the latest code from <em>master</em>. Using Maven, it compiles all the classes using the dependencies stored in our internal Nexus repository. All Robolectric unit tests are then run against the compiled classes.</p>
+
+<p>If all unit tests pass, Jenkins then packages two versions of each build. First, a debug version is created that is configured for internal testing against our staging or production environment. Second, a release version is produced that is configured for upload to Google Play. Finally, both debug and release builds are archived in Sonatype Nexus for future reference.</p>
+
+<p>This process ensures a high degree of consistency and reliability in builds that go to QA and/or are uploaded to Google Play and reduces the chance of issues introduced due to anomalies in the development environment or forgetting to run the tests.</p>
+
+<h3><a name="Conclusion">Conclusion</a></h3>
+
+<p>The mobile game is rapidly moving out of inning one via exponential smartphone and tablet penetration curves (particularly outside the US); rapid innovation in mobile app design; smarter and more seamless monetization systems; infrastructural improvements to support performance; the burgeoning of a genuine advertising opportunity; growing development communities; and increasing mass addiction to our phones.</p>
+
+<p>Alongside these changes, the design and engineering communities have built increasingly sophisticated frameworks and tools to support rapid app development. And yet, the literature about these frameworks and tools--particularly on Android--tends to be scattered and incomplete. We hope the development of the HowAboutWe Dating app as a case study will serve as a remedy for intrepid developers moving from iOS to Android.</p>
+
+<hr />
+
+<p><em>HowAboutWe is the modern love company. Created by Brian Schechter and Aaron Schildkrout, HowAboutWe has launched a series of products designed to help people fall in love and stay in love. The new HowAboutWe Dating app for Android is featured in this article. </em></p>
+
+<p><em><a href="http://twitter.com/schildkrout" target="_blank">Aaron Schildkrout</a> is co-founder and co-CEO of HowAboutWe, where he runs product. </em></p>
+
+<p><em><a href="http://twitter.com/%40matthewylim" target="_blank">Matt Lim</a> is a mobile software developer for HowAboutWe. He lives in New York City and loves music, dancing, eating and video games.</em></p>
+
+<p><em><a href="http://twitter.com/ecgreb" target="_blank">Chuck Greb</a> is a mobile software craftsman, test-driven evangelist, and clean code connoisseur, changing the way the world goes on dates at HowAboutWe.</em></p>
