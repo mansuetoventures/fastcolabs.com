@@ -1,0 +1,127 @@
+<p>When a startup starts to gain traction, they face a tough decision: Do they build their product quickly to grab marketshare, or invest in infrastructure that will help them scale up?</p>
+
+<p>Building quickly is often easier in the near term; you're iterating and "staying lean," right? Building with an eye towards the future is much harder. But the moment your product finds traction, you need to address how you're going to protect that success. In other words, the problem becomes the number of cooks in the kitchen, not what they're actually cooking.</p>
+
+<h2><a name="Why_Testing_Matters">Why Testing Matters</a></h2>
+
+<p>One of the key ways in which you can invest in long-term productivity is by having a comprehensive and efficient testing infrastructure. Having an automated testing process gives you more confidence that new features are stable and minimizes the amount of time spent regression-testing existing features. Bonus points if developers don’t need to waste time manually running or checking on the testing process.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2012/12/3004044-inline-kwheadshot.jpg" alt=""/>
+</figure>
+
+<p>Robust testing is especially important for B2B software, or large sites that have reached a massive scale. A bug in B2B software can cause significant losses for a client. Conversely, if a B2C cat-picture app is a little buggy, most users will just grumble and move on with their lives. Facebook has a reputation for having (relatively) minimal testing for a company of their size, as their users generally don’t care when there are minor bugs in their experience. That's why they can "move fast and break things" and why you probably shouldn't.</p>
+
+<p>If you don't feel the pressing urge to address this right away, that's normal. It's easy to do a mediocre job with testing and QA and still feel protected. In big companies, the bureaucracy may make you feel too secure; maybe lots of people see the new feature you built, but then again maybe the checking isn't rigorous. In smaller development teams, where time and resources are always taxed, it's too tempting to develop and ship right away. (Below: the header of our continuous deployment script, which you'll find in its entirety at the end of this article.)</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/12/3004044-inline-header.png" alt=""/>
+</figure>
+
+<h2><a name="Meet_Jenkins">Meet Jenkins</a></h2>
+
+<p>If you want to really do next-level testing across multiple environments, you need robust continuous integration. And for that, you'll need to acquaint yourself with Jenkins.</p>
+
+<p>We’ve had a good experience with the Jenkins open source server <a href="http://jenkins-ci.org/" target="_blank">Jenkins CI</a>. It's a fully customizable continuous integration environment with over 300 plugins available. We’ve configured to automatically build and test new code as soon as it’s pushed to a remote code repository.</p>
+
+<p>We began with a very standard testing setup for our Web Dashboard, setting up tests for our business logic, Web requests, and other well-defined components. From there, we’ve continued to add additional frameworks for integration testing and automated tests for our Javascript libraries, and automated everything along the way. We went through a similar process with our Android and iOS projects as well.</p>
+
+<p>Jenkins also integrates smoothly with our company chat application, <a href="http://hipchat.com/" target="_blank">Hipchat</a>, allowing us to get moment-to-moment updates on our tests, as you can see in the code of our deployment script below.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/12/3004044-inline-creates-hipchat-notifier.png" alt=""/>
+</figure>
+
+<h2><a name="How_to_Think_About_Testing">How to Think About Testing</a></h2>
+
+<p>So, let's say you're a team of two cofounders and you add one or two more people. Like any big problem, you break it down. Focus first on one component you want to test: decree that, on this certain module, everything everyone does will get tested automatically on one part of the project. Then take what you learn and apply it to the rest of the organization. </p>
+
+<p>Conceptually, you should begin by looking at the lowest level functionality and setting your testing to prove the most basic things work. Then, focus on testing that all the modules are working together correctly. That gives you confidence up and down the chain. Here are some first steps:<br />
+<ul>
+  <li><span>Set up some form of basic unit testing for the core pieces of your business software. Unit tests are low-level bits of logic that test the most basic functionality in isolation. Almost all modern programming languages have well-documented unit testing frameworks that can be easily leveraged. </span></li>
+  <li><span>Set up unit testing for peripheral application components, such as User Interface elements that are important but not necessarily essential to the core application.</span></li>
+  <li><span>Set up automated integration tests to test end-to-end behavior across multiple components of your application. Integration testing frameworks are often harder to come by and require more customization, but they allow much more complex functionality to be tested automatically. </span></li>
+  <li><span>Integrate automated tests into the code deployment process, to ensure that all live code deployments are automatically tested prior to launch.</span></li>
+</ul></p>
+
+<p>In terms of scalability, <a href="http://appboy.com" target="_blank">Appboy</a> shoots for testing infrastructure that would work with 10x the employees. If you do the legwork at 10x, it's easier than doing it at 100x. (Below, our deployment script creating a deployment environment.)</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/12/3004044-inline-create-deploy-environemtn.png" alt=""/>
+</figure>
+
+<h2><a name="Appboys_Stack">Appboy's Stack</a></h2>
+
+<p>Everyone's testing setup will be tailored to their product or workflow, so I'll first explain what we do.</p>
+
+<p>Appboy is a mobile marketing and engagement platform. We offer a mobile SDK that iOS and Android developers integrate into their apps which integrates analytics, data-gathering about users, and features to engage them. It's like a CRM for your usership; you can segment them, figure out who they are, and use features like in-app notifications to do targeted marketing and get feedback. (Below, a screenshot of our dashboard for marketers.)</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/12/3004044-inline-appboyscreenshot1.png" alt=""/>
+</figure>
+
+<p>Since the Appboy platform covers a wide range of platforms (Web, iOS, and Android) and we have robust testing across all of them. In addition to unit tests, all of our platforms have integration tests that automatically simulate actual usage. Combined with the automatic deployment discussed above, we’ve automated far more of our testing infrastructure than is common for a small company.</p>
+
+<h2><a name="How_to_Do_Continuous_Integration_Right">How to Do Continuous Integration Right</a></h2>
+
+<p>As with everything, this isn’t a one-size-fits-all solution, but more of a set of guidelines for how one might go about building a robust testing infrastructure on one’s own. Here are some things to watch out for.<br />
+<ul>
+  <li><span>Don't let the quality of your code slouch. Testing doesn't ensure that the code is written well.</span></li>
+  <li><span>Deploy multiple times per day, to minimize impact. Etsy deploys around <a href="http://www.avc.com/a_vc/2011/02/continuous-deployment.html" target="_blank">25 times per day</a>.</span></li>
+  <li><span>Test after you deploy. There might be discrepancies between your testing environment and your production environment.</span></li>
+  <li><span>Have someone "on duty" to fix problems that become apparent during testing. An exception thrown shouldn't bring the whole dev process to a halt.</span></li>
+  <li><span>Test your deployment process once it's continuous. There are several reasons a continuous deployment process could break down, and you want to be able to identify them quickly if it does. Also make it possible to turn off the continous deployment process in case you need to do a high-impact change like server maintenance.</span></li>
+  <li><span>For testing the continuous deployment process, create a notifier that tells the team (or whomever is on duty) when something fails.</span></li>
+</ul></p>
+
+<h3><a name="Our_OpenSource_CI_Contributions">Our Open-Source CI Contributions</a></h3>
+
+<p>We based the core of our testing infrastructure on open source software tools, but we’ve done a lot of customization to greatly extend their functionality. We’ve really pushed the limits of the testing frameworks that we’ve chosen to integrate. As an example, we use the library RequireJS to dynamically load Javascript on our Dashboard, which greatly increases site performance. Our open-source testing framework didn’t work out of the box with RequireJS, so we upgraded it to add the functionality that we needed (which nobody had built before) and contributed back to the project. Here are some of the projects we contributed to:<br />
+<ul>
+  <li><span><a href="https://github.com/jfirebaugh/konacha" target="_blank">Konacha</a>: our CTO contributed to this Javascript testing project to allow it to work out of the box with some common Javascript libraries.</span></li>
+  <li><span><a href="https://github.com/Appboy/listerine" target="_blank">Listerine</a>: this is a monitoring and alert framework that allows developers to create custom monitors for their systems. </span></li>
+</ul></p>
+
+<h2><a name="Dont_Replace_People_Entirely">Don't Replace People (Entirely)</a></h2>
+
+<p>What makes automated testing challenging is that some of the most useful basic tests also tend to be the most brittle. A “brittle” test is one that breaks when stressed only slightly. For example, you might want to write a test that checks whether a webpage renders correctly. It’s easy for a human to test that functionality, but computers are terrible at it--often your test is either too permissive and allows egregious errors, or is too strict and breaks whenever you make a minuscule change. (Below, our script starting the build.)</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/12/3004044-inline-starting-build.png" alt=""/>
+</figure>
+
+<p>With any sort of user-facing application, you will still ultimately need a Quality Assurance (QA) process where a conscious human being actually looks at the final product. We'll talk about how to setup continuous integration that minimizes some of these challenges.</p>
+
+<p>Before a new feature goes live, we always have at least one person who wasn’t a direct part of the build process conduct user testing. At larger companies, you may have dedicated QA teams whose primary focus is on making sure that new features matched design specifications. This isn’t a luxury that small teams will have. These human checks also allow you to assess your user experience in ways a computer will never be able to: for example, by making the judgment that your buttons look ugly.</p>
+
+<p>One additional piece of our development lifecycle is a code review process. Code reviews are standard software practice everywhere, but I’d say that our process is more robust and that we spend more time on this than most startups. Every single line of code gets reviewed before it’s merged into our app. While this takes more time initially, this rigorous process pays off in the long run as we have a clean, well-written, and extensible codebase for adding new features and onboarding new employees. This helps people get up and running much quicker and pays big dividends once you start scaling up personnel. The steps are:<br />
+<ol>
+  <li><span>Code review; a given team member pulls in a new feature and tests it</span></li>
+  <li><span>System emails the whole tech team and shows what testable code is coming down the pipe</span></li>
+  <li><span>Deployment to staging is postponed until checking happens</span></li>
+</ol>
+We use Github and the Git Flow process for our code reviews, which we’ve had a good experience with overall.</p>
+
+<h2><a name="Automatic_Deployment_Too">Automatic Deployment, Too</a></h2>
+
+<p>We’ve integrated automatic deployment with our testing infrastructure. As soon as changes are made to our staging or production projects, we automatically run “smoke tests” and rollback to the last stable application version if they fail. The tests also notify us during the entire deployment process so we know exactly what worked and what didn’t. Deploying new features to our Web dashboard happens automatically, and we have up-to-the-minute updates on their status. (Below, our script checks whether it can deploy the build.)</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/12/3004044-inline-can-deply.png" alt=""/>
+</figure>
+
+<p>We use a similar process for our iOS projects: new builds go through a test suite that runs our code on a simulator and actually clicks on an app to verify expected behavior. Once all of the tests pass, the app is automatically deployed over-the-air to all of our company’s test devices.</p>
+
+<p>For Android, we’ve built a system to automatically test that Appboy works on a wide variety of Android devices and software versions. The Android space is very fragmented--tons of different device resolutions and software versions have meaningful market share. Our Android testing infrastructure builds the Appboy project on multiple Android software and device versions and checks that the app runs correctly on a wide variety of systems.</p>
+
+<p>For a deeper dive into the deployment aspect of continuous integration, our CIO Jon Hyman wrote a great article that does into the <a href="https://www.engineyard.com/blog/2012/continuous-deployment/" target="_blank">technical details of our deployment-testing infrastructure</a>. It also features the entirety of the deployment script you see in the screenshots above.</p>
+
+<h2><a name="The_Bonus_Avoiding_Egos">The Bonus? Avoiding Egos</a></h2>
+
+<p>We strive for an extremely open and transparent culture at Appboy, so we haven’t had ego problems with the checks that are a part of our process. One of the great things about working at a startup is that everybody’s motivations are aligned.</p>
+
+<p>At an established company, one of the dangers is that there’s an incentive to not be blamed for mistakes. At a startup, the only thing that matters is whether your company is successful in the marketplace. So concerns about who did what are secondary to making sure that the product as a whole is moving forward in the best direction possible. Continuous integration only helps keep everyone looking forward.</p>
+
+<p><em>Kevin Wang is a software developer at Appboy, a mobile marketing and user engagement platform. Prior to Appboy, he worked as a technology consultant focusing on the energy trading industry. Kevin holds a degree in Brain &amp; Cognitive Sciences from MIT.</em></p>
+
+<p>[<em>Image: Flickr user <a href="http://www.flickr.com/photos/nsub1/4762437040/in/photostream/" target="_blank">Nick</a></em>]</p>
