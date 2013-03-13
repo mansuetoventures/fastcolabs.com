@@ -1,0 +1,29 @@
+<p>If you couldn't be in St. Peter's Square to watch <a href="http://www.npr.org/templates/story/story.php?storyId=174212365" target="_blank">the election of Pope Francis</a>, perhaps the next best thing was to follow the progress at <a href="http://www.istherewhitesmoke.com" target="_blank">IsThereWhiteSmoke.com</a>.</p>
+
+<p>Building a binary "signal site" like the one <a href="http://www.guardian.co.uk/profile/guardian-us-interactive-team" target="_blank">The Guardian Interactive Team</a> put together this week can be a good way to connect a web and mobile audience with events in the real world. Because of the binary nature of the election--the smoke is either black when no new Pope has been elected, or white on success--web viewers can tell at a glance if there is a decision.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/post/inline-image/3006912-slide-screen-shot-2013-03-12-13553-pm_0.png" alt=""/>
+</figure>
+
+<p>The Guardian's site goes one step further, featuring a real-time feed of the Sistine Chapel's chimney, updated every two minutes. It's not a video, feed, though; by inspecting the source we can see it's actually random left and bottom positioning of a single overlapping smoke image creates the illusion of his actual eminence (ha!) coming from the Vatican chimney.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/post/inline-image/3006912-slide-screen-shot-2013-03-12-13742-pm_0.png" alt=""/>
+</figure>
+
+<p>Similar binary sites like <a href="http://istheltrainfucked.com" target="_blank">Is the L Train Fucked?</a>, have built a sustained following just by delivering a single piece of information: in this case whether or not the "L" train that runs between Manhattan and Brooklyn is experiencing, ahem, service delays.</p>
+
+<h4><a name="Hacking_the_Election">Hacking the Election</a></h4>
+
+<p>The Guardian kept the shell of the site simple, presumably in order to push out changes as quickly as possible when a new Pope is elected. The page is designed in such a way that a single change in the CSS class attached to the body element corresponds to the success of the conclave's last vote.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/post/inline-image/3006912-slide-screen-shot-2013-03-12-13711-pm_0.png" alt=""/>
+</figure>
+
+<p>Using your web developer tools you can see a CSS class, "pope-no", is assigned to the body html element. When the "pope-no" class is set, the browser choses an image for black smoke.  You can hack the class to "pope-yes" and see what will happen when the Cardinals elect a new Pope. Now take all that simulated enthusiasm for the simulated new Pope represented by this simulated smoke, and go build one yourself. What do you say?</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/post/inline-image/3006912-slide-screen-shot-2013-03-12-13806-pm.png" alt=""/>
+</figure>
