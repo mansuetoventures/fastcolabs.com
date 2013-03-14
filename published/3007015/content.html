@@ -4,8 +4,7 @@
 
 <p>Since Meteor is open source I figured I'll give a shot at trying to make it work with SQL and it ended up being a lot simpler than I expected. This is initial implementation of only supports MySQL. It should be relatively easy to port to other databases. Here's a <a href="http://dror3.devwik.com/" target="_blank">demo</a> and <a href="https://github.com/drorm/meteor-sql" target="_blank">the project on Github</a>. And here’s what you get with this initial version of Meteor SQL, which you can think of as the No-NoSQL solution.</p>
 
-<p><br />
-<h2><a name="Features">Features</a></h2></p>
+<h2><a name="Features">Features</a></h2>
 
 <ul>
   <li><span>Full server side support of select, insert, update and delete on a table</span></li>
@@ -18,14 +17,13 @@
   <li><span>Partial support for general select statements. They work correctly, but are not <em>reactive</em> on the client.</span></li>
 </ul>
 
-<p><br />
-<h2><a name="Limitations">Limitations</a></h2></p>
+<h2><a name="Limitations">Limitations</a></h2>
 
 <ul>
   <li><span>Client side the collection still use mongo syntax for find()</span></li>
   <li><span>All tables need to have a unique id</span></li>
   <li><span>Insert, Update and Delete operations on the client don't update the data locally. Instead they run on the server and then the server refreshes the client's data. This could result in slower refresh times, but guarantees that the client always sees data that has been committed to the DB. It also means that unlike minmongo, the full range of SQL options are available to the client.
-
+  <br />
 <h2><a name="Installation">Installation</a></h2>
 
 <p></span></li><li><span>Standard mysql set up</span></li>
@@ -39,8 +37,7 @@
   <li><span>Change the database config params in server/DBconfig.js to match the password you entered above as well as anything else needed</span></li>
 </ul></p>
 
-<p><br />
-<h3><a name="The_Approach_To_Implementation">The Approach To Implementation</a></h3></p>
+<h3><a name="The_Approach_To_Implementation">The Approach To Implementation</a></h3>
 
 <p>One of the most important and elegant features in Meteor is the automatic updating of clients when a row is updated, deleted or changed on the server. Magically, all the browser's data is updated. My understanding is that the standard implementation does a diff whenever there's a change to a table so that it can figure out which rows are changes. With SQL we can do it much more elegantly.</p>
 
@@ -53,8 +50,7 @@
   <li><span>On the client operations, insert, update, delete use Meteor.call, they make a remote procedure call to the server. This is not as elegant as the current Mongo solution which updates the rows locally, and then  the changes get propagated. On the other hand, it does guarantee that what you see in your browser is what the server has committed. I suspect that most developers won't care either way.</span></li>
 </ul>
 
-<p><br />
-<h3><a name="Things_This_Project_Needs">Things This Project Needs</a></h3></p>
+<h3><a name="Things_This_Project_Needs">Things This Project Needs</a></h3>
 
 <ul>
   <li><span>The first item on the roadmap is making the select statements reactive. Currently you can have select statements, but they're a one shot deal. Changes to the database are not going to be reflected on the client. At first I was thinking of keeping track which tables each select uses, and updating the selects based on changes to the tables. The problem is that since select statements are so flexible, there's really no easy way to know which rows have changed. I came up with a simple solution that should work for most cases. Just use SQL views instead of select statements and then treat the views the same as tables, and we're done. Views have more limitations than select statements, but for most use cases, they'll probably do.</span></li>
@@ -66,3 +62,5 @@
 <p>All in all this has been a fun useful project and it had the rare property of going even faster than I expected. Too often in software development it feels like things are harder than they should be that I cherish the times when the sailing is smooth.</p>
 
 <p>Dror Matalon can be found <a href="https://github.com/drorm" target="_blank">on Github here</a>. He <a href="http://www.matal.com/blog/" target="_blank">blogs at Matal.com</a>.</p>
+
+<p>[<em>Image: Flickr user <a href="http://www.flickr.com/photos/badcomputer/4887980382/in/photostream/" target="_blank">Darren Kirby</a></em>]</p>
