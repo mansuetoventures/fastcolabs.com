@@ -1,6 +1,6 @@
 <p>The problem with Meteor, for me, isn’t really with Meteor at all. It's with MongoDB, which is bundled with Meteor. I do like the fact that I don't need to change the schema when I make changes to the DB or the fact that I can insert arbitrary data and even create real object without resorting to ORM. But all of this doesn't really compensate for the fact that MongoDB is so limited compared to modern SQL databases. There are quite a few things I found problematic--such as the absence of AUTOINCREMENT (and yes, I know about using uuids).</p>
 
-<p>Since Meteor is open source I figured I'll give a shot at trying to make it work with SQL and it ended up being a lot simpler than I expected. This is initial implementation of only supports MySQL. It should be relatively easy to port to other databases. Here’s what you get with this initial version of Meteor SQL.</p>
+<p>Since Meteor is open source I figured I'll give a shot at trying to make it work with SQL and it ended up being a lot simpler than I expected. This is initial implementation of only supports MySQL. It should be relatively easy to port to other databases. Here's a <a href="http://dror3.devwik.com/" target="_blank">demo</a> and <a href="https://github.com/drorm/meteor-sql" target="_blank">the project on Github</a>. And here’s what you get with this initial version of Meteor SQL.</p>
 
 <p><br />
 <h2><a name="Features">Features</a></h2></p>
@@ -12,7 +12,7 @@
   <li><span>Light weight implementation</span></li>
   <li><span>Changes are handled by triggers, no diffs to existing queries needed</span></li>
   <li><span>Polling is done on a single indexed table resulting in very little overhead.</span></li>
-  <li><span>Includes <a href="http://" target="_blank"></a> for cleaner query construction</span></li>
+  <li><span>Includes <a href="https://github.com/hiddentao/squel" target="_blank">https://github.com/hiddentao/squel</a> for cleaner query construction</span></li>
   <li><span>Partial support for general select statements. They work correctly, but are not <em>reactive</em> on the client.</span></li>
 </ul>
 
@@ -61,3 +61,5 @@
 </ul>
 
 <p>All in all this has been a fun useful project and it had the rare property of going even faster than I expected. Too often in software development it feels like things are harder than they should be that I cherish the times when the sailing is smooth.</p>
+
+<p>Dror Matalon can be found <a href="https://github.com/drorm" target="_blank">on Github here</a>. He <a href="http://www.matal.com/blog/" target="_blank">blogs at Matal.com</a>.</p>
