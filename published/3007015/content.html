@@ -1,4 +1,4 @@
-<p>The problem with Meteor, for me, isn’t really with Meteor at all. It's with MongoDB, which is bundled with Meteor. I do like the fact that I don't need to change the schema when I make changes to the DB or the fact that I can insert arbitrary data and even create real objects without resorting to ORM. But all of this doesn't really compensate for the fact that MongoDB is so limited compared to modern SQL databases. There are quite a few things I found problematic--such as the absence of AUTOINCREMENT (and yes, I know about using uuids).</p>
+<p>The problem with Meteor, for me, isn’t really with Meteor at all. It's with MongoDB, which is bundled with Meteor. I do like the fact that I don't need to change the schema when I make changes to the DB or the fact that I can insert arbitrary data and even create real objects without resorting to ORM. But all of this doesn't really compensate for the fact that MongoDB is so limited compared to modern SQL databases. There are quite a few things I found problematic--such as the absence of AUTOINCREMENT (and yes, I know about using uuids) and not having joins.</p>
 
 <aside class="info"><div class="info-inner"><p>What is Meteor? An open-source app platform that lets you build fast in pure Javascript. Developers like Meteor for its speed: live page updating, powerful data sync, latency compensation, and a bunch of other stuff <a href="http://meteor.com" target="_blank">you can read about here.</a></p></div></aside>
 
@@ -37,7 +37,7 @@
   <li><span>Change the database config params in server/DBconfig.js to match the password you entered above as well as anything else needed</span></li>
 </ul></p>
 
-<h3><a name="The_Approach_To_Implementation">The Approach To Implementation</a></h3>
+<h3><a name="Implementation_Approach">Implementation Approach</a></h3>
 
 <p>One of the most important and elegant features in Meteor is the automatic updating of clients when a row is updated, deleted, or changed on the server. Magically, all the browser's data is updated. My understanding is that the standard implementation does a diff whenever there's a change to a table so that it can figure out which rows are changes. With SQL we can do it much more elegantly.</p>
 
