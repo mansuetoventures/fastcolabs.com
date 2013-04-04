@@ -1,10 +1,10 @@
-<h2><a name="A_Look_Inside_the_Programmed_Store_Circa_2003">A Look Inside the Programmed Store, Circa 2003</a></h2>
+<p>When Lorem Ipsum Books started up in 2003, I built a web-based inventory and <a href="http://www.ka-zam.com" target="_blank">point-of-sale system</a> because that's what I knew. Then I made an architectural choice that would haunt me for years: I chose to move the Linux server from under the sales counter to a data center down the road. But one obstacle remained before I could move the server to the cloud: How do you connect peripheral devices that live behind a firewall to a server on the Internet?</p>
 
-<p>In 2003 when Lorem Ipsum Books began, I created a web-based inventory and <a href="http://www.ka-zam.com" target="_blank">point-of-sale system</a> because that's what I knew. This simple system was run on an in-store Linux machine running an Apache web server with a MySQL database of inventory on it. Most web developers today would be familiar with this simple LAMP stack.  Employees accessed the inventory system through a web browser running on the computer sitting on the checkout counter.  For a cash drawer and receipt printer I went on eBay and purchased the cheapest I could find.  With this hardware and a found Cuecat barcode scanner I was in business.  I built the computers with spare parts, so the total cost was less than $300.</p>
+<p>This simple system was run on an in-store Linux machine running an Apache web server with a MySQL database of inventory on it. Most web developers today would be familiar with this simple LAMP stack. Employees accessed the inventory system through a web browser running on the computer sitting on the checkout counter. For a cash drawer and receipt printer I went on eBay and purchased the cheapest I could find. With this hardware and a found Cuecat barcode scanner I was in business. I built the computers with spare parts, so the total cost was less than $300.</p>
 
 <h2><a name="Cords_Complexity_Visualized_">Cords: Complexity Visualized </a></h2>
 
-<p>In typical point-of-sale fashion, the cash drawer connected to the receipt printer with a cord that looks like a telephone cable, which in turn connected directly to the controlling serial port on the Linux machine.  The chain of command from cash register to cash drawer via receipt printer was simple, and thankfully worked with little coaxing.  But this simplicity wasn't to last, as I started hacking the store, adding sensors. To receive this sensor input, required the addition of a microcontroller.  The iRX programmable integrated circuit sat in a box under the counter that converted sensor data into signals readable by the Linux server.</p>
+<p>In typical point-of-sale fashion, the cash drawer connected to the receipt printer with a cord that looks like a telephone cable, which in turn connected directly to the controlling serial port on the Linux machine. The chain of command from cash register to cash drawer via receipt printer was simple, and thankfully worked with little coaxing. But this simplicity wasn't to last, as I started hacking the store, adding sensors. To receive this sensor input, required the addition of a microcontroller. The iRX programmable integrated circuit sat in a box under the counter that converted sensor data into signals readable by the Linux server.</p>
 
 <figure class="inline-large inline">
 <img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/04/3007863-inline-irxoblique.jpg" alt=""/>
@@ -14,62 +14,63 @@
 
 <h3><a name="Fun_With_Sensors">Fun With Sensors</a></h3>
 
-<p>Once a sensor backplane had been established with the microcontroller, I wired in a half dozen inputs from various places around the store.  For example, a "button box" outside lured puzzled passersby into the store as an in-window speaker spoke the "word of the day", the title of the last book sold, or the store's catch phrase depending on what button they pressed.  Inside the store, when customers lifted a red lid on the checkout counter the store speakers would blurt out the word of the day.  (The word of the day is a randomly chosen word from the title of a randomly chosen book in stock which we <a href="http://www.twitter.com/loremipsumbooks" target="_blank">tweet daily</a>.  If you buy a book with this word in the title, the Point-of-Sale system gives you 10% off.)</p>
+<p>Once a sensor backplane had been established with the microcontroller, I wired in a half dozen inputs from various places around the store. For example, a "button box" outside lured puzzled passersby into the store as an in-window speaker spoke the "word of the day", the title of the last book sold, or the store's catch phrase depending on what button they pressed. Inside the store, when customers lifted a red lid on the checkout counter the store speakers would blurt out the word of the day. (The word of the day is a randomly chosen word from the title of a randomly chosen book in stock which we <a href="http://www.twitter.com/loremipsumbooks" target="_blank">tweet daily</a>. If you buy a book with this word in the title, the Point-of-Sale system gives you 10% off.)</p>
 
 <p><br />
 <h3><a name="After_the_Cloud_It_Began_to_Storm">After the Cloud, It Began to Storm</a></h3></p>
 
 <p><br />
-The in-store POS system worked for several months with few hiccups.  Word eventually got out that I had an inventory system for bookstores, and others wanted to use it.  An architectural choice that would haunt me for years happened next--I chose to move the Linux server from under the counter to a data center down the road so that other stores could use the system.  I rationalized that I could run secure connections between the servers and desktop web browsers, so why have the sever in-store?  My previous experience with enterprise software further strengthened my belief that software as a service would be easier to maintain than shipped code.</p>
+The in-store POS system worked for several months with few hiccups. Word eventually got out that I had an inventory system for bookstores, and others wanted to use it. An architectural choice that would haunt me for years happened next--I chose to move the Linux server from under the counter to a data center down the road so that other stores could use the system. I rationalized that I could run secure connections between the servers and desktop web browsers, so why have the sever in-store? My previous experience with enterprise software further strengthened my belief that software as a service would be easier to maintain than shipped code.</p>
 
-<p>But one obstacle remained before I could move the server to the cloud: How do you connect peripheral devices that live behind a firewall to a server on the Internet? For this, I tapped into the power of XMPP, the protocol that powers Gtalk and Facebook Chat.  Chat clients work by connecting to a server on the Internet which then relays messages to other servers and clients.  When clients lose their connection, they are programmed to dial the server back. The protocol can be run over a secure connection, and as it's an outbound connection that will work behind a firewall or NAT device, so it seemed perfect for connecting receipt printers to a server on the Internet.</p>
+<aside class="pullquote"><q>Had the cable come undone? Was the USB converter somehow attached to a different virtual interface after the reboot? Was the Internet connection down? Server problem? Things got ugly.</q></aside>
+
+<p>But one obstacle remained before I could move the server to the cloud: How do you connect peripheral devices that live behind a firewall to a server on the Internet? For this, I tapped into the power of XMPP, the protocol that powers Gtalk and Facebook Chat. Chat clients work by connecting to a server on the Internet which then relays messages to other servers and clients. When clients lose their connection, they are programmed to dial the server back. The protocol can be run over a secure connection, and as it's an outbound connection that will work behind a firewall or NAT device, so it seemed perfect for connecting receipt printers to a server on the Internet.</p>
 
 <h3><a name="Lack_of_a_Feedback_Loop">Lack of a Feedback Loop</a></h3>
 
-<p><br />
-<aside class="pullquote"><q>Had the cable come undone? Was the USB converter somehow attached to a different virtual interface after the reboot? Was the Internet connection down? Server problem? Ouch, it got ugly.</q></aside></p>
-
-<p>The only problem was there was no easily visible feedback between the printer and the server.  The plumbing between server and the receipt printer was now a combination of physical and virtual.  A USB converter added another step in the chain, and before you knew it it wasn't always obvious why the cash register drawer didn't open when you completed the sale.  Had the cable come undone? Was the USB converter somehow attached to a different virtual interface after the reboot? Was the Internet connection down? Server problem? Ouch, it got ugly.  But as I was skilled at debugging, I didn't think too much of it, and pressed forward.</p>
+<p>The only problem was there was no easily visible feedback between the printer and the server. The plumbing between server and the receipt printer was now a combination of physical and virtual. A USB converter added another step in the chain, and before you knew it it wasn't always obvious why the cash register drawer didn't open when you completed the sale. Had the cable come undone? Was the USB converter somehow attached to a different virtual interface after the reboot? Was the Internet connection down? Server problem? Ouch, it got ugly. But as I was skilled at debugging, I didn't think too much of it, and pressed forward.</p>
 
 <p>As I took the printer setup to other bookstores around the nation, it became quickly clear that setting up the system would require too much technical support for the amount customers were willing to pay. This became the reason that the Ka-Zam service would stop accepting customers in 2008.</p>
 
 <h2><a name="Lessons_Learned">Lessons Learned</a></h2>
 
 <ol>
-  <li><span> <strong>When your Internet connection goes down, your business must still work.</strong>
+ <li><span> <strong>When your Internet connection goes down, your business must still work.</strong>
 
-<p>If you're depending on something on the Internet, your business will go down if your Internet connection is accidentally severed.  You should either have a backup Internet connection, or better yet put systems in place to enable your sales clerks to perform all functions manually.  It happens more often than you'd think.</p>
+<p>If you're depending on something on the Internet, your business will go down if your Internet connection is accidentally severed. You should either have a backup Internet connection, or better yet put systems in place to enable your sales clerks to perform all functions manually. It happens more often than you'd think.</p>
 
 <p></span></li><li><span> <strong>Make it easy to find the price.</strong></p>
 
-<p>When you have the Internet's data at your disposal, it's tempting to use it in clever ways.  But at the end of the day, your customers just want a product for a fair price.  We tried a dynamic pricing model that tied the price to the lowest price on Amazon (including shipping), updated in real-time.  We also did price sensitivity testing. Customers hated not having a price on the product, so both of these programs were killed in favor of traditional sticker-based pricing.</p>
+<p>When you have the Internet's data at your disposal, it's tempting to use it in clever ways. But at the end of the day, your customers just want a product for a fair price. We tried a dynamic pricing model that tied the price to the lowest price on Amazon (including shipping), updated in real-time. We also did price sensitivity testing. Customers hated not having a price on the product, so both of these programs were killed in favor of traditional sticker-based pricing.</p>
 
 <p></span></li><li><span> <strong>Build with commodity hardware. The most common input/output devices will save you time and money.</strong></p>
 
-<p>It's tempting to buy the latest and greatest point-of-sale hardware.  But when things break, you'll be glad you chose the Epson TM series printer and a keyboard-wedge style barcode scanner.  I've swapped printers with other stores when mine went out temporarily.</p>
+<p>It's tempting to buy the latest and greatest point-of-sale hardware. But when things break, you'll be glad you chose the Epson TM series printer and a keyboard-wedge style barcode scanner. I've swapped printers with other stores when mine went out temporarily.</p>
 
 <p></span></li><li><span> <strong>Even the slightest interface fumbling is problematic.</strong></p>
 
-<p>When browsing the web you don't notice a half-second delay.  When you're in line at the checkout counter and you have 10 items, a half second here or there adds up, and frustrates both customers and employees alike.</p>
+<p>When browsing the web you don't notice a half-second delay. When you're in line at the checkout counter and you have 10 items, a half second here or there adds up, and frustrates both customers and employees alike.</p>
 
 <p></span></li><li><span> <strong>Security isn't just a lock on the door. WIth a digital point-of-sale, there are new ways into your cash register.</strong></p>
 
-<p>If you move any of your operations into the Internet, you are opening up new ways to infiltrate your organization. HTTPS and secure connections are required.  Similarly if you offer WiFi connectivity to your customers, you should have a unique network for your POS and separate one for the public.</p>
+<p>If you move any of your operations into the Internet, you are opening up new ways to infiltrate your organization. HTTPS and secure connections are required. Similarly if you offer WiFi connectivity to your customers, you should have a unique network for your POS and separate one for the public.</p>
 
 <p></span></li><li><span> <strong>Retail systems need to work out-of-the-box without much fussing or configuration from the store owner.</strong></p>
 
-<p>Most store owners spend their time on their customers and their product.  They don't have the time to fuss with a finicky piece of technology.  If you're making retail technology, it needs to have a clean interface, work out of the box, and break in a way that's obvious.</p>
+<p>Most store owners spend their time on their customers and their product. They don't have the time to fuss with a finicky piece of technology. If you're making retail technology, it needs to have a clean interface, work out of the box, and break in a way that's obvious.</p>
 
 <p></span></li><li><span> <strong>Give customers what they expect, but surprise them with more.</strong></p>
 
-<p>If you're adding digital capabilities to your store, you need to first cover the basics.  While all of our books are inventoried so we know where every book is, we still need section signage so that customers have a familiar interface for retail browsing.</p>
+<p>If you're adding digital capabilities to your store, you need to first cover the basics. While all of our books are inventoried so we know where every book is, we still need section signage so that customers have a familiar interface for retail browsing.</p>
 
 <p></span></li><li><span> <strong>Expect things to break and disappear.</strong></p>
 
-<p>The best retail interface is the invisible one.  Every keyboard, display, or gadget that can be touched will be broken--or stolen.  It takes a lot of engineering and industrial design work to make retail interfaces that do what customers expect as well as make a profit.</p></span></li>
+<p>The best retail interface is the invisible one. Every keyboard, display, or gadget that can be touched will be broken--or stolen. It takes a lot of engineering and industrial design work to make retail interfaces that do what customers expect as well as make a profit.</p></span></li>
 
 </ol>
 
 <h2><a name="Its_Only_Just_Begun">It's Only Just Begun</a></h2>
 
-<p>While I struggled with this in a past life, I look forward to seeing where today's entrepreneurs take the retail experience.  We're at the dawn of a new era of retail, namely that of the programmed store.  This new store will marry together data and localized experience to drive product sales and profit.  It will use the Internet to enhance customer experience, efficiently source products, or provide an infrastructure that would not be possible in a single, stand-alone store.  Yet it will have all the charm of the mom-and-pop stores of yesteryear.</p>
+<p>While I struggled with this in a past life, I look forward to seeing where today's entrepreneurs take the retail experience. We're at the dawn of a new era of retail, namely that of the programmed store. This new store will marry together data and localized experience to drive product sales and profit. It will use the Internet to enhance customer experience, efficiently source products, or provide an infrastructure that would not be possible in a single, stand-alone store. Yet it will have all the charm of the mom-and-pop stores of yesteryear.</p>
+
+<p><em>Image by [url=http://www.flickr.com/photos/fastlizard4/]FastLizard4[/ur]</em></p>
