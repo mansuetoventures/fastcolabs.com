@@ -12,11 +12,41 @@
 
 <h3><a name="What_This_Story_Is_Tracking">What This Story Is Tracking</a></h3>
 
-<p>There are two big trends here that seem to be coalescing. The first: the segmentation of file storage across different apps and services. In a more abstract way, this reflects the larger movement of data into the cloud, but we'll focus on the way this effects individual users, not entire systems. The second trend: the appearance of new, viable mobile operating systems that never could have survived in the Apple-Microsoft desktop duoculture.</p>
+<p>There are two big trends here that seem to be coalescing. The first: the segmentation of file storage across different apps and services. In a more abstract way, this reflects the larger movement of data into the cloud, but we'll focus on the way this effects individual users, not entire systems.</p>
+
+<p>The second trend: the appearance of new, viable mobile operating systems that never could have survived in the Apple-Microsoft desktop duoculture. As the big OS makers lose their stranglehold on the market for operating systems, other cloud companies will try to muscle in and create their own form of lock-in by mimicking certain features that used to be found only in native system software.</p>
 
 <hr />
 
 <h2><a name="Updates">Updates</a></h2>
+
+<p><strong>One assumption that might not be valid for long: that we create more data every year.</strong> Or rather, that the new data necessarily needs to take up more space, and cost more money. Some companies have foreseen <a href="http://www.economist.com/node/15557443" target="_blank">the hockey-stick growth of human data creation</a> and are working on more efficient ways of storing things. Dell is one. Via a <a href="http://" target="_blank"></a> I just discovered, released last fall:</p>
+
+<blockquote><p>[Dell's Fluid File System] addresses challenges that organizations face by allowing them to gain control of their data, reduce complexity, and meet growing data demands over time... [A]rchitecture is open-standards based, supports industry standard protocols, and provides innovative features relating to high availability, performance, efficient data management, data integrity, and data protection. As a core component of the Dell Fluid Data architecture, Fluid File System brings differentiated value to the various Dell storage offerings. It is a network attached storage (NAS) file system accessed using CIFS and NFS protocols, but it has features and enhancements that make it unique, as discussed in the remaining sections of this document.</p></blockquote>
+
+<p>No need to read the entire paper. Here are some of the problems Dell wants this system to address:</p>
+
+<blockquote><p><ul>
+  <li><span>Data silos prevent easy access to vital business information</span></li>
+  <li><span>Data migration, backup, and disaster recovery are complex, consuming administrative time and resources.</span></li>
+  <li><span>Meeting data growth by deploying more and more storage systems increases both the administrative burden and capital expenditure at a time when businesses need to run lean.</span></li>
+  <li><span>Traditional file systems have scalability limitations that make them unwieldy for organizations with rapidly expanding file data.</span></li>
+</ul></p></blockquote>
+
+<p>If anyone has any insight into how these distributed file systems might work for individual users--in other words, in a consumer use-case--please <a href="http://twitter.com/fastcolabs" target="_blank">let us know via Twitter</a>. The main use-case is unified protection and replication across data sources[/url], which presumably become a valuable consumer service if "consumer clouds" remain as segmented as they currently are, but grow in scale. Via <a href="http://www.infostor.com/nas/dells-fluid-file-system-gathers-momentum-in-compellent-refresh.html" target="_blank">Infostor</a>:</p>
+
+<blockquote><p>The move provides a unified foundation to deliver data protection and replication across storage systems that handle both block and file data. Getting Fluid File up and running on the Compellent architecture was the last hurdle to offering file protection and management across each of the company's primary storage platforms, according to Dell.</p></blockquote>
+
+<hr />
+
+<p><strong>As OS lock-in dissolves, Dropbox is looking for ways to introduce its own lock-in.</strong> As we saw with Facebook home, each contender in the new "OS wars" is staking out territory, <a href="http://www.fastcolabs.com/3007948/how-facebook-home-and-isnt-os" target="_self">picking the content they think users need most</a> and trying to own that content in an attempt to lock in the user, either by necessity or by taste.</p>
+
+<p>Because the files in Dropbox aren't silo'd--these are documents, movies and music files which can be read by most any machine--the company needs another way to tie you to Dropbox as your cloud of choice. They've wisely picked to link up with email, a tool which for most people has high lock-in potential, since it's a pain to change email addresses. They've accomplished this through a partnership with Yahoo! in which mail attachments get saved directly into Dropbox. Via the <a href="https://blog.dropbox.com/2013/04/yahoo-mail-dropbox/" target="_blank">Dropbox blog</a>:</p>
+
+<blockquote><p>Since this integration is Dropbox-powered, you can even send that big album of vacation pics without worrying about the 25 MB file limit. Plus, it’s easy to save any photo, video, or doc in your Yahoo! Mail straight to your Dropbox, where you can get to it from anywhere.<br />
+</p></blockquote>
+
+<hr />
 
 <p><strong>When the file system becomes abstracted, UI is what matters most.</strong> And because mobile devices are limited to one screen at a time, it's crucial that a mobile OS have a great interface for <em>executing workflows between apps</em> in a way that makes sense.</p>
 
