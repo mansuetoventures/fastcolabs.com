@@ -1,0 +1,102 @@
+<p>Marko Mrdjenovič and a team of developers in Slovenia had a problem to overcome. They wanted to create an easy way to collect data about their indoor environment and use that data to change their conditions for the better. Sure, they could have bought a thermometer for temperature and a hygrometer for humidity, but they wanted everything to fit inside one small sensor and then code software that would allow them not only to see their environment’s current state but view its historic trends too.</p>
+
+<p>What they came up with were <a href="http://cubesensors.com" target="_blank">CubeSensors</a>, small cube­-shaped wireless satellite receivers you place in your home or office that relay information about your environment’s lighting, temperature, humidity, noise levels, barometric pressure, and air quality right to your smartphone.</p>
+
+<p>Though CubeSensors won’t ship until this summer, I sat down with Marko Mrdjenovič, Chief Technology Officer of CubeSensor to talk about the hardware and software challenges of making a complex piece of sensing hardware easy enough for your average consumer to use, and pleasant enough to fit with the aesthetics of iOS and the user’s home interior.</p>
+
+<h3><a name="Look_For_A_Problem_That_Matters">Look For A Problem That Matters</a></h3>
+
+<p>“If you know what’s wrong with your environment, you can change it for the better,” Mrdjenovič says when I ask him about the motive to develop consumer-­grade environmental sensors. Since hardware is traditionally more expensive to develop than software, it’s vital you pick an acute problem, not something ancillary.</p>
+
+<p>Mrdjenovič recognized that it’s easy for someone to get information about their outdoor environment (via weather forecasts or government pollution readings) and act proactively with that information (if it’s raining, grab an umbrella) but found there is no easy way for someone to get accurate, up­to­date environmental data about the places they spend most of their time at: their home and office. Indoor environmental conditions are something that many of us don’t think twice about even though negative interior conditions can have deadly consequences. Indoor air pollution, for example, <a href="http://www.fastcoexist.com/1679984/international-pacts-dont-work-the-world-is-still-on-track-for-environmental-disaster" target="_self">triggers 2 million premature deaths each year</a>.</p>
+
+<p>Mrdjenovič and the team envisioned the solution as a network of sensors. “In our minds we saw a base station and the cubes. You connect the base station to power and an Ethernet cable then put one cube in each room so you get measurements for all of your rooms. The cubes then read your environment and tell you ways you can change it for the better.”</p>
+
+<p>But as any developer knows, the distance between having a vision and having a finished, user­friendly product that is technically achievable is vast. How do you make a device small enough (with half a dozen power­-hungry environmental sensors inside, no less) so that consumers won’t mind putting one in each room of their house? And how do you convey the data from those devices in a way users can easily understand?</p>
+
+<h3><a name="Nail_Your_Component_Advantage">Nail Your Component Advantage</a></h3>
+
+<p>Like an app, a piece of hardware should be optimized for the main task -- ­­and that means finding a purpose­-built hardware component. “The first prototypes apart from the development boards were actually small, little motherboards will all the sensors on them. Each motherboard was plugged into electricity via a cable,” Mrdjenovič explains. “We started off with basic weather station sensors [temperature, barometric pressure, and humidity] and tried to get them to work and get the data to display on our phone."</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/04/3008331-inline-first30units12.jpeg" alt=""/>
+</figure>
+
+<p><em>The innards of early CubeScanner prototypes.</em></p>
+
+<p>Those sensors are fairly standard, but Mrdjenovič’s team wanted something more cutting edge. “We went looking if we could get a carbon dioxide sensor for it, but figured out that there’s actually been quite a lot of development in the air quality space recently, so we switched to a VOC sensor,” he says. VOC stand for “Volatile organic compound” and are organic chemicals that can be as scary as their name suggests. While some VOCs are non­toxic, there are plenty that cause long­term negative health effects with symptoms that are slow to develop. Unlike CO2 sensors which are cheap and found in many homes already, VOC sensors are a rarity in homes and offices.</p>
+
+<p>Dealing with environmental sensors might seem complex, but most of them (like temperature, pressure, light, and noise) are available for purchase from any number of suppliers online (just look on Alibaba). Once Mrdjenovič decided on including a VOC sensor with the six other sensors he hacked together prototypes until everything was working correctly.</p>
+
+<p>Still, that’s not to say the sensors --­­ and particularly the VOC one ­­-- didn’t bring up new challenges.</p>
+
+<h3><a name="Looks_Are_Everything">Looks Are Everything</a></h3>
+
+<p>If you’re designing tech that you are asking users to put in each room of their house and forget about, the devices better be small and look nice. “Most of the weather stations are currently ugly, grey, cheap plastic things that you have in a corner and even the sensors are weird looking,” Mrdjenovič says. “Making something that people would put on their coffee table and not in a corner hidden behind books was also very important for us.” So his next step was working with a designer to make an attractive package for the sensors, which ended up being housed in a little cube shaped box. <a href="http://www.fastcodesign.com/1672094/cubesensors-measure-all-that-hot-air-produced-by-your-boss" target="_self">Once the design of the cubes were established</a>, getting six environmental sensors and an accelerometer to fit inside a small, attractive cube wasn’t a huge feat of engineering, but it did take time. The big problem, however, was power consumption.</p>
+
+<h3><a name="Solve_Your_Biggest_Problems_With_Partnerships">Solve Your Biggest Problems With Partnerships</a></h3>
+
+<p>“Getting the cubes to work very long on a single charge while continuously reading the sensors and sending the data wirelessly was one of the biggest challenges,” says Mrdjenovič. He and his team wanted to design a product that would allow the user to put one cube in each room of the home, which meant that they would need to communicate wirelessly. The problem is standard 802.11 or Bluetooth technologies would quickly drain power from the cubes since they are actively processing and transmitting data every minute of every day.</p>
+
+<p>Environmental sensors use a lot of power on their own, but it was the VOC sensors that were particularly troublesome. “The other sensors have been around for years so they’ve been optimized to run on relatively low power. VOC’s are sort of new and have seen more industrial use where power drain is not really a problem because you have them wired into huge machines that are connected to their own power sources,” Mrdjenovič explains.</p>
+
+<p>Bringing a new product into being takes a lot of talented people with specific skill sets. Though Mrdjenovič and his team are skilled in many areas, one in which they are not is in designing custom­built VOCs. But that didn’t stop them from including one anyway. “We contacted companies that make VOC sensors and tried to convince them to make something small and low power. One of them said yes and after a few months we had a testing unit to put on the testing boards. It works really well and we're very happy with it.”<br />
+￼<br />
+That just left the wireless transmission power draw as the thing to tackle. While most of us generally don’t complain about having to change the batteries in our bluetooth mice every month or so, when you have half a dozen cubes scattered around your house you don’t want to have to go collect them all and recharge the batteries every few weeks. But if a Bluetooth mouse, which only collects a small bit of optical data and transfers a tiny bit of data to your computer, lasts on average a single month, how long could little cube sensors that are constantly collecting and transmitting six types of environmental data every minute of every day possibly last?</p>
+
+<p>“Two months,” Mrdjenovič answers.</p>
+
+<h3><a name="Look_At_All_The_Standards">Look At All The Standards</a></h3>
+
+<p>With all that data transfer, a two-­month battery life seems unbelievable. How is that possible?</p>
+
+<p>“The thing is that we’re not using Wi­-Fi,” Mrdjenovič explains. “We’re using ZigBee, which is an industrial protocol for wireless transfer in mass networks. So, it’s low power. We measure everything every minute and send all the data, but the sensors are all low power. We use a low power chip, a low power ZigBee profile. The goal was to be at least one month with the Cubes, but with the combination CubeSensors system, the ZigBee profile, and the VOC sensor we got two.”</p>
+
+<p>Most have probably never heard of <a href="http://www.zigbee.org/Home.aspx" target="_blank">ZigBee</a> since 802.11 Wi-­Fi and Bluetooth get most of the attention when people consider wireless technologies. ZigBee is an IEEE 802 protocol (802.15) that allow devices to transmit data over distances of up to 1000 meters using relatively low power. The standard is popular in industries that use devices in mesh networks (where one device transmits data to another, which transmits data to another, etc). ZigBee is a popular choice for devices in the realm of home automation (wireless lights and locks), medical devices (glucose and blood pressure monitors), and home energy smartmonitors.</p>
+
+<p>ZigBee’s low power consumption and its ability to transmit data over a mesh network meant it was a perfect fit for the Cubes, which users would likely spread across a wide area and on several floors in a home or office.</p>
+
+<h3><a name="Inventing_An_Object_Invent_Your_Own_Interface_Too">Inventing An Object? Invent Your Own Interface, Too</a></h3>
+
+<p>Designing low­power, attractive hardware that collects vast amounts of environmental data is one thing, but when you are talking about making the data useful to consumers who probably are not environmental experts you are looking at a completely new challenge ­­-- how do you explain what that data means? If you’re Mrdjenovič, you make up your own freaking indices.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/04/3008331-inline-tablet.png" alt=""/>
+</figure>
+
+<p><em>The CubeScanner index.</em></p>
+
+<p>To do that the Cube team devised an index that runs on a scale of 1-­100. “At first when we started we had no idea where the numbers should be but after we’d been using them for a while we knew that, ‘Okay, 55 is good for humidity, over 60 is bad,’” Mrdjenovič explains. “The index allows you to get the number on the same scale for different environments. For example, the optimal light in an office is not the same as in a cellar. The optimal values are taken from different research papers on indoor environment effects on productivity, stress, and the like.”</p>
+
+<p>When a user looks at their CubeSensor app they’ll see an icon for each of the six sensors in each cube and the index number for each sensor. The color of the icon and the number itself is all a user will need to tell if environmental readings indicate factors are too low, too high, or within a good range. “The key issue with the UI is how to make sure the users are not scared when they first start using the Cubes but are allowed to dig into data later when they start to understand what the numbers are,” Mrdjenovič says.</p>
+
+<p>But the app and its index numbers aren’t just going to tell the user that there’s something wrong. It will suggest ways to improve their environmental factors. For example, lighting is very important in an office environment but often as the day becomes night and we are engrossed in work we’ll forget to turn lights on until it gets absolutely dark. This harms our eyesight, causes headaches, etc. In this case the CubeSensor app will interpret the data from the hardware and tell the user to increase the lighting in the room.</p>
+
+<h3><a name="Build_For_The_Web_If_Possible">Build For The Web (If Possible)</a></h3>
+
+<p>Despite the popularity of iOS and Android, the CubeScanners app is currently solely web­based. “It was way faster for prototyping because we were turning around the interface a lot and the time to get all the apps done was quite a bit longer,” Mrdjenovič explains. “Also, we wanted to do something that would work on all our devices because obviously we were the first beta testers and not all of us are iOS­based.”</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/04/3008331-inline-phone.png" alt=""/>
+</figure>
+
+<p><em>An early prototype of the web app interface.</em></p>
+
+<p>But while web­based apps do save time in the development cycle when trying to meet launch deadlines, it does present some challenges of its own. “The biggest problem was handling all of the different phones and browsers. They’re mostly all Webkit, but they’re not really all the same. Another problem we had was getting data to show in real time since the prototype CubeSensors give readings every five seconds. The phone browsers are not really the fastest in the universe.”</p>
+
+<p>However, Mrdjenovič says that despite some responsiveness issues he expects to have ironed out, the web app will stay since it gives the team the ability to have presence on all the platforms immediately. “The mobile web is good enough for data apps and apps that are tied to other resources through links ­ inbound and outbound. Native apps are still the only thing powerful enough for graphics heavy development, but we don't have that need at CubeSensors. Browsers and JavaScript engines are improving with a crazy fast rate so more and more apps can use web technologies to provide easier portability and faster development. We<br />
+think we might have to do native apps in the future, but that's only because we want to provide an amazing, fast and integrated experience for our users.”</p>
+
+<p>As for expanding the ability of the Cubes, Mrdjenovič say that they will be releasing an API to developers interested in working with the sensors. He expects the API to be released shortly before the Cubes ship this summer.</p>
+
+<h3><a name="Know_Your_Horizons">Know Your Horizons</a></h3>
+
+<p>Finally, I put the question to Mrdjenovič about the future of personal sensing devices­­ -- what will the next several versions of CubeSensors become? Are we gearing up to have an actual Star Trek­type Tricorder in our hands one day?</p>
+
+<p>“It would be good if we would know more about our environments. CubeSensors are the first step. But there’s still not a market where there’s a single dominating platform or even standards, so we’ll see how that goes.”</p>
+
+<p>And what about other products in the home automation market besides the CubeSensors --­­ is there anything that impresses him? Is this the beginning of the automated home of the future?</p>
+
+<p>“We see a lot of other development in the market, but unfortunately a lot of it is still targeted primarily towards the DIY market,” Mrdjenovič says. “There's nothing wrong with that, but we want the <a href="http://en.wikipedia.org/wiki/Internet_of_Things" target="_blank">‘Internet of Things’</a> to come to every home, and not just to people who know what to buy, how to put it together and connect it to the cloud. We hope more platforms and devices that are mass market friendly come out and that their makers will not opt for a walled garden approach when it gets to the data they produce and things they can do.”</p>
+
+<p><em>Image courtesy of CubeSensors</em></p>
