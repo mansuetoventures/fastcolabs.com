@@ -1,0 +1,64 @@
+
+
+<aside class="info"><div class="info-inner"><p>There's always new information about FTUE best practices, so we're building the article as it develops. As we go along, we'll talk to experts to help make sense of it all. You can influence the direction of this story by <a href="https://twitter.com/michaelgrothaus" target="_blank">tweeting at the author</a>.</p></div></aside>
+
+<h3><a name="Why_The_FirstTime_User_Experience_Matters">Why The First-Time User Experience Matters</a></h3>
+
+<p>There are no second impressions in life or software. An FTUE can make or break any website or app; It’s what users will use to gauge whether your app or service is worth their precious time. If your FTUE is slow, cumbersome or nonexistent, users may get quickly flustered and leave, never to return. Of course, there are ways to create user-friendly software that don't require any kind of introduction at all--a black art we'll cover in this story, too. For mere mortals, a first-time user experience should be fluid, responsive, intuitive and more than anything, enticing.</p>
+
+<p>As we scour sources and the net for the best FTUE advice, we'll use this story to track the best practices, advice, and even horror stories about the FTUE on web apps, native apps, mobile-specific apps and hardware.</p>
+
+<hr />
+
+<h2><a name="Updates">Updates</a></h2>
+
+<p><strong>A staple of the FTUE for many developers is showing a new user around their app the first time they launch it: Also known as a "UI walkthrough."</strong> Tapity founder Jeremy Olson, who makes the popular app Languages (among others), contends that the walkthrough approach isn't good at teaching users how to use the app’s “mystery meat.” Why? <a href="http://tapity.com/iphone-app-design/are-ui-walkthroughs-evil/" target="_blank">He says there are several reasons</a>:</p>
+
+<blockquote><p><ul>
+  <li><span><em>No context. </em>The user barely knows what the app does and yet they are bombarded with instructions to swipe hither and thither to do this and that. Because there is no context, the gestures themselves seem much more complicated than they actually are and folks are easily overwhelmed.</span></li>
+  <li><span><em>Memory management. </em>While users may, by some miracle, remember all the gestures you described in the walkthrough, think about users who come back to your app after a month of non-usage. Unless your gestures are extremely intuitive, mapping to real world metaphors (like iBooks page swiping), your app may be a complete mystery to them. That’s not good.</span></li>
+  <li><span><em>Impatience. </em>Impulse downloaders want to cut to the chase. They want to evaluate your app in a few seconds to see if it is worth their while. We learned from Steve Krug that users don’t analyze websites, they muddle through. The same applies to apps. Many users will skip the tutorial because they don’t want to learn about the app, they just want to try it.</span></li>
+  <li><span><em>Confusion.</em> If not done properly, users will often mistake the walkthrough screenshots as the actual app and will try to tap them, getting frustrated when nothing responds. I learned this the hard way by doing usability testing on an app I worked on. Almost every user tried to interact with the walkthrough screenshots (and I thought I had already taken adequate precautions against that).</span></li>
+</ul></p></blockquote>
+
+<p>So what are the alternatives to UI walkthroughs? Olson says “coach mark” overlays work better, but still they do not do a good job of solving the problem:</p>
+
+<blockquote><p>Not a fan. You might say that this provides more context but I think it’s overwhelming and only provides superficial context.</p></blockquote>
+
+<p>The best option, Olson says, is to teach a first-time user how to use your app by making functions of the app obvious though the placement and labeling of controls. If more help is needed, he says, use visual queues that suggest to the user what actions to perform.</p>
+
+<blockquote><p>We played with gestures a lot when developing <a href="https://itunes.apple.com/app/id565108517" target="_blank">Languages</a>. Going for that minimal, gesture-based approach definitely helped us get rid of unnecessary UI baggage but at the end of the day we decided that functions like search were so important that we needed a button (in this case a search field) to make the function obvious. We then used a folding animation and other cues to let the user know they can also conveniently swipe the entire screen to switch between searching and browsing.</p></blockquote>
+
+<hr />
+
+<p><strong>As a developer you aren’t going to like to hear these numbers.</strong> According to a <a href="http://www.localytics.com/blog/2011/26percent-of-mobile-app-users-are-either-fickle-or-loyal/" target="_blank">Localytics study from 2011</a>, 26% of apps are only opened once, 13% are opened twice, 9% are opened three times...and the downward curve continues (only 2% of apps are opened ten times). While Localytics stops short of saying this, we can presume that at least some of the drop-off owes to poor initial user experiences.</p>
+
+<p>Matter of fact, for apps requiring a sign-up process, <a href="http://www.lukew.com/ff/entry.asp?1678" target="_blank">developer Luke Wroblewski notes</a> that popular app Everyme only saw a 25% completion rate of there FTUE -- and ended up only retaining 5% of their users through their onboarding process. If your software relies on gathering a lot of data from your users so its (eventually) useful to them Wroblewski recommends a gradual engagement approach instead of a collect-as-much-data-as-you-can-and-then-dump-them-into-the-app approach.</p>
+
+<p>That’s exactly what he did for his app Polar:</p>
+
+<blockquote><p>“Gradual engagement is the process of moving a user through an application or service--actually engaging with it, and seeing its benefits. With gradual engagement, new users are not just presented with a registration form and then dropped off a cliff. Instead, registration is either postponed, or handled behind the scenes and the first time experience is focused on giving people an understanding of how they can use a service and why they should care to.
+
+<p>This is the approach we took with our mobile app, Polar. Polar is all about sharing and collecting opinions. So out the gates, that’s what we allow anyone opening the app for the first time to do: vote instantly on the polls they see. 87% of people who download the app do.</p>
+
+<p>Here’s how it works. When a new or logged out user opens Polar, they are presented with a list of polls to vote on. We hold on to all their votes so if they ever create a username and profile page, all their votes will carry over. Commenting or creating a poll requires an account and the dreaded sign-up form. But we’ve made a lot of design decisions to make that process as fast and painless as possible. Massimo Pascotto recently wrote an article about the design of our sign-up screen if you’re interested in more. With gradual engagement we can communicate what our mobile apps do and why people should care by actually allowing people to interact with them right away. We can capitalize on all the hard work it takes to get a download instead of turning 75% of our potential audience away with sign-up requirements. 85% of the over 3.5 million votes on Polar have from signed-in users. But another 15% came from people voting without an account. And we’re happy to give them a voice as well. No sign-up form required.”</p></blockquote></p>
+
+<hr />
+
+<p><strong>As a writer, this advice hits home for me: Tell stories in your FTUE, don't give instructions.</strong> Dropbox engages users who might not be familiar with the cloud at all with a short video and a story book, instead of making potential users read through paragraphs of information on what cloud storage can do for them.</p>
+
+<p>As <a href="http://theindustry.cc/2012/08/07/dropboxs-onboarding-brilliance/" target="_blank">Jordan Koschei writes on The Industry</a>:</p>
+
+<blockquote><p>Users are likely brought to the site by a recommendation from a friend or publication, but the real Dropbox experience starts on the homepage. They are presented with a friendly and easy-to-follow video, which explains the service in a manner both techies and non-techies will appreciate. Underneath the video is a single call-to-action encouraging users to download Dropbox — to avoid presenting the user with unnecessary choice, it detects their operating system and serves the correct version of the application. If the video isn’t enough, or if users want to learn more, the site offers the friendliest product tour I’ve ever seen. The five-page “book” is a quick read, easily understood and filled with quirky illustrations. Even the least computer-literate user should have no trouble understanding and downloading the program.</p></blockquote>
+
+<p>But as Koschei notes, Dropbox doesn’t stop with storytelling to engage users. It also relies on another very human trait: the giving of rewards.</p>
+
+<blockquote><p>[After sign up] The real magic happens once the user has already installed Dropbox and signed up for an account. In order to better explain the service and provide the user with authentic, personal use cases, the Get Started page includes a list of tasks essential to the Dropbox experience. The tasks include items like “Install Dropbox on other computers you use” and “Share a folder with friends and colleagues” — fundamental activities which might not be obvious when explained in a video or tour. To incentivize completion of the list, Dropbox offers users an additional 250 MB of storage for finishing the tasks.
+
+<p>This solution is much more elegant than simply forcing users to sit through instructions. For one thing, it offers them a choice; nobody is forced to go through the steps, but most people will anyway in order to gain the reward. Furthermore, the reward is intrinsically linked to the product — it isn’t a tangential incentive like a badge, but rather more of the product itself. Rewarding appropriate use of a product with more of the same product is simple and elegant.</p></blockquote></p>
+
+<hr />
+
+<h3><a name="Stay_Tuned_As_Coverage_Continues">Stay Tuned As Coverage Continues!</a></h3>
+
+<p>[<em>Image: Flickr user <a href="http://www.flickr.com/photos/lrargerich/3187525211/in/photostream/" target="_blank">Luis Argerich</a></em>]</p>
