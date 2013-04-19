@@ -1,0 +1,92 @@
+<p>For Frank Lee, the pressure to achieve perfection has never been heavier. Normally, the Drexel University computer scientist only needs to impress students and peers. But this week, his work will be displayed on the side of a 29-story skyscraper. When you're building the world's largest video game, the experience needs to be bulletproof.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/04/3008594-inline-frank-lee-pacman.jpg" alt=""/>
+<figcaption>Frank Lee, Drexel University Game Design Program</figcaption>
+</figure>
+
+<p>Lee, the cofounder of Drexel's Game Design Program, first had the idea when he was driving past the Philadelphia skyline one day in 2008. The newly-erected Cira Center building was wide enough that it could be used as a gigantic display for a video game that would be visible from miles away. Even better, the all-glass exterior of the building was already affixed with an LED lighting system that could display simple graphics.</p>
+
+<h4><a name="Hacking_A_Building">Hacking A Building</a></h4>
+
+<p>After a few years of trying, Lee finally got permission from the building's owner to test the lights. He and his small team of engineers went to the Cira Center and fired up WireShark to analyze the network traffic coming in and out of the computer controlling the building's lighting system.</p>
+
+<p>"We were seeing packets going back and forth and we realized that the lights were on their own little private IP address," Lee says. "At that point, I knew it was theoretically possible. As long as we knew what that command was, the packets were being sent and we could control the lights. If you can control the pixels, you can create a game."</p>
+
+<aside class="pullquote"><q>'If you can control the pixels, you can create a game.'</q></aside>
+
+<p>With that, Lee and his colleagues set out to code an enormous version of Pong that would be playable from a half mile away, on the south terrace of the Philadelphia Museum of Art, just across the Schyulkill River. The game's simplistic nature would lend itself well to the Cira Center's low-resolution graphics capabilities, as well as to the fact that they now had a hard deadline. That's because the public unveiling of the game was set to kick off Philly Tech Week, an annual series of events that takes place across the city in late April.</p>
+
+<p>With mere weeks to complete the project, Lee's team hunkered down in a small room on the first floor of the building that houses Drexel's Computer Science department and started coding.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/04/3008594-inline-pong-laptop.jpg" alt=""/>
+</figure>
+
+<p>Marc Barrowclift, a Drexel software engineering student working with Lee, was busily plugging away at Python scripts one afternoon when he hit the jackpot. As it turned out, a developer named Giles Hall had already done much of the coding necessary to take control of the Philips Color Kinetics LED lighting system, which happened to adorn the Cira Center. Barrowclift grabbed the 100-line code library from GitHub and started building on top of it.</p>
+
+<p>"Suddenly we went from two weeks of brutal work required to reverse engineer what they were doing to, 'Oh, this is how it's supposed to work," says Gaylord Holder, a Drexel computer scientist helping with the project. "With Giles's software and the stuff that Marc's done, it's really been very very easy."</p>
+
+<h4><a name="Connecting_To_The_Buildings_Infrastructure">Connecting To The Building’s Infrastructure</a></h4>
+
+<p>Brandywine Realty Trust, the company that owns the Cira Center, gave Lee's team direct VPN access to the network that controls the lights and hooked them up with a piece of software that, among other things, uses an XML file to map the physical location of each light.</p>
+
+<p>"Most of the code that I wrote was parsing that file to turn it into a grid," says Holder. "So we could say, light number five is on the twenty-fifth floor, three windows in. And light number 28 is four windows in."</p>
+
+<p>In the process, Holder discovered a few errors in Brandywine's data, which had incorrectly mapped a few of the lights. Correcting such discrepancies is vital to ensuring that when the game is publicly unveiled on April 19, it displays properly. Once the lights were accurately mapped to pixels, the team was able to test the game locally on a computer at Drexel without worrying about what it would look like on the side of the Cira Center. Still, just to be safe, Lee and his colleagues have run a few tests on the building at night.</p>
+
+<p>Since they can VPN into the Cira Center's network, there's no need to physically go to the building for any reason. Testing is handled remotely from a computer with a 4G hotspot, which is precisely how the game will be played by members of the public across the river at the Art Museum.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/04/3008594-inline-pong-code.jpg" alt=""/>
+</figure>
+
+<p>"We have a screen that shows us what's supposed to be happening," says Holder. "So far, it matches pretty well with what we see on the building. When Marc turns on a pixel on the screen, it's also sending the command out. And that might get dropped, but we're doing 8 or 10 frames per second, so if a packet gets dropped, no one cares."</p>
+
+<h4><a name="Using_A_Building_Has_Its_Constraints">Using A Building Has Its Constraints</a></h4>
+
+<p>That's not to say that there weren't technical challenges in getting things to work flawlessly. For one thing, the team had to ensure that the VPN wouldn't time out in the middle of a game, an issue that arose in early testing. Data usage was another concern. To control the lights of the building from across the river, they're using a 4G data connection with a cap of 5 gigabytes. Each round of Pong transmits a relatively tiny amount of data, but over the course of several hours, it adds up. They also want to ensure that the data transmission doesn't have an impact on latency.</p>
+
+<p>"We're sending 512 bytes of data for every light for every take of the game," says Barrowclift. "For Pong, it's pretty trivial. But the title screen you saw, that eats it up pretty quickly."</p>
+
+<p>The final stretch of testing before Pong's public debut has been focused on minute technical details like this. Beyond that, most of the work has gone into polishing the user experience and ensuring everything displays correctly.</p>
+
+<p>"Is the refresh rate of the lights good enough for a game?" Lee asks himself. "If it's really slow, then it might look awful and it would be unplayable."</p>
+
+<p>The game itself is based on a rendition of Pong coded by Santiago Ontanon, a professor at Drexel who specializes in artificial intelligence and video games. His original version of the game, which was written in JavaScript, needed to be rebuilt in Python to be compatible with the other moving parts of the software behind the project. The on-screen imagery of the game is built using TKInter, a graphics toolkit for Python. The mechanics of the game are all hand-coded.</p>
+
+<h4><a name="Human_Factors_Can_Be_The_Hardest">Human Factors Can Be The Hardest</a></h4>
+
+<p>In the immediate lead-up to the game's unveiling, everything fell rapidly into place, but the sailing hadn't always been quite that smooth. For more than four years, Lee tried to get Brandywine to agree to let him hack their iconic, $180 million skyscraper. The idea fell on deaf ears until 2010, when he managed to get in touch with a senior vice president at the company. He showed off concept sketches of what Pong and Tetris would look like on the side of the building, and even got permission to test the lights out. Lee's request to proceed with the project was rebuffed by the executive, who wondered why anyone would care to see such an old game played in gargantuan pixels on the side of the Cira Center.</p>
+
+<p>Flabbergasted, Lee knew he had to go to the top. Through connections he had at Drexel and at Technically Media, the company that runs Philly Tech Week, Lee sought a one-on-one meeting with Brandywine CEO Jerry Sweeney. Each request was rebuffed, but Lee kept asking.</p>
+
+<p>"After a four-and-a-half-year lobbying effort, I got an email in November from Jerry saying, 'I appreciate your persistence. Would you like to meet and talk?'"</p>
+
+<p>Lee met with Sweeney in January 2013 and once again pitched his idea. Sweeney loved it.</p>
+
+<p>"Once I shook hands with Jerry, Brandywine was as helpful as you would ever want them to me," Lee says.  "The lesson that I learned is, if you go to the top, everyone else falls into place."</p>
+
+<aside class="pullquote"><q>'Pong is in our DNA. Pong is in the DNA of every game that came since. If I said 'We're going to create Minesweeper' nobody would care.'</q></aside>
+
+<p>Pong was deliberately chosen for its extreme simplicity. They initially considered remaking Tetris, only to discover that it would be too complex for the low-resolution display they were working with. Pong has the added advantage of being almost universally recognizable, to gamers and non-gamers alike.</p>
+
+<p>"Pong is in our DNA," says Lee. "Pong is in the DNA of every game that came since. If I said 'We're going to create Minesweeper' nobody would care."</p>
+
+<h4><a name="Its_Just_A_Big_Display">It’s Just A Big Display</a></h4>
+
+<p>For Lee, the project is less of a technical endeavor and more of an interactive public art installation. He loves the idea of turning something so large into a digital canvas, guaranteeing that scores of people will see it whether they realized it was there or not.  He cites Open Air, an interactive, iPhone-driven lighting display that lit up the skies of Philadelphia last year as similar example. More famously, there's the light installation along the San Francisco Bay Bridge, which happens to use the same Philips LED lighting system as the Cira Center.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/04/3008594-inline-pong-led-light.jpg" alt=""/>
+</figure>
+
+<p>Lee views his project as a type of "hack art" that takes an existing structure and modifies it to create something of a completely different character. A building is, by definition, static and cold, its only relationship with people being to shelter them from the elements. But by hacking into its lighting system and writing some custom code, a team of engineers has turned a lifeless structure into something not only interactive, but fun.</p>
+
+<p>Some gaming enthusiasts would be tempted to port more complex, modern game to the side of a building. Holder and Barrowclift are quick to crack jokes about programming a version of the gory shoot-em-up classic Doom for the entire city to see. Of course, that would never work on the side of the Cira Center, which can barely support a game as simple as Space Invaders. Instead, they've gone with something so minimalistic, it contains little more than the raw mechanics of a game. Less wouldn't have it any other way.</p>
+
+<p>"I love constraints," he says. "If you look throughout history, constraints provide impetus for creativity. Because you can't do something, somebody tries to come up with a way to do it. I also love the fact that it's low resolution. Because if it's high resolution, it's just a big display."</p>
+
+<p>What fun would that be?</p>
+
+<p>[<em>Image: Flickr User <a href="http://www.flickr.com/photos/michaelwm25/2524767498/" target="_blank">Michael Murphy</a></em>]</p>
