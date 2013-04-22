@@ -1,0 +1,104 @@
+<p>Who wouldn't want to be a data scientist, the latest glamor job of the Nerd World? GigaOm told us <a href="http://gigaom.com/2013/04/16/how-to-hire-data-scientists-and-get-hired-as-one/" target="_blank">how to find one or be one</a>. Wired said <a href="http://www.wired.com/wiredenterprise/2013/04/phd-data-scientist" target="_blank">you don't need a Ph.D. in Mathematics to be one</a>. You can even be an amateur data scientist, and Smart Data Collective has picked the <a href="http://smartdatacollective.com/vincentg64/119016/amateur-data-scientist-and-her-projects" target="_blank">sample projects to start with</a>. Unable to resist any longer, I signed up to spend a month of immersion, hoping to emerge a newly-minted data scientist.</p>
+
+<p>I went to Turin, Italy to participate in the first <a href="http://www.bigdive.eu/" target="_blank">Big Dive</a>, which bills itself as “a training program to boost the technical skills needed to dive into the big data universe.” It would cover development, visualization and data science.</p>
+
+<p>Our deep dive into big data took place at the <a href="http://www.bigdive.eu/whenwhere/" target="_blank">Casa del Pingone</a>, a XVth century house decorated with medieval frescos and a positive association with espresso machines. By the end of the course, Fariba, my gelato-loving Iranian physicist project partner, and I had nothing for our final presentation the next morning. We had failed to extract any insight from a week's worth of Twitter data. The sight of our classmates purposefully completing their presentations felt intolerable, and I fled to the park and seriously considered not going back.</p>
+
+<p><br />
+<h2><a name="The_Ice_Breaker">The Ice Breaker</a></h2></p>
+
+<p>My qualifications as a wannabe data scientist included my background in Machine Learning from the previous millennium, attendance at one <a href="http://strataconf.com" target="_blank">Strata Conference</a>, and the publication of a few <a href="http://radar.oreilly.com/ciarab" target="_blank">articles on big data applications</a>. I wasn't sure I was ready for the challenge, but since even data scientists themselves <a href="http://www.theodi.org/blog/what-is-data-science-really" target="_blank">couldn't seem to agree on what a data scientist did</a>, I decided, how hard could it be? <br />
+<figure class="inline-video inline"><iframe src="http://www.youtube.com/embed/7ql2z_31VrQ?rel=1&amp;autoplay=0" width="631" height="380" frameborder="0"></iframe><figcaption>Big Dive Teaser</figcaption></figure></p>
+
+<p>Big Dive's grab bag of technologies included TurboGears2, Hadoop MapReduce, MongoDB, as well as Python-based tools for machine learning and network science and libraries such as D3 for visualization. It was an challenging program for a seriously-lapsed developer like myself. My Big Dive classmates included software developers, data analysts, and an eclectic mix of scientists—a surprising number of theoretical physicists who'd turned their attention to social networks.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/04/3008620-inline-jake-klamka.jpg" alt=""/></figure>
+
+<p>"The biggest blocker (for scientists) is code," says Jake Klamka, Founder of the <a href="http://insightdatascience.com" target="_blank">Insight Data Science Fellows Program</a>, an intensive six week postdoctoral training fellowship in data science. “Going from coding in a scientific context to development at the level that technology companies do it, learning computer science fundamentals and software engineering best practices. You can't walk into an interview at Facebook or Square and say 'I just do<a href="http://en.wikipedia.org/wiki/MATLAB" target="_blank"> MATLAB</a>'."</p>
+
+<p>For software developers there are different challenges. “Engineers think about building things," Klamka explains. "Data science is about asking the right questions. That's what scientists are phenomenally good at,” Klamka explains. On the other hand, neither the scientists nor the software developers knew anything about visualization.</p>
+
+<h2><a name="How_To_Approach_Data">How To Approach Data</a></h2>
+
+<p>We were instructed to first acquire and parse the data, then filter out information which was not of interest, mine to find patterns, and finally to capture significant patterns in a visual representation. We would be using visualization as a means to explore the data, to sketch using code, and to present the final result.</p>
+
+<p>“Data is invisible,” said our lavishly mustachioed visualization instructor, Giorgio. “to create a map between visual elements and abstract information, we need a visual language which has the same complexity and capabilities as a spoken language.” <br />
+<figure class="inline-small inline"><br />
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/04/3008620-inline-lucas-expenses-visualizations.jpeg" alt=""/><br />
+</figure>Luca's visualization sketches<br />
+The palette of visual elements included colour, positioning, orientation, size, shape, style, and texture. We were all, developers and physicist alike, to become data cartographers.</p>
+
+<p>Our first exercise used <a href="http://fatfonts.org/" target="_blank">FatFonts</a>, a  numerical typeface where the amount of pixels or ink used is proportional to the number represented. The biggest mistake, we were told, was to create a visualisation which was mere eye candy and did not express an insight clearly. What to represent is always more important than how to represent it.</p>
+
+<p>“Visualization is extemely hard, “ says Klamka. “In our program I almost discourage people from doing visualization projects. The visualization has to communicate instantly a very precise piece of information. It has to be dead simple.” However, before we could visualize anything, we needed some data.</p>
+
+<h2><a name="Start_With_Small_Data">Start With Small Data</a></h2>
+
+<p>Our first real-world data set was supplied by the regional government of Piemonte in Turin, which was <a href="http://articles.chicagotribune.com/2012-09-28/news/sns-rt-us-italy-corruptionbre88r14m-20120928_1_political-parties-piedmont-regional-government" target="_blank">in the midst of a scandal</a>. Suspiciously high meeting expense claims by the government's councillors (Consiglieri Regionali) were causing uproar in the region. In response to the allegations, the government published the expense claim data from the previous year. Councillors could claim an attendance fee for each meeting, whether it was an official meeting in the council chamber or with external parties offsite, and for mileage when travelling to meetings. This was not Big Data. The <a href="http://www.ilgiornale.it/static/docs/all_3_consiglieri_2011_.pdf" target="_blank">entire data set</a> consisted of a few spreadsheets.</p>
+
+<p>The project team consisted of several developers, a computer scientist, a data analyst and me. Where to start? Hilary Mason is the chief scientist at <a href="http://bitly.com/" target="_blank">Bitly</a>. “The hardest part of data science is understanding a problem,” she says. “People often assume that all of the answers are in the data, and that domain knowledge is a secondary concern. In fact, it's often the other way around. The data provides the context to make a decision.”</p>
+
+<p>Marcello and I researched the background and added extra information—how the regional government worked, the rules for expense claims, the salaries, professions, parties and genders of the councillors. Roberto, the data analyst, and the only one of us with any data experience, sliced-and-diced the data using Excel pivot tables—claims per person per party, age and education distributions of councillors, attendance records. The developers tinkered with <a href="http://www.json.org/" target="_blank">JSON dictionaries</a> and <a href="http://d3js.org/" target="_blank">D3 plugins</a>. As a group, we came up with many good questions but no interesting answers.</p>
+
+<p>Days passed and we still weren't getting anywhere. Then Roberto made a discovery. He found that, based on the expense claims, there were two peaks in meeting attendance during the year: The month of May, just before the summer break, and August. Italians go on holiday in August and there are no official meetings in the council chamber in that month. Members of the ruling <a href="http://en.wikipedia.org/wiki/The_People_of_Freedom" target="_blank">Popola della Liberta</a> political party (headed by disgraced Prime Minister Silvio Berlusconi) claimed more per person in August than any other party.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/04/3008620-inline-sum-meetings-month.jpg" alt=""/>
+</figure>
+
+<p>Luca converted the data into a JSON dictionary and after much wrangling about the choice of visualisation, Kevin coded up a <a href="http://piemonte.herokuapp.com/" target="_blank">simple streamgraph</a> showing expense claims totals for each party across the year. The regional government <a href="http://www.corriere.it/cronache/12_ottobre_02/piemonte-bocciati-tagli-ai-rimborsi_8cd09b9a-0c95-11e2-a61b-cf706c012f27.shtml" target="_blank">eventually introduced cost cutting measures</a> eliminating claims for meetings organised by external parties.</p>
+
+<p><a href="http://mathbabe.org/" target="_blank">Cathy O' Neil</a> is a data scientist at Johnson Research Labs. “Not every problem can be solved with data, “ she insists. “Some problems are really political or systemic and won't give way just because we have really excellent data with which to track them. That's analogous to thinking that if we only knew how many calories we ate, we'd all suddenly be the perfect weight.“</p>
+
+<h2><a name="Wham_Pow_MapReduce">Wham! Pow! MapReduce!</a></h2>
+
+<p>Next up, a tour of machine learning and network science. Machine Learning algorithms can "learn" from data, though what is learned can vary widely. A regression algorithm might be used to predict the price of the next house sold in your neighborhood given its attributes. A neural network can be trained to classify a tumour as cancerous or benign based on previous results. Clustering algorithms are used by Amazon to make personalized recommendations by assigning you to a bucket of “similar” buyers.</p>
+
+<p>Network science is the study of complex networks which can be studied like natural phenomena. In the Big Data context, these are mainly networks created by human behavior: global airline routes, the structure of your Facebook network, how information flows through Twitter. We learnt the difference between a <a href="http://en.wikipedia.org/wiki/Clique_%28graph_theory%29" target="_blank">clique</a> and <a href="http://en.wikipedia.org/wiki/Small-world_network" target="_blank">a small world</a> and wrote simple Python scripts to find the person in our Facebook network with the highest “<a href="http://en.wikipedia.org/wiki/Betweenness_centrality" target="_blank">betweenness centrality</a>” (That's you, <a href="http://www.litalmarom.com/" target="_blank">Lital Marom</a>) and the world's most connected airport.</p>
+
+<p>For our final project, we were given a 10% sampling of seven days of global Twitter data from the height of the Arab Spring, the week that <a href="http://www.bbc.co.uk/news/world-middle-east-12433045" target="_blank">Hosni Mubarak resigned as president of Egypt</a>. The data for the entire week was over 120 GB. Our job was to find a needle of insight in this haystack of tweets. Our excavation tool was <a href="http://aws.amazon.com/elasticmapreduce/" target="_blank">Amazon Elastic Mapreduce</a>, which for some reason I kept calling Madreduce.</p>
+
+<p>Mapreduce does something very simple but very powerful. The main bottleneck in operations on large data sets is reading in the data. Even if you can ramp up the input speed to 50 MB/second, it takes at least 8 hours to read in a terabyte. The solution is to split the data up into disjoint subsets, store each subset on a single disk, use local CPUs to perform an operation simultaneously on each subset, and then put the results together to produce a final answer. With MapReduce you could spin up as many CPUs as you liked to scan through the Twitter data and find say, the most retweeted tweet on a particular day. It still took several hours to run a simple operation on a single day's worth of data.</p>
+
+<h2><a name="Testing_A_Hypothesis_Hoping_For_A_Story">Testing A Hypothesis, Hoping For A Story</a></h2>
+
+<p>Luckily for me, my project partner, Fariba, the Iranian astrophysicist, knew not only Python but some Arabic, too. We decided to restrict our investigations to tweets from the Middle East. Tweets don't include a location, but they do usually have a timezone, which we used for rough filtering. MapReduce laboured for hours looking for significant increases or decreases in the volume of tweets from various countries over the week. <br />
+<div class="caption"><figure class="inline-large inline"><br />
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/04/3008620-inline-ciara-fariba-cropped.jpg" alt=""/><br />
+</figure>Ciara and Fariba getting nowhere fast</div></p>
+
+<p>On one particular day, the results seemed to show that Cairo had disappeared entirely from Twitter. Had the Egyptian government shut down Twitter? The answer turned out to be less exciting. I had excluded part of the data set from the Mapreduce operation by misusing an index.</p>
+
+<p>More questions, more overnight calculations, and none of our hypotheses panned out. In a last ditch effort, Fariba wrote a script to analyse the text (not the hashtags) of all the tweets from the Middle East and find the words most commonly used on each day of the week. There was only one problem. The script kept failing to complete to MapReduce. So there we were on the last afternoon: Fariba still tinkering with the script, me eating pizza in the park.</p>
+
+<p>On the following morning, the project presentations were about to start. There was no sign of Fariba. I had prepared a presentation explaining why I was a failed data scientist. Fariba finally arrived, turned to me and said “Did you see my presentation on Dropbox?” The latest script had miraculously run overnight. From the results she had created a wordcloud of the words most used by Twitter users in the Middle East on each day of the week after Mubarak's resignation. I scanned through it, elated. It told a story.</p>
+
+<p>On Friday, Feb 11, 2011 the Egyptian president resigned and an army council took over the country. For the next two days the talk on Twitter was first celebratory and then started to include words like “protestors”, “police” and “missing”  as the military announced that it <a href="http://www.guardian.co.uk/world/2011/feb/13/egypt-military-rejects-swift-power-handover" target="_blank">intended to retain power</a> for 6 months or more while elections are scheduled. <br />
+<div class="caption"><figure class="inline-large inline"><br />
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/04/3008620-inline-day4-twitter.jpg" alt=""/><br />
+</figure>Feb 14th 2011: Most commonly used words on Twitter in the Middle East</div></p>
+
+<p>On day four the dominant phrase on Twitter was “<a href="http://connectedincairo.com/2012/04/23/e-humor-in-egypt-the-man-behind-omar-suleiman-meme/" target="_blank">TheGuyBehindOmarSuleiman</a>”. This mysterious individual, who appeared behind the Egyptian vice-president during his speeches throughout the unrest, suddenly obsessed the entire region. No-one knew his name, or his role. (He was later <a href="http://www.aawsat.net/2011/02/article55247400" target="_blank">identified as Egyptian army lieutenant Colonel Hussein Sharif</a>) but his appearance spawned a Facebook page, a YouTube song, numerous photoshopped images and a deluge of jokes on Twitter.) <br />
+<figure class="inline-large inline"><br />
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/04/3008620-inline-guy-behind-omar.jpg" alt=""/><br />
+</figure></p>
+
+<aside class="pullquote"><q>عاجل: بعد اتساع شهرة الراجل للي ورا عمر سليمان، عمر سليمان يغير اسمه إلى الراجل للي قدام الراجل للي ورا عمر سليمان<br />
+@moeBelal: Breaking news: After the fame of the guy behind Omar Suleiman, Omar Suleiman decided to change his name to become the guy in front of the guy behind Omar Suleiman</q></aside>
+
+<p>Egyptians had found a way to criticize the military leadership and have a good laugh at the same time. We had something.</p>
+
+<h2><a name="What_Data_Is_Good_For">What Data Is Good For</a></h2>
+
+<p>If my experiences are anything to go by, data scientists are a bit like the <a href="http://www.sarahlundsweater.com/" target="_blank">sweater-wearing, Danish detective Sarah Lund</a> from “<a href="http://en.wikipedia.org/wiki/The_Killing_%28Danish_TV_series%29" target="_blank">The Killing</a>”, who is always obsessively pursuing a line of inquiry which rarely turns out to be the correct one. In “The Killing” she eventually gets it right. As aspiring data scientists, we often didn't.</p>
+
+<p>“The biggest challenge is making something useful,“ says Klamka. ”To go from looking for insights in data where the end-goal is to publish a paper, to the goal of providing value to a business. Not 'Is this interesting?' but 'Is this useful'? ”</p>
+
+<p>O'Neil warns against underestimating the depth of mathematical knowledge required. “People think they can do real data scientist work without understanding the math underlying the algorithms,” she comments “but most of the time there are weird results before you make things work. You can only really understand those weird results if you understand the mathematical engines.”</p>
+
+<p>Being a data scientist may require deep technical skill, but there's another dimension that's just as important. “Data science is not just about number-crunching,“ Klamka concludes. “It's all about people. The data comes from what people are doing, great data scientists have an ability to understand people and the ideal result is something which is going to help people.”</p>
+
+<hr />
+
+<p><em>[Image by <a href="http://www.flickr.com/photos/r00s/5459270241/sizes/o/in/photostream/" target="_blank">Rosa Menkman</a> on Flickr.]</em></p>
