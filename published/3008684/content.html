@@ -1,0 +1,32 @@
+<p>We asked Andrew Hogue, Foursquare’s head of data and search, how his team uses millions of data points to decide what to build (or not to build) next. You can see another excerpt from this interview--about the first-time user experience--in this article.</p>
+
+<p><p class="interview-question">How do data turn into features?<br />
+</p></p>
+
+<p><p class="interview-answer">Almost everything that we do with data, we have some English language notion of what we want first. For example, trending places: We want new and notable places that just opened up; or we want places that are popular right now; or we want to do a good job for the query “espresso.” There’s all these things that I can convey to you in English, but then there’s a big gap to the way the computer understands the problem. So data science is really just a matter of taking human ideas of what’s a good product and mashing the technology together so that it’s more human.  </p></p>
+
+<p><p class="interview-question">Is that how the process actually works in practice? </p></p>
+
+<p><p class="interview-answer">Somebody comes up with the human terms first, and then it’s a matter of translating it back into the data. Sometimes the data kind of speaks for itself. This great wine bar just opened up--why don’t we see that in the app somewhere? We say: Okay, we seem to have have a desire to show new venues in the app. Then, we start digging into the data, saying, we’ll just take everything that’s been created in the last month.  Well--that’s a million places, so that approach is not going to work. How do we cut that back to include only the places that are really interesting? It becomes this kind of iterative process, where you’re like hacking away at ideas and kind of combining them. In the “showing new venues” case, we end up taking places in the last four months which have a high number of average check-ins, and their check-ins are kind of spread out over time so we aren’t getting venues which are really events. (Often times, someone will create an event like a farmers market for one week--you don’t want to put that in the new venues because it’s not going to be there anymore by the time we show it to you.)</p></p>
+
+<p><p class="interview-question">Take the perspective of a start-up with some traction: Should they think in terms of features as well?     </p></p>
+
+<p><p class="interview-answer">I think so, yes. Otherwise, the data are going to tell you a thousand different things. If you pick one feature at random and build it, but there’s no guarantee that it’s actually going to be interesting to any actual person, or maybe it’s interesting to a very small fraction of people. That’s not a good thing to build a business on. IThat’s definitely a trap that you fall into: You think this is a great data-driven feature and you build the whole thing--then all of the sudden you realize that only 0.01 percent of the population cares about that thing. Whereas, if you start from more human terms you can have a rational discussion among, not just engineers, but also new product people and new eye designers and researchers. You figure out how this feature idea is actually interesting--do people really do want to know what the new places are? Or are they more interested in where to go for ice cream after dinner?</p></p>
+
+<p><p class="interview-question">Can data be used as a constraint when there are too many nebulous feature ideas floating around?</p></p>
+
+<p><p class="interview-answer">Yes, that’s another danger. What you’re saying is that the sky’s the limit on like the human side of things that you want to build--but the data might just not be there, right? You can spend all your time and build kind of a half-baked thing because you don’t actually have enough information to do that. I think that there’s a spot in the middle, but it takes smart people on both sides to be able to say there’s a great idea here or to be able to say no. Saying no is actually the hard part. Everyone wants to build the next great, amazing idea, but if the data doesn’t actually support it.</p></p>
+
+<p><p class="interview-question">How do you narrow down which features are legitimately supported by data? Is there some marker or signal that you look for?  </p></p>
+
+<p><p class="interview-answer">It’s just a matter of experience. After you’ve done this enough times and failed enough times and succeeded a few times, hopefully, you start to recognize the hallmarks of this is a good idea. There’s no magic bullet--like if you only had at least 10,000 data points that would be enough, or that any idea that passes 10,000 data points make sense. You should always be experimenting.</p></p>
+
+<hr />
+
+<aside class="info"><div class="info-inner"><p>This article branches off a longer story we’re tracking: <a href="http://www.fastcolabs.com/3008621/what-you-need-know-about-data" target="_self">Things To Know About Data Science.</a></p></div></aside>
+
+<h3><a name="Want_to_know_more_about_how_data_science_effects_app_development_Were_tracking_urlhttpwwwfastcolabscom3008621whatyouneedknowaboutdataThings_To_Know_About_Data_Scienceurl">Want to know more about how data science effects app development? We’re tracking <a href="http://www.fastcolabs.com/3008621/what-you-need-know-about-data" target="_self">Things To Know About Data Science</a>.</a></h3>
+
+<hr />
+
+<p>[Image by <a href="http://www.flickr.com/photos/itchys/513581047/sizes/o/in/photostream/" target="_blank">itchys</a> on Flickr]</p>
