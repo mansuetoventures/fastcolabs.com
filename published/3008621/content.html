@@ -1,0 +1,83 @@
+
+
+<aside class="info"><div class="info-inner"><p>Big Data: it's a big story with big developments. Starting with this article, we'll branch into more features and add expert interviews, expanding our coverage and understanding of this complex subject. Add your influence to the direction of this story by <a href="http://www.twitter.com/deciara" target="_blank">tweeting the author</a>.</p></div></aside>
+
+<p>Take lots of data and analyze it. That’s what data scientists do and it’s yielding all sort of conclusions that weren’t previously attainable. We can discover how our <a href="http://www.nytimes.com/2013/03/24/nyregion/mayor-bloombergs-geek-squad.html?pagewanted=all&amp;amp;_r=3&amp;amp;%5Dcities" target="_blank">cities are run</a>, <a href="http://www.fastcolabs.com/3007178" target="_self">disasters are tackled</a>, <a href="http://www.economist.com/news/business/21575820-how-software-helps-firms-hire-workers-more-efficiently-robot-recruiters" target="_blank">workers are hired</a>, <a href="http://venturebeat.com/2011/09/23/crimesourcing-crime-as-a-service-and-how-data-criminals-are-like-startup-employees/" target="_blank">crimes are committed</a>, or even how <a href="http://strata.oreilly.com/2013/03/saint-james-infirmary-checking-the-pulse-of-health-it-at-himss.html" target="_blank">Cupid's arrows find their mark</a>, conclusions derived from data is affecting our lives and is likely to shape much of the future.</p>
+
+<p>This story will track the techniques, technologies, tools and people behind the Big Data curtain. From data scientists to data skeptics, Big Data technologies to DIY visualization tools, we will cover everything that the data-curious developer, or budding data enthusiast, needs to know about data.</p>
+
+<hr />
+
+<h2><a name="Updates">Updates</a></h2>
+
+<p><strong>The rush to "simplify" big data is the source of a lot of reductive thinking about its utility.</strong> Data science practitioners have <a href="http://mathbabe.org/2013/04/04/k-nearest-neighbors-dangerously-simple/" target="_blank">recently been lamenting</a> how the data gold rush is leading to naive practitioners deriving misleading or even downright dangerous conclusions from data.</p>
+
+<p>The Register recently <a href="http://www.theregister.co.uk/2013/02/13/open_and_shut/" target="_blank">mentioned two trends</a> which may reduce the role of the professional data scientist before the hype has even reached its peak. The first is the embedding of Big Data tech in applications. The other is <a href="http://blogs.gartner.com/svetlana-sicular/data-scientist-mystified/" target="_blank">increased training for existing employees who can benefit from data tools</a>.</p>
+
+<blockquote><p>"Organizations already have people who know their own data better than mystical data scientists. Learning Hadoop is easier than learning the company’s business." </p></blockquote>
+
+<p>This trend has already taken hold in data visualization where tools like <a href="http://infogr.am/" target="_blank">infogr.am</a> are making it easy for anyone to make a decent looking infographic from a small data set. But this is exactly the type of thing which has some data scientists worried. Cathy O' Neil (aka <a href="http://mathbabe.org/" target="_blank">MathBabe</a>) has the following to say <a href="http://mathbabe.org/2013/04/04/k-nearest-neighbors-dangerously-simple/" target="_blank">in a recent post</a>:</p>
+
+<blockquote><p>"It’s tempting to bypass professional data scientists altogether and try to replace them with software. I’m here to say, it’s not clear that’s possible. Even the simplest algorithm, like k-Nearest Neighbor (k-NN), can be naively misused by someone who doesn’t understand it well."</p></blockquote>
+
+<p><a href="http://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm" target="_blank">K-nearest neighbours</a> is a clustering algorithm which allows you to automatically discover categories based on examples of something, let's say visitors to your web site, by putting them into clusters of "similar" visitors based on their attributes. But while the algorithm is simple, selecting the correct settings and knowing that you need to <a href="http://en.wikipedia.org/wiki/Feature_scaling" target="_blank">scale feature values</a> (or verifying that you don't have many redundant features) may be less obvious.</p>
+
+<blockquote><p>You would not necessarily think about this problem if you were just pressing a big button on a dashboard called “k-NN me!”</p></blockquote>
+
+<hr />
+
+<p><strong>Here are four problems which typically arise from a lack of scientific rigor in data projects.</strong> Anthony Chong, head of optimization at <a href="http://www.adaptly.com/" target="_blank">Adaptly</a>,<a href="http://www.forbes.com/sites/ciocentral/2013/04/01/the-dangers-of-cargo-cult-data-science/" target="_blank"> warns us to look out for "science" with no scientific integrity</a>.</p>
+
+<blockquote><p>Through phony measurement and poor understandings of statistics, we risk creating an industry defined by dubious conclusions and myriad false alarms... What distinguishes science from conjecture is the scientific method that accompanies it.</p></blockquote>
+
+<p>Given the extent to which conclusions derived from data will shape our future lives, this is an important issue. Chong gives us four problems which typically arise from a lack of scientific rigor in data projects, but are rarely acknowledged.</p>
+
+<ol>
+  <li><span>Results not transferrable</span></li>
+  <li><span>Experiments not repeatable</span></li>
+  <li><span>Not inferring causation: Chong insists that the only way to infer causation is randomized testing. It can't be done from observational data or by using machine learning tools which predict correlations with no causal structure. </span></li>
+  <li><span>Poor/statistically insignificant recommendations.</span></li>
+</ol>
+
+<p>Even when properly rigorous, analysis often leads to nothing at all. From Jim Manzi's 2012 book, <u>Uncontrolled: The Suprising Payoff of Trial-and-Error for Business</u>:</p>
+
+<blockquote><p>"Google ran approximately 12,000 randomized experiments in 2009, with [only] about 10 percent of these leading to business changes.”</p></blockquote>
+
+<hr />
+
+<p><strong>Understanding data isn't about your academic abilities—it's about experience.</strong> Beau Cronin has some words of encouragement for engineers who specialize in storage and machine learning. Despite all the backend-as-service companies sprouting up, it seems there will always be a place for someone who truly understands the underlying architecture. Via <a href="http://radar.oreilly.com/2013/04/a-different-take-on-data-skepticism.html" target="_blank">his post at O'Relly Radar</a>:</p>
+
+<blockquote><p>I find the database analogy useful here: Developers with only a foggy notion of database implementation routinely benefit from the expertise of the programmers who do understand these systems—i.e., the “professionals.” How? Well, decades of experience—and lots of trial and error—have yielded good abstractions in this area.... For ML (machine learning) to have a similarly broad impact, I think the tools need to follow a similar path.</p></blockquote>
+
+<hr />
+
+<p><strong>Want to climb the mountain? Start learning about data science here.</strong> If you know next to nothing about Big Data tools, <a href="http://greendatacenterconference.com/blog/top-ten-emerging-big-data-technologies/" target="_blank">HP's Dr. Satwant Kaur's 10 Big data technologies </a> is a good place to start. It contains short descriptions of Big Data infrastructure basics from databases to machine learning tools.</p>
+
+<p><a href="https://dl.dropboxusercontent.com/u/45085154/meetup/mapreduce-100329102056-phpapp02.pdf" target="_blank">This slide show</a> explains one of the most common technologies in the Big Data world, MapReduce, using fruit while Emcien CEO Radhika Subramanian <a href="http://smartdatacollective.com/radhikaatemcien/104206/de-mystifying-hadoop-not-all-problems-are-hadoop-able" target="_blank"> tells you why not every problem is suitable for it's most popular implementation Hadoop</a>.</p>
+
+<blockquote><p>"Rather than break the data into pieces and store-n-query, organizations need the ability to detect patterns and gain insights from their data. Hadoop destroys the naturally occurring patterns and connections because its functionality is based on breaking up data. The problem is that most organizations don’t know that their data can be represented as a graph nor the possibilities that come with leveraging connections within the data."</p></blockquote>
+
+<p>Efraim Moscovich's <a href="http://www.ca.com/~/media/Files/About%20Us/CATX/big-data-for-conventional-programmers-moscovich.pdf" target="_blank">Big Data for conventional programmers</a> goes into much more detail on many of the top 10, including code snippets and pros and cons. He also gives a nice summary of the Big Data problem from a developer's point of view.</p>
+
+<blockquote><p>We have lots of resources (1000s of cheap PCs), but they are very hard to utilize.<br />
+We have clusters with over 10k cores, but it is hard to program 10k concurrent threads.<br />
+We 1000s of storage devices, but some may break daily.<br />
+We have petabytes of storage, but deployment and management is a big headache.<br />
+We have petabytes of data, but analyzing it is difﬁcult.<br />
+We have a lot of programming skills, but using them for Big Data processing is not simple.</p></blockquote>
+
+<p><a href="http://www.infochimps.com/" target="_blank">Infochimps</a> has also created a nice overview of data tools (which features in Techcrunch's <a href="http://techcrunch.com/2012/10/27/big-data-right-now-five-trendy-open-source-technologies/#comment-box" target="_blank">top 5 open source projects article</a>) and what they are used for.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/04/3008621-inline-infochimps-datatools.jpg" alt=""/>
+</figure>
+
+<p>Finally, GigaOm's <a href="http://gigaom.com/2012/12/18/a-programmers-guide-to-big-data-12-tools-to-know/" target="_blank">programmer's guide to Big Data tools</a> covers an entirely disjoint set of tools weighted towards application analytics and abstraction APIs for data infrastructure like Hadoop.</p>
+
+<hr />
+
+<h3><a name="Were_updating_this_story_as_news_rolls_in_Check_back_soon_for_more_updates">We're updating this story as news rolls in. Check back soon for more updates.</a></h3>
+
+<hr />
+
+<p><em>[Image by TKTKT]</em></p>
