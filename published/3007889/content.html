@@ -1,25 +1,12 @@
-<p>The point of <a href="http://getyounity.com" target="_blank">Younity</a>, the personal cloud that <a href="https://docs.google.com/file/d/1ioIrT3qgNN-5r85ibmg_nT1RDIy5G64SayDthY0SUzH01tc3zqOgW9oRGKC0/edit?usp=sharing" target="_blank">launched a major release today</a>, is to make all of your data available across all of your devices cheaply and seamlessly.</p>
+<p>Earlier this month Google announced the Google Drive SDK for developers, with an interesting <a href="http://" target="_blank"></a>: Drive a special place where application data can be stored securely. The new properties let developers add searchable fields to data created in Drive. As Shane Shick <a href="http://" target="_blank"></a>:</p>
 
-<p>We asked the folks at Younity about how developers can help eliminate the distinction between online and offline files so that users don't have to think about where a file lives. Their solution: a patented "ubiquitous data protocol," which is specifically designed to change the address of a file from a hard drive to an identity.</p>
+<blockquote><p>The key word here is 'searchable.' While Google has often been criticized for spreading itself too thin by launching products that are only tangentially related to its original core competency, App Data Folders shows the company staying true to its mission of trying to organize the world's information. </p></blockquote>
 
-<figure class="inline-video inline"><iframe src="http://www.youtube.com/embed/OiIkzJ0QPAE?rel=1&amp;autoplay=0" width="631" height="380" frameborder="0"></iframe></figure>
+<p>This is Google's way of making sense of the segmentation that cloud storage has inflicted upon early adopters: Instead of trying to solve the problem from a storage perspective--e.g., allow Drive to hold all sorts of file types--the company has chosen to attach segmentation from the app side, making it easier for various third-party clients to find information that's stored in Drive.</p>
 
-<p><p class="interview-question">How should developers think about the concept of the file system going forward?</p></p>
+<p>As Shick notes, this is in contrast to the way Apple's iCloud works; in the latter, neither developers nor their apps have programmatic access to the contents of a user's iCloud account, at least beyond files created by that app itself. In Apple's model, the goal (for Apple) is to incentivize developers to rewrite their apps with a document-based data model, so their third-party apps store everything in iCloud. (In practice, iCloud has <a href="http://www.jumsoft.com/2013/01/response-to-sync-issues/" target="_blank">known sync issues</a> with relational DBs created in CoreData.)</p>
 
-<p><p class="interview-answer">I would suggest to developers that they stop thinking about either/or, when it comes to cloud vs. local data. The problem with data is managed in isolation and treated as unique. So a photo on one device has no relationship to its copy elsewhere. Certainly, there are occasions when duplicates are not meant to be the same. But in many cases we are simply moving files around for use and access on different devices. This is a big problem. It is forecast that the typical American will have 5.8 devices by 2015 and that there is over 2 terabytes of files per household now. Most devices won't accommodate <em>all</em> our files. If files are stuck on one device, they are isolated, so we look to the cloud to establish a single place to keep things. However, if we put all our files into the cloud, it will cost thousands of dollars a year. The economics of the "consumer cloud" is a massively limiting factor. We know enterprises will pay for high-value services, but it is no secret that consumers like cheap or free. This brings us to where we are today: We use a litany of online services that only include small subsets of our data and files and thus become a burden because we are actually managing more.</p></p>
-
-<p><p class="interview-question">Why is that not optimal?</p></p>
-
-<p><p class="interview-answer">In reality, none of us (as individual users) care where files are as long as we can access them at any time we wish. We don't care if they are online or offline; we only care if they are available. I'll put them all online if that makes them available all the time, but the truth is that it is unlikely that things will never be on local storage. More to the point, there is no reason for that at all. That means there is a likely (I'd say inevitable) trend that data will be stored locally <em>and</em> online. Even now, huge volumes of files and media are being spread across all our devices. So if you're a developer and building out some application, you need to embrace this reality. You need to accept that it can't be either/or; it must be both.</p></p>
-
-<figure class="inline-large inline">
-<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/04/3007889-inline-inline-1-how-one-new-service-tackling-death-file-system.jpg" alt=""/>
-</figure>
-
-<p><p class="interview-question">How does Younity identify files as being the same, across different drives and OSes?<br />
-</p></p>
-
-<p><p class="interview-answer">We fingerprint files based upon their contents to determine if they are the same across different devices. We also map the various "canonical root" directories across the various operating systems to determine if files reside in the same place, from the perspective of the user. Meaning that Younity will correctly identify the same photo stored on Windows XP as <strong>C:\Documents and Settings\Mike\My Pictures\Birthday.jpeg</strong> and in Mac OS X as <strong>/Users/mike/Pictures/Birthday.jpeg</strong>. So it will appear just once in, say, Younity for iOS, because it is the same file. This, of course, assumes that the two Birthday.jpeg files have exactly the same contents. If they do not, we will treat them as different files. Also, any changes to a file on one device will update the corresponding file on all your other devices. In other words, Younity knows that this is the same file and treats it as the same file in every way across those devices.</p></p>
+<p>Whether Google's or Apple's model is more advantageous remains to be seen, but one clear lesson here has to do with ambition. In the real world, infrastructure is brittle and frameworks have legacy problems. Trying to create a perfect, elegant solution ala iCloud has resulted in <a href="http://appleinsider.com/articles/13/03/29/apples-icloud-disparaged-over-core-data-sync-problems" target="_blank">disaster for the iOS developer community</a>. Merely making cloud files easy to index, as Google is trying to do with the Drive SDK, seems like a more manageable (if less inspiring) approach.</p>
 
 <hr />
 
@@ -44,6 +31,31 @@
 <hr />
 
 <h2><a name="Previous_Updates">Previous Updates</a></h2>
+
+<p>The point of <a href="http://getyounity.com" target="_blank">Younity</a>, the personal cloud that <a href="https://docs.google.com/file/d/1ioIrT3qgNN-5r85ibmg_nT1RDIy5G64SayDthY0SUzH01tc3zqOgW9oRGKC0/edit?usp=sharing" target="_blank">launched a major release today</a>, is to make all of your data available across all of your devices cheaply and seamlessly.</p>
+
+<p>We asked the folks at Younity about how developers can help eliminate the distinction between online and offline files so that users don't have to think about where a file lives. Their solution: a patented "ubiquitous data protocol," which is specifically designed to change the address of a file from a hard drive to an identity.</p>
+
+<figure class="inline-video inline"><iframe src="http://www.youtube.com/embed/OiIkzJ0QPAE?rel=1&amp;autoplay=0" width="631" height="380" frameborder="0"></iframe></figure>
+
+<p><p class="interview-question">How should developers think about the concept of the file system going forward?</p></p>
+
+<p><p class="interview-answer">I would suggest to developers that they stop thinking about either/or, when it comes to cloud vs. local data. The problem with data is managed in isolation and treated as unique. So a photo on one device has no relationship to its copy elsewhere. Certainly, there are occasions when duplicates are not meant to be the same. But in many cases we are simply moving files around for use and access on different devices. This is a big problem. It is forecast that the typical American will have 5.8 devices by 2015 and that there is over 2 terabytes of files per household now. Most devices won't accommodate <em>all</em> our files. If files are stuck on one device, they are isolated, so we look to the cloud to establish a single place to keep things. However, if we put all our files into the cloud, it will cost thousands of dollars a year. The economics of the "consumer cloud" is a massively limiting factor. We know enterprises will pay for high-value services, but it is no secret that consumers like cheap or free. This brings us to where we are today: We use a litany of online services that only include small subsets of our data and files and thus become a burden because we are actually managing more.</p></p>
+
+<p><p class="interview-question">Why is that not optimal?</p></p>
+
+<p><p class="interview-answer">In reality, none of us (as individual users) care where files are as long as we can access them at any time we wish. We don't care if they are online or offline; we only care if they are available. I'll put them all online if that makes them available all the time, but the truth is that it is unlikely that things will never be on local storage. More to the point, there is no reason for that at all. That means there is a likely (I'd say inevitable) trend that data will be stored locally <em>and</em> online. Even now, huge volumes of files and media are being spread across all our devices. So if you're a developer and building out some application, you need to embrace this reality. You need to accept that it can't be either/or; it must be both.</p></p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/04/3007889-inline-inline-1-how-one-new-service-tackling-death-file-system.jpg" alt=""/>
+</figure>
+
+<p><p class="interview-question">How does Younity identify files as being the same, across different drives and OSes?<br />
+</p></p>
+
+<p><p class="interview-answer">We fingerprint files based upon their contents to determine if they are the same across different devices. We also map the various "canonical root" directories across the various operating systems to determine if files reside in the same place, from the perspective of the user. Meaning that Younity will correctly identify the same photo stored on Windows XP as <strong>C:\Documents and Settings\Mike\My Pictures\Birthday.jpeg</strong> and in Mac OS X as <strong>/Users/mike/Pictures/Birthday.jpeg</strong>. So it will appear just once in, say, Younity for iOS, because it is the same file. This, of course, assumes that the two Birthday.jpeg files have exactly the same contents. If they do not, we will treat them as different files. Also, any changes to a file on one device will update the corresponding file on all your other devices. In other words, Younity knows that this is the same file and treats it as the same file in every way across those devices.</p></p>
+
+<hr />
 
 <p><strong>The cloud creates a false sense of security.</strong> <a href="http://www.macstories.net/linked/recovering-from-a-hard-drive-failure/" target="_blank">Federico Viticci at MacStories writes</a>:</p>
 
@@ -201,4 +213,4 @@
 
 <aside class="info"><div class="info-inner"><p>This is a big story, so we're building the article as it develops. As we go along, we'll talk to experts to help make sense of it all. You can influence the direction of this story by <a href="http://twitter.com/chrisdannen" target="_blank">tweeting at the author</a>.</p></div></aside>
 
-<p>[<em>Image: Flickr user <a href="http://www.flickr.com/photos/40360866%40N03/4257198375/in/photostream/" target="_blank">Mauro Puppett</a></em>]</p>
+<p>[<em>Image: Flickr user <a href="http://www.flickr.com/photos/lisgirl/3258337496/sizes/o/in/photostream/" target="_blank">LISgirl</a></em>]</p>
