@@ -1,3 +1,52 @@
+<p><strong>Because of its decentralized design, Bitcoin may be the world’s most permanent digital record-keeping system.</strong> Thanks to a quirk in Bitcoin’s design, any miner can add data to a newly minted block, and anybody can embed a message into a Bitcoin transaction if they don’t mind their money becoming useless.</p>
+
+<p>Bitcoin miners and experimenters have been using these methods to embed data into the system for years. In fact, the first Bitcoin block ever minded contains a message from its pseudonymous creator, Satoshi Nakamoto that alludes to the inspiration for the crypto-currency:</p>
+
+<blockquote><p>The Times 03/Jan/2009 Chancellor on brink of second bailout for banks</p></blockquote>
+
+<p>Looking for messages hidden inside the blockchain is trivially easy. All you need to do is download the <a href="http://bitcoin.org/en/download" target="_blank">original Bitcoin client</a> and execute a simple unix command called “strings” on any of the blockchain database files the client downloads from the network. It turns out that thousands of users have stored in the blockchain, going back to the beginning of the network. In some sense, these messages are the real-time history of a new kind of money coming of age. If Bitcoin survives into the far future and becomes the currency of record, you can imagine historians sifting through the strange mix of IRC-like chatter, artifacts left behind by machines and embedded messages for insights into how the currency developed. They won't come away disappointed.</p>
+
+<p>One of the most popular examples is a tribute to engineer Len Sassaman, which security researcher Dan Kaminsky entered as part of <a href="http://dankaminsky.com/2011/08/05/bo2k11/" target="_blank">an experiment with transactions</a> in 2011:</p>
+
+<p><figure class="inline-gist"><a class="gist-link" href="https://gist.github.com/gabestein/5490295">View on GitHub</a></figure></p>
+
+<p>Here’s another example from before Bitcoin’s recent popularity. Mining pool Eligius, run by a Bitcoin contributor known as “Luke-Jr,” embeds prayers and Bible verses into its blocks. Many of Bitcoin’s anarcho-atheist devotees objected to Luke-Jr’s religious embeds by calling him out both on <a href="https://bitcointalk.org/index.php?topic=38007.0" target="_blank">Bitcoin forums</a> and in the blockchain itself, where you can see the prayers interrupted by random strings, insults and even a rickroll:</p>
+
+<p><figure class="inline-gist"><a class="gist-link" href="https://gist.github.com/gabestein/5490306">View on GitHub</a></figure></p>
+
+<p>As Bitcoin became more mainstream and blocks harder to mine, in-fighting in the blockchain became nearly impossible. Embeded messages became less frequent and less human, reflecting the massive. organized mining pools now needed to discover new blocks:</p>
+
+<p><figure class="inline-gist"><a class="gist-link" href="https://gist.github.com/gabestein/5490422">View on GitHub</a></figure></p>
+
+<p>Recently, however, users have found a new use for Bitcoin’s messaging capabilities: Distributing controversial information. On April 6, 2013, a user deposited code for a python program designed to embed files into the blockchain, which someone later used to <a href="http://www.reddit.com/r/Bitcoin/comments/1bw9xg/data_in_the_blockchain_wikileaks/" target="_blank">embed 2.5MB of WikiLeaks documents.</a></p>
+
+<p>In this way, Bitcoin is starting to become more than just a currency: It’s a <a href="http://globalguerrillas.typepad.com/globalguerrillas/2013/04/bitcoin-as-a-publishing-system-from-wikileaks-to-pedophile-links.html?utm_medium=referral&amp;amp;utm_source=t.co" target="_blank">permanent, distributed publishing system</a>. Because of the way the network verifies transactions, every single user must download the entire ledger (or use an online wallet that stores a copy) to use it. The upshot of this is that if you need to send a message that’s hard to trace but can’t ever be deleted, Bitcoin is the perfect system. Assuming you do it right, your message will be downloaded and shared by hundreds of thousands of clients around the globe - more redundancy than any cloud storage system - and be a part of the blockchain for the rest of the currency’s existence.</p>
+
+<p>Embedding data like WikiLeaks cables into the blockchain is an ingenious way of making sure no government ever deletes them. But the practice has some users worried because of what else someone who wants to bring down Bitcoin might embed.</p>
+
+<p>Yesterday, a long-running fear among Bitcoin enthusiasts was realized when someone embedded a page from <a href="http://en.wikipedia.org/wiki/The_Hidden_Wiki" target="_blank">The Hidden Wiki</a> containing <a href="https://www.torproject.org/" target="_blank">Tor network</a> links to child pornography. As a result, what started as relative innocent insider arguments embedded into the network is now a serious problem for the currency.</p>
+
+<p>At the very least, it poses a publicity problem for the currency as it tries to become more mainstream. There are many folks who will balk at knowing that merely by sending money over the network, they’re potentially downloading and distributing links to illegal material.</p>
+
+<p>The worst-case scenario is far more dire. In most countries, it is illegal to possess and distribute child pornography. By uploading and downloading the blockchain, every user of the system is in some sense guilty of sending millions of others links to illegal material.</p>
+
+<p>Whether or not a government could actually prosecute an individual for downloading the blockchain is one issue, and we’ve reached out to some legal experts for opinions. Some of the more paranoid Bitcoin users are already worried that governments could use the links as an excuse to issue a warrant for and seize any computer that has Bitcoin installed.</p>
+
+<p>Here’s a more interesting and, if you’re a Bitcoin enthusiast, scary thought: the person behind the embedded data probably knows all of this. What if one of Bitcoin’s coolest, hidden features just became an attack vector?</p>
+
+<hr />
+
+<p><br />
+<h3><a name="What_The_Hells_A_Bitcoin">What The Hell's A Bitcoin?</a></h3></p>
+
+<blockquote><p>Bitcoins are a decentralized virtual currency that rely on public-key cryptography. If you buy something with a Bitcoin you're simply transmitting a symbolic token stamped with a complex number that transfers ownership to someone else. Unlike traditional banking, which keeps customer information private, Bitcoin transactions are transparent so the "market" knows when a bitcoin is spent but not the owner's identity. Money supply is increased by users who "mine" bitcoins by dedicating computer processing power to the Bitcoin network. Bitcoins are not regulated by any government or bank, and the currency has seeped into criminal activities. As a result, legislators are threatening crackdowns, and some claim it is a vast scam.</p></blockquote>
+
+<p>From: <strong><a href="http://www.fastcompany.com/1785445/bitcoin-crypto-currency-mystery-reopened" target="_self">The Bitcoin Crypto-Currency Mystery Reopened</a></strong> by <a href="http://www.fastcompany.com/user/adam-l-penenberg" target="_self">Adam L. Penenberg</a> October 11, 2011.</p>
+
+<hr />
+
+<h3><a name="Previous_Updates">Previous Updates</a></h3>
+
 <p>Will paying with Bitcoin soon be as simple as clicking a link? Maybe. The Web Hypertext Application Technology Working Group (WHATWG), which maintains one version of the HTML5 specification, <a href="http://bit.ly/ZNk9Wq" target="_blank">has whitelisted</a> the "bitcoin": URI scheme. This means that browsers conforming to the WHATWG spec can allow websites and OS-level binaries to register themselves as handlers of bitcoin: links, similar to how browsers currently allow mail apps to handle mailto: links.</p>
 
 <p>Christopher Mims, <a href="http://qz.com/78014/bitcoin-is-now-part-of-the-web-sort-of/" target="_blank">writing in Quartz</a>, thinks this could be a big deal for the currency:</p>
@@ -14,17 +63,6 @@
 <p>If nothing else, the recognition underscores one of Bitcoin's key strengths over traditional currencies: It was designed with Internet infrastructure in mind. Much like email, anyone can build a client that handles transactions. Future creators of networks of all kinds would be wise to learn from this example and build their products to be compatible with underlying web infrastructure rather than trying to lock users in.</p>
 
 <hr />
-
-<p><br />
-<h3><a name="What_The_Hells_A_Bitcoin">What The Hell's A Bitcoin?</a></h3></p>
-
-<blockquote><p>Bitcoins are a decentralized virtual currency that rely on public-key cryptography. If you buy something with a Bitcoin you're simply transmitting a symbolic token stamped with a complex number that transfers ownership to someone else. Unlike traditional banking, which keeps customer information private, Bitcoin transactions are transparent so the "market" knows when a bitcoin is spent but not the owner's identity. Money supply is increased by users who "mine" bitcoins by dedicating computer processing power to the Bitcoin network. Bitcoins are not regulated by any government or bank, and the currency has seeped into criminal activities. As a result, legislators are threatening crackdowns, and some claim it is a vast scam.</p></blockquote>
-
-<p>From: <strong><a href="http://www.fastcompany.com/1785445/bitcoin-crypto-currency-mystery-reopened" target="_self">The Bitcoin Crypto-Currency Mystery Reopened</a></strong> by <a href="http://www.fastcompany.com/user/adam-l-penenberg" target="_self">Adam L. Penenberg</a> October 11, 2011.</p>
-
-<hr />
-
-<h3><a name="Previous_Updates">Previous Updates</a></h3>
 
 <p><span class="subhead">April 15-17, 2013</span></p>
 
