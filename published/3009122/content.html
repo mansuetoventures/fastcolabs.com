@@ -1,0 +1,114 @@
+<p>After being stifled by Apple for so long, the Briefs project languished and I threw my efforts into my company, <a href="http://martiancraft.com" target="_blank">MartianCraft</a>, which for the past three years has developed mobile apps for some of the largest companies in the world. Armed with lessons learned from those experiences and a team of amazing developers and designers, I returned to Briefs determined to make the project work.</p>
+
+<p>This time I wasn’t content with a tool just to test app designs. I wanted to drastically improve how designers and developers communicate. Internally the project carried the codename “Project Boo” because the rest of the world knew Briefs as <a href="http://feedproxy.google.com/%7Er/macstoriesnet/%7E3/ZTORrv2lpIg/" target="_blank">the app that Apple wouldn’t let in</a>. Briefs represents nearly 450GB of data on my hard drive. Over 100,000 lines of code. Countless hours of lost sleep and a year's worth of effort from a magnificent team. Art files, focus-stacked press photography, hours of uncut video footage, soundtrack and foley. We even created a new typeface. Designing, building and shipping an app like Briefs is an <strong>involved</strong> production.</p>
+
+<p>Along the way, we ran into some complex design problems, but we've come out the other side--today <a href="http://giveabrief.com/" target="_blank">Briefs for Mac</a> officially <a href="https://itunes.apple.com/us/app/briefs/id626221782?ls=1&amp;amp;mt=12" target="_blank">launches in the App Store</a>. (You can get a <a href="http://giveabrief.com/download.html" target="_blank">free trial here</a>.) Here are five of the biggest user experience dilemmas we worked through to get to launch day, and how we solved them.</p>
+
+<p><br />
+<h3><a name="Fitting_In_With_Existing_Workflows">Fitting In With Existing Workflows</a></h3></p>
+
+<p>The next design challenge we faced was making a tool for designers that would not disrupt their existing workflow. Designers, like many other professionals have countless hours and serious money invested in their existing workflow. Building a tool that aims to dislodge them from the way they already do things was not an option. Instead we chose to build a tool that felt at home alongside the tools designers and developers already use.</p>
+
+<p>images/ebriefs-and-friends.png</p>
+
+<p><em>Briefs and friends.</em></p>
+
+<p>We started with a professional visual appearance for the app that sits somewhere between Adobe’s and Apple’s “pro-style” user interface. There is influence from apps like Final Cut Pro, Adobe’s Photoshop and Illustrator and even developer tools like Xcode. Briefs is a place to composite various design assets together and package them for delivery to developers. This made it important to maintain familarity across these various applications.</p>
+
+<p>There are several instances where we use keyboard shortcuts and other conventions that users of these pro apps have come to expect. They appear in random places and our hope is that users won’t even think about using them. Let’s look at few:</p>
+
+<p>images/lend-me-a-hand.png<br />
+<em>Press spacebar and Briefs will lend you a hand.</em></p>
+
+<p>Holding down the space bar in the main canvas will change the cursor to a hand and allow you to pan around an oversized canvas, just as you do in Photoshop or Illustrator.</p>
+
+<p>images/opt-drag-copy.png<br />
+<em>Quickly make a copy by holding down option and dragging the mouse.</em></p>
+
+<p>Or you can hold option while dragging a selected actor to make a copy of that actor and move that into position.</p>
+
+<p>images/xcode-rip.png<br />
+<em>The device/timeline chooser was heavily influenced by Xcode.</em></p>
+
+<p>To select a device for real-time prototyping using BriefsLive, we use a familiar UI from Xcode 4. This was the most obvious way to solve the problem, but it also provides familiarity for anyone experienced with iOS or Mac development. Those users won’t question that they’re about to send a brief to the device. It’ll just feel like the natural way to do it, because it’s how you build and run an app from Xcode.</p>
+
+<p><br />
+<h3><a name="Pausing_State_When_A_User_Leaves">Pausing State When A User Leaves</a></h3></p>
+
+<p>This was perhaps the biggest hurdle we faced when designing Briefs. When you launch a brief inside of Briefscase, the brief takes over the entire screen. The device’s entire screen *becomes* your prototype. There’s no obvious way to exit the brief. We realized from the start that anything added to the prototype would clash—or worse, blend—with your design and potentially confuse the user.</p>
+
+<p>A brief feels precisely like an app when you’re using it, so a natural instinct is to mash the home button when you’re done. Obviously this will quit our app and return the user to their home screen. What’s not so obvious, is what Briefscase should do when re-launched after that happens. How should we condition users to properly exit a brief?</p>
+
+<p>Amongst our team this dilemma became known as “Oz mode” because the user must pull back the curtain on the illusion to exit the brief. Our first sketch for this mode played on the idea of a _paused brief_ that you would restart similar to restarting a paused movie:</p>
+
+<p>images/original-paused-brief.png<br />
+<em>Original Briefscase Wireframe detailing the “Paused Brief state.</em></p>
+
+<p>We used the familiar play icon to connote the restart action. This would later get refined in our visual comps, allowing the user to switch between *timelines*  (which are different versions of the prototype, often representing different device form factors)  instead of letting them move between the various scenes of a single timeline. This was the design we implemented in early builds of the app, which you can see below next to an earlier visual comp:</p>
+
+<p>images/oz-mode-timeline-variant.jpg<br />
+<em>Evolution of Oz mode, showing thumbing through various timelines.</em></p>
+
+<p>Since the chrome for triggering Oz mode must be invisible, a gesture was a natural fit. Swiping up from the bottom edge of the screen would trigger the mode, causing the playing brief to fade and scale down onto the preview thumbnail. It was an interesting animation, but it was out of place. The user was swiping up from the bottom, but the content did not react appropriately to the swipe. It was visually appealing, but felt wrong.</p>
+
+<p><br />
+<h3><a name="Eliminating_All_Distractions">Eliminating All Distractions</a></h3></p>
+
+<p>Late last year, between Christmas and the New Year, we overhauled the visual design of Briefscase, bringing drastic simplicity to the overall aesthetic. The problem we faced was that our chrome was competing for attention with the user’s prototype. Our final design was more symbolic and abstract, eschewing standard iOS constructs for a simple list. We focused on having screen elements react to the user’s touch so the app would stay true to the expected physical behavior. The aesthetic is very neutral, allowing the content of the brief to take center stage.</p>
+
+<p>When it came time to add Oz mode into the newer design, we removed the full-screen treatment and opted for a tray that would reveal itself when the user swiped from the bottom. This sliver of UI was enough to a convey a sense of going behind-the-scenes without using a dramatic transition. If the user wants to resume, they simply tap the brief, the tray will slide back down, and they’ll continue where they left off. With this new design, if they hit the back arrow they are presented with a simple list of available timelines.</p>
+
+<p>But this still left the problem of what to do if the user mashes the home button and comes back into the Briefscase. We decided that we would re-launch the app at the list of timelines for their brief. This makes the action of the home button equivalent with the combined action of swiping from the bottom and hitting the back arrow. It sounds simple, but providing the same result to the user actually _reinforces_ the desired behavior and helps frame the inner workings of the app against already learned behaviors. Below is the final design for Oz mode, next to a list of timelines shown after relaunching the app or tapping the back button:</p>
+
+<p>images/final-oz-mode-2up.png<br />
+<em>The final Oz mode, next to the timeline selection screen shown after exiting the app with the home button.</em></p>
+
+<hr />
+
+<h5><a name="The_Problem_This_Project_Solves">The Problem This Project Solves</a></h5>
+
+<p>Briefs is a Mac app that lets designers combine lifeless images with motion, sound, and user interaction, to form something more real--more descriptive-- than a normal prototype. Briefs includes a feature called BriefsLive that lets you view and test your designs *right on a device*. Your brief is fully interactive on the device. Tap a button, and it reacts accordingly, and if you make changes to your design while using BriefsLive, those changes show up *immediately* on the device, still fully interactive. Once a brief has been created, it can be sent to Briefscase, the companion iOS player. In Briefscase, the mockup becomes an interactive prototype that looks and feels the way your actual app will: It's an illustration that happens to look, feel and react just like an app.</p>
+
+<hr />
+
+<p><br />
+<h3><a name="Viewing_Everything_From_A_High_Level">Viewing Everything From A High Level</a></h3></p>
+
+<p>There are many roles on larger design teams that can range from Interaction Designer (ID) to Visual Designer and Production Assistant. IDs tend to focus on interactions and look at designs at a macro level. Likewise, tools that an ID uses need to provide a wide-angle view of the app flow from screen to screen.</p>
+
+<p>By the time the designs are distilled down into visual comps, however, this higher level view is often lost--especially when dealing with static comps like Photoshop mockups. We designed Briefs with multiple design roles in mind, so naturally being able to switch to a 20,000 foot view of your brief at any time was vital.</p>
+
+<p>There are three distinct view modes in Briefs, each geared primarily for different roles. We call these three modes Overview, Editor and Blueprint. The Editor and Blueprint modes are focused on a single scene at a time. The Overview mode, on the other hand, diagrams the flow of the app from scene to scene. Visualizing these *connections* is Overview mode’s raison d'être, so it was no wonder our name for it during development was simply the *Connections View*.</p>
+
+<p>images/the-app-map.png)<br />
+<em>Artist formerly known as Connections View, formerly App Map.</em></p>
+
+<p>Our earliest concept for this view had the scene list on the left growing to become a nodal map of all the scenes, with their connections listed. Like many early concepts this idea lost steam after we started modeling actual apps. Most IDs like to believe their app is a simple directed graph, but common navigation strategies like tab bars and segmented controls cause loops in that map. Above it is labeled “App map” but later it would become the Connections view after we decided on an approach that resembled a photographer’s light table.</p>
+
+<p>images/connection-view-warnings.png)<br />
+<em>Connections view with warnings.</em></p>
+
+<p>Above, you can see another approach we tried, which gave warnings about looped or missing connections. Once again, modeling with actual briefs showed us that these warnings were actually superfluous. In the end, it was the simplest use case that proved to be the most useful. Now called *Overview*, this mode shows connections and allows for non-linear navigation between scenes. Double-clicking a scene, launches it in the editor.</p>
+
+<p>Scenes in Overview mode are not auto-arranged, but rather organized manually by the user. By simplifying our approach and focusing on our original goal, Overview actually became more valuable. In addition to providing the eagle’s eye view needed by IDs, it also became generally useful as a navigation aid for moving around larger briefs.</p>
+
+<p><br />
+<h3><a name="Being_More_Than_A_Bag_Of_Pixels">Being More Than A Bag Of Pixels</a></h3></p>
+
+<p>The goal of the Briefs editor is to provide a design tool centered around actual, usable objects. Actors and scenes both have behavior and attributes that can be set, duplicated, and amended revision after revision. No app design tool we know of treats these elements as first class objects, instead eschewing the specific for a generic design. To properly model interaction *and* visuals, the fundamental components of a brief had to be more than a bag of pixels.</p>
+
+<p>images/action-popover.png)<br />
+<em>The action popover control.</em></p>
+
+<p>When people ask me to explain actors, I equivocate by comparing them to buttons. But actors can be more than simple buttons and in fact, can emulate the behavior of almost every control on iOS. Likewise, scenes do not have to map 1:1 with different sections (or screens) of your app. A scene can represent simply one possible *state* of a screen, for example. By carefully matching the target state of one scene with the initial state of another, a simple transition-less goto action can appear transparent to the user. Using this technique it’s possible to emulate much of your apps behavior that cannot be modeled with animation only.</p>
+
+<p>images/add-to-library.png<br />
+<em>You can add items to your own library.</em></p>
+
+<p>The true power of Brief’s object-oriented approach becomes obvious when users start building their own libraries of pre-built components. This makes tedious replication tasks go much faster. It also means that a shop that heavily customizes their apps can gain tremendous speed when exploring new app ideas. And like all items in Briefs, library items are more than merely visuals. Interaction details can be stored and later configured after they’re dropped back onto the canvas.</p>
+
+<h4><a name="This_Is_An_OnGoing_Storybr__">This Is An On-Going Story<br />
+</a></h4>Despite all these battles, we've created a platform for those who want to polish their work to an incredible shine: A set of tools for those who sweat every detail, relentless in their pursuit of perfection. Briefs is about the beginning of a software project, not the end. Because of that, it seems fitting to celebrate the launch of Briefs by continuing to talk about where it started and the decisions that go into its iterations and design. Look for more updates on Co.Labs in the future.
+
+<aside class="info"><div class="info-inner"><p>Briefs is an Open Company project, so we're going to continue to tell the stories behind its development. The next installment: a detailed look at how the Briefs team matched their visual design to Gayle, a custom tailored architectural typeface which they purpose-built for Briefs.</p></div></aside>
+
