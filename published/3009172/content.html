@@ -1,0 +1,51 @@
+<p>Two weeks ago, Co.Labs editor Chris Dannen approached me with a problem: we were about to receive hundreds of entries for our Co.Labs/Target Retail Accelerator and we had no judging mechanism ready to go. Because of the volume of submissions and unique free-form entry format on GitHub, judging the contest using a spreadsheet or some other traditional method was going to be a time-consuming pain for judges and the people who would need to compile the entries - namely us. But we only had a short time to design, implement and test a solution, and it would only make sense if the judging software took significantly less time to build than it saved.</p>
+
+<p>We’ve written before about the pitfalls of <a href="http://www.fastcolabs.com/3007862/tracking/how-think-engineer#Build_A_Simple_First_Version_With_People_Not_Code" target="_self">looking for a technological solution to every problem</a>, especially when you’re in lean startup mode. It occurred to me that many of the decisions I had to make applied equally to all kinds of businesses who need to decide whether to deploy humans or machines for small projects. Here’s what I learned.</p>
+
+<h3><a name="Measuring_Impactbr__">Measuring Impact<br />
+</a></h3><br />
+Building a better solution would only make sense if the hours I spent building the project didn’t exceed the time the judges would save using my solution plus the time it would have taken to collect all the entries manually. In order to figure out how much time I had to build the app, I did a quick back of the envelope calculation:
+
+<p>First, I looked at how much time it would take to compile a manual solution. Downloading the contest directory from GitHub is easy enough, but we would still need to manually compile a spreadsheet of each entry for the judges to keep track of their scores and progress. It seemed likely that we were going to get at least 100 entries, and I figured that each entry would take about 2 minutes to compile. This meant that we would spend at least three hours compiling entries.</p>
+
+<p>Next, I thought about how I could save time for the judges. With a manual solution, the biggest waste of time for them would be moving between each entry’s folder and the judging form would also take time. If you’re like me, you often get lost switching between apps. Call it three minutes per entry. If I could eliminate just this one pieces of complexity, I could get rid of at least 4.5 hours of extra work per judge, or 18 hours in total.</p>
+
+<p>Altogether, I technically had 21 hours to work with. But there was something else to consider, too: my time. If it takes me 15 hours to save 21 hours over the alternative, is it really worth those six total hours of savings? It would make more sense from an opportunity cost perspective if I could spend around the same time building the app that it would take to solve the problem manually. That way, all those savings would come without opportunity cost.</p>
+
+<h3><a name="Being_Scrappy">Being Scrappy</a></h3>
+
+<p>When Chris first approached me with the project, my first thought was to use the GitHub API to pull entry files into a web app and display them nicely alongside a judging form that would submit to Wufoo or Google Forms. This would be an ideal solution, because every action would happen on one screen and we could easily keep track of each judge’s progress in an internal database.</p>
+
+<p>It took about two minutes to realize that building an app with that much complexity was going to take way more time than I had. My next thought was to instead piggyback on the GitHub web interface by embedding our repo an iFrame on a page that also included a judging form. This idea eliminated the need to use the GitHub API, but it still required building a backend to keep track of judge progress, which continued to feel like too heavy of a solution for such a simple task.</p>
+
+<p>Eventually, I came up with a much lighter-weight solution that still uses GitHub’s front-end as a main interface but doesn’t require building any kind of backend at all. I decided to put our judging form in a Chrome extension, and use the browser’s simple local storage API to keep track of progress. Architecturally, this meant I was able to build the entire app in JavaScript without needing to host it anywhere. Because only four people need to use it, I could comfortably require them to use Chrome without worrying about alienation. It also has one additional advantage over each of the previous solutions: It will allow judges to view the entries distraction-free and pull up the entry form without switching apps when they were ready to vote.</p>
+
+<h3><a name="Architecture">Architecture</a></h3>
+
+<p>Deciding not to use a database to keep track of votes introduced another common problem for anyone who’s ever used Microsoft Excel: Storing variables as strings. To avoid judges accidentally editing entry names and breaking our ability to count votes, I used regex to isolate the top-level directory name of each entry and automatically fill out the name portion of the judging form.</p>
+
+<p><figure class="inline-gist"><a class="gist-link" href="https://gist.github.com/gabestein/5498351">View on GitHub</a></figure></p>
+
+<p>I also used these names to keep track of each judge’s progress. When a judge clicks submit, the extension records the name of the entry and saves it using Chrome’s built-in storage API. The next time a judge visits a page in our contest repo, Chrome grabs the list of entries the judge has already voted on from storage. Using Chrome’s extension messaging system, the extension injects a small bit of JavaScript into the GitHub page to grey out any entries the judge has already looked at. If a judge returns to an entry they’ve voted for, the extension icon turns grey and the judge sees a message that they’ve already submitted a vote.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/05/3009172-inline-screen-shot-2013-05-01-at-51533-pm.png" alt=""/>
+</figure>
+
+<h3><a name="Security_Through_Obscurity">Security Through Obscurity</a></h3>
+
+<p>This extension will definitely operate on the “security through obscurity” principle, because we’ll be distributing it directly to judges, not uploading it to Chrome’s Play store. But in case someone who wants to influence voting does get their hands on the extension, I built in a tiny bit of security to make sure we only count votes from official judges.</p>
+
+<p>The first time you install the extension, it generates a random ID number and saves it to Chrome’s local storage. When judges submit votes, the extension automatically adds this unique identifier to their submission. This way, if someone tries to spoof one of our judges, we’ll know and be able to discard their votes with a simple filter.</p>
+
+<h3><a name="Was_It_Worth_It">Was It Worth It?</a></h3>
+
+<p>If I hadn’t been so focused on saving time, I might have gone for one of my earlier, more robust but time-consuming app designs. There are numerous obvious flaws with my extension, and either of my earlier designs probably would have produced a more secure and robust app. But this app didn’t need to be robust or secure. It just needed to be a more efficient use of my time than manually compiling entries.</p>
+
+<p>In the end, it took me about 4 hours to design, build, test and refine the extension. We received well over 100 entries to the contest, so my efforts will probably save about 17 hours of other people’s time. From my perspective, this was a big win. I had a lot more fun designing and building the extension than I would have manually collating entries, and I think our judges will be a lot happier with this voting method.</p>
+
+<hr />
+
+<h2><a name="Want_to_keep_up_with_our_accelerator_Take_a_look_at_all_the_entries_on_urlhttpsgithubcomfastcolabstargetretailacceleratorGitHuburl_and_let_us_know_which_ones_are_your_favorites_by_tweeting_at_us_urlhttpstwittercomfastcolabsfastcolabsurl_Judging_begins_now_and_finalists_will_be_announced_on_April_30_For_more_information_visit_the_urlhttpwwwfastcolabscom3006487acceleratorcolabsandtarget75000retailacceleratorstartsherecontest_pageurl">Want to keep up with our accelerator? Take a look at all the entries on <a href="https://github.com/fastcolabs/target-retail-accelerator" target="_blank">GitHub</a> and let us know which ones are your favorites by tweeting at us <a href="https://twitter.com/fastcolabs" target="_blank">@fastcolabs.</a> Judging begins now, and finalists will be announced on April 30. For more information, visit the <a href="http://www.fastcolabs.com/3006487/accelerator/colabs-and-target-75000-retail-accelerator-starts-here" target="_self">contest page</a>.</a></h2>
+
+[Photo by Flickr user <a href="http://www.flickr.com/photos/gfreeman23/7160931015/" target="_blank">Axion23</a>]
