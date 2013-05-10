@@ -1,0 +1,33 @@
+<p>If you visit our homepage, you’ll see a reverse-chronological list of our latest stories. It’s useful if you’re one of our core readers who knows who we are and wants to read every article. If you’re not one of those people (and the chances are pretty good you’re not), you may benefit more from something like the new <a href="http://colabsbp.herokuapp.com" target="_blank">Co.Labs Back Page</a>.</p>
+
+<p>For most of you, your first look at this site will be an article page instead of the homepage. If you go on to look at the homepage, what are you looking for? We hope that you see something that you like, read another few articles, and maybe even <a href="http://twitter.com/fastcolabs" target="_blank">follow us on Twitter</a> or <a href="http://fastcompany.com/newsletters" target="_self">subscribe to our newsletter</a>. Few of you do either, and instead close our site without so much as another click. Why is that?</p>
+
+<p>I was thinking about this problem when I remembered, vaguely, an article I read some months ago proposing a news homepage organized around topic rather than chronology. It turns out the article was penned by Guardian U.S. editor Heidi N. Moore. In the article, Moore <a href="http://www.niemanlab.org/2012/12/newsrooms-as-war-rooms/" target="_blank">proposed a news homepage</a> that looks like the periodic table of elements:</p>
+
+<blockquote><p>A news homepage will — or should — look more like a periodic table, with small boxes of usable information grouped by kind, not by publication date. That will eventually replace the vertical and unwieldy story-by-story format of many current sites, which are ruled mostly by temporal concerns of “what is the news now.” Instead of “news,” journalism will be about “emphasis,” and each journalistic organization will define itself by how it defines “emphasis.”</p></blockquote>
+
+<p>After re-reading the piece, I realized that there’s a basic mismatch between what most of you are looking for in a homepage and what we provide. Most of you land on a specific article, arriving via social media or a link on another website, which is <a href="http://www.cjr.org/realtalk/is_the_homepage_dead.php" target="_blank">fairly typical of modern news websites</a>. If you go on to visit our homepage, you’re probably trying to figure out who we are.</p>
+
+<p>Good luck with that. Instead of showing you, as Moore puts it, our "emphasis," our homepage shows you our latest content. Again, this is good for our return readers who want to read everything we’ve got as soon as we post it.</p>
+
+<p>If you’re new, however, figuring out that we cover the art and process of software development and are an experiment in software and journalism ourselves is a chore. You’ll need to scroll down and parse through thousands of words in headlines and article summaries to put it together yourself. Even if we had an “about us” section somewhere, which we don’t, you would need to read at least a few hundred words, and we would need to constantly update it to reflect our changing outlook and mission.</p>
+
+<h3><a name="The_Back_Page">The Back Page</a></h3>
+
+<p>I thought there had to be a better way to instantly and automatically tell readers who we are right now based on what we cover. When I proposed the idea to Co.Labs editor Chris Dannen, he realized that we already do this by tagging articles. All we have to do is surface them better.</p>
+
+<p>So, I set out to build a simple version of Moore’s periodic table-like page using tags as our topics. The easiest way to do this was to ingest and cache the Co.Labs RSS feed, which outputs tags as categories, and display each tag as a clickable chicklet that links to an article. I put this together in about an hour using the Ruby framework <a href="http://sinatrarb.com" target="_blank">Sinatra</a> and the CSS framework <a href="http://foundation.zurb.com" target="_blank">Foundation</a> and deployed to Heroku.</p>
+
+<p>The resulting site is called the <a href="http://colabsbp.herokuapp.com" target="_blank">Back Page</a>, named after the long tradition of tabloids packing their back pages with short, attention-grabbing headlines. It offers a completely different story about what we cover than our homepage, and one that’s easier to grasp. Instead of needing to parse thousands of words, you can get the gist in about one hundred.</p>
+
+<p>After deploying, I tweeted about it a couple of times, and something odd happened: for a brief moment on a Friday afternoon, the Back Page jumped to the top of the list of Co.Labs referrers - above social networks and the rest of the Fast Company network. That's a very small sample size, of course, and we haven't seen much traffic from it since - but we also haven't been talking about it much. All we know is that for a brief moment, for whatever reason, the Back Page convinced a lot of people to click through to Co.Labs articles.</p>
+
+<p>There was another, unexpected result: Chris and I are seeing new sides to articles that we never saw before. Because our articles often tackle many different themes, I decided not to restrict the page to one link per article. Instead, every tag on each article gets its own chicklet unless the same tag appears in multiple articles, in which case the chicklet links to the latest article to use the tag.</p>
+
+<p>This means that for a broad article like our <a href="http://www.fastcolabs.com/3008216/tracking/minding-gap-how-your-company-can-woo-female-coders?partner=rss" target="_self">women in tech tracker</a>, you’ll see obvious tags like “how to scare away women,” but also less obvious themes that could blossom into their own area of focus, like “your job ad sucks.” We think our return readers will appreciate this aspect, too, and our hope is that you’ll bookmark it and use it to re-read our articles with new angles in mind.</p>
+
+<h3><a name="Whats_Next">What’s Next</a></h3>
+
+<p>The future is up to you. Chris and I talked about adding a lot of things to our nascent Back Page, like tracking clicks to push topics you like to the top and exposing connections between articles. Ultimately, however, this is for you, and we’d love to hear your ideas. Plus, the project is extremely simple (and probably full of problems) and <a href="https://github.com/fastcolabs/backpage" target="_blank">ready to be forked and improved on GitHub</a>.</p>
+
+<p>As always, thanks for reading. We’re excited to see what comes of this experiment.</p>
