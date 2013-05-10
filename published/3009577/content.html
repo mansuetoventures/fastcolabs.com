@@ -1,0 +1,87 @@
+<p>As web publishers we're obsessed with analytics: We want to know which stories our readers want so we can write more of them. But because we have imperfect information about our audience, it can be difficult to translate aggregate reader behavior into real insights. We may see trends or correlations in the data, but they do not necessarily imply causation, and trying to analyze traffic too closely can coax editors and writers into an unhealthy diet of red herrings.</p>
+
+<p>Sometimes, though, a trend is so big and consistent that it's impossible not to engage in a little educated speculation. The last month of our traffic at FastCo.Labs has presented is with one such scenario.</p>
+
+<h3><a name="Our_Big_Experiment_With_Stub_Stories">Our Big Experiment With "Stub" Stories</a></h3>
+
+<p>In mid-April, we went live with a half dozen articles which we call "stubs." The idea here is to plant a flag in a story right away with a short post--a "stub"-- and then build the article as the story develops over time, rather than just cranking out short, discrete posts every time something new breaks. One of our writers refers to this aptly as a "slow live blog."</p>
+
+<p>Stub stories work like this: You write the first installment like any other story. But when more news breaks, you go back to the article, insert an update at the top, and change the headline and subheadline (known in our business as the "hed" and "dek") to reflect the update. Our system updates the story "slug" when the headline changes--check the URL of this story, and you'll see words from the headline in the URL: <em>/this-is-what-happens-when-publishers-invest-in-long-stories</em>. But the number preceding the slug--on this article, it's <em>3009577</em>--is a unique node ID which never changes. So essentially, every time we update an article, we get a fresh URL with a fresh headline, but pointing back to the same (newly-updated) article. So, it's like having many URLs and many headlines which lead back to the same big, multi-faceted article. We called these "Tracking" stories.</p>
+
+<p>Before we dive into the results of this little experiment, I'll explain the origin of the hypothesis. Our top editors had long felt that the discrete article format was insufficient for covering really big, unwieldy topics like <a href="http://www.fastcolabs.com/3007889/how-one-new-service-tackling-death-file-system" target="_self">the death of the file system</a>, or the <a href="http://www.fastcolabs.com/3008216/tracking/minding-gap-how-your-company-can-woo-female-coders" target="_self">frustrating lack of women in software</a>, or <a href="http://www.fastcolabs.com/3007862/tracking/how-think-engineer" target="_self">how to think like an engineer</a>. When we launched Co.Labs, it was the natural proving grounds for the concept. We hoped the "slow live blog" approach would give us more flexibility and speed when it came to writing and producing news. Instead of starting with a fresh article every time we want to cover something inside a regular beat, which might require a long catch-up introduction, context, background and so forth, we could just put fresh news at the top and let the reader scroll down to read previous updates if they hadn't been following this story.</p>
+
+<h3><a name="Blurring_The_Lines_Between_News_and_Features">Blurring The Lines Between News and Features</a></h3>
+
+<p>The stub theory accounted for handling shorter news posts, but how did longer reported pieces fit in? Our strategy was to still produce feature stories as discrete articles, but to then tied them back to the stub article with lots of prominent links, again taking advantage of the storyline and context we had built up there, making our feature stories sharper and less full of catch-up material.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/05/3009577-inline-screen-shot-2013-05-10-at-101437-am.png" alt=""/>
+</figure>
+
+<p>Our <a href="http://www.fastcolabs.com/3008480/wearable-computing-finally-here-its-all-wrong" target="_self">interview with a former Frog Design strategist</a> about what's wrong with today's wearable computing devices, for example, branched off the <a href="http://www.fastcolabs.com/3008480/wearable-computing-finally-here-its-all-wrong" target="_self">original stub</a> where people can read back through news around the topic and ultimately find out why we decided that interview was apropos. It's not just reader-friendly to provide easy access to this sort of context, but it's also transparent--it gives the reader insight into why we cover the stories we do, and why they're timely.</p>
+
+<p>Soon we realized there were all sorts of opportunities to try this format. Other stubs we started: <a href="http://www.fastcolabs.com/3008257/tracking/do-all-profitable-apps-solve-same-basic-problems" target="_self">how to price your software product</a>; <a href="http://www.fastcolabs.com/3008402/tracking-world-dumb-programmable-things" target="_self">the slow growth of the Internet of things</a>; <a href="http://www.fastcolabs.com/3007805/tracking/why-bitcoin-doesnt-behave-money" target="_self">the rise of bitcoin as a legitimate currency</a>; <a href="http://www.fastcolabs.com/3008621/whos-afraid-data-science-what-your-company-should-know-about-data" target="_self">the hype around big data</a>; and even broader topics like <a href="http://www.fastcolabs.com/3008323/tracking/who-needs-siri-when-you-have-a-brain" target="_self">the future of the user interface</a>. We even thought the stub format might be useful for more introspective topics like <a href="http://www.fastcolabs.com/3008881/tracking/what-journalism-can-learn-from-open-companies-and-vice-versa" target="_self">how software culture is changing news</a>.</p>
+
+<h3><a name="What_Stub_Stories_Did_To_Our_Traffic">What "Stub" Stories Did To Our Traffic</a></h3>
+
+<p>We prepared about a half-dozen of these stubs in draft, and schedule them to go live the second week of April. As soon as we did, there were drastic, marked changes in our analytics. The first thing that caught my eye was a big drop in daily <a href="http://en.wikipedia.org/wiki/Bounce_rate" target="_blank">bounce rate</a>:</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/05/3009577-inline-0bounceratedaily.png" alt=""/>
+</figure>
+
+<p>Encouraged, we switched to the hourly view, where the change was even more marked:</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/05/3009577-inline-1bounceratehourly.png" alt=""/>
+</figure>
+
+<p>Whoa! Next we checked out the average visit duration, which reflected similar changes:</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/05/3009577-inline-2hourlyduration.png" alt=""/>
+</figure>
+
+<p>Using Google Analytics customizable graphs, we were able to plot visit duration against pages per visit, which stayed stable even as duration jumped:</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/05/3009577-inline-3visitdurationpagespervisit.png" alt=""/>
+</figure>
+
+<p>For fun, we also plotted bounce rate against average time on page, on a daily basis:</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/05/3009577-inline-4bouncevtimeonpage.png" alt=""/>
+</figure>
+
+<p>And finally, bounce rate versus average visit duration:</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/05/3009577-inline-5bouncevaveragevisitduration.png" alt=""/>
+</figure>
+
+<p>Big time disclaimer here--it's too early to tell how permanent these effects will be, and we can't know for sure that the changes are attributable to these stub articles. But we've racked our brains to think of other factors at work here--some big boost in inbound links? Some external event? A technical change? But after about a month, we've seen these changes stabilize, and we haven't been able to isolate any other contributing factors. We're <em>not</em> saying this is causation, because there's no way to be sure. But it sure as hell looks like it's working.</p>
+
+<h3><a name="Long_Form_Is_The_Past_And_Future">Long Form Is The Past And Future</a></h3>
+
+<p>Last year, on a trip to the Bay Area, I had a conversation on background with an entrepreneur and angel investor about the future of the content business. He was bearish. Insisiting that people didn't want to read long stuff online, he told me that we'd be wiser to find ways to express ourselves in as few words as possible--going so far as to suggest that, someday, we would all communicate primarily via emojii-like symbols. (I'm not kidding.) Incredulous, I limped back to New York worried I might be working in a terminally ill business.</p>
+
+<p>But some of the brighter minds in media don't think that's the case. In fact, we're not the only organization betting on long form quality. Here's the CEO of Vox Media <a href="http://techcrunch.com/2013/05/02/vox-media-brand-advertisers" target="_blank">Jim Bankoff talking at TechCrunch Disrupt</a> on May 2, 2013 (emphasis mine):</p>
+
+<blockquote><p>We know somethings as a fact. Globally there is a $250 billion advertising market of which 70 percent is really built on brand building… the top of the funnel, to use the marketing jargon. If you look at the web, which is a $25 billion slice of that pie, 80 percent of it is direct response -- it's search… it's bottom of the funnel stuff. So there's a big market opportunity there that hasn't been captured. Where is all the brand building going [...] that we had seen previously in magazines and newspapers and even in broadcast going to go, as consumers turn their attention to digital media? We believe there's a big opportunity there, but someone has to actually go after it--someone has to <strong>bring the quality back</strong>.</p></blockquote>
+
+<h3><a name="The_Downside_Of_Long_Quality_Articles">The Downside Of Long Quality Articles</a></h3>
+
+<p>These stories have presented us with all sorts of technical challenges. Over the last month, as these stories accreted updates, they've gotten so long that they actually overran our server cache by a factor of 10 and took down our site for a short time; the cache was built to handle articles around 10 kilobytes, not 100 kilobytes.</p>
+
+<p>Another issue is that our CMS interface, on the backend, isn't really meant to handle this sort of story production. We have to interlink our features and stubs manually, which drives up production time (and therefore cost). There is also much more opportunity for lots of human error, because updating a stub means manually inserting new text at the top of the body text, and cutting/pasting older updates "below the fold" like so:</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/05/3009577-inline-how-we-update-stubs.jpeg" alt=""/>
+</figure>
+
+<p>It's a tedious process for our web producer, and we're working on ways to alter the article format and the composer UI to be more hospitable to this sort of reporting. Ultimately, automation will cure all these small ills, and we'll be (hopefully) left with just the upside.</p>
+
+<p>We'll keep posting about our traffic experiments in the future--but if you have questions about our methods, or perhaps counter-arguments, <a href="http://twitter.com/fastcolabs" target="_blank">tweet at us</a> and we'll keep the conversation going. Or let me know what you think at <a href="http://twitter.com/chrisdannen" target="_blank">my personal Twitter handle</a>. And, as always, feel free to add your own definitive analysis in the comments.</p>
+
+<p>[<em>Bouncing Tennis Ball: <a href="http://www.shutterstock.com/cat.mhtml?lang=en&amp;amp;search_source=search_form&amp;amp;search_tracking_id=kr-2HM1pmiVny5ZZp7JXmw&amp;amp;version=llv1&amp;amp;anyorall=all&amp;amp;safesearch=1&amp;amp;searchterm=bounce+ball&amp;amp;photos=on&amp;amp;search_group=&amp;amp;orient=&amp;amp;search_cat=&amp;amp;searchtermx=&amp;amp;photographer_name=&amp;amp;people_gender=&amp;amp;people_age=&amp;amp;people_ethnicity=&amp;amp;people_number=&amp;amp;commercial_ok=&amp;amp;color=&amp;amp;show_color_wheel=1&amp;amp;secondary_submit=Search#id=107472287&amp;amp;src=CjlZy5Q32bVymetYSPICug-1-6" target="_blank">MarcelClemens</a> via Shutterstock</em>]</p>
