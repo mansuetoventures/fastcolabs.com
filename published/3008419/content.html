@@ -1,4 +1,28 @@
+<p>I own a health tech startup that is currently in the process of prototyping our first piece of hardware and a companion app before we begin coding. For the last several weeks in our design meetings we’ve been talking about the first-time user experience for both.</p>
 
+<p>While there’s been a lot of back and forth debate about this short, but highly important step, one thing almost everyone in the room agrees on is that if your app has a splash screen you’ve already failed.</p>
+
+<p>For those not familiar with the terminology, a “splash screen” is a static image that appears every time a person opens an app. This screen is usually a solid color and carries the logo or brand of the app being opened. While I concede that a splash screen might be okay in the very first instance (with a caveat, see below) of the user opening the app, if it shows every time, you’ve got big identity problems.</p>
+
+<p>Here’s why: If I open an app and each time need to be reminded in the first few seconds the name of the app I am using, that means the app is designed so horribly that I can’t tell just by looking at its interface what app I’m in. And if the user can’t tell from the UI what app they’re in, then you’ve got problems that an image with your logo popping up won’t solve.</p>
+
+<p>But let’s say the UI is good enough where even if I wasn’t the one to tap the app’s icon on my homescreen--where someone just handed me an iPhone with the app already opened--that it’s easy enough for me to tell what app I’m in. If this is the case (as it should be with all apps) then what is the purpose of having that splash screen at all? There is none. Splash screens are ego. They’re shouting “Look at my cool logo again and again and again!” And that’s all they are.</p>
+
+<p>Think I’m being too harsh? Android and iOS developer Cyril Mottier calls splash screens <a href="http://cyrilmottier.com/2012/05/03/splash-screens-are-evil-dont-use-them/" target="_blank">just plain evil</a>. But he does state one reasonable case to use one:</p>
+
+<blockquote><p>“A splash screen can be used to make resources available before an application starts. Personally I think it is not necessary in 98% of the cases. It may be useful for applications actively relying on heavy resources such as Google Earth, Sky Map, or games but this is not applicable to simple utility applications such as feed readers, social network apps, news readers, etc. You should not require a network connection at startup nor do heavy computations.”</p></blockquote>
+
+<p>You have a chance to treat every session your users launch as a new “ first time user experience.” And you can do it by just getting on with it and letting them accomplish the task they opened the app for. When I launch an app, I want to be brought into it and start using it as fast as I can. I don’t want to stare at your brilliant logo.</p>
+
+<p>And no, splash screens aren’t a newbie mistake. Some popular apps (I’m looking at you Yelp, Netflix, and LinkedIn) use splash screens, and it’s baffling to me why they do. I mean, even Apple explicitly states developers should <a href="http://developer.apple.com/library/ios/#documentation/userexperience/conceptual/mobilehig/UEBestPractices/UEBestPractices.html" target="_blank">avoid splash screens</a>:</p>
+
+<blockquote><p>“Avoid displaying an About window or a splash screen. In general, try to avoid providing any type of startup experience that prevents people from using your app immediately.”</p></blockquote>
+
+<p>The above mentioned apps all have a great FTUE and generally distinctive UIs, so I can tell what app I’m in immediately when the app loads. This makes their splash screens nothing but branding ego. As a user, I don’t need to sear their logos into my brain again and again. Now take a good look at your app and ask yourself whether your users really love your logo as much as you do.</p>
+
+<hr />
+
+<h2><a name="Updates">Updates</a></h2>
 
 <aside class="info"><div class="info-inner"><p>There's always new information about FTUE best practices, so we're building the article as it develops. As we go along, we'll talk to experts to help make sense of it all. You can influence the direction of this story by <a href="https://twitter.com/michaelgrothaus" target="_blank">tweeting at the author</a>.</p></div></aside>
 
@@ -10,9 +34,7 @@
 
 <hr />
 
-<h2><a name="Updates">Updates</a></h2>
-
-<p><strong>What can web application designers learn from the onboarding process of video games?</strong> That's a <a href="http://www.quora.com/What-can-web-application-designers-learn-from-the-onboarding-process-of-video-games" target="_blank">question I found on Quora</a> that was asked in 2010 and to this day it still only has one answer -- but it's a good one, especially if you're a developer of a website where an active community is essential (think any type of website that relies on user-edited wikis or thriving message boards).</p>
+<p><strong>What can web application designers learn from the onboarding process of video games?</strong> That's a <a href="http://www.quora.com/What-can-web-application-designers-learn-from-the-onboarding-process-of-video-games" target="_blank">question I found on Quora</a> that was asked in 2010 and to this day it still only has one answer--but it's a good one, especially if you're a developer of a website where an active community is essential (think any type of website that relies on user-edited wikis or thriving message boards).</p>
 
 <p>Here's what Dave Snider, designer at video game news and culture site <a href="http://www.giantbomb.com" target="_blank">GiantBomb</a> had to say:</p>
 
@@ -28,7 +50,7 @@ Right now we have a total of 195 quests that ask for a variety of goals to be hi
 
 <hr />
 
-<p><strong>"If you see a UI walkthrough, they blew it."</strong> So says UI designer Max Rudberg (echoing Steve Jobs' famous quip about the stylus). <a href="http://blog.maxrudberg.com/post/38958984259/if-you-see-a-ui-walkthrough-they-blew-it" target="_blank">Rudberg made the comments</a> in reference to the "trend of 'gesture driven' apps with a flat UI."  These "novelty apps" like Clear, Rise, and Solar, though hip right now, are so minimalist in their style that they risk putting off users because there're no clear (excuse the pun) signs of how they work. That means many minimalist app devs are forced to turn to UI walkthroughs to enhance the FTUE -- something Rudberg thinks is a no-no. So what's the alternative? Be clever, says Rudberg. One example he gives is of the iOS lock screen so many of us are familiar with -- and itself a very minimalist part of iOS's UI:</p>
+<p><strong>"If you see a UI walkthrough, they blew it."</strong> So says UI designer Max Rudberg (echoing Steve Jobs' famous quip about the stylus). <a href="http://blog.maxrudberg.com/post/38958984259/if-you-see-a-ui-walkthrough-they-blew-it" target="_blank">Rudberg made the comments</a> in reference to the "trend of 'gesture driven' apps with a flat UI." These "novelty apps" like Clear, Rise, and Solar, though hip right now, are so minimalist in their style that they risk putting off users because there're no clear (excuse the pun) sign of how they work. That means many minimalist app devs are forced to turn to UI walkthroughs to enhance the FTUE--something Rudberg thinks is a no-no. So what's the alternative? Be clever, says Rudberg. One example he gives is of the iOS lock screen so many of us are familiar with--and itself a very minimalist part of iOS's UI:</p>
 
 <figure class="inline-large inline">
 <img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/04/3008419-inline-camera-bounce.jpg" alt=""/></figure>
@@ -43,7 +65,7 @@ Right now we have a total of 195 quests that ask for a variety of goals to be hi
 
 <blockquote><p>To do so effectively we have the ingredients in a separate layer to the left of the description. To make it obvious that there is something more to the left of the current screen, there is a subtle animation that moves a piece of paper into the left part of the screen each time you pick a recipe. It’s subtle enough not to get annoying over time, but still serves as a UI hint the first time. We allow both tapping the piece of paper, as well as a horizontal swipe anywhere on the screen to move to the ingredients view.</p></blockquote>
 
-<p>From a user perspective, apps that use the "progressive disclosure" method with subtle animations feel more engaging. No one likes having to go into an app's settings a select "view help overlays" if they need help using it. Progressive disclosures with animations make me feel as if the app is a partner that's helping guide my journey as I learn to use it.</p>
+<p>From a user perspective, apps that use the "progressive disclosure" method with subtle animations feel more engaging. No one likes having to go into an app's settings and select "view help overlays" if they need help using it. Progressive disclosures with animations make me feel as if the app is a partner that's helping guide my journey as I learn to use it.</p>
 
 <hr />
 
@@ -80,7 +102,7 @@ Right now we have a total of 195 quests that ask for a variety of goals to be hi
 
 <blockquote><p>Not a fan. You might say that this provides more context but I think it’s overwhelming and only provides superficial context.</p></blockquote>
 
-<p>The best option, Olson says, is to teach a first-time user how to use your app by making functions of the app obvious though the placement and labeling of controls. If more help is needed, he says, use visual queues that suggest to the user what actions to perform.</p>
+<p>The best option, Olson says, is to teach a first-time user how to use your app by making functions of the app obvious through the placement and labeling of controls. If more help is needed, he says, use visual queues that suggest to the user what actions to perform.</p>
 
 <blockquote><p>We played with gestures a lot when developing <a href="https://itunes.apple.com/app/id565108517" target="_blank">Languages</a>. Going for that minimal, gesture-based approach definitely helped us get rid of unnecessary UI baggage but at the end of the day we decided that functions like search were so important that we needed a button (in this case a search field) to make the function obvious. We then used a folding animation and other cues to let the user know they can also conveniently swipe the entire screen to switch between searching and browsing.</p></blockquote>
 
@@ -88,7 +110,7 @@ Right now we have a total of 195 quests that ask for a variety of goals to be hi
 
 <p><strong>As a developer you aren’t going to like to hear these numbers.</strong> According to a <a href="http://www.localytics.com/blog/2011/26percent-of-mobile-app-users-are-either-fickle-or-loyal/" target="_blank">Localytics study from 2011</a>, 26% of apps are only opened once, 13% are opened twice, 9% are opened three times...and the downward curve continues (only 2% of apps are opened 10 times). While Localytics stops short of saying this, we can presume that at least some of the drop-off owes to poor initial user experiences.</p>
 
-<p>Matter of fact, for apps requiring a sign-up process, <a href="http://www.lukew.com/ff/entry.asp?1678" target="_blank">developer Luke Wroblewski notes</a> that popular app Everyme only saw a 25% completion rate of their FTUE--and ended up only retaining 5% of their users through their on-boarding process. If your software relies on gathering a lot of data from your users so it's (eventually) useful to them Wroblewski recommends a gradual engagement approach instead of a collect-as-much-data-as-you-can-and-then-dump-them-into-the-app approach.</p>
+<p>Matter of fact, for apps requiring a sign-up process, <a href="http://www.lukew.com/ff/entry.asp?1678" target="_blank">developer Luke Wroblewski notes</a> that popular app Everyme only saw a 25% completion rate of their FTUE--and ended up only retaining 5% of their users through their on-boarding process. If your software relies on gathering a lot of data from your users so it's (eventually) useful to them, Wroblewski recommends a gradual engagement approach instead of a collect-as-much-data-as-you-can-and-then-dump-them-into-the-app approach.</p>
 
 <p>That’s exactly what he did for his app Polar:</p>
 
@@ -116,4 +138,4 @@ Right now we have a total of 195 quests that ask for a variety of goals to be hi
 
 <h3><a name="Stay_Tuned_As_Coverage_Continues">Stay Tuned As Coverage Continues!</a></h3>
 
-<p>[<em>Image: Flickr user <a href="http://www.flickr.com/photos/lrargerich/3187525211/in/photostream/" target="_blank">Luis Argerich</a></em>]</p>
+<p>[<em>Image: Flickr user <a href="http://www.flickr.com/photos/schani/6647269/in/photostream/" target="_blank">Mark Probst</a></em>]</p>

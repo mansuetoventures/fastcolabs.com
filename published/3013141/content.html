@@ -1,0 +1,53 @@
+<p><em>Fast Company</em> developer <a href="http://twitter.com/chris_mcclellan" target="_blank">Chris McClellan</a> has been itching to use <a href="http://en.wikipedia.org/wiki/Parallax_scrolling" target="_blank">parallax scrolling</a> ever since his first interview at the company. He finally got his chance with the July/August issue, which features a <a href="http://www.fastcompany.com/3012521/unplug/baratunde-thurston-leaves-the-internet" target="_self">cover story</a> about Baratunde Thurston's experience taking a "digital vacation" for 25 days. As you read the digital version of the article, drawings of birds and butterflies by <a href="http://maxomatic.net" target="_blank">Max-o-matic</a> from the print version start to fly by. By the time you reach the end of the article, nature has taken over the bottom third of the screen, as if urging you to stop staring at illustrations of the world on a screen and start living in it. The effect was surprisingly controversial, leading to comments like:</p>
+
+<blockquote><p><strong><a href="http://www.fastcompany.com/3012521/unplug/baratunde-thurston-leaves-the-internet#comment-933133038" target="_self">JANET VANDENABEELE</a></strong><br />
+What is up with all the freakin flowers popping up that I can't X out and can't read this article?</p></blockquote>
+
+<blockquote><p><strong><a href="http://www.fastcompany.com/3012521/unplug/baratunde-thurston-leaves-the-internet#comment-933544321" target="_self">RALF SKIRR</a></strong><br />
+There was a time when web design was about usability and readability. Unfortunately designers don't care about that anymore.</p></blockquote>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/06/3013141-inline-screen-shot-2013-06-17-at-52557-pm.png" alt=""/>
+</figure>
+
+<p><em>(Disclosure: I know Fitzpatrick in real life; we share a love of bad jokes)</em></p>
+
+<p>To figure out why we would make such a flabbergasting decision, I talked to <em>Fast Company</em> front-end designer Chris McClellan about where the idea came from and how he implemented it.</p>
+
+<p><p class="interview-question">How did the idea come about?</p></p>
+
+<p><p class="interview-answer">The idea really came about after some brainstorming discussions with [<em>Fast Company</em> executive editor] Noah Robischon. Originally, Noah had the idea that the page should be void of any distractions.  As you scrolled down or neared the bottom of the article, you could click a button to toggle on and off things like the header, sidebar, and poster image. I gave it some thought, but realized that we would also have to remove advertisements (our bread and butter). After reviewing the artwork used for the story in the print magazine, I thought it would be best if we used the same art in the digital version. I presented the idea, and it was well received, so that’s what we did. As a side note, Noah and I have also been looking for an excuse to use parallax scrolling since I joined <em>Fast Company</em>.</p></p>
+
+<p><p class="interview-question">As a designer, how did you balance the idea of blocking readers' screens to prove a point with keeping the webpage usable?</p></p>
+
+<p><p class="interview-answer">Fortunately, the print artwork gave us a lot of birds and insects to work with. It made sense to have those elements flying up as you scrolled down the story. The encroaching foliage doesn't really begin to blossom until you get close to the comments. What made the execution of this really interesting and important to the digital version of the story was that you were in fact reading about unplugging while on a device. The artwork was intended to remind you of that fact.</p></p>
+
+<p><p class="interview-question">Do you feel like you were successful, given the feedback we received after publishing? What did you change after the article was published to make it more usable and what did you learn from that feedback?</p></p>
+
+<p><p class="interview-answer">Everything works as expected and the negative feedback on Twitter was much smaller than I expected. In that way, I feel successful. The article became this living thing and I think people appreciated that. The feedback we did get was definitely focused on usability issues. People thought some of the graphics were obfuscating the text. That was something I needed to look at and find a solution for. The solution that seems to have worked--which we came up with this morning in response to feedback--is to hide the encroaching foliage on smaller devices (anything 980 pixels or smaller), and we provided a toggle within the article to disable the parallax feature.</p></p>
+
+<p><p class="interview-question">You told me you decided to code it yourself rather than using readymade jQuery plug-ins. What prompted that decision?</p></p>
+
+<p><p class="interview-answer">I tried a couple of different jQuery parallax plug-ins. Unfortunately, all of them were missing a key feature or two. The things that mattered most were responsiveness and the ability to scroll any type of element. For instance, <a href="http://markdalgleish.com/projects/stellar.js/" target="_blank">stellar.js</a> looked very promising except that it didn't work on all devices or even when you resized the browser window. Also, I have never written a parallax feature before, and I figured that if so many people could do it, why couldn't I? The lack of key functions in each of the jQuery plug-ins I tried prompted me to write one that would work for our purposes and needs.</p></p>
+
+<p><p class="interview-question">What techniques are you using for the scrolling and pop-ins?</p></p>
+
+<p><p class="interview-answer">I used the browser window's height to make most of the magic happen.  Basically, what’s happening is there are absolutely positioned placeholders throughout the document. The child image of each placeholder element is positioned absolutely, out of view, at one window height below the parent. The window height is also a threshold, so that when you get to one window distance away from the element when scrolling down, the image child of the placeholder starts to scroll up. The scrolling image distance is directly proportionate to the distance scrolled within the threshold from the placeholder image. This distance is multiplied by a speed value in a data attribute on the placeholder element.</p></p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/06/3013141-inline-chris.png" alt=""/>
+</figure>
+
+<p><p class="interview-question">You decided to make your work reusable. Explain how you built this into the CMS and why it was important for it to be more than a one-off.</p></p>
+
+<p><p class="interview-answer">It just made sense to make this reusable. It would cost us a lot of extra code to make it for every parallax instance. This allowed us to think in terms of generalized features. We use Drupal 6 for the backend of our CMS, which has what are known as BBCodes (similar to shortcodes if you're more familiar with WordPress). With BBCodes, you can allow for predefined attributes to be set and parsed out into html.</p></p>
+
+<p>Take the following:</p>
+
+<p><figure class="inline-gist"><a class="gist-link" href="https://gist.github.com/gabestein/5800711">View on GitHub</a></figure></p>
+
+<p>In the CMS front-end, this evaluates to:</p>
+
+<p><figure class="inline-gist"><a class="gist-link" href="https://gist.github.com/gabestein/5800774">View on GitHub</a></figure></p>
+
+<p><p class="interview-answer">The data-style attribute is used to expose the style attribute to the editors creating the article. Then, we use JavaScript to put the styles where they need to be. Not all styles are placed on the parallax item wrapper div. If the parallax item is inline in the content, then the style attribute gets placed on the child element. If the parallax item is relative to the window, then it gets placed on the parallax item wrapper div. This allows editors to position the element anywhere in the document. The data-speed attribute allows editors to control the speed of the element relative to the speed of the user's scrolling (0 being no speed).</p></p>

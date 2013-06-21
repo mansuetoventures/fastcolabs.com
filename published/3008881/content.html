@@ -1,3 +1,41 @@
+<p><a href="http://www.globaleditorsnetwork.org/editors-lab/amsterdam/" target="_blank">Editors’ Lab Amsterdam</a> looks like any other hack day, with attendees skewing towards the young, male, and sartorially challenged, but the majority of participants are not actually developers but journalists or designers. “Traditional hackathons are designed for coders,” says organizer Antoine Laurent. “We want to involve journalists and designers since the main objective is to introduce them to a more collaborative way of working. So we can't do only coding since then the journalists will just sit there being bored.”</p>
+
+<p>Editors’ Lab, which is organized by the non-governmental organization the <a href="http://www.globaleditorsnetwork.org/" target="_blank">Global Editors Network</a>, kicked off in Argentina in 2012 and has since visited newsrooms all over the world from <em>India Today</em> to the <em>New York Times</em>. On this occasion it’s hosted by the Dutch public broadcaster NOS. Teams must consist of at least three members: a journalist, designer, and developer. Some smaller newsrooms have to rent the latter for the event. At the Dutch Editors’ Lab, there were teams from the major Dutch newspapers, broadcasters, and small online-only newsrooms.</p>
+
+<p>"The real difference we see between the teams in is product management," explains Laurent. “Everywhere we have been, you have good coders but are they used to developing and managing news applications. Journalists also have to learn how to write down the requirements and specifications and how to talk to developers. In the U.S (<em>The New York Times</em> hosted the last Editors’ Lab), the room was full of teams who are already working in this setup in their newsrooms.”</p>
+
+<p>Each lab has a theme, which in Amsterdam was “new journalistic tools for reaching young readers.” The team’s concepts ranged from the winner from national newspaper <a href="http://www.globaleditorsnetwork.org/editors-lab/amsterdam/" target="_blank"><em>De Volkskrant</em></a>, a site to help readers 7-12 years old to discover news, to a clever tool to replace the audio in a video with something funnier in order to entice young readers to watch videos on politics. “We focus on tools for journalists which a newsroom can implement to regularly and easily produce innovative content,” says Laurent. He highlights the winning project from <a href="http://www.globaleditorsnetwork.org/editors-lab/paris/" target="_blank">Editors' Lab Paris</a>, a CMS plug-in using facial recognition to allow journalists to upload a picture, crawl the database of the newspaper's pictures for related content, and tag people in the photo.</p>
+
+<p>One project which caught my eye was from Internet-only news room Follow the Money, which specializes in complex financial investigations. “Last year before the presidential election in the U.S. Follow the Money did an article on Mitt Romney's tax affairs that's still the most read article on (national newspaper) <em>De Volkskrant</em>,” says Follow the Money collaborator Richard Jong.</p>
+
+<p>Follow the Money wanted to address shorter attention spans and varying levels of knowledge of readers without dumbing down the content. The solution was <a href="http://frontwise.nl/lab/nos/" target="_blank">Story Browser</a>, a presentation layer on top of the original text. “Everything we see on the Internet is a pretty direct translation of straight, old-style newspaper articles,” explains Jong. “We decided to cut it into pieces and let clever algorithms decide what the order of the article should be. It's a cloud of rich media chunks where the items which are hopefully most important for you are displayed proportionally larger. The complete article isn't mapped into the diagram but only the most important fragments. You can read it in a chronological order, read in the order of what your friends think is most important, or what the editors say is most important. If you are logged into the website and we can see that you have never read an article on Bitcoin, we can display the explanation of Bitcoin larger.”</p>
+
+<p>Jong built the new layout by scraping existing content and extracting titles, images, and the most important comments. “Often the comments on financial investigations are way more important than the article itself since they are from financial experts.” This was converted into a JSON file, imported into <a href="http://d3js.org/" target="_blank">JavaScript infographics library D3</a> and used with a <a href="https://github.com/mbostock/d3/wiki/Force-Layout" target="_blank">force-directed graph layout</a>.</p>
+
+<p>Many of the more ambitious features are not yet implemented, but Story Browser could be a very promising approach to giving new readers an overview of a complex story or set of related stories. “It’s a very ambitious concept and this is one way of doing that. It's not the perfect solution,” says Jong.</p>
+
+<hr />
+
+<h4><a name="Why_Were_Tracking_This_Story">Why We're Tracking This Story</a></h4>
+
+<p>Chicken Little says journalism is dying. Well, there are certainly many struggling journals, especially among those that came of age before the Internet. Ask a publisher where the big bucks went, and they're likely to mumble something about Craigslist, the loss of print advertising dollars, and an inability to sustain a newsroom with digital advertising.</p>
+
+<p>On the flip side, Matthew Yglesias writing for Slate Magazine says <a href="http://www.slate.com/articles/business/moneybox/2013/03/pew_s_state_of_the_media_ignore_the_doomsaying_american_journalism_has_never.html" target="_blank">ignore the doomsayers: The news-reading public has never had more and better information at their fingertips</a>. Thanks to social networks and ubiquitous mobile Internet, anyone can report from anywhere in the world at any time. As a result, more news is available on more subjects than at any previous time in history.</p>
+
+<p>If you ask me, this is the real cause of publishers’ struggles. Many of the functions they used to perform are simply no longer valuable in a world where everybody, and increasingly nobody in the form of automated sensor networks, can report basic information.</p>
+
+<p>Worse still, news organizations by and large missed the boat on Internet technology and are only now starting to catch up, just as an increasing number of new technology companies set their sights on replacing even more functions that journalists used to perform exclusively.</p>
+
+<p>So what value can news organizations provide in order to survive? Fortunately, there’s no shortage of opinion from academics, technologists, and journalists themselves. This is my attempt to track those ongoing conversations and add my thoughts as both a technologist and a journalist.</p>
+
+<hr />
+
+<h3><a name="Previous_Updates">Previous Updates</a></h3>
+
+<h3><a name="What_Journalism_Can_Learn_From_Open_Companies_And_Vice_Versa">What Journalism Can Learn From Open Companies (And Vice Versa)</a></h3>
+
+<p>Gittip founder and open company devotee Chad Whitacre did the unthinkable for a startup: He turned down an interview with TechCrunch. Here’s why he did it, and what that means for journalists and open companies everywhere.</p>
+
 <p>Update: After reading the article below, Gittip founder Chad Whitacre invited me to have an open conversation with him about openness, software and journalism. The result was a 45-minute talk that I'm posting here without comment. For context, scroll down. Otherwise, here's the video:</p>
 
 <figure class="inline-video inline"><iframe src="http://www.youtube.com/embed/OerW0Q_2_7o?rel=1&amp;autoplay=0" width="631" height="380" frameborder="0"></iframe></figure>
@@ -52,34 +90,13 @@ Jackson: “Why not? Saves me the time. I’ll go write a different story, right
 
 <hr />
 
-<h4><a name="Why_Were_Tracking_This_Story">Why We're Tracking This Story</a></h4>
-
-<p>Chicken Little says journalism is dying. Well, there are certainly many struggling journals, especially among those that came of age before the Internet. Ask a publisher where the big bucks went, and they're likely to mumble something about Craigslist, the loss of print advertising dollars, and an inability to sustain a newsroom with digital advertising.</p>
-
-<p>On the flip side, Matthew Yglesias writing for Slate Magazine says <a href="http://www.slate.com/articles/business/moneybox/2013/03/pew_s_state_of_the_media_ignore_the_doomsaying_american_journalism_has_never.html" target="_blank">ignore the doomsayers: The news-reading public has never had more and better information at their fingertips</a>. Thanks to social networks and ubiquitous mobile Internet, anyone can report from anywhere in the world at any time. As a result, more news is available on more subjects than at any previous time in history.</p>
-
-<p>If you ask me, this is the real cause of publishers’ struggles. Many of the functions they used to perform are simply no longer valuable in a world where everybody, and increasingly nobody in the form of automated sensor networks, can report basic information.</p>
-
-<p>Worse still, news organizations by and large missed the boat on Internet technology and are only now starting to catch up, just as an increasing number of new technology companies set their sights on replacing even more functions that journalists used to perform exclusively.</p>
-
-<p>So what value can news organizations provide in order to survive? Fortunately, there’s no shortage of opinion from academics, technologists, and journalists themselves. This is my attempt to track those ongoing conversations and add my thoughts as both a technologist and a journalist.</p>
-
-<hr />
-
-<p>Stay tuned as we continue to track the future of publishing and content in this story.</p>
-
-<hr />
-
-<p><br />
-<h3><a name="Previous_Updates">Previous Updates</a></h3></p>
-
 <p><strong>Publishing first means breaking news--and maybe battering your own reputation.</strong> Because of the chaos of events like the Boston bombing, media outlets like the <a href="http://www.washingtonpost.com/blogs/erik-wemple/wp/2013/04/22/young-men-please-sue-the-new-york-post/" target="_blank"><em>New York Post</em></a> and the <a href="http://www.guardian.co.uk/commentisfree/2013/apr/19/reddit-boston-marathon-crowdsourcing" target="_blank">crowdsourced “FindBostonBombers” campaign on Reddit</a> routinely identify the wrong suspects--and push reports to the public.</p>
 
-<p>During emergencies like Hurricane Sandy or the 2011 London riots, <a href="http://www.guardian.co.uk/uk/2011/dec/07/how-twitter-spread-rumours-riots" target="_blank">false rumours and fake photos</a> abounded on social networks like Twitter. When even professional journalists get it wrong, how can you tell fact from fiction and ensure that you are not sharing false information yourself? Do your own digital fact checking.</p>
+<p>During emergencies like Hurricane Sandy or the 2011 London riots, <a href="http://www.guardian.co.uk/uk/2011/dec/07/how-twitter-spread-rumours-riots" target="_blank">false rumors and fake photos</a> abounded on social networks like Twitter. When even professional journalists get it wrong, how can you tell fact from fiction and ensure that you are not sharing false information yourself? Do your own digital fact checking.</p>
 
 <p>Claire Wardle is the <a href="http://storyful.com/Claire_Wardle/22242" target="_blank">Director of News Services</a> at <a href="http://storyful.com/" target="_blank">Storyful</a>, a startup founded by veteran Irish journalist <a href="http://en.wikipedia.org/wiki/Mark_Little_%28Irish_journalist%29" target="_blank">Mark Little</a>, which verifies social media content like YouTube videos for news organizations. “Lots of people were sharing stuff around Hurricane Sandy which was fake. It would have taken them two seconds to do a <a href="http://www.google.com/insidesearch/features/images/searchbyimage.html" target="_blank">reverse image search</a>,” she says. ”After the recent <a href="http://www.guardian.co.uk/uk/london-helicopter-crash" target="_blank">helicopter crash in London</a>, the Guardian had an image up for 2 hours purporting to be of the crash which wasn't verified.” Storyful’s verification process combines tech tools and old-fashioned journalistic skills as described in a recent blog post on <a href="http://blog.storyful.com/2013/04/16/finding-facts-in-the-heat-of-the-moment/" target="_blank">how the company verified a video</a> taken during the Boston marathon bombings.</p>
 
-<p>Reverse image search tools like <a href="http://www.google.com/insidesearch/features/images/searchbyimage.html" target="_blank">Google Search by Image</a> and <a href="http://www.tineye.com/" target="_blank">TinEye</a> return where an image appears online and therefore help you to track its original source and history. For example, during the London riots in 2011, there was a rumour circulating on Twitter that tigers had been released from London Zoo, including a <a href="http://twitter.yfrog.com/h0vy4gsdj?sa=0" target="_blank">photo of a big cat on a city street</a>. The photo turned out to be of a big cat which escaped from a circus in Italy in 2008.</p>
+<p>Reverse image search tools like <a href="http://www.google.com/insidesearch/features/images/searchbyimage.html" target="_blank">Google Search by Image</a> and <a href="http://www.tineye.com/" target="_blank">TinEye</a> return where an image appears online and therefore help you to track its original source and history. For example, during the London riots in 2011, there was a rumor circulating on Twitter that tigers had been released from London Zoo, including a <a href="http://twitter.yfrog.com/h0vy4gsdj?sa=0" target="_blank">photo of a big cat on a city street</a>. The photo turned out to be of a big cat which escaped from a circus in Italy in 2008.</p>
 
 <p>Also during the London riots Twitter users circulated a photoshopped <a href="http://fallenscoop.com/18503/terrifying-image-of-the-london-eye-on-fire-is-believed-to-be-a-fake-hoax" target="_blank">image of the London Eye on fire</a>. FourMatch is a paid image forensics tool ($20 buys you a demo key to analyze up to 30 images within 30 days) which can detect whether or not an image has been tampered with. TinEye also sorts results by how much an image has been modified.</p>
 
@@ -89,7 +106,7 @@ Jackson: “Why not? Saves me the time. I’ll go write a different story, right
 
 <p>What if you want to make it easier for images or video you capture yourself to be verified? Wardle’s first piece of advice is to <a href="http://www.poynter.org/latest-news/top-stories/173764/geofeedia-helps-journalists-locate-real-time-photos-tweets-where-news-breaks/" target="_blank">geotag</a> it. Only a tiny proportion of social media content is currently geotagged. ”<a href="http://www.witness.org/" target="_blank">Witness</a> (a non-profit which highlights human rights abuses) has two pieces of technology: <a href="https://guardianproject.info/2012/01/20/introducing-informacam/" target="_blank">Informacam</a> and <a href="https://guardianproject.info/apps/obscuracam/" target="_blank">Obscuracam</a>. Obscuracam hides all metadata like location, is specifically for activists who want to give verification information.” The metadata includes information like the user’s current GPS coordinates, altitude, compass bearing, light meter readings, the signatures of neighboring devices, cell towers, and Wi-Fi networks. <br />
  	 	 	<br />
-“The behavior of the people on the ground is changing,” adds Storyful founder Mark Little. “The activist will point the camera at a minaret before going back to the focus of their story. The general public will start to realise that they should geotag their tweet if they want it to be seen. The motivated crowd will become much more literate in helping us help them.”</p>
+“The behavior of the people on the ground is changing,” adds Storyful founder Mark Little. “The activist will point the camera at a minaret before going back to the focus of their story. The general public will start to realize that they should geotag their tweet if they want it to be seen. The motivated crowd will become much more literate in helping us help them.”</p>
 
 <p>If you realize that you have distributed false information on Twitter, one enterprising developer has <a href="http://www.theatlantic.com/technology/archive/2013/04/retwact-a-tool-for-fixing-twitters-misinformation-problem/275418/" target="_blank">created a tool called Retwact</a>, which lets you issue a correction or apology. Followers can view a side-by-side comparison showing both the older, incorrect tweet as well as the newer, corrected one.</p>
 
@@ -131,13 +148,12 @@ Jackson: “Why not? Saves me the time. I’ll go write a different story, right
 
 <p>Semantic understanding without context is most vital in search, and especially on mobile search, so this area of Facebook research should be no surprise given that <a href="http://www.fastcolabs.com/3007948/how-facebook-home-and-isnt-os" target="_self">Facebook Home is probably a nascent attempt at grabbing smartphone OS marketshare</a>. But semantic technology doesn't have to be restricted to tasks like search; in fact, this sort of lexical analysis makes it easier for the page to "listen in" on the topic being discussed on the page, serve targeted ads, or spawn calls to action (the way Facebook reminds you to hit up old friends). From Facebook's post:</p>
 
-<blockquote><p>Our team realized very early on that to be useful, the grammar should also allow users to express their intent in many various ways. For example, a user can search for photos of his friends by typing:
-
-<p>“photos of my friends”<br />
+<blockquote><p>Our team realized very early on that to be useful, the grammar should also allow users to express their intent in many various ways. For example, a user can search for photos of his friends by typing:<br />
+“photos of my friends”<br />
 “friend photos”<br />
 “photos with my friends”<br />
 “pictures of my friends”<br />
-“photos of facebook friends”</p></blockquote></p>
+“photos of facebook friends”</p></blockquote>
 
 <p>Facebook has also taught the system to compensate for subject-verb agreement errors and other common grammatical mistakes. But where things get even more portentous for publishers is when it comes to Graph Search's focus on synonyms, dialects, and slang:</p>
 
@@ -219,7 +235,7 @@ If I ran a news organization, I would start a regular feature called, Here’s w
 
 <h3><a name="Stay_Tuned_For_More_Updates">Stay Tuned For More Updates</a></h3>
 
-<p>[<em>Eraser Image: <a href="http://www.shutterstock.com/cat.mhtml?searchterm=eraser&amp;amp;search_group=&amp;amp;lang=en&amp;amp;search_source=search_form#id=102815357&amp;amp;src=0cupgUK-D1kjzbT9sY_aGw-1-98" target="_blank">Jo Ann Snover</a> via Shutterstock</em>]</p>
+<p>[<em>Reading a Newspaper: <a href="http://www.shutterstock.com/cat.mhtml?searchterm=newspaper+kid&amp;amp;search_group=&amp;amp;lang=en&amp;amp;search_source=search_form#id=10009078&amp;amp;src=C7e7QJom0ApUorDFbCFRHA-1-4" target="_blank">CREATISTA</a> via Shutterstock</em>]</p>
 
 <aside class="info"><div class="info-inner"><p>This is a developing story, so we're updating it it as we go. Check back for more updates, and if you see something you think should be here, feel free to <a href="http://twitter.com/gabestein" target="_blank">tweet the author</a>.</p></div></aside>
 

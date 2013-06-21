@@ -1,0 +1,79 @@
+<p>While <a href="http://developer.android.com/guide/components/index.html" target="_blank">Google’s Android Developer Guidelines</a> do help developers create better apps, there are a number of places where usability and common sense should win out over standards. Of course, before you set about breaking the rules, you'll need to learn them, so by all means: Don't proceed until you've familiarized yourself with Google’s standards. They are important and useful. Now here are four scenarios where you can totally disregard them.</p>
+
+<p><br />
+<h2><a name="Google_Design_Standards_You_Should_Probably_Break">Google Design Standards You Should Probably Break</a></h2></p>
+
+<h5><a name="1_The_app_logo_in_the_Action_bar_Disregard">1) The app logo in the Action bar. Disregard!</a></h5>
+
+<p>If your app looks like lots of other generic apps, then putting your logo on the far left of the main Action bar (as per the Google standard) will give users much-needed context. However, most major Android apps <em>do not do this</em>. Why? They have a visual brand that’s strong enough--and a user interface that’s unique enough--to already provide the visual clues users need to know to make the connection.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/06/3012752-inline-jm-gettingsomeair.png" alt=""/>
+</figure>
+
+<p>Removing the logo has huge advantages on a screen as small as a smartphone's--that screen real estate is better used providing contextual information or navigation controls for users. Below, Google follows their own guidelines and puts the Gmail logo on the top left, but Facebook uses the action bar to provide context and navigation.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/06/3012752-inline-jm-sundayhike.png" alt=""/>
+</figure>
+
+<h5><a name="2_Unlabeled_icons_are_okay_Disregard">2) Unlabeled icons are okay. Disregard!</a></h5>
+
+<p>In their guidelines, Google shows a Gmail example for use of icons in the action bar. But their example is inadequate because it shows unlabeled controls--which are really only the privilege of highly recognizable apps. For lesser-known app developers (which is to say, literally everyone but the Gmail maker) putting unlabeled controls in your app just confuses users. People don’t know what your little “<a href="http://www.xoomforums.com/forum/motorola-xoom-help/8969-gmail-menu-symbols.html" target="_blank">filing cabinet</a>” icon is supposed to do in the context of your app. A simple word under each of these buttons greatly improves usability and especially the <a href="http://www.fastcolabs.com/3008419/tracking/first-time-user-experience-what-developers-need-know" target="_self">first-time user experience</a>.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/06/3012752-inline-jm-iconbar.png" alt=""/>
+</figure>
+
+<p>Icon ambiguity, even in a technology as familiar as a mail program (which tends to use very standard icons), reminds us that creating good icons can be hard. Don’t beat yourself up trying to come up with icons for complex or specialized actions which don’t already have a well-known icon. Instead, either put text under your icon, or just use a text button. Icons are great tools for usability when they’re exactly that--iconic--but otherwise, they’re just confusing.</p>
+
+<h5><a name="3_The_navigation_drawer_is_a_natural_choice_Disregard">3) The navigation drawer is a natural choice. Disregard!</a></h5>
+
+<p>The drawer is a handy navigation solution for apps that have many categories or top-level actions. I would caution developers not to use this as an excuse for having too much in the navigation. Great apps are focused. In fact, some of the most powerful and useful apps in the app store get by with just two to five navigation items and no slide-out drawer. Before you run off and implement it, honestly ask yourself if you can get away without it.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/06/3012752-inline-jm-navbar.png" alt=""/>
+</figure>
+
+<h5><a name="4_You_should_use_nonobvious_interface_elements">4) You should use non-obvious interface elements.</a></h5>
+
+<p>Just because something is available in the OS doesn’t make it a good idea to use it. Case in point: Don’t rely on long touches, the hardware menu button, or nested menus. Instead, always have some sort of link on screen for users to get to the data they want. Also, stay away from using multi-pane layouts since they are often unattractive, visually confusing, and clunky to use.</p>
+
+<p>An app with more panes than can fit on screen creates what’s known in the biz as “<a href="http://en.wikipedia.org/wiki/Mystery_meat_navigation" target="_blank">mystery meat navigation</a>.” This sort of layout lacks the visual clues needed by users to know they must perform an action to see more information. If you have more categories or tabs than you can fit on the screen, consider getting rid of some or using a slide-out drawer instead. Here's an example of what not to do:</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/06/3012752-inline-jm-list-and-detail.png" alt=""/>
+</figure>
+
+<p><br />
+<h2><a name="Whats_Missing_From_The_Google_Android_Design_Guidelines">What's Missing From The Google Android Design Guidelines</a></h2></p>
+
+<h5><a name="Keep_a_visual_separation_between_buttons">Keep a visual separation between buttons.</a></h5>
+
+<p>Text buttons should be visually separated from other icons with a line. While this is a subtle touch, it is effective from a UI point of view. Tumblr (top) has a short vertical line separating their text from the rest of their action bar which is visually clearer and more grounded than the Yahoo Mail App (at bottom).</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/06/3012752-inline-jm-zsultan.jpg" alt=""/>
+</figure>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/06/3012752-inline-jm-newmessageto-russ-smith.png" alt=""/>
+</figure>
+
+<h5><a name="Use_pull_to_refresh_the_right_way">Use pull to refresh (the right way).</a></h5>
+
+<p>In many applications, pull to refresh is just a better (and more elegant) way to refresh than a refresh button, and users just get it. You should consider using it instead of, or in addition to, a refresh button--but only if you don't need the real estate above your table cells for something else. In some apps, this may be the most logical place for a search field, filter options, or metadata. Obviously, some apps require more frequent refreshes than others--if the app doesn't need to pull in data at least once per session, then consider using the space for something more heavily used.</p>
+
+<h5><a name="Consider_whether_you_need_an_onscreen_back_button">Consider whether you need an on-screen back button.</a></h5>
+
+<p>If you’re developing an app for an Android device without a hardware back button (such as a Kindle) you absolutely need to have a back button on screen or your app could become unusable. In fact, unless your audience is comprised of only highly technical users, consider having this button on screen at all times. Many less experienced users are confused by Android’s default “back” behavior. So, the more options you give them to go back the better.</p>
+
+<p>It should also become a best practice to make your on-screen “back” button take your users back <em>only one</em> screen, instead of all the way back to your main menu as the Google guidelines suggest. Why dump people out of your app when they're just trying to complete a different task in your app?</p>
+
+<h5><a name="It_doesnt_matter_if_your_icon_has_rounded_corners">It doesn't matter if your icon has rounded corners.</a></h5>
+
+<p>When I speak at a conference, or am consulting with a client, I’m often asked, “Should app icons have rounded corners or square corners for Android?” My answer? Let it go. It doesn’t matter. Maybe in a year or two then we’ll see a clear winner start to dictate Android app design conventions for the rest of us, but right now, 95% of your users really don’t expect one over the other. Make the rest of these choices yourself--but on this one, I suggest using it as an opportunity to defer to the HIPPO (Highest Paid Person’s Opinion).</p>
+
+<p><em>Screenshot images from <a href="http://developer.android.com/design/index.html" target="_blank">Google's design guidelines</a>.</em></p>
+
+<p>[<em>Image: Flickr user <a href="http://www.flickr.com/photos/emagic/56206100/in/photostream/" target="_blank">Eric</a></em>]</p>

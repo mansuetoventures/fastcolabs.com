@@ -1,0 +1,83 @@
+<p>A year ago at this time, as I was preparing to be <a href="http://www.fastcolabs.com/1839465/how-airbnb-earned-me-20000-and-restraining-order-my-landlord" target="_self">thrown out of my Greenpoint loft for Airbnb'ing too much</a>, I began to realize what can happen when you let things get too complicated.</p>
+
+<p>People like to talk about simplicity, the type you associate with Apple products or fine cuisine--luxurious, elegant, unadorned. But there's another kind of simplicity--the back-against-the-wall sort, where you're forced to slash and burn, leaving behind the things you thought you needed to be shoved off to the side of a hallway. In that way, bootstrapping a software product is a lot like getting evicted. Simplicity isn't so much a design choice as a point of survival.</p>
+
+<p>I'm writing the draft of this article in a real-time web app called <a href="http://writebot.com" target="_blank">Writebot</a>: A simple, web-based productivity tool that two friends and I have designed and built, and for the past six months, tested here at FastCo.Labs. It's used at about a dozen publishers, banks, and hedge funds here in New York. It is not the prettiest--the entire visual design is grayscale--and it doesn't integrate with Facebook or Twitter. It's simply a web-based repository that lets you quickly ball up a bunch of raw materials--files, links, notes, chats--into a single page and start a project. It looks like this.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/06/3013005-inline-all-writebot.png" alt=""/>
+</figure>
+
+<p>It's almost shameful how long it took us, me and my partners--<a href="https://twitter.com/ananthmuniyappa" target="_blank">Ananth Muniyappa</a> and <a href="https://twitter.com/jonjamz" target="_blank">Jon James</a>--to arrive at something this constrained. And much of what I learned designing Writebot last year got poured into FastCo.Labs this spring. This site is about exactly this process--teaching yourself <em>how to think</em> about software. To that end, here's what we learned about simplicity while building Writebot--and why New York is the best (and scariest) place to solve big business problems with software.</p>
+
+<h3><a name="Start_with_a_shamefully_small_part_of_the_problem">Start with a shamefully small part of the problem.</a></h3>
+
+<p>When I drew the first wireframe for Writebot, it was in 15 minutes--after literally thousands of other wireframes and specs of much more ambitious tools. As a journalist and consultant, I had seen first-hand how messy most companies' internal workflows were. With a couple of <a href="http://www.amazon.com/s?ie=UTF8&amp;amp;field-author=Chris%20Dannen&amp;amp;page=1&amp;amp;rh=n%3A283155%2Cp_27%3AChris%20Dannen" target="_blank">iOS development books</a> under my belt, I thought I could design a mobile app that would totally streamline the way people managed projects. Ha.</p>
+
+<p>It took almost a year of research, YouTube learning, burning cash, and frying brain cells before I got humble enough to just draw a simple web app that would just save me, and people like me, a precious few minutes. The first drawing looked like this:</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/06/3013005-inline-writebot-wires.png" alt=""/>
+</figure>
+
+<p>The task flow above: Search for news, drag relevant links into a "bucket," and take some notes on what you've collected. Then share that page via a single URL. That's it.</p>
+
+<p>The more I read (and write) the stories of products' early days, the clearer it becomes that even the most complex systems and products begin with something that is almost shamefully reductive. They grow with the people that use them. You can't plan out any of it on paper. The metaphor of a product "road map" is all wrong. It's more like genetics--you don't know exactly how the thing will look, but there are certain core traits you know it will exhibit.</p>
+
+<p>As you get users, they start to ask for things, and you start to find adjacent problems that you could solve. Complexity comes naturally and fast. If the base product is already complex any way, the concept will turn to dust when you start adding features and you’ll be eaten alive by <a href="https://en.wikipedia.org/wiki/Scope_creep" target="_blank">scope creep</a>. Below, we almost immediately had to add tabs to the real-time Notes area because people kept asking for them, even though it wasn’t in our dev pipeline.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/06/3013005-inline-tabs.png" alt=""/>
+</figure>
+
+<h3><a name="Like_the_Terminator_your_product_should_be_built_to_protect_people">Like the Terminator, your product should be built to protect people.</a></h3>
+
+<p>Left to their own devices, computing systems (like the rest of the universe) will grow in complexity. The more time they save us in one way, the more they require in another. Call it the “law of thermodynamics of bitch work.” Somehow the more "tools" I had in my toolkit, the less time I felt I had to think and write. For me, Writebot was designed to protect what I value--my creative energy.</p>
+
+<p>The cloud--everything, everywhere!--sounds great until you realize <a href="http://www.fastcolabs.com/3007889/how-one-new-service-tackling-death-file-system" target="_self">you have duplicate files all over the place and no clue where anything's stored</a> when you need it. There’s stuff archived in Dropbox or Box, versions frozen in email, common docs on the corporate intranet, images, videos, and voice recordings on your phone, and a whole pile of downloads on your desktop. Below, a file bucket exists on every Writebot project.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/06/3013005-inline-filebucket-writebot.png" alt=""/>
+</figure>
+
+<p>By 2011, when the idea for Writebot started germinating, news sites like ours had begun to run lots of rich media. But before you see finished articles like this one, the raw materials live scattered across the hard drives of reporters, editors, videographers, photo editors, producers, and developers. Every time you start a big article, you feel like Sisyphus grabbing the boulder: You forage for info, you share things, you brainstorm--and you almost immediately start to lose track of your raw materials.</p>
+
+<h3><a name="Someone_else_probably_feels_your_pain">Someone else probably feels your pain.</a></h3>
+
+<p>When I abstracted out my frustration with journalism, I felt as though I spent half my day digging around my computer to copy and paste things. It sucked, sure, but it wasn’t exactly world hunger. The original Writebot concept was so basic--just a simple way to manage big groups of links--that it was tough to think of use cases outside of, well, myself.</p>
+
+<p>It wasn't until Ananth, who is a former hedge fund analyst and trader, started to consider his own specie of bitch work that we realized other businesses (in the capital markets) were burning time the same way. We thought people in media and finance might be experiencing similar problems. And people in both industries place primacy on speed, so they really, <em>really</em> hate losing time. We started to think of Writebot as a tool that could work for both.</p>
+
+<h3><a name="Find_the_easy_way_in">Find the easy way in.</a></h3>
+
+<p>In New York, people generally treat jobs like spouses. If you're going to intercede in someone's work/marriage with a software product, it has to be workflow-agnostic and modular. People need to be able to drop it right in and see if there's an improvement. And if not, rip it out.</p>
+
+<p>Last month we told <a href="http://www.fastcolabs.com/3008819/open-company/your-startup-runt-pivot-hard-or-keep-pushing" target="_self">the pivot story of a Y-Combinator company called AnyPerk</a>, which sells employee benefits packages to other startup companies. Theirs is an ingenious business because they were able to sell to other startups who can change policy quickly. But in New York, where lots of businesses have existed unchanged for decades, there are routines. There are best practices. There is IT policy. There is IE8.</p>
+
+<p>On my trips out to San Francisco, I had met with all sorts of startups building amazing consumer apps. But then I'd go back to my hotel and lose precious ounces of sanity and time to this mundane problem of starting an article. When it came time to improve the process, I just started at the part of the article process that was most unstructured and also most painful--the beginning.</p>
+
+<h3><a name="Solve_a_problem_that_feels_like_its_killing_you_or_someone_you_care_about">Solve a problem that feels like it’s killing you (or someone you care about).</a></h3>
+
+<p>The start of the writing process made me stressed, anxious, late on deadlines, error-prone, and generally grumpy. It literally cost me income, enough that I took on the opportunity cost of trying to solve it.</p>
+
+<p>You see the same approach in projects like the <a href="http://www.fastcolabs.com/3012889/the-kind-of-app-experiment-youd-only-find-in-nyc" target="_self">experimental apartment finder we covered yesterday</a>, built by WSJ reporter and programmer <a href="https://twitter.com/jsvine" target="_blank">Jeremy Singer-Vine</a>. In Silicon Valley, where things are cheap and space is plentiful, minds wander towards solving inconveniences or using the Internet towards a greater good. A side project in NYC is more like trying to plant a vegetable garden next to a highway--there’s often a shred of desperation.</p>
+
+<p>To stick with the project, you don't just need a core problem that's killing you, but a message of hope about how to solve it. You need to value something that is being threatened by that problem, and your product has to exhibit a hypothesis about how you can protect that thing you value. With Jonathan's app, the theory is that human referral beats algorithms for certain high-value items (like an apartment). The hypothesis behind Writebot is that projects maintain greater momentum when they get going fast.</p>
+
+<p>Even when you make huge pivots like we did--starting with a consumer iOS app and ending up with a real-time web app for enterprises--you'll never feel lost if you are always circling in on the problem. As Gentry Underwood from Mailbox (now, Dropbox) <a href="http://www.fastcolabs.com/3008886/open-company/mailboxs-gentry-underwood-what-hackers-should-know-about-design-thinking" target="_self">told me last month</a>:</p>
+
+<blockquote><p>There's this sense that you can take the parts of [your startup] that are working and reapply those parts to a new problem--that you end up having these two degrees of freedom. . . . I think when you have that much freedom, it's really easy to get lost. It's easy to lose your bearings in terms of why you're doing what you're doing. With that goes, I think, a lot of the motivation to suffer through all the hard parts that are inevitable, no matter how close you are to an actual solution. In our case, we pivoted from Orchestra to Mailbox, but we pivoted in a way that it was pretty different in a sense that we never let go of the "why" that we were trying to solve when we started. . . . The problem was always the same consistently throughout. I think that's central to why we were able to finally find product-market fit--because we tried a lot of different stuff, but it was always attached to the same problem. It wasn't like we were truly floating along the way.</p></blockquote>
+
+<h3><a name="Dont_ignore_the_mess_made_by_the_last_generation_of_software_tools">Don’t ignore the mess made by the last generation of software tools.</a></h3>
+
+<p>Business used to move at the pace of its systems. You compiled your report, mailed it off, and had a cocktail while waiting for the Chicago office to read it two days later. But work happens so fast, and we all manage so many systems, that the time it takes you to dig around and copy-paste stuff is actually costing money.</p>
+
+<p>Complex businesses like the ones that are mainstays here in New York--banking, media, fashion, consulting--need simplicity more than ever. The tools that were boons a decade ago are sucking the life out of them now. What costs one employee a few wasted minutes scales to enormous waste across an enterprise. You can’t even think about solving this schema of problems unless you acknowledge and work within legacy systems.</p>
+
+<p>Financial institutions love Bloomberg because it's a super-efficient market data tool. But it's just a data feed--it's not efficient at putting together projects. There's chat and email-like functionality, but no content or idea production. In the decades since Bloomberg launched, the reports, models, research, and pivot tables that analysts, traders, and sales people create every day have become scattered across email, chat, intranet, and local hard drives in all sorts of formats--PowerPoint, Word, PDF, email, pivot tables, screenshots.</p>
+
+<p>When it comes time for work groups to manage clients, stuff gets lost, and in a digital cloud-based world, customers don't tolerate that excuse anymore. If the startup-minded kids at Stanford had any idea how neolithic the processes were inside big business today, they wouldn't build dating apps.</p>
+
+<aside class="info"><div class="info-inner"><p>In our next post, we’ll talk about how we built Writebot on the latest web frameworks--and what we learned about high-profile projects like Meteor.js in the process.</p></div></aside>
+
+<p>[<em>Image: Flickr user <a href="http://www.flickr.com/photos/docsearls/6896420768/in/photostream/" target="_blank">Doc Searls</a></em>]</p>
