@@ -1,0 +1,101 @@
+<p>Colors can inspire mood, convey attitude, or create instant associations in people’s minds, making it a powerful tool for branding. But FiftyThree, the team behind <a href="http://www.fastcodesign.com/1669392/paper-an-ipad-app-from-some-of-the-minds-behind-the-microsoft-courier%3D8" target="_self">Paper for iPad</a>, saw that as a major business problem: Traditional software works with color in ways that are faithful to the way machines display color, but totally unintuitive to users. They believed the corporate world could produce better digital art if it only had human-centric tools, and in the Color version of Paper, version 1.2.1, they sought to invent one.</p>
+
+<p>How steep is the learning curve for making beautiful graphics? Answer that question yourself by firing up any graphic design program. Open the color picker, and choose a color midway between yellow and blue. Any kindergartner will tell you the result should be green--but no matter what machine or software you're using, you'll get a drab gray. Already your artwork sucks.</p>
+
+<p>“There’s no such thing as a bad color, just bad color palettes,” says Andrew Allen, cofounder and designer at FiftyThree. “These traditional color pickers like those in Photoshop or Illustrator don’t offer you any help,” says Allen. “They say, here are 16 million options--you choose.”<br />
+<figure class="inline-small inline"><br />
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2012/11/3002676-inline-color-today.png" alt=""/><br />
+</figure></p>
+
+<h2><a name="Down_the_Rainbow_RabbitHole">Down the Rainbow Rabbit-Hole</a></h2>
+
+<p>To fix color, FiftyThree would need to ditch the color picker and go on a year-long creative goose-chase to create an intuitive, touch-native and wildly simple replacement. The result would be a center-stage demo by Phil Schiller at Apple’s iPad Mini launch. But why does reinventing something so basic take award-winning design?<br />
+<figure class="inline-large inline"><br />
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/11/3002676-inline-mixer-closeup.png" alt=""/><br />
+</figure><br />
+First, there’s the legacy: The color picker has existed in computing in one form or another since 1973. Reinventing a new interface would mean going against a paradigm shared by almost every design tool out there from Adobe to Zoho; the color picker may suck, but we’re accustomed to it.</p>
+
+<aside class="pullquote"><q>"There's an engineering axiom," says Chen. "Do the simplest thing that could possibly work. Well, we had now tried the easiest possible approaches and they didn't feel even remotely right."</q></aside>
+
+<p>First the team focused on the most obvious problem: the interaction. They created a mixer to replace the picker. “Andrew’s insight was that a mixer could be a far more friendly tool than a picker, and just as flexible if executed properly,” says Matthew Chen, the iOS engineer and sometime studio artist who led the development of Paper’s Mixer.</p>
+
+<p>But it quickly became clear that the mixer was not going to offer a good experience unless it could blend colors in a beautiful and intuitive way. The building-blocks of computational color, which are known as color-spaces, were generally not optimized for mixing colors.</p>
+
+<p>“In searching for a good blending algorithm, we initially tried interpolating across various color-spaces: RGB, HSV, and HSL, then CieLAB and CieLUV.  The results were disappointing,” says Chen. “We know red and yellow should yield orange, or that red and blue should make purple--but there isn't any way to arrive at these colors no matter what color-space you use. There's an engineering axiom: Do the simplest thing that could possibly work. Well, we had now tried the easiest possible approaches and they didn't feel even remotely right.”</p>
+
+<h2><a name="If_Everyone_Else_Is_Wrong_Why_Bother_Innovating">If Everyone Else Is Wrong, Why Bother Innovating?</a></h2>
+
+<p>So why was it worth a year of development and brainstorming to fix this intractable color-mixing problem? The FiftyThree team says it’s about giving your big features--in their case, the watercolor brush, the marker, the pencil--room to grow and improve. Without fixing the color dilemma, the rest of the app couldn't improve. <br />
+<figure class="inline-small inline"><br />
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2012/11/3002676-inline-palette-diagram2.png" alt=""/><br />
+</figure><br />
+“We put a lot of effort into building scaffolding around the actual product,” says Allen. The goal, he says, is for interactions to disappear. "To make that happen, you need a product’s design and engineering to work in harmony: Neither can stand out above the other.” The team knows they’ve hit the mark when an intermediate user can create expert-level work in far less time than they'd expect.</p>
+
+<h2><a name="A_Conceptual_Breakthrough_From_the_Past">A Conceptual Breakthrough From the Past</a></h2>
+
+<p>What vaulted FiftyThree over a hot pile of math was a major insight gleaned from two dead German scientists named Paul Kubelka and Franz Munk. In 1931, they published a paper called <em>Ein Beitrag zur Optik der Farbanstriche</em>, or "a contribution to the optics of paints," which showed that this color-space question predated computing by several decades. The paper laid out a “theory of reflectance” with an equation which <a href="http://www.chemistry.nmsu.edu/studntres/chem435/Manuals/Cary_100/Cary_100_app_maths/source/app_maths/mt_kubelka_munk_function.htm" target="_blank">could model color blending on the physical experience</a> you have with the naked eye. That is, how light is reflected or absorbed by various colors. <br />
+<figure class="inline-small inline"><br />
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2012/11/3002676-inline-palette-diagram.png" alt=""/><br />
+</figure><br />
+Today, computers store color as three values: one for red, green, and blue, also known as RGB channels. But the Kubelka-Munk model had at least six values for each color, including reflection and absorption values for each of the RGB colors. “While the appearance of a color on a screen can be described in three dimensions, the blending of color actually is happening in a six dimensional space,” explains Georg Petschnigg, FiftyThree's cofounder and CEO. The Kubelka-Munk paper had allowed the team to translate an aesthetic problem into a mathematical framework.</p>
+
+<p>Moving from a three-dimensional color-space to six dimensions was the difference between old drab color-mixing and absolute realism. “What creates the shades you see between paints is this interplay of absorption and reflection,” says Petschnigg. “Compare red nail polish to red ink: both are red, but the nail polish will be visible on black paper because it reflects light. The ink won’t be, because it absorbs light.”</p>
+
+<h2><a name="Can_iPad_Apps_Be_Too_Real">Can iPad Apps Be Too Real?</a></h2>
+
+<p>Mimicking the six-dimensional color-space created results that were too similar to real life. “We were reproducing all of the idiosyncrasies of real-world color mixing,” says Chen, “and color mixing is a tricky process that painters master only with practice. In a way, we had gone from blending that wasn't realistic enough to blending that was too realistic.” <br />
+<figure class="inline-small inline"><br />
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2012/11/3002676-inline-palette-portrait.png" alt=""/><br />
+</figure><br />
+But finding a single algorithm that could model these physical attributes in an intuitive way would take an enormous multivariate calculus and neither Chen nor Petschnigg knew if there was a solution. It seemed the team was no closer to solving the original business problem. A distinctive palette is crucial to knockout branding, but finding one was still difficult with the new tool. So the team began hacking around, attempting to teaching their algorithms how humans like their colors blended.</p>
+
+<h2><a name="Using_Common_Sense_Over_Piles_of_Math">Using Common Sense Over Piles of Math</a></h2>
+
+<p>Petschnigg and his team manually selected 100 pairs of popular colors and eyeball-tested how they should blend. Chen built a custom iPad app to exhibit different blends of the same colors, allowing the user to select the transition that looked right to them. By testing amongst their team, they eventually settled on 100 sets of mathematically arbitrary--but perceptually pleasing--color transitions. They used those 100 datapoints to build a framework that would allow the iPad to take educated guesses when it came time to blend colors that weren’t within the 100 hand-tuned pairs. <br />
+<figure class="inline-large inline"><br />
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/11/3002676-inline-blending-refinements.jpg" alt=""/><br />
+</figure><br />
+Below are the first two functional prototypes of the color tool, one on a black background and one on white. That crumpled, curved line linking the two colors? In a traditional color picker that'd be a straight line leading through white, not green. The series of curved paths between colors that Chen ultimately chose might look haphazard to the algorithmic brain of the iPad, but the user experience would look perfectly reasonable to the person using it. (The interaction itself would take four more prototypes, but more on those later.)<br />
+<figure class="inline-large inline"><br />
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/11/3002676-inline-ptorotypes12.png" alt=""/><br />
+</figure></p>
+
+<p>“We’re forcing similar colors to blend in similar ways, which is not true in the real world, where pigments with different chemical compositions might appear similar but have very different blending behaviors,” explains Chen. “We wanted to have exacting control over exactly what shades of color the blending passed through when mixing from one color to another, so that the blending doesn’t hurry through some shades on the way to others.” Below, feedback on the prototype shows this tester thought the sixth version was the most natural-looking transition.<br />
+<figure class="inline-small inline"><br />
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2012/11/3002676-inline-img0086-2.png" alt=""/><br />
+</figure><br />
+After they had nailed the mixing paths for their 100 pairs, Chen added a number of post-processing steps then taken to ensure even blending across transitions of hue, saturation, and luminosity. “In the end, blending colors in the mixer should just feel simple and natural,” he says. “Ideally, no one will realize all of the hoops we jumped through to get there.”</p>
+
+<h2><a name="The_Mathematical_Conundrum_Illustrated">The Mathematical Conundrum, Illustrated</a></h2>
+
+<p>So why exactly do computers see color so differently than human beings? Below, Petschnigg provides an illustration of very simple color blending in RGB space. The formula here describes a linear blend between a foreground color Ca, background color Cb, a blend factor <a href="http://en.wikipedia.org/wiki/RGBA_color_space" target="_blank">alpha</a> in the range of 0-1, and the output color, which we’ll call Co. <br />
+<figure class="inline-large inline"><br />
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/11/3002676-inline-image2.jpeg" alt=""/><br />
+</figure><br />
+"In computing, most colors are expressed as RGB triplets. “We learned in elementary school that yellow and blue when mixed turn green,” says Petschnigg. “However when you plug in the values to this equation, you get a different result: Gray! Mathematically speaking, yellow (1,1,0) and blue (0,0,1), blend to the triplet (0.5, 0.5, 0.5) which is gray. This is because RGB only describes a point in a color spectrum, not how colors would behave when they blend."</p>
+
+<h2><a name="Making_the_Mixer_TouchNative">Making the Mixer Touch-Native</a></h2>
+
+<p>Perfecting the interaction took more work, even after the team discovered its blending solution. “No one had done anything like the Mixer before,” says Allen, “so we had to do more prototyping than any previous tool to vet out the design and refine the interaction.”</p>
+
+<p>The goal was perceptual consistency. “One complete spin produces the same amount of change, regardless of whether the colors were on opposite ends of the spectrum or neighbors,” says Allen. “The real genius of the Mixer is that it helps you create the right color. If you have a palette with a blue and a red and you mix them to create purple, that specific purple will work harmoniously with the ingredients, because it came from those colors.”</p>
+
+<p>Allen defined the interaction with a series of four prototypes built in HTML and run in the browser, as seen below. Each prototype Allen built helped Chen, the iOS developer, refine the programmatic approach in the following ways:<br />
+ <figure class="inline-large inline"><br />
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/11/3002676-inline-d.png" alt=""/><br />
+</figure><br />
+<strong>For the first prototype, the team wanted to know if the core mixing gesture worked as an interaction.</strong> "It worked wonderfully!" says Allen. "But controlling the color via traditional Hue-Saturation-Brightness values didn’t. So we began to experiment with ways of mixing between two colors." <br />
+<figure class="inline-large inline"><br />
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/11/3002676-inline-b.png" alt=""/><br />
+</figure><br />
+<strong>In the second prototype, they explored blending between colors.</strong> The team considered the differences between color-spaces like RGB, and more perceptive color-spaces in which hue, saturation, and lightness changes are perceptually even. "Clearly, perceptive color was the right approach, but it took a much deeper dive with engineering to build and refine our own blending model," says Allen.<br />
+<figure class="inline-large inline"><br />
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/11/3002676-inline-a.png" alt=""/><br />
+</figure><br />
+<strong>The third prototype was all about giving the user feedback.</strong> This motion prototype explores how feedback on that act of blending is communicated.<br />
+<figure class="inline-large inline"><br />
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2012/11/3002676-inline-c.png" alt=""/><br />
+</figure><br />
+<strong>The fourth prototype added secondary features.</strong> In the final version, the team brought all their previous learning together and began to examine how the selection model worked with the palette for saving and moving colors.</p>
+
+<p>Once their color solution was complete, the team pushed their new build of Paper to Apple and prepared for Hurricane Sandy. The app appeared on the App Store last week amidst power outages in FiftyThree's TriBeCa neighborhood. That didn’t stop the team from ironically celebrating their victory over color in near blackness: a <a href="https://twitter.com/georgpetschnigg/status/263413783932858368/photo/1" target="_blank">candlelight pre-launch party</a> in their loft office was the occasion. You can download Paper by FiftyThree <a href="https://itunes.apple.com/us/app/paper-by-fiftythree/id506003812?mt=8" target="_blank">here</a>.</p>
