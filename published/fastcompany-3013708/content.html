@@ -1,0 +1,61 @@
+<p>One of the reasons for Co.Labs to exist is to experiment with ways to increase the speed an accuracy of our publishing workflow. Within 60 days of the site launch, one of our most egregious time-wasters became quickly apparent: Our freelancer invoice process.</p>
+
+<p>Most of our writers are perma-lancers: Contract employees who write for us on a regular basis, and usually have other writing gigs and obligations. I'm sure each publisher has its own uniquely bureaucratic invoicing workflow, and these writers have to keep several of these protocols straight when they write for various publications. As a freelance writer/reporter for the last six years, I could empathize with this annoying process, which took place just often enough to be frustrating--every 30 days--and just infrequently enough that I could never reliably memorize the steps.</p>
+
+<h3><a name="Why_You_Should_Care_About_Contractors_TIme">Why You Should Care About Contractors' TIme</a></h3>
+
+<p>Our writers are assets. We're always looking for new ones. Each time you find a writer who has done great work in the past, there's an adjustment process to the tone and content of our particular publication. In a regular job, you'd call it the training period. These writers need to get to know how we do things, how we expect work to be rendered, how we edit, revise and fact-chek, and how we incentivize and compensate them.</p>
+
+<p>In my experience with Co.Labs, which launched in March, this process takes about four weeks per writer. That's a span of four weeks of extra attention I need to spend helping them do the best work they can do--work that will fit with FastCompany.com, feel right, and get eyeballs.</p>
+
+<p>Four weeks of extra attention per writer, in the aggregate, is a ton of time. It's a lot of emailing. A lot of question-answering. A lot of heavy editing. Philosophical discussions about why we cover certain things (or <a href="http://www.fastcolabs.com/3013616/open-company/dear-sean-parker-alright-you-nailed-us" target="_self">why we don't</a>.)</p>
+
+<p>The invoice process is a constant source of many of these redundant questions-answering email sessions. While I don't process the invoices myself, I do get cc'd when a writer submits one to accounts. Naturally, I look at them to verify the line items, and often--even with veteran FastCompany writers--I find mistakes or information missing. I know that will result in an emails to and from me, and typically the writer has to re-invoice after that.</p>
+
+<h3><a name="For_400_You_Can_Save_This_Guys_Sanity">For $400, You Can Save This Guy's Sanity</a></h3>
+
+<p>This is <a href="https://twitter.com/DanAsadorian" target="_blank">Dan Asadorian</a>. He's the member of our team who is responsible for approving freelancer invoices and sending them on to accounts payable. When a writer incompletely or incorrectly performs the invoicing process, it's this guy who has to email you them back, initiating a back-and-forth process that will require more file attachments, questions, and other niggling issues, thereby delaying the payment process for the freelancer and wasting Dan's time (and my time) on questions that we've answered a dozen times.</p>
+
+<h3><a name="What_Makes_This_The_Perfect_Office_Automation_Process">What Makes This The Perfect Office Automation Process</a></h3>
+
+<p>I have a friend in Nepal who runs a little outsource web dev operation. There's nothing especially unique about his business except that I know and trust him. But I've worked with outsource developers in Russia, Argentina and India before, and it's not hard to develop a rapport with companies outside the US, at least to the point where you can trust them to deliver quality work on small, limited projects.</p>
+
+<p>Outsourcing is dangerous for big projects, but for ones which are simple and limtied in scope, it's perfect. How do you know a perfect automation project when you see it?</p>
+
+<p>Any office process which has a fixed and finite number of steps, with very few caveats or contingencies, is ideal. Better yet--pick a process that's already working well manually, and has instructions already written. If you pick a new process to automate, and you write original instructions, you will inevitably find that you've forgotten a step. The best automation candidates are process which are proven and straightforward, just inefficient.</p>
+
+<p>That's in keeping with one of the most counter-intuintive principles about software product validation--an idea exemplified by <a href="http://www.fastcolabs.com/3006776/open-company/dont-automate-lessons-hacks-powering-outbox-usps-killer" target="_self">companies like Netflix and Outbox, who don't automate anything until they absolutely have to</a>.</p>
+
+<p>Here are the instructions for invoicing which we currently give our freelance employees. Notice how all these little requirements are like traps for people who haven't had their morning coffee. It's easy to see why this process is error-prone, and yet, it's exactly the same every time:</p>
+
+<p><em>Invoicing is a pain, and we are working on automating this process. Until we do, here are instructions.</p>
+
+<ol>
+  <li><span>Invoice at the end of the month, ON OR BEFORE the last day of the month</span></li>
+  <li><span>Only invoice for stories which have already gone live on the site</span></li>
+  <li><span>Please submit your invoices in PDF format. </span></li>
+  <li><span>The file should be named like this: (your editor)-(Your first and last name)-(year)-(month#) 
+FOR EXAMPLE: If writer Vince Wilfork wrote articles in January 2013, his invoice would be labeled: chrisdannen-VinceWilfork-2013-01.pdf<br /></span></li>
+  <li><span>Please send only one invoice per month with all of your articles included. </span></li>
+  <li><span>Please be sure to include the following information in your invoices:
+Full Name:<br />
+Site: (Co.Labs)<br />
+Email Address:<br />
+Your Editor:<br />
+Articles, Links, and Rate (if applicable):<br />
+Social Security #:<br />
+Total Invoice $:<br /></span></li>
+  <li><span>Send your invoice PDF to Dan Asadorian</span></li>
+</ol>
+
+<p>NB: It usually takes 4 weeks after you send your invoice to receive payment. Please refrain from inquiring about your invoice before that period.</em></p>
+
+<h3><a name="What_We_Got_For_Our_400">What We Got For Our $400</a></h3>
+
+<p>You can see our invoice-generator here: <a href="http://invoice.v0.fastcolabs.com/" target="_self">http://invoice.v0.fastcolabs.com/</a></p>
+
+<p>We're hosting this on our internal experiments server, which we've dubbed v0--a kind of <a href="http://www.fastcolabs.com/3013594/why-php-has-no-place-on-our-experiments-server" target="_self">internal Heroku</a> that will let us test and launch projects in all different languages. This is also where we host our <a href="http://cola.bz" target="_blank">Backpage, a slightly different take on our traditional homepage</a>.</p>
+
+<p>Our outsource friends built this project in PHP--<a href="http://www.fastcolabs.com/3013594/why-php-has-no-place-on-our-experiments-server" target="_self">not the easiest language they could have chosen</a>, since our language-agnostic server is better equipped for now-popular modern languages like JavaScript and Ruby. But this is only a first version, and we can rebuilt it ourselves later.</p>
+
+<p>[<em>Money Rain: <a href="http://www.shutterstock.com/cat.mhtml?lang=en&amp;amp;search_source=search_form&amp;amp;search_tracking_id=ZfcbyYMqba2qiMa47jMopA&amp;amp;version=llv1&amp;amp;anyorall=all&amp;amp;safesearch=1&amp;amp;searchterm=money+rain&amp;amp;photos=on&amp;amp;search_group=&amp;amp;orient=&amp;amp;search_cat=&amp;amp;searchtermx=&amp;amp;photographer_name=&amp;amp;people_gender=&amp;amp;people_age=&amp;amp;people_ethnicity=&amp;amp;people_number=&amp;amp;commercial_ok=&amp;amp;color=&amp;amp;show_color_wheel=1&amp;amp;secondary_submit=Search#id=75024814&amp;amp;src=dQUOyW6ebcA1GLQYG9sPyw-1-0" target="_blank">Olavs</a> via Shutterstock</em>]</p>
