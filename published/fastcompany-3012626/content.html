@@ -1,0 +1,178 @@
+<p>Agile development has long been all the rage; indeed, in most modern development shops the great agile methodologies are old hat. If you come from a software background like Ruby on Rails, Python, or certain Java niches, you may--until recently--have experienced a small jolt of culture shock when encountering the deep obstacles that agile development practices faced on the iOS platform.</p>
+
+<p>The lengthy iOS app approval and manual user update process runs against the grain of frequent delivery. IDE support for key agile coding practices like refactoring is soft. And more glaring than anything else: The dearth of great tools and established practices for automated testing has made the agile ideal of true test-driven development (TDD) hard to attain.</p>
+
+<p>All this is changing, though, and rapidly. New tool sets are making it easier and easier to engage in genuine agile development on iOS. In particular, true test-driven development--which was formerly a hard, upstream slog on iOS--is becoming increasingly attainable.</p>
+
+<p>This article outlines our experience using TDD to build <a href="https://itunes.apple.com/us/app/howaboutwe-dating-find-singles/id439078709?mt=8" target="_blank">HowAboutWe Dating for iPad and iPhone</a>. We'll describe the stack of tools we use for testing and continuous integration and how we use them to speed the delivery of quality software.</p>
+
+<p>When we made automated tests a requirement for completing a feature or bug-fix ticket, our QA churn dropped radically; our crash instances plummeted; developer confidence improved because we saw the risk of making changes go down; and we could better predict our release readiness without emergency feature cuts.</p>
+
+<p>Our most important tools are Kiwi for unit testing (what Xcode calls "logic tests") our model and controller logic; KIF for integration testing of user-facing behavior; and CruiseControl.rb for continuous integration to keep us honest. We also have some key practices that guide our use of these tools.</p>
+
+<h3><a name="Tool_Number_One_Kiwi_for_Unit_Testing">Tool Number One: Kiwi for Unit Testing</a></h3>
+
+<p>If you've ever used RSpec, you're familiar with the likes of:</p>
+
+<p><figure class="inline-gist"><a class="gist-link" href="https://gist.github.com/chris-dannen/5729488">View on GitHub</a></figure></p>
+
+<p><a href="https://github.com/allending/Kiwi" target="_blank">Allen Ding's Kiwi</a> is a testing framework for iOS with an RSpec-inspired syntax. It makes slick use of Objective-C blocks and lends itself to readable, contextualized tests.</p>
+
+<p><figure class="inline-gist"><a class="gist-link" href="https://gist.github.com/chris-dannen/5729497">View on GitHub</a></figure></p>
+
+<p>Kiwi is a very complete framework, with many of the levers and knobs you'd reach for regularly in RSpec, like:<br />
+<ul>
+  <li><span>Nestable contexts</span></li>
+  <li><span>Blocks to call before and after each or all specs in the context</span></li>
+  <li><span>A rich set of expectations</span></li>
+  <li><span>Mocks and stubs</span></li>
+  <li><span>Asynchronous testing</span></li>
+</ul></p>
+
+<p>In addition, Kiwi is built on top of OCUnit, which means that it integrates seamlessly with Xcode logic tests and that you can reuse your old OCUnit tests, if you want to do a whole-hog migration to Kiwi. We prefer Kiwi to raw OCUnit, mainly for the elegant syntax--the nested blocks are easy to scan, and the specs are about as smooth to write as you could hope for in Objective-C.</p>
+
+<h4><a name="We_Use_Kiwi">We Use Kiwi.</a></h4>
+
+<p>With our models (most of which are subclassed from NSManagedObject), we test all the code not generated for us. This includes parsing JSON from our API into Objective-C instances; all model-level internal logic, such as converting a user's gender and orientation into a complementary set of genders and orientations to search for; and important inter-model interactions, as between messages and message threads.</p>
+
+<p>Helpers and categories are another place where Kiwi and TDD shine. We've test-driven a set of CGRect helper functions that aid us in smart photo cropping; a photo cache; and a category of  time- and sanity-saving methods on NSLayoutConstraint.</p>
+
+<p>We've also been driving toward thinning out our view controllers, and a lot of that involves factoring complex code into separate, single-responsibility objects. An example: In our app's messaging module, we offer an Inbox, a Sent messages folder, and an Archive folder. The three boxes have different behaviors (e.g., you can only archive a thread from the Inbox), and an earlier revision of the messaging view controller had a lot of if-inbox-then-do-X-else-if-sent-do-Y-else, plus a lot of code to make sure the correct message folder was loaded and visible, that Sent and Inbox were properly synced but sorted slightly differently, different empty state strings were displayed for each folder, etc.</p>
+
+<p>Fat controllers and repeated if-else chains are both code smells, and we used Kiwi tests to drive out a single solution to both of them: a separate MessageStore object that handled the juggling of messages and threads. The messaging view controller tells the MessageStore when the user switches modes and queries the MessageStore for the contents of the current folder, appropriate loading and empty strings, and for yes/no answers to behavioral questions like, "Should I expose an Archive button?" The controller is slimmed and the chained if-else-if statements are replaced by data structures that will be easily extensible if we decide to add a fourth folder.</p>
+
+<p>Kiwi specs were integral to building the MessageStore with minimalism and correctness. To give you a taste, here are two specs that cover message-archiving behavior:</p>
+
+<p><figure class="inline-gist"><a class="gist-link" href="https://gist.github.com/chris-dannen/5729512">View on GitHub</a></figure></p>
+
+<p>This first spec tells us that if the MessageStore is uninitialized, it should throw an exception when asked whether archiving behavior should be exposed; otherwise, it should give a boolean answer appropriate to its current mode. If the user requests that a thread be archived, the MessageStore handles that, as defined in the second spec:</p>
+
+<p><figure class="inline-gist"><a class="gist-link" href="https://gist.github.com/chris-dannen/5729520">View on GitHub</a></figure></p>
+
+<p>This spec sets up an Inbox containing message objects (here represented by some dummy NSNumber objects--the MessageStore does not actually care about the type of the objects it is holding) and mimics various requests to pull an object from the Inbox and insert it into a particular place in the archive folder. For modes where the user should not be allowed to archive messages (as defined in the previous spec) or when invalid indices in the Inbox or archive collections are specified, an exception should be thrown; otherwise, the appropriate object should change folders.</p>
+
+<p>The full spec is about 250 LoC, and canonical red-green-refactor TDD drove out an implementation of about 200 LoC. Visible, facile metrics like this scare some people off TDD, because they just see the cost of more code; I see this and know that I've written and tested a well-specified, tight bundle of logic, and I took one of the flakier, harder-to-maintain pieces of our app and broke it into solid, loosely-coupled modules that work reliably. The test-driven MessageStore and the concomitant simplification of the messaging view controller purged a whole class of hard-to-diagnose bugs from our issue tracker. When it comes to stabilizing the most-used parts of your app, 250 lines of straightforward, declarative test code is cheap.</p>
+
+<p>One limitation of Kiwi is that it's not so good for testing UIKit-derived classes or anything that touches them. This is actually a limitation of Xcode logic tests--they don't fire up a UIApplication instance and don't play nicely with UIKit. To test elements of the project that can't be separated from the UI, we use automated integration tests.</p>
+
+<h4><a name="Tool_Number_Two_KIF_for_Integration_Testing">Tool Number Two: KIF for Integration Testing</a></h4>
+
+<p>Kiwi helps us keep our lovely abstractions lovely, but what of the user-facing parts of the app? And how do we know that all the pieces work together? For integration tests of user-visible behavior, we use <a href="https://github.com/square/KIF" target="_blank">Square's KIF library</a>. It uses the  iOS accessibility framework to simulate user interaction with the app.</p>
+
+<p>Testing every facet of the app by automatically driving the app through every possible user action would be insanely costly, and it would rapidly get to the point of diminishing returns. In addition, the fact that the tests run in the simulator by faking user behavior means that the tests run at human-ish speeds, not as fast as the CPU can run through them. Integration testing in the sim requires a number of additional practices and judgment calls to make it sane and valuable.</p>
+
+<p>First, the tests have to be decoupled from the outside world. We've used method swizzling to stub out all our network calls and give back dynamically generated, predictable data to drive the app. To wit:</p>
+
+<p><figure class="inline-gist"><a class="gist-link" href="https://gist.github.com/chris-dannen/5729523">View on GitHub</a></figure></p>
+
+<p>Each of those stub methods returns a simulated API response, based on responses recorded in an actual session. This keeps us from having to stand up a web server to test the client app, and puts the inputs to the tests entirely under our control. We frequently have the stubs respond to different inputs by returning different data or exceptions so that we can simulate behaviors like paging data, network failure modes, etc.</p>
+
+<p>Second, the integration tests have to be decoupled from each other. If you run 50 integration tests one after the other and make a change to the fourth test that alters the app's state in a persistent way, you risk breaking the next 46 tests. To mitigate this risk, we bundle the tests into related modules and run steps to log the test user out and clear the database between modules. Where it's important that an intermodule dependency be tested (e.g., a message sent from a user profile should show up in the logged-in user's Sent folder), we write a test for it, but otherwise we try to keep the KIF test scenarios limited to one screen or a small set of related screens, each testing a limited but meaningful set of user behavior.</p>
+
+<p>Third, a lot of judgment needs to be exercised in what gets tested. It is impossible to test every possible user input, but you want to hit all your major error states as well as at least one valid input. It is impossible to test every path through the code, but you want to reasonably simulate the things a user is likely to do and spend a little more effort on the parts of the code that matter most to the user experience.</p>
+
+<p>If you've read about the pros and cons of integration testing, you've heard some version of the issues I've described above (coupling-induced fragility, impossibility of total coverage, etc.) as reasons why integration tests are a bad thing. Certainly, we've found them costlier to write and maintain than unit tests. The way we've applied them, though, has given us far too much value to even consider discarding them: Where we've used unit tests to write quality code, the integration tests have been invaluable in helping us maintain it. They form our "regression firewall", and if the test board is green, then the developers, product managers, and QA all know that none of the big stuff has gone wrong. Bugs still get through, but there will tend to be stuff around the edges.</p>
+
+<p>In the rare case something big gets through, we add it to the suite. It happened recently that a release made it into the wild with a 100% reproducible crash when the subscription screen was reached by a certain path. We translated the repro into a set of KIF steps:</p>
+
+<p><figure class="inline-gist"><a class="gist-link" href="https://gist.github.com/chris-dannen/5729531">View on GitHub</a></figure></p>
+
+<p>From this short repro, you can get the feel of KIF tests: Check the state of the screen (mostly via the accessibilityLabel and accessibilityValue properties of screen elements), interact with screen elements, check the state, interact, and so on.</p>
+
+<p>Our crash occurred on the last line of the repro above. We added the steps to the suite, ran it, watched it crash; then we fixed the bug, ran the test, watched it pass; then we ran the rest of the upgrade-related test module to make sure we didn't break anything. This is a much longer process than just diving in and fixing the bug as soon as you've diagnosed it, but it boosts confidence among everyone who builds or inspects the app in two ways: They trust that we haven't broken existing functionality (thanks to existing tests), and they trust that the bug being addressed in the new test won't return.</p>
+
+<p>One KIF trick that comes in handy is defining our own one-off steps. Any parameterizable process that gets used more than once gets a factory method in our own category on the KIFTestStep class, but sometimes the code is made more comprehensible when a task that only happens once is defined inline with a block:</p>
+
+<p><figure class="inline-gist"><a class="gist-link" href="https://gist.github.com/chris-dannen/5729535">View on GitHub</a></figure></p>
+
+<h4><a name="The_Cloud_Inside_the_Silver_Lining">The Cloud Inside the Silver Lining</a></h4>
+
+<p>There are two major downsides to KIF. The first is the syntax--all those addStep: calls are actually building the test suite, not running it, and there's no clean way to set a break point at a particular instance of a step (unless you've defined the step yourself). We tolerate it because KIF is the best thing we've found for this type of testing. We feel it has yet to achieve true maturity, and we've extended it quite a bit for our own purposes, but it largely does what it says it will and has served as one of the pillars of our testing strategy.</p>
+
+<p>The other pain point is the run time of the tests. Our full suite takes nearly 15 minutes to run, which makes it useless for fast-iterating styles of TDD/BDD. Our usual method of handling this goes something like:<br />
+<ul>
+  <li><span>Run only the test scenario related to the feature or bug being addressed.</span></li>
+  <li><span>Once the central test passes, run related test modules to make sure nothing was broken.</span></li>
+  <li><span>In cases where confidence is low or a change is far-reaching, run the full suite at the developer bench. Otherwise, merge your change (after review: See below) and be ready to jump back on it if the CI board (again: See below) goes red.</span></li>
+</ul></p>
+
+<p>This is another one of those times when developer judgment plays a key role. Running the full suite is a major break in your rhythm, especially when you're making (what feels like) a small change. The value of moving on to the next thing needs to be weighed against the risk inherent in the change being made, and the evaluation of that risk depends on one's intimacy with the code and seasoning as a programmer. In the section on practices below, I go into how we buttress individual judgment with the collective wisdom of the team.</p>
+
+<h4><a name="Tool_Number_Three_CruiseControlrb_for_Continuous_Integration">Tool Number Three: CruiseControl.rb for Continuous Integration</a></h4>
+
+<p><a href="http://cruisecontrolrb.thoughtworks.com/" target="_blank">CruiseControl.rb</a> is a darling of the Rails community, but it's not just for Rails apps. It's quick to set up--including on a Mac, which is required to run our Xcode-based tests--and can run and extract results from arbitrary build-and-test scripts. CC.rb handles polling our GitHub repositories for changes to projects; our custom scripts do the rest, and CC.rb reports red/green for each project by checking standard Unix return values from the scripts.</p>
+
+<p>First the common library shared by our iPhone and iPad projects gets built, and its Kiwi tests are run:</p>
+
+<p><figure class="inline-gist"><a class="gist-link" href="https://gist.github.com/chris-dannen/5729539">View on GitHub</a></figure></p>
+
+<p>It's that simple; the result of the final grep for Kiwi's success message is the success or failure that CruiseControl.rb reports.</p>
+
+<p>Running the KIF tests for the iPhone and iPad projects is a bit more of a production. We have to do extra steps to build the common library prior to the main project, and we have to use Waxsim (we prefer <a href="https://github.com/jonathanpenn/WaxSim/" target="_blank">Jonathan Penn's excellent fork</a>) to run the simulator from the command line and capture console output, and sift through that console output for success or failure messages. The end result is the same, though: The return value of the script is reported as the test outcome by CC.rb.</p>
+
+<p>Continuous Integration, of course, is only as good as the speed with which it gives you feedback. We have our CI set up on a Mac Mini running Screen Sharing enabled, and with the CC.rb dashboard exposed on a convenient port. CruiseControl.rb can be set up to send email, but our inboxes are plenty cluttered already. We get the results through two main channels: On the developer desktop, <a href="http://ccmenu.sourceforge.net/" target="_blank">CCMenu</a> keeps the latest test results an eye flick away:</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/06/3012626-inline-screen-shot-2013-06-04-at-104203-am.png" alt=""/>
+</figure>
+
+<p>To broadcast status to management and the wider team, we keep CruiseControl.rb's web dashboard on a large screen mounted on a wall overlooking the developers' corner of the shop:</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/06/3012626-inline-screen-shot-2013-06-04-at-104102-am.png" alt=""/>
+</figure>
+
+<p>The public display of results is an important driver of good testing habits. As soon as a team gets used to meeting high expectations for test reliability, a red test suite on display for all to see becomes a distracting irritant. While we don't generally suggest introducing distracting irritants into technical workflows, in this case the irritation is confluent with the worthy goal of maintaining a reliable test suite that consistently inspires confidence in everyone who builds or depends on the software.</p>
+
+<h3><a name="Our_Best_Practices_The_Rules_to_Guide_the_Tools">Our Best Practices: The Rules to Guide the Tools</a></h3>
+
+<p>Tools are only valuable when they are used well. We surround our tools with processes to get the most out of them, and tune those processes as we go in response to real-world feedback. Here are three simple rules that guide our use of the tools described above:</p>
+
+<h4><a name="A_TDD">A: TDD</a></h4>
+
+<p>The core rhythm of TDD (and its cousins like BDD) is often described as "red-green-refactor":<br />
+<ol>
+  <li><span>Red: You write a test describing the behavior you want, run it, and watch it fail.</span></li>
+  <li><span>Green: You nudge your code into a state where the test passes.</span></li>
+  <li><span>Refactor: You inspect your code (and your tests) for duplication and other issues, and remove them. The tests keep you from breaking anything.</span></li>
+</ol></p>
+
+<p>The last step is probably the least-understood, most-skipped one in the process. People carry a lot of weird, fuzzy definitions in their heads for the word <em>refactor,</em> often having to do with larger re-architecture of code. In the TDD context, it has a very specific meaning: Refactoring is changing code without changing behavior. An important sidebar to this is that you have to verify the constancy of the behavior, or you're not really refactoring--you're just changing stuff. Automated tests are one (relatively cheap) way to do this--you can have confidence that the behavior being tested hasn't changed.</p>
+
+<p>Skipping the refactoring step is a sure path to technical debt. The refactoring step is doing the dishes after dinner, pouring water on the ashes of your campfire, cleaning your rifle after you've fired it. After you've added or altered code, any duplicated bits should be factored out into methods (and tests run again); any ugly or slow bits should be reworked (and tests run again); any dead or commented code should be removed . . . You get the picture. Professional software development isn't a game of seeing how quickly we can deliver working code; there is the cost of future change to consider, too, and leaving your code clean makes life better for the next person who touches it (and that will as often as not be you).</p>
+
+<p>All that to say: The automated tests don't increase your product quality. They provide the support and confidence for you to apply your skill and judgment toward improving the quality of your code.</p>
+
+<h4><a name="B_Tests_Should_Always_Be_Green">B: Tests Should Always Be Green.</a></h4>
+
+<p>Tests do not inspire confidence when they're failing. Above, I mentioned the social incentive built into making our tests results public, but the practical value is important, too. The tests exist to convince us that we haven't broken anything. The moment you allow yourself to get comfortable with broken or inconsistent tests, you've lost sight of why you built them to begin with. There may be situations where you allow them to be red for a short time, even a few days during a large re-architecture, but these should be extreme situations, and you should not get comfortable with them.</p>
+
+<p>We foster a culture of personal responsibility around the tests. If your name is on the failing commit, it's yours to fix. In the event that the committer can't address it right then, the next person with a free hand is responsible for investigating the issue.</p>
+
+<h4><a name="C_2_gt_1">C: 2 &gt; 1</a></h4>
+
+<p>A minimum of two people must look at every piece of our code before it gets merged into the master branch. We have two ways to meet this requirement: pair programming and GitHub pull requests. In both cases, the goal is to have a second active collaborator devoting attention to the problem, to overcome the individual tendency to code to the happy path, and to bring different skills and perspectives to the question of the best way to implement something.</p>
+
+<p>In the case of pull requests, the programmer inspecting the code is expected to run both automated and manual tests, as well as applying a critical eye to the code. With both practices (pairing and pull requests), both parties are expected to be active collaborators; no one should be rubber-stamping someone else's decisions.</p>
+
+<h3><a name="Conclusion">Conclusion</a></h3>
+
+<p>iOS culture, even in many large organizations with skilled engineers, is behind on up-to-date testing practices. Aggressive mobile strategies up against lengthy App Store release cycles and manual user app updates create pressure to jettison code and best practices that might be seen as "extras."</p>
+
+<p>It’s ironic that iOS development--the catalyst of the consumer web explosion of the past few years--has been a reluctant late comer to TDD, perhaps the most cherished methodology of the agile web development culture that is building the consumer Internet.</p>
+
+<p>Over the platform's short history, agile methodology and TDD have been at odds in iOS development culture. The agile desire for speed has taken precedence over other concerns due to a past dearth of high-powered automated testing frameworks, and the results have often been high crash rates, long QA cycles, and a whole series of tribulations that the modern developer associates with the antiquities of waterfall development.</p>
+
+<p>Our experience building HowAboutWe Dating for iPhone and iPad has shown that TDD and CI on iOS are well worth the effort. The tools are young but rapidly maturing. It is possible! Our move to a genuine culture of TDD on iOS has transformed the quality of our software and how quickly and predictably we can deliver it. So we're believers that any organization not already employing these practices should dive in and measure the results for themselves.</p>
+
+<aside class="info"><div class="info-inner"><p>A version of this article will appear on the HowAboutWe blog. Liked this? Check out the HowAboutWe Team’s last technical post about <a href="http://www.fastcolabs.com/3002577/open-company/7-key-questions-ask-when-taking-your-app-ios-android" target="_self">7 Key Questions To Ask When Taking Your App From iOS To Android</a>.</p></div></aside>
+
+<hr />
+
+<p><em>HowAboutWe is the modern love company and has launched a series of products designed to help people fall in love and stay in love. Aaron Schildkrout is co-founder and co-CEO of HowAboutWe, where he runs product.</p>
+
+<p>Brad Heintz is the Lead iOS Developer at HowAboutWe. When he's not bringing people better love through TDD, he's tinkering, painting, or playing the Chapman Stick.</p>
+
+<p>James Paolantonio is a mobile engineer at HowAboutWe, specializing in iOS applications. He has been developing mobile apps since the launch of the first iPhone SDK. Besides coding, James enjoys watching sports, going to the beach, and scuba diving.</em></p>
+
+<p>[<em>Image: Flickr user <a href="http://www.flickr.com/photos/imagesbywestfall/3658162161/in/photostream/" target="_blank">Greg Westfall</a></em>]</p>

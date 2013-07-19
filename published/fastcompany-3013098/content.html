@@ -1,0 +1,54 @@
+
+
+<aside class="info"><div class="info-inner"><p>Editor's Note: We've written about prototyping with people before. Check out what a Netflix advisor <a href="http://www.fastcolabs.com/3006776/open-company/dont-automate-lessons-hacks-powering-outbox-usps-killer" target="_self">taught this startup about when not to build technology</a>.</p></div></aside>
+
+<p>When my iOS app <a href="http://snipsnap.it" target="_blank">SnipSnap</a> was accepted to <a href="http://dreamitventures.com" target="_blank">DreamIt Ventures</a> two years ago, it was little more than a screencast and a high-fidelity prototype built on Keynote templates. Vaporwear. We were planning to build a fairly sophisticated OCR app for coupons and had zero technology. But we learned you can overpromise like this with early features--if you know your way around Amazon's Mechanical Turk service.</p>
+
+<p>M-turk, as it's known for short, allows you to outsource small jobs to real people. You can route tasks there via their API, allowing your app to deliver work to remote workers and then take back the results. Without all those outsource workers, we never would have been able to get SnipSnap working at the scale needed to prove out the capital investment in writing OCR software.</p>
+
+<h4><a name="Step_1_Proving_Out_The_Concept">Step 1: Proving Out The Concept</a></h4>
+
+<p>The goal of our iOS app was to parse out all coupon details and then return back a digital version ready to redeem in-store. We thought of it as DIY mobile couponing. I knew the concept would work in stores,  as I'd spent the prior six months photographing coupons--Babies "R" Us, Macy's, Bed Bath &amp; Beyond, Target--and then successfully redeeming them off my phone's camera roll. It just worked. I knew how much more valuable this experience would be in app form, with all the structured coupon data enabling features like expiration-date alerts and location-based reminders and scannable barcodes.</p>
+
+<p>Having seen the effectiveness of Optical Character Recognition (OCR) at powering a class of business-card scanning apps, like <a href="https://itunes.apple.com/us/app/worldcard-mobile-business/id333211045?mt=8" target="_blank">WordCard Mobile</a> and <a href="https://itunes.apple.com/us/app/cardsnap-business-card-scanner/id307463725?mt=8" target="_blank">CardSnap</a>, I figured we could take that same approach and apply it to coupons. Thus was born my spiffy prototype and lofty promises to the DreamIt selection committee. After quitting my nice stable job at Gannett, and reassuring my pregnant wife all the while, I ventured off to West Philadelphia to build this seemingly simple utility in three months or less. It took less than one week to realize how horribly misguided I'd been.</p>
+
+<h4><a name="Sht_OCR_Software_Is_Hard">Sh*t, OCR Software Is Hard</a></h4>
+
+<p>OCR on coupons was, quite simply, a bad idea. We tested every option--from the free, open-source Tesseract OCR library, to Abbyy's crazy expensive <a href="http://www.abbyy.com/" target="_blank">in-app SDK</a> and various other server-side OCR products. The app could extract some text, but not nearly enough.</p>
+
+<p>The problem: Coupon layout is sloppy, irregular, and unstructured. Perhaps most problematic, even when we did extract text, we had to formulate countless natural-language patterns to be able to parse the text into the appropriate fields, like the expiration date. Our mentor put it bluntly: Our approach was DOA. <br />
+	<br />
+Around the same time, I heard about another business card scanning app, one that had been acquired by LinkedIn. When I first used <a href="https://itunes.apple.com/us/app/cardmunch-business-card-reader/id478351777?mt=8" target="_blank">CardMunch</a> I was disappointed; it didn't give you a result instantly. But then, after a few minutes, the details of the card were identified perfectly. How'd they do that with just a semi-blurry photo? I puzzled over this for weeks until a much smarter entrepreneur friend gave me a clue: "Dude, they're just Turking 'em."</p>
+
+<h4><a name="All_The_Cool_Startups_Are_MTurkin_It">All The Cool Startups Are M-Turkin' It</a></h4>
+
+<p>Crowdsourced labor is perfect for fulfilling simple, routine tasks that can't be otherwise automated. Got a business card that needs parsing? You can M-turk it. Photos on your social network that need to be screened for pornographic images? M-turk to the rescue. Audio that needs transcribing? Yup, works for that too.</p>
+
+<p>The more I talked with other entrepreneurs, the more I realized that this approach was not only viable, but advisable. M-turk essentially allows a startup like SnipSnap to brute-force a problem that there isn't an easy technological solution for (yet). In reading Lean Startup, this is more or less how <a href="http://www.crunchbase.com/company/aardvark" target="_blank">Aardvark</a> (acquired by Google) built their ask/answer MVP. The DreamIt folks informed me that <a href="http://www.adaptly.com/" target="_blank">Adaptly</a>, a star from a former DreamIt class, also  brute-forced their product at the outset.</p>
+
+<p>I'd like to say that after we had this aha moment, and hooked our jumper cables up to the Amazon service, it all clicked. Alas, M-turk integration proved to be daunting. We were also building our native iOS app and backend at the same time. Come Demo Day, we were not fully M-turk ready. We did have a viable prototype, which demo'd nicely for investors. But even then, it was powered by three friends logging into a crude admin UI and manually parsing the coupons off-site. Some call this the "Wizard of Oz" approach. And it worked beautifully up to about 10 users. Of course, there was no way it would scale when we actually hit the app store.</p>
+
+<h4><a name="The_Key_To_Leveraging_MTurk_At_Scale">The Key To Leveraging M-Turk At Scale</a></h4>
+
+<p>Running out of time and frustrated by the M-turk architecture, we looked for an even easier way to plug in. Enter Houdini--a dead-simple API for creating M-turk tasks, or HITS. SnipSnap would send a coupon image, Houdini would generate the HIT, and it would then post back all the coupon details in a exactly the format we needed. Within just one week, we were rocking and rolling. Almost 100% accurate!</p>
+
+<p>Then, about 2 weeks after launching, came the Apple feature in the New and Noteworthy section. Our servers held up, but all of a sudden we had an M-turk backlog. And with 100,000 new users and twice that many coupons submitted in a week, things piled up quickly. But there was a simple solution: Raise the price of our HITS. At launch, we were paying $0.05 per coupon parsed. The minute we bumped it up to $0.12, the laws of supply and demand kicked in, and we watched the horrendously long backlog evaporate in about a day. Incidentally, $0.02 of that went to Amazon, a small percentage to Houdini, and the rest to the worker, or Turker (Houdini has since changed their pricing model). Houdini even afforded us a dead-simple way to send a task to multiple Turkers, compare the results, and throw out any outlier data--consensus workflow automation, or, in layman's terms, quality control.<br />
+	<br />
+Over the course of the last year, SnipSnap has become the fastest growing coupon app. We have grown close to 1 million users and over 16 million coupons snipped, and began working with several of the largest national retailers like Bed Bath &amp; Beyond and Aeropostale and Sears. All the while, M-turk continued to power at least part of our system. As we reached scale, we found that we needed to graduate from Houdini's solution, which, while simple to set up, didn't afford us the ability to create custom functionality (like, say, having the Turker rotate and crop a coupon image before parsing it). So we built our own form and buckled down to do the full M-turk integration.</p>
+
+<p>Specifically, we found that for our type of HIT, a form that placed the fields beside the coupon image, with certain text auto-completing, made the task infinitely easier (and hence faster). That, we learned, is critical for M-turk: No matter what form you build, put yourself in the shoes of the worker, and complete a couple hundred tasks. If your HIT is boring or annoying (or worse: time-consuming), chances are they'll see it that way too, and be that much more disinclined to complete them. Our form got a lot better and, some Turkers said it was actually kind of fun.</p>
+
+<p>Eventually we developed methods for image recognition and barcode scanning and, yes, even OCR. We continue to work with researchers on approaches to correcting perspective in angled images and text, and have patented some of the tech we've built.  And yet, Mechanical Turk continues to be the ultimate fall-back whenever all those automated measures have a low degree of confidence. Even as we've reached the level of 200,000 coupons snipped a day, it has proven to be incredibly scalable and cost-effective.</p>
+
+<h3><a name="How_To_Get_Started_With_Mechanical_Turk">How To Get Started With Mechanical Turk</a></h3>
+
+<ol>
+  <li><span>Check out the simplified services that sit atop M-Turk, and simplify integration, like CrowdFlower, Houdini, and ScalableWorkforce. Many others listed here: <a href="http://www.quora.com/What-are-some-crowdsourcing-services-similar-to-Amazon-Mechanical-Turk">http://www.quora.com/What-are-some-crowdsourcing-services-similar-to-Amazon-Mechanical-Turk</a></span></li>
+  <li><span>Consider using a consensus workflow to maintain quality, but also know the trade-offs: time and money. These tasks will always take longer to return a result, as you need multiple Turkers to complete. And if you have 3 workers reviewing each task you'll pay 3x as much. </span></li>
+  <li><span>Creating Gold tasks is a good way to evaluate worker quality. These tasks have preassigned answers and workers are judged by how closely their responses match. A great way for weeding out the sub-par workers and spammers. </span></li>
+  <li><span>Be careful about modifying your HIT prices. Once workers become accustomed to your tasks, a change in pricing (especially downward) could cause you to instantly lose a chunk of your worker pool.</span></li>
+  <li><span>Streamline your task. Add auto-completes to fields, make sure tabbing around the form is simple, consider that many Turkers are on small screens. The simpler and speedier your task is to complete the better. </span></li>
+  <li><span>Spend an hour doing your tasks. Sum up how many you completed, and multiply this by your HIT price. This is the hourly wage you're paying your M-Turk employees, and don't you forget it.</span></li>
+</ol>
+
+<p>[<em>Image: Flickr user <a href="http://www.flickr.com/photos/franklinheijnen/5215683272/in/photostream/" target="_blank">Franklin Heijnen</a></em>]</p>

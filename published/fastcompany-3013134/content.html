@@ -1,0 +1,216 @@
+
+
+<aside class="info"><div class="info-inner"><p>We don't plan to stop experimenting, so we'll be continually updating this post. If you have any comments or suggestions, tweet us <a href="http://twitter.com/fastcolabs" target="_blank">@FastCoLabs</a></p></div></aside>
+
+<p>In June, we started embedding audio into a select group of Co.Labs articles as part of an experiment with the startup <a href="http://spokenlayer.com" target="_blank">SpokenLayer</a>. We theorized that adding audio to some articles would increase the time spent on site for those articles, as well as decrease the bounce rate as people spend time listening to articles rather than skimming through them. So far, we've added audio to four articles. Although it's a small number of posts, we received enough traffic on them to run some basic tests to see how effective having the audio has been. Moreover, as a publisher, we need to be able to move quickly to validate results so we can direct our limited resources efficiently. Fortunately, we bought a set number of SpokenLayer recordings, so we basically have to use them. That means we can use these results to refine, rather than stop or expand, the experiment. Here's what we found.</p>
+
+<h4><a name="Some_Basic_Numbers">Some Basic Numbers</a></h4>
+
+<p>In the period from June 1 to today, the site received 482,681 views on articles (meaning non-homepage and taxonomy pages). Readers spent 8,839 total hours engaging with this content. Of those 482,681 views, 228,901 were bounces--that is, views where the visitor did not go on to visit another page on the site.</p>
+
+<p>We ran four articles with SpokenLayer. Although we don't know the exact number of plays yet (I'll update this when we do), we do know thanks to Google Analytics In-Page that readers are clicking on the play button quite a bit when it's available. But it's actually not particularly important to our test. We're not only wondering if people stick around longer to listen to audio, we're interested in whether investing in audio sends a signal to a reader that the article is worth paying attention to.</p>
+
+<p>To determine whether the differences in time spent and bounce rate were statistically significant, I compared them to the overall site numbers using a two-tailed t-test. Using a two-tailed test is important because I wanted to make sure that if it wasn't helping us, at least adding SpokenLayer wasn't hurting us. Here's what I found.</p>
+
+<p><strong><a href="http://www.fastcolabs.com/3013005/open-company/why-the-boom-in-enterprise-tech-will-happen-in-new-york" target="_self">Why The Boom In Enterprise Tech Will Happen In New York</a></strong><br />
+<ul>
+    <li><span>Views: 2863</span></li>
+    <li><span>Time Spent: 73.2 hours</span></li>
+    <li><span> Bounces: 1207</span></li>
+</ul></p>
+
+<p>Time spent statistically significant?: <strong>YES</strong><br />
+Bounces statistically significant?: <strong>YES</strong></p>
+
+<p><strong><a href="http://www.fastcolabs.com/3013936/open-company/this-digital-telescope-will-blow-your-mind" target="_self">This Digital Telescope Will Blow Your Mind</a></strong><br />
+<ul>
+    <li><span>Views: 10,035</span></li>
+    <li><span>Time Spent: 107 hours</span></li>
+    <li><span> Bounces: 753</span></li>
+</ul></p>
+
+<p>Time spent statistically significant?: <strong>WORSE!</strong><br />
+Bounces statistically significant?: <strong>YES</strong></p>
+
+<p><strong><a href="http://www.fastcolabs.com/3014018/the-rise-of-the-diy-data-scientist" target="_self">The Rise Of The DIY Data Scientist</a></strong><br />
+<ul>
+    <li><span>Views: 2594</span></li>
+    <li><span>Time Spent: 66 hours</span></li>
+    <li><span> Bounces: 1068</span></li>
+</ul></p>
+
+<p>Time spent statistically significant?: <strong>YES</strong><br />
+Bounces statistically significant?: <strong>YES</strong></p>
+
+<p><strong><a href="http://www.fastcolabs.com/3014239/can-apple-heal-hollywoods-head-in-ass-disorder" target="_self">Can Apple Heal Hollywood's Head-In-Ass Disorder?</a></strong><br />
+<ul>
+    <li><span>Views: 1237</span></li>
+    <li><span>Time Spent: 26 hours</span></li>
+    <li><span> Bounces: 682</span></li>
+</ul></p>
+
+<p>Time spent statistically significant?: <strong>NO</strong><br />
+Bounces statistically significant?: <strong>WORSE</strong></p>
+
+<h4><a name="Caveats">Caveats</a></h4>
+
+<p>Before discussing what these numbers mean, it's worthwhile to discuss a few caveats. Of course, lots of factors go into what causes a reader to stick around longer on an article or click into another article on the site, including the length of the article and attached audio (the ones we samples are around the same length in both), where traffic comes from (we see lots of bounces from search, less from social), and purely subjective measures like article "quality." In other words, it's hard to prove that SpokenLayer alone caused any of these differences in article performance. This is why it's important to stress once again the small sample size of four articles against a site that publishes almost twice that every day. As I said above, we're not looking for conclusions to the experiment from this data, we're looking to refine it based on what we've observed so far. In that light, here are a few observations.</p>
+
+<h4><a name="Tentative_Conclusions">Tentative Conclusions</a></h4>
+
+<p>So far, adding audio to our articles has had mixed results. Two out of the four articles saw statistically significant increases in hours spent on the article vs. the rest of the site. Three out of four saw bounce rates decrease significantly. However, one article each actually performed statistically worse on bounce rate and time on site. I'm going to focus on these.</p>
+
+<p>One of these articles--<a href="http://twitter.com/michaelgrothaus" target="_blank">Mike Grothaus's</a> piece about a telescope in London that sees through weather--is particularly interesting because it has more pageviews than any of the articles and had fewer bounces, but was actually statistically worse in terms of time spent with the article. The piece is also unique among the four in that it is the only slideshow. Looking deeper into the metrics, I can see that the slideshow contributed to the increased number of pageviews (although it was also a good performer in unique views) and the bounce rate. Looking at other slideshows we've run on the site, I can see a similar trend of low bounce rates and less time spent with the article, so I wonder if any effect of adding audio to the piece wasn't nullified by including a slideshow, which in our site layout also appears significantly above the audio player. I'm going to hypothesize that having too many interactive multimedia elements on a page can overwhelm users and actually cause them to spend less time on the site. Going forward, we should test letting audio stand alone vs. combining it with other types of multimedia and see which performs better.</p>
+
+<p>The other article I want to focus on is (not to pick on him) Grothaus' article about Apple and Hollywood. This is the newest article, which means it's also the smallest sample size. But it also did worse than any other article, with time spent not statistically better and bounces actually statistically worse. Looking at the traffic behind this article, I can see it got most of its traffic from a link on the aggregation site Real Clear Technology. As most publishers know, aggregators can send a ton of traffic your way, but it tends not to be good traffic--that is, readers who stick around. What's interesting to me is that having audio on the story didn't signal to these casual readers that the article was higher quality. I wonder if that has anything to do with the appearance of our audio widget, so I'm going to suggest that we A/B test different sizes, placements, and calls to action to see if any one performs better.</p>
+
+<h4><a name="The_Bottom_Line">The Bottom Line</a></h4>
+
+<p>It's still early in this experiment, but we know what we can focus on: selecting stories that deserve audio (stories with lots of multimedia already probably aren't good choices) and testing different audio widget designs to see if we can better signal to readers that there's more value to this article than they would have initially assumed.</p>
+
+<hr />
+
+<h3><a name="Previous_Updates">Previous Updates</a></h3>
+
+<hr />
+
+<h3><a name="The_Hacked_Newsroom_Why_CoLabs_Exists">The Hacked Newsroom: Why Co.Labs Exists</a></h3>
+
+<p>It may not be obvious yet, but publishing and software are converging. Code is increasingly its own type of content, and content is becoming inseparable from the platform used to create it. That's why we started Co.Labs. This website is more than just a technology vertical: In addition to publishing stories, we operate as an internal laboratory at <em>Fast Company</em>, running experiments that (we hope) will help shape the future of this magazine, and maybe even the industry at large.</p>
+
+<p>This post is a tracker (<a href="http://www.fastcolabs.com/3009577/open-company/this-is-what-happens-when-publishers-invest-in-long-stories" target="_self">one of our experiments</a>) that will document every update to every experiment that we run, so that everyone can learn from what we're trying. If you'd like to participate, feel free to drop us a line on <a href="http://twitter.com/fastcolabs" target="_blank">Twitter</a> or comment on this post. We're glad to have you along for the ride.</p>
+
+<hr />
+
+<h3><a name="All_The_Experiments">All The Experiments</a></h3>
+
+<h5><a name="We_waste_a_lot_of_time_producing_articles">We waste a lot of time producing articles.</a></h5>
+
+<p>Before you see finished articles like this one, the raw materials live scattered across the hard drives of reporters, editors, videographers, photo editors, producers, and developers. Every time you start a big article, you feel like Sisyphus grabbing the boulder: You forage for info, you share things, you brainstorm--and you almost immediately start to lose track of your raw materials. <a href="http://writebot.com" target="_blank">Writebot</a> is Co.Labs Editor Chris Dannen's <a href="http://www.fastcolabs.com/3013005/open-company/why-the-boom-in-enterprise-tech-will-happen-in-new-york" target="_self">attempt to solve</a> this surprisingly complex problem.</p>
+
+<p><strong>Measures of Success:</strong><br />
+<ul>
+  <li><span>Increase in articles produced</span></li>
+  <li><span>Time saved per article</span></li>
+</ul></p>
+
+<hr />
+
+<h5><a name="Email_has_always_been_a_bad_place_to_push">Email has always been a bad place to push.</a></h5>
+
+<p>Online publishers have been offering email subscriptions to their content since the beginning of the web. At the time, it was the best way to "push" content out to readers. But email, which needs to be repeatedly checked and sorted through, was never very good as a push notification service. Moreover, as platforms like Facebook and Twitter continue to draw users away from the inbox, we need to do a better job of reaching out to our readers where they spend time the most.</p>
+
+<p>Twitter, in particular, is much better suited for "pushing" content to individual users with its direct message and @-reply features. To take advantage of these features, Co.Labs technical intern Jiyhun Lee is building a Twitter application that will allow readers to subscribe to our newsletter and updates to individual tracking posts, receiving links to new material via @-reply. We think users will enjoy receiving these messages on Twitter because, frankly, it's less annoying than email. The benefit to us is that these messages are public and much easier to share via retweet than emails, and we can track clicks and engagement much more easily than with email.</p>
+
+<p>There's one more feature we're building in for our own use. We're addicted to real-time analytics, a problem that manifests itself publicly in the "Trending Articles" section of the sidebar, which pulls data from Chartbeat's API. In order to create a better feedback loop between analytics and our writers, Jiyhun's bot will soon send authors public encouragement via an @-reply when one of their articles is trending. Our hope is that this becomes a non-invasive way to help writers understand how their work performs, in real time.</p>
+
+<p><strong>Measures of Success:</strong><br />
+<ul>
+  <li><span>Number of subscriptions</span></li>
+  <li><span>Number of bot re-tweets</span></li>
+  <li><span>Number of bot replies</span></li>
+  <li><span>Number of bot favorites</span></li>
+  <li><span>Clicks on Twitter-bot links vs. clicks on email newsletter links</span></li>
+  <li><span>Return visitor rate increase</span></li>
+</ul></p>
+
+<hr />
+
+<h5><a name="Our_tracking_posts_experiment_has_another_benefit_ebooks">Our tracking posts experiment has another benefit: e-books.</a></h5>
+
+<p>Lots of publishers are trying to make money by reselling their content as e-books, and <em>Fast Company </em>is no exception. We recently signed an agreement with e-book publisher <a href="http://vook.com/" target="_blank">Vook</a> where we can decide to produce and sell any content as an e-book as long as it's over 20,000 words long. When we heard this at Co.Labs, we immediately thought of our tracking posts.</p>
+
+<p>On the one hand, these stories are good candidates for short e-books because they're focused on a single subject, but they're broader than a single blog post. Over time, they grow to be long enough-- some are already approaching the 20,000-word mark--that reading them page-by-page is preferable to consuming them in the browser. Most importantly, these trackers contain lots of individual stories around the same theme that connect to each other in fascinating ways that don't make sense to explore in our "slow live-blog," but would work great as a book.</p>
+
+<p>To help with the process, Co.Labs editor-at-large, Clay Andres (aka, <a href="https://twitter.com/HisWalrus" target="_blank">Professor Walrus</a>), a veteran of the technical publishing industry, is going through and cleaning up our stub posts: Formatting them properly, tying up loose ends, looking for connections between discrete updates that can be expanded into new chapters of the story.</p>
+
+<p>On the other hand, considering these posts as material for e-books raises some thorny legal and ethical questions. Many of our trackers excerpt and link to articles on other sites not produced by <em>Fast Company</em>. Our guideline for citing other posts is that we never use them as the main text of the article. Instead, we use them as starting points for our own analysis, adding value and new insights to the original author's work. While we believe this qualifies as fair use on our website, the rules might be different when we start to package and sell the text as standalone works. We're working with lawyers to hammer out some of these details, because we believe that they would make excellent e-books.</p>
+
+<p>Assuming we can figure out the legal issues, look for some of these collections by the end of the year.</p>
+
+<p><strong>Measures of Success:</strong><br />
+<ul>
+  <li><span>Number of e-books created</span></li>
+  <li><span>Number of e-books sold</span></li>
+  <li><span>Revenues resulting from e-book sales</span></li>
+  <li><span>Profit on e-book sales</span></li>
+</ul></p>
+
+<hr />
+
+<h5><a name="Audio_is_a_powerful_but_forgotten_sense">Audio is a powerful, but forgotten sense.</a></h5>
+
+<p>Online publishers know the value of images--people love to flip through those things!--and video (hello, engagement),  but unless they have a dedicated podcasting division, most seem to have forgotten how much readers love simple audio recordings. There are numerous benefits to having an audio version of an article: You can experience it while in the car, on a device without a screen, or with your eyes closed, and we're willing to bet that we're missing out on a significant readership because we don't offer audio. That's why we're experimenting with adding audio versions of some of our most important articles using a startup called <a href="http://spokenlayer.com/" target="_blank">SpokenLayer</a>. Our first attempt is <a href="http://www.fastcolabs.com/3013005/open-company/why-the-boom-in-enterprise-tech-will-happen-in-new-york" target="_self">this article about Writebot</a>, another one of our experiments. Expect plenty more to come.</p>
+
+<p><strong>Measures of Success:</strong><br />
+<ul>
+  <li><span>Audio plays</span></li>
+  <li><span>Time on site increase</span></li>
+  <li><span>Bounce rate decrease</span></li>
+</ul></p>
+
+<hr />
+
+<h5><a name="We_take_code_seriously">We take code seriously.</a></h5>
+
+<p>We're writers and developers, so we care deeply about all our language. That's why our dev team helped us implement GitHub Gist embeds directly into our CMS. This means we can easily embed code in our posts with proper syntax highlighting for just about any programming language. So far, we've used this feature to display <a href="http://www.fastcolabs.com/3007320/tracking/bitcoin-coming-browser-near-you" target="_self">the hidden messages embedded in Bitcoin</a> and <a href="http://www.fastcolabs.com/3013141/open-company/how-we-made-nature-take-over-fast-companys-unplug-feature-using-parallax-scroll" target="_self">demonstrate how parallax scrolling works</a> in our CMS. Expect to see a lot more code from us in the future.</p>
+
+<p><strong>Measures of Success:</strong><br />
+<ul>
+  <li><span>Number of Gists embedded</span></li>
+  <li><span>Number of Gists forked</span></li>
+  <li><span>Time on site increase</span></li>
+  <li><span>Bounce rate decrease</span></li>
+</ul></p>
+
+<hr />
+
+<h5><a name="Youll_be_surprised_what_happens_when_you_invest_in_quality">You'll be surprised what happens when you invest in quality.</a></h5>
+
+<p>In mid-April, we went live with a half dozen articles which we call "stubs." The idea here is to plant a flag in a story right away with a short post--a "stub"--and then build the article as the story develops over time, rather than just cranking out short, discrete posts every time something new breaks. One of our writers refers to this aptly as a "slow live blog." Here's <a href="http://www.fastcolabs.com/3009577/open-company/this-is-what-happens-when-publishers-invest-in-long-stories" target="_self">what we learned</a>.</p>
+
+<p><strong>Measures of Success:</strong><br />
+<ul>
+  <li><span>Time on site increase</span></li>
+  <li><span>Bounce rate decrease</span></li>
+  <li><span>Return visitor increase</span></li>
+  <li><span>Increase in traffic from search referral</span></li>
+</ul></p>
+
+<hr />
+
+<h5><a name="The_browser_is_the_new_universal_gaming_device">The browser is the new universal gaming device.</a></h5>
+
+<p>To celebrate <em>Pac-Man</em>'s birthday, <em>Fast Company</em> developer Harry Guillermo built his own version using JavaScript. Just for fun, <em>Fast Company</em>'s CTO, Matt Mankins, used Guillermo's work to <a href="http://www.fastcolabs.com/3010050/v0/pac-man-vs-us-honoring-the-33rd-birthday-of-a-video-game" target="_self">build a social version</a> of <em>Pac-Man</em>.</p>
+
+<p><strong>Measures of Success:</strong><br />
+<ul>
+  <li><span>Increase in fun!</span></li>
+  <li><span>Time on site increase</span></li>
+</ul></p>
+
+<hr />
+
+<h5><a name="You_have_two_choices">You have two choices:</a></h5>
+
+<p>You can build an app that might save a day of work for everyone in your company but might also end up wasting more of your time than it saves. Or, you can or spend 3 hours doing mindless manual tasks and make everyone else who touches your work miserable. We chose to spend the time building a <a href="http://www.fastcolabs.com/3009172/make-google-chrome-do-your-grunt-work-for-you" target="_self">quick Chrome extension</a> that helped save nearly a day of our judges' time on the Target/CoLabs Retail Accelerator.</p>
+
+<p><strong>Measures of Success:</strong><br />
+<ul>
+  <li><span>Time saved</span></li>
+</ul></p>
+
+<hr />
+
+<h5><a name="Our_home_page_isnt_for_everyone">Our home page isn't for everyone.</a></h5>
+
+<p>It’s useful if you’re one of our core readers who knows who we are and wants to read every article. If you’re not one of those people (and the chances are pretty good you’re not), you may benefit more from something like the new <a href="http://www.fastcolabs.com/3009587/you-cant-have-too-many-home-pages" target="_self">Co.Labs Back Page</a>.</p>
+
+<p><strong>Measures of Success:</strong><br />
+<ul>
+  <li><span>Backpage click-through rate vs. home page click-through rate</span></li>
+  <li><span>Return visitor rate increase</span></li>
+  <li><span>Bounce rate decrease</span></li>
+</ul></p>
+
+<p>[<em>Image: Flickr user <a href="http://www.flickr.com/photos/mustafakhayat/6695821139/in/photostream/" target="_blank">Mustafa Khayat</a></em>]</p>

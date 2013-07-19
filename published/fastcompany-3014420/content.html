@@ -1,0 +1,42 @@
+<p>On the surface, Microsoft's new Companion Web idea seems like it could be a big win for the PC maker because it centers around the only screen the company has really dominated for the last few years: the television. The concept, according to Luke Wroblewski, cofounder of Input Factor and inventor of the <a href="http://www.fastcodesign.com/1671536/an-addictive-app-that-lets-you-rate-anything-in-seconds" target="_self">popular Polar app</a>, which is one of the first adopters of Microsoft's concept, is to start building websites that the user can interact with on multiple devices at the same time, which is increasingly how consumers watch television.</p>
+
+<p>"What we're doing with this new experience is connected. One device controls the other," says Wroblewski. "We use what each device is good at. The TV is a big display where you can see a lot of content but it sucks for input. The remote control is terrible. Whereas the phone, it's a very small display, so you can't see a lot on it, but it's super easy for input."</p>
+
+<p>Polar's first stab at Companion Web is a version of their popular social opinion-sharing software that can be displayed and controlled from any device. This means that someone sitting in their living room can pull up the Polar website on their TV, scan a QR code or enter a code on their phone, and then control the TV's display using their mobile device. It’s not unlike some of the phone-controlled game demos we’ve seen this year.</p>
+
+<figure class="inline-video inline">
+<iframe height="360" width="640" src="http://www.fastcompany.com/embed/1a223ddf5328b?p=fastcompany_episode" id="videoEmbedTwistage5" frameborder="0" scrolling="no"></iframe>
+</figure>
+
+<p>The site will work with any modern browser, meaning you don't technically need a Microsoft product to use it. Despite the compatibility, the concept is clearly built to show off one of the most exciting features of Microsoft’s new Xbox One: the ability to watch TV and interact with the (finally) standards-compliant IE10 browser at the same time. Polar’s demo video shows one person watching sci-fi thriller <em>Prometheus </em> while sharing opinions about the movie on Polar using “Snap Mode,” the split-screen feature available on the new Xbox and any Windows 8 device. It feels like a completely natural fit for Polar to be sitting next to a TV screen, and it’s an exciting proposition that could add a new dimension to the viewing experience and blow away other living-room offerings.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/07/3014420-inline-i-microsoft-and-polar-almost-built-a-killer-smart-tv.jpg" alt=""/>
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/07/3014420-inline-9ittdfbhm0cesnd3p0fvvlecabhkgc5v0pqzdhiw5ni.png" alt=""/>
+</figure>
+
+<p>Unfortunately, there’s a major catch: Polar’s app doesn’t actually know what TV show you’re watching. To repeat the experience shown in the video, you have to manually type in "Prometheus" on your phone while you’re watching.</p>
+
+<p>“That secondary frame is not talking to the web browser,” admits Wroblewski. “We think it should be, we think it could be, and that would be yet another way to make these connections.”</p>
+
+<p>Chris Butler, the developer who built the new Polar experience, says that Polar has the capability to adapt the questions it asks to the content on the main screen. They just need a signal from the connected-TV device.</p>
+
+<p>“There's this concept of tags that Polar has that's been around for a while, and when you switch to a tag it will change you to that context. It looks like a hashtag from Twitter,” says Butler. “We're ready for something to broadcast what it is, and then we can hear that and change the content accordingly.”</p>
+
+<p>That’s not the only problem with the Companion Web user experience. Despite building an entire suite of devices on the Windows 8 platform, Microsoft gives developers no way to know when a particular device has entered the room, meaning users need to manually enter a code or snap a picture of a QR tag on each device to sync the experience.</p>
+
+<p>Other companies have attempted to solve the problem. “Apple has things like AirPlay, but it's a proprietary standard,” says Wroblewski. “Netflix and YouTube are working on this thing called <a href="http://www.dial-multiscreen.org/" target="_blank">DIAL</a> that does device identification, but all that stuff is proprietary to the app world and not part of web browsers. But if there was a web browser world equivalent to that, a discovery service, that would be amazing.”</p>
+
+<p>Ultimately, the lack of such a discovery service, combined with the inability of the TV to broadcast any information about its content to the browser, means that the consumer will need to do a lot of manual work to realize the full potential of the idea--exactly the kind of thing someone sitting on their couch watching a show and playing with their phone doesn’t want to do. That’s a shame, because the potential of connecting web and TV devices is powerful, and Microsoft seems like they should be in the perfect position to do it with the Xbox, by far their best device. All they need to do is provide developers with a few more (hopefully open) tools.</p>
+
+<h4><a name="Developing_For_Companion_Web">Developing For Companion Web</a></h4>
+
+<p>Even though this initial attempt at a smart TV experience falls short, developers should start to become comfortable with the idea of websites on one screen being controlled by a separate device using WebSockets. This can be tricky for web developers not used to working with lots of asynchronous events from multiple sources that drive UI changes.</p>
+
+<p>“I'd done some WebSockets work before, but it's usually a one-to-one communication,” says Butler. “Having to deal with what is really any kind of asynchronous event flying around is a different task. Essentially, you need to be able to know what order they're flying in and be able to handle a lot more states.”</p>
+
+<p>Butler says he used the popular sockets service <a href="http://pusher.com/" target="_blank">Pusher</a> to handle message passing because it provides the ability to broadcast events manually and a pre-built log to help see events in action and debug them more easily. Despite the help, he says it was still challenging to debug asynchronous events bound to the DOM.</p>
+
+<p>“You have to have a lot stronger state management," Butler explains. "Especially with all of these CSS transitions and all these other things that can go on in the page. You start having the events stepping on each other and the DOM changing in a way you don't want to happen, so you would queue the incoming events in a way that I wouldn't have probably done in normal, single-page apps.”</p>
+
+<p>“I just built in a queue locking process where you say 'this thing is happening, so don't try to resolve any of these other things.' The hardest thing is where you have all of these events chasing each other and you try to get to the endpoint where everything is stable without losing any of the information along the way.”</p>

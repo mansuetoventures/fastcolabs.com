@@ -1,8 +1,172 @@
+<p>Last week was the App Store’s fifth birthday, and though it was celebrated with some impressive giveaways from developers and some pretty sweet stats from Apple, a report from mobile marketing company Adeven suggested that the App Store is quickly being overrun by zombies. Well, zombie apps anyway.</p>
+
+<p>Just what is a zombie app? As Mary Beth Quirk <a href="http://consumerist.com/2013/07/11/report-apple-app-store-full-of-zombie-programs-no-one-is-downloading/" target="_blank">writes for The Consumerist</a>:</p>
+
+<blockquote><p>"[Adeven] defines zombie apps as those that never make an appearance in any of the thousands of charts published by Apple which are tracked on a daily basis. The charts track things like categories, price and criteria for various countries’ stores.<br /><br />“We call the apps that hold no position anywhere in the world zombies because they do not generate a significant amount of downloads to sustain their further development,” explained Paul Muller from Adeven. ”We can’t say exactly how many downloads they have – Apple doesn’t reveal this – but it is very small.<br /><br />"Even if they get a few downloads every day, or up to 100, it’s not enough for a developer to make much of his or her product, or provide any impetus for the app to stay alive."</p></blockquote>
+
+<p>From a developer’s perspective, this might seem worrying. After all, at its current count, there are over 880,000 iOS apps on the App Store. Adeven says that 579,001 of those are classified as “zombies.” And chances are the App Store will surpass one million apps in the next year at which discovery is going to be even more of an issue than it is today, thus creating more zombies.</p>
+
+<p>But while the number of zombie apps may make developers go queasy with dread, I’d like to ask a question: Does it really matter if your app is a zombie?</p>
+
+<p>Sure, if your app is designed as a product that is built to appeal to the widest audience possible (also known as the lowest common denominator), download numbers are all that matters. This is true for apps like Facebook, Angry Birds (and virtually any other game), Twitter, Instagram, and more.</p>
+
+<p>But there are a large subset of apps that shouldn’t have the goal of having 50 million+ downloads because, what’s the point? These are apps like transportation apps (like Tube Tamer--if all 12 million Londoners have downloaded your app, does it matter if you conquer the New York market too?), niche accounting apps like for local Savings and Loans banks, special interest apps (which, by their definition, are niche and thus have a limited audience that would find them useful), time-limited event apps, and plenty of health-related apps.</p>
+
+<p>The last one is particularly an area of interest for me, because I’m building a piece of hardware aimed to help diabetics. The companion app allows them use the hardware. In this case I really don’t care if 10 million non-diabetics download my app because they aren’t my intended audience.</p>
+
+<p><a href="http://www.pcmag.com/article2/0%2C2817%2C2421553%2C00.asp" target="_blank">Sascha Segan over at PCMag</a> echoes my stance:</p>
+
+<blockquote><p>"I also have celiac disease, and so there are a bunch of gluten-free dining apps on my iPhone. Celiac affects a tiny percentage of the population, so I wouldn't expect these apps to ever be best-sellers. They're lifesavers (sometimes literally) for the few with the condition, though."</p></blockquote>
+
+<p>So my takeaway for developers freaking out about this zombie study is: relax. Download numbers don’t always matter the most. Sometimes they’re virtually irrelevant. What does matter is that your app is coded the best it can be and it meets the needs of the intended user. That’s what ultimately makes it a success--and the only standard by which I think an app should be judged. So everyone stop freaking out about being bitten by the zombie bug.</p>
+
+<hr />
+
+<h3><a name="Previous_Updates">Previous Updates</a></h3>
+
+<hr />
+
+<h4><a name="Should_Every_iPhone_App_Work_On_iPad">Should Every iPhone App Work On iPad?</a></h4>
+
+<p><span class="subhead">July 11, 2013</span></p>
+
+<p>I own a health tech startup and currently I have two sets of engineering teams. One set consists of my hardware engineers: the guys hacking together the prototype that will eventually go to manufacturing. The other set of engineers are my software guys--the ones who are obviously coding the companion app. I’ve never coded in my life, but I’ve already learned a lot from my software engineers, which I am very grateful for. We have a lot of back and forth about what is best for the app and what is best for the user, but when it came to deciding whether to build a separate iPhone and iPad app or a universal one, the answer for me was nonnegotiable: You build a universal one.</p>
+
+<p>For me “universal” is the only answer because I am looking at it from a user’s perspective. As a user, I hate seeing two sets of apps saying “Skype” sitting next to each other in my iTunes app library. I like reducing things as much as I can, and for me one app build that works on all my devices is ideal.</p>
+
+<p>Another reason that made “universal” the right one for my app is because the app will be free. It is there to support the hardware only. There is no financial incentive for me have a separate iPhone and iPad app. I want the people who purchase my hardware to only have to download one app. This makes things simpler for them and enhances their user experience.</p>
+
+<p>However, as a developer, there are plenty of reasons why a universal app might not be best. Below I’ve collected some interesting arguments from developers both in support of and against universal apps. Here’s a sampling of opinions on whether or not to “universal” your app based on a particular vantage point: coding work, App Store ranking, and financial gain.</p>
+
+<h3><a name="Universal_iOS_Apps_From_A_Coding_Perspective">Universal iOS Apps From A Coding Perspective</a></h3>
+
+<p>The great thing about universal apps is that it saves on a lot of coding. But that’s not always a good thing as author and developer <a href="http://www.tuaw.com/2010/03/04/should-you-be-building-universal-apps-for-app-store/" target="_blank">Erica Sadun writes for TUAW</a>:</p>
+
+<blockquote><p>From a design and coding point of view, it's obvious that Universal Apps quickly become Frankencode. Separate projects (or, more realistically, separate targets with some shared code base and some platform-specific class files) greatly increase code readability and maintainability, even when the two projects share a great majority of features.<br /><br />Consider the most Model-View-Controllerized app you can imagine. Even an app that offers glorious orthogonality between its visual design and its underlying code logic will suffer from universalization. It's just natural fallout from the conditional coding needed to deal with reality; the iPhone-based interaction modes that used to require multiple screens can now join together into simplified iPad interfaces.</p></blockquote>
+
+<h3><a name="Do_Universal_iOS_Apps_Do_Better_In_Reviews_and_Rankings">Do Universal iOS Apps Do Better In Reviews and Rankings?</a></h3>
+
+<p>Good reviews and App Store rankings can make or break an app. Here’s the advantage and disadvantage a universal app brings to rankings and reviews:</p>
+
+<p>Here's Pierre of L'Escapadou talking about how universal apps can make <a href="http://blog.lescapadou.com/" target="_blank">reading (and acting on) your app’s feedback challenging</a>:</p>
+
+<blockquote><p> App Store reviews and ratings are not separated. On the App Store, you can't--and neither can potential buyers--distinguish between ratings and reviews for the iPhone or the iPad version. This is especially a problem if your app is very good on iPad but not so good on iPhone, or vice-versa. Again, you cannot use these reviews to make informed decisions for your future products. We found this impossibility to interpret accurately the reviews and ratings a major issue. </p></blockquote>
+
+<p>As for App Store rankings, here’s Oliver from CocoaNetics on how <a href="http://www.cocoanetics.com/2011/05/to-universal-or-not/" target="_blank">having a universal app is helpful to climb high in the charts</a>:</p>
+
+<blockquote><p>There were 27 universal apps in the free overall U.S. top 100 and 33 in the iPad chart. Of these, I could find 16 universal apps that were ranking similarly high in both charts. Eleven universal iPhone apps did not show in the top 100 iPad chart. Fourteen universal iPad apps did not show in the top 100 iPhone/iPod chart. Possibly they were only slightly outside the top 100--I did not check.<br /><br />The percentage of successful universal apps is an order of magnitude higher than dedicated versions. Among the top 100 (again only quickly looking visually), I could only find four apps that both had separate versions.<br /><br />I invite your scrutiny of this casual analysis of mine, however I think that this graphic can only lead to this answer to Daniel’s question: Make your free app universal, if you are NOT Rovio. I think this analysis debunks the myth that making a free app universal is bad for it’s ranking.</p></blockquote>
+
+<h3><a name="Do_Combo_iPhoneiPad_Apps_Make_More_Money">Do Combo iPhone/iPad Apps Make More Money?</a></h3>
+
+<p>The financial advantage to having two separate apps is obvious. More products to sell equals more money. But even if you only want to deal with a universal build, what good is selling one universal app for a higher price if you can offer an iPhone-only app for a lower price to a user who only wants it on one device?</p>
+
+<p>Here’s Mick, the developer of Things <a href="https://culturedcode.com/forums/read.php?8,50530" target="_blank">explaining to a user why he chose not to offer a universal app from a financial perspective</a>:</p>
+
+<blockquote><p> I'm not sure what country you're in, but let's assume the U.s., where, on iOS, Things costs $10 for iPhone + $20 for iPad = $30 for Things on iOS. The cost of our software is something we have carefully considered, and we believe that our iOS offerings are worth $30.</p></blockquote><ul>
+  <li><span>We could offer just a universal app for $30, but this would mean that someone who only wanted the iPhone app would be spending an extra $20 for no reason.</span></li>
+  <li><span>We could offer three different ways to buy it: iPhone $10, iPad $20, Universal $30--but then there would be, for example, users who bought the iPhone app before getting an iPad and wanted to 'upgrade' to the Universal app. However, Apple currently provides no upgrade mechanism on its stores, which makes this an inconvenient and confusing solution. We'd rather just keep it simple.</span></li>
+</ul><blockquote><p>I suppose that you are not suggesting you want the convenience of a single universal iOS app, but rather that you don't think our software is worth $30, an opinion you're quite entitled to hold. But for the time being, this is how we will continue to charge for and distribute our software--as individually sold apps at a combined $30.</p></blockquote>
+
+<p>The above quotes are just some opinions--each valid in their own way. And for each one, I could find a just as valid counterpoint. As a user, I would love to see all apps universal, however, as a developer, deciding to go universal isn’t always an easy choice. Though I agree with many of the selections above, those developers are only right in the context of what is best for their app and business. Your app’s situation is unique and thus your reasons to go universal or not could be very different than the next developer.</p>
+
+<p>I don’t think the “Should I go universal or not” question will ever be settled, and even three years after the debut of the iPad, the conversation surrounding the question is only getting started. I’m extremely interested in views from all sides, so please leave your thoughts in the comments below or tweet them to both me and Fast.Co Labs at <a href="https://twitter.com/michaelgrothaus" target="_blank">@michaelgrothaus</a> and <a href="https://twitter.com/FastCoLabs" target="_blank">@FastCoLabs</a>.</p>
+
+<hr />
+
+<h4><a name="Siri_Why_Dont_You_Have_An_API">Siri, Why Don’t You Have An API?</a></h4>
+
+<p><span class="subhead">July 8, 2013</span></p>
+
+<p>A funny thing happened in Japan last week: The most advanced robot ever made was bashed by the press after a presentation to reporters because this walking, automated wonder couldn’t recognize voice queries--something most modern-day smartphones can do. As <a href="http://metro.co.uk/2013/07/03/robot-museum-guide-asimo-fluffs-his-lines-on-first-day-of-the-job-3868000/" target="_blank">Fred Attewill writing for Metro explains</a>:</p>
+
+<blockquote><p>Asimo is programmed to answer questions when visitors raise their hands in the air but as guests held smartphones aloft to take a picture of the robot he became flummoxed and, instead of posing, repeatedly asked: ‘Who wants to ask Asimo a question?’ The glitch is an embarrassment for Honda. Asimo has no voice recognition software and can only respond to pre-set questions selected from a touch-panel device. That’s led critics to call the robot an ‘expensive, out-of-date toy’.</p></blockquote>
+
+<p>I point this event out because you know voice recognition has become ingrained in users’ minds as something that is expected in any piece of modern tech when the technology press start bashing the most advanced robot on the planet for not having it.</p>
+
+<p>Which brings me to this point: In spite of the 1,500 new developer APIs in iOS 7, it’s odd that Apple didn’t choose to offer the one API every developer has been asking for since seeing the iPhone 4S: Siri.</p>
+
+<p>To be sure, iOS’s digital assistant is something that's always been a bit underwhelming. It’s useful for some limited queries (“Where’s the closest gas station?” “Remind me to leave for the train at 1:30 p.m.”), but in the end it falls flat, especially compared to Google Now’s Voice Search. And that’s exactly why Apple should have opened up a Siri API. When the  first iPhone came out it had Maps, which were useful, but the true benefit of mobile maps didn’t become apparent until Apple unleashed the Maps API to developers in iOS 2.0. After all, it’s independent developers that often find the best uses for iOS features (via APIs)--and then Apple usually ends up integrating the best of those uses into the next version of iOS itself.</p>
+
+<p>Until Apple releases a Siri API, the voice assistant will continue to just be another “meh” feature. Nice, but not critical--and nowhere as good as the biggest competitor’s. I’m not the first to suggest that, for Siri to become useful, Apple needs to give devs a whack at it. As <a href="http://www.wired.com/gadgetlab/?p=133439" target="_blank">Christina Bonnington wrote for Wired</a>:</p>
+
+<blockquote><p>The first step [to a robust Siri] must be a public Siri API. Building out a robust API for third-party developers could do for Siri what the App Store did for iOS: make it a rousing success. Developers are eager to hook into Siri to increase engagement and make interactions more natural and fluid.</p></blockquote>
+
+<p>But the Siri API didn’t happen with iOS 7, so developers are left waiting (at least) another year for their next chance. Of course, developers aren't totally limited by Apple's lack of access. As Brian Roemmele on <a href="http://www.quora.com/Siri-API/Does-Siri-have-APIs-that-can-be-used-today" target="_blank">this Quora thread points out</a>, there are a few quasi-Siri APIs now:</p>
+
+<blockquote><p><strong>The Siri Text Message API</strong><br /><br />This API takes advantage of the iOS Phonebook and Text messaging to weld together a rather useful and elegant way to present data to a web based API that has access to either a Short Code Text messaging platform or a front end system that can receive Text Messages and parse the text string.<br /><br />From the programmers perspective Siri would be delivering a text message that would be acted on based on the application keywords. The results can be any number of possibilities spanning from a resulting text message back as an answer all the way up to a much more complex series of results.<br /><br />
+
+<p><strong>The Siri Calendar API</strong><br /><br />Siri can use CalDAV to communicate calendar events. Siri can also read back CalDAV events back, even if they have been modified. Thus we have a two-way communication Quasi API for transferring data in and out of Siri. It is not perfect. But with a little work the user can access data that is not native to Siri's current API relationships. And it works. </p></blockquote></p>
+
+<p>But until the real Siri API comes out, perhaps Siri and Asimo should drown their sorrows together over humanity's disappointment in them.</p>
+
+<hr />
+
+<h4><a name="Mac_Apps_Get_Subscription_BillingBut_At_What_Cost">Mac Apps Get Subscription Billing--But At What Cost?</a></h4>
+
+<p><span class="subhead">July 3, 2013</span></p>
+
+<p>With all the focus of WWDC on iOS 7’s redesign, OS X 10.9 didn’t get a lot of showtime. While some of the more significant features got a quick preview, one feature developers have been asking for wasn’t even mentioned: in-app subscriptions for OS X apps.</p>
+
+<p>But that’s exactly what’s coming to the Mac App Store when OS X 10.9 ships this fall. As with iOS before it, now developers will be able to sell auto-renewing and non-renewing subscriptions in-app. <a href="http://www.macrumors.com/2013/06/28/os-x-mavericks-adds-auto-renew-subscriptions-for-mac-app-store/" target="_blank">As Juli Clover writes for MacRumors</a>:</p>
+
+<blockquote><p>With the release of Mavericks, Mac developers will be able to provide services on an ongoing monthly basis with charges routed through the App Store's in-app purchase system. As with the iOS App Store, developers will be able to offer both ongoing subscriptions and subscriptions that expire after a set time, automatically charging a user's iTunes account.</p></blockquote>
+
+<p>For a developer this is very welcome news. In-app subscriptions in OS X apps will likely increase subscription sales to existing apps and services, like Dropbox (if it ever comes to the Mac App Store) or Evernote. Until now, companies like Evernote, who offer their OS X app in the Mac App Store, needed to direct those users to an external webpage to get their billing details and sign up for a subscription. Extra, tedious steps like this are always an impediment to users signing up. But now with OS X 10.9, users will be able to simply click a button in the app and enter their iTunes password to buy a subscription.</p>
+
+<p>However, the ability for any app developer to easily enable app subscriptions could turn off a lot of users, especially if developers don’t use subscriptions to offer extra options (like extended cloud storage) and instead make their apps only available via a subscription basis. Adobe and Microsoft have both gotten a lot of pushback from users by introducing subscription-only models of their flagship software, but because of Office’s and Photoshop’s importance in business, the two companies can get away with it.</p>
+
+<p>But I don’t think many users would tolerate smaller apps going to a subscription-only model. I’m a big fan of Pixelmator, VoodooPad, and OmmWriter, but I want to own those app outright. I don’t want to have to pay $9.99 a year for their use. (I should note that I’m just using those apps as examples. None of those developers have told me they are thinking of charging annual subscriptions for use.)</p>
+
+<p>In spite of this possibility, I think in-app subscriptions for OS X apps are a good thing. Developers work hard at making some very good, very indispensable apps. The more money they can make (through reasonable subscription offerings), the better. But to me the best thing about in-app subscriptions in OS X 10.9 aren’t the subscriptions themselves--it’s what they signal the future of apps in the Mac App Store could be like.</p>
+
+<p>If Apple is open to in-app subscriptions, there’s a good chance they are considering paid upgrades in the Mac App Store. This is something both developers and users have been clamoring for. As Taylor Marks (under the forum name of “ArtOfWarfare”), creator of <a href="https://itunes.apple.com/us/app/battery-status/id496730170?ls=1&amp;amp;mt=12" target="_blank">Battery Status</a>, <a href="http://forums.macrumors.com/showthread.php?p=17509076%23post17509076" target="_blank">explains on a MacRumors forum</a>, even with subscriptions in OS X 10.9, developers are currently stuck between a rock and a hard place when it comes to revenue via the Mac App Store:</p>
+
+<p>If I want to majorly improve an app right now, my options for funding that are:<br />
+<ol>
+  <li><span>Don't. Everyone gets a free update and I go broke.</span></li>
+  <li><span>Sell it as an entirely separate app. Many consumers won't discover it ever.</span></li>
+  <li><span>Charge subscription fees. Annoying to users who feel they're paying repeatedly for something I did once.</span></li>
+</ol></p>
+
+<p>But if Apple is open to in-app subscriptions, then we may, sooner rather than later, see the ability for developers to offer paid upgrades in the Mac App Store. And if this happens, everyone wins. Users get the option to pay less for a newer version of the app (provided they have the previous version) and developers have a monetary incentive to continue to improve their apps and sell them via the Mac App Store.</p>
+
+<p>Will that happen? Only Apple knows. But the signs seem to be pointing in the right direction.</p>
+
+<hr />
+
+<h4><a name="iBeacons_Allow_iOS_7_Devs_To_Harness_The_Internet_Of_Things">iBeacons Allow iOS 7 Devs To Harness The Internet Of Things</a></h4>
+
+<p><span class="subhead">July 2, 2013</span></p>
+
+<p><strong>When a friend asked me to clarify what Apple’s coolest new API, called iBeacons, was, I explained it like this:</strong> If you’re sailing a ship in the dark and want to know where the coastline is, you look out for a bright thing that’s called a lighthouse. This lighthouse, or beacon, gives you spatial information that you can act on--in this case, that information allows you to not crash your ship into the shore.</p>
+
+<p>Apple’s iBeacon API works much the same way as the light from the lighthouse. It allows iOS devices to pick up micro-location Bluetooth Low Energy (BLE) profiles (the “light”) from miniature Bluetooth transceivers (the “lighthouse”). These micro-location BLE profiles carry in them spatial, and other, data that will allow your iPhone to do so much more than it can today.</p>
+
+<p>iBeacons works by talking to Bluetooth Low Energy (BLE) devices, also known as Bluetooth 4.0 and Bluetooth “SMART,” that are able to transmit data within a 150-foot proximity. If an iPhone falls within these geofenced BLE proximities, iBeacons automatically picks up data from those beacons and turns it into actionable user commands.</p>
+
+<p>“But in what context are iBeacons useful?” you might ask. “After all, there are a dozen ways to beam information to an iPhone.”</p>
+
+<p>True, but never in a way like iBeacons before. As <a href="http://appleinsider.com/articles/13/06/19/inside-ios-7-ibeacons-enhance-apps-location-awareness-via-bluetooth-le" target="_blank">Daniel Eran Dilger writes for AppleInsider</a>, iBeacons will make indoor navigation easier due to the accessibility of <a href="https://adomaly.com/" target="_blank">cheap beacon transmitters</a> from companies like Adomoly:</p>
+
+<blockquote><p>iOS 7's iBeacons can be used by app developers to do things like build an <a href="http://twitpic.com/cx70e6" target="_blank">interactive tour</a> of a museum, where the user's attention is directed to specific exhibits as they walk freely within the building. In more general terms, the feature can also be used enable indoor navigation similar to GPS in settings such as an airport or underground subway station where GPS signals aren't available, or specifically to enhance navigational accessibility for the blind or users with other impairments.</p></blockquote>
+
+<p>But what’s even more interesting about iBeacons is that they are not just looking for signals from BLE transmitters. It turns out iBeacons turns your iOS device into a transmitter as well so it can send automatic commands to other BLE tech. What’s amazing about this is that it means iBeacons opens the door (excuse the pun) to turning your iOS device into a key for any physical door (be it a car door or the door to your home) that is equipped with a BLE transmitter. Imagine arriving home and walking up to your house and having the door unlock automatically--no fumbling with the keys in your pocket. iBeacons does that.</p>
+
+<p>Matter of fact, given the proper BLE hardware and a companion app, iBeacons allows for your iPhone to act like a key, or an “on” and “off” switch, for any device you can think of: doors, lights, alarms. With iBeacons, a thermostat company could make a BLE thermostat that talks to an app on your iPhone. In the app you could set it so that once you are out of range of your house when you leave for work in the morning, the air conditioning is automatically turned off to save on your energy bills. When you return home, the aircon automatically turns back on. No more setting the thermostat by time or manually turning it on and off. With iBeacons it could know if you’re home or not and set itself accordingly.</p>
+
+<p>The iBeacons API in iOS 7 will allow your iPhone to become the control center for that mythical “Internet of things” we all want to see, which means your iPhone will become more invaluable than ever. It will be your car keys, your secure ID badge, your house keys, your on and off switch for alarms, and lights, and thermostat. And perhaps most tellingly, it shows just how much Apple wants to make the iPhone the one tool you need with you at all times.</p>
+
+<hr />
+
+<h4><a name="Game_Time_For_Apple_New_Hardware_API_Lets_Devs_Get_Serious">Game Time For Apple: New Hardware API Lets Devs Get Serious</a></h4>
+
+<p><span class="subhead">June 24, 2013</span></p>
+
 <p><strong>A common thing I hear from serious gamers is that on no ecosystem Apple offers--neither iOS nor OS X--is gaming taken seriously by the Cupertino company.</strong> And until now, they may have been right. While there are some impressive games on iOS, they’re only impressive for a smartphone. When you compare them to a PC or console game, they lose their luster. The same goes for OS X, which still only gets the most popular PC games years after they have come out.</p>
 
 <p>Part of this can be blamed on game developers. It cost millions of dollars to bring a game to a new platform, so those systems with smaller marketshare (like computers running OS X) aren’t going to get a lot of love. But who can really blame them? Game development is a business and if you can’t get a good return on your investment, there’s no point in wasting your time or money.</p>
 
-<p>But another reason gaming, particularly on iOS, has been labeled nothing but “casual” -- something people do to waste time in a doctor’s office or on the commute home -- is because a smartphone like the iPhone doesn’t provide the right tactile experience for complex games.</p>
+<p>But another reason gaming, particularly on iOS, has been labeled nothing but “casual”--something people do to waste time in a doctor’s office or on the commute home -- is because a smartphone like the iPhone doesn’t provide the right tactile experience for complex games.</p>
 
 <p>To see what I mean by this, imagine playing Red Dead Redemption on an iPhone or iPad. A game like that has such complicated controls, they only work well with physical controllers. And it’s because those controllers exist in three dimensions we don’t need to look at the controls to make a character walk forward or duck. We can feel it with our fingertips, which means we can concentrate on what is going on onscreen and not having to constantly look under our thumbs to make sure our fingers are actually touching the d-pad.</p>
 
@@ -14,7 +178,7 @@
 
 <p>However, developers hoping to enhance their games with third-party controller support need to keep some things in mind. Even though Apple is now being more proactive in its approach to gaming, it’s still Apple after all, and it does impose some limitations on how the controllers can interface with iOS games. Here’s the one caveat from the iOS Developer Library notes devs should be aware of:</p>
 
-<blockquote><p>“<strong>Controllers Must Be Optional:</strong> If you write a game that supports controllers, there must also be a way to play the game without a controller. On an iOS device, that means taking advantage of the touch screen and the integrated sensors in the device. On OS X, this usually means an interface based on the keyboard and mouse. Either way, controllers must enhance game play—they must not be required.”</p></blockquote>
+<blockquote><p>“<strong>Controllers Must Be Optional:</strong> If you write a game that supports controllers, there must also be a way to play the game without a controller. On an iOS device, that means taking advantage of the touch screen and the integrated sensors in the device. On OS X, this usually means an interface based on the keyboard and mouse. Either way, controllers must enhance game play--they must not be required.”</p></blockquote>
 
 <p>What this clause is really saying is iOS may be more open to gaming, but it’s still Apple’s ecosystem and not the developer’s. Apple doesn’t want the iPhone becoming a glorified gaming system--like an Xbox mini--because the device is so much more than that. And most important, it doesn’t want to piss off its users by making them think they aren’t getting all they can out of the iPhone without buying additional hardware.</p>
 
@@ -26,4 +190,6 @@
 
 <p>If you’re interested in the future of development on Apple’s ecosystems, be sure to follow this tracker. Here we’ll explore the latest frameworks, tips, and advances in iOS and OS X. And if you’re a developer doing something innovative on either platform, get in touch with the author <a href="https://twitter.com/michaelgrothaus" target="_blank">@michaelgrothaus</a> to let him know what you’re up to.</p>
 
-<p>[<em>Image: Flickr user <a href="http://www.flickr.com/photos/aakanayev/9091052298/in/photostream/" target="_blank">Asparukh Akanayev</a></em>]</p>
+<hr />
+
+<p>[<em>Image: Flickr user <a href="http://www.flickr.com/photos/nickharris1/5541958238/in/photostream/" target="_blank">Nick Harris</a></em>]</p>

@@ -1,0 +1,51 @@
+<p>Thalmic Labs Founder and CEO Stephen Lake pulls a MYO armband out of his messenger bag. Made of ultralight foam-like plastic, the device looks like eight camera batteries lashed together in a circle. "I'm just going to put it on you," says Lake, carefully sliding the band down my left arm to rest at the base of my forearm, just a few inches above my elbow. "There's just one prototype that we have down here in New York," he explains.</p>
+
+<p>And no, you can't hack it.</p>
+
+<h4><a name="Is_This_A_New_3D_Gesture_Language">Is This A New 3-D Gesture Language?</a></h4>
+
+<p>Signups for the <a href="https://www.thalmic.com/myo/" target="_blank">MYO</a> development community opened last week, and Lake says the company plans to ship its initial development units, along with the beta API this year. At launch, MYO will ship with an API for OS X, Windows, iOS and Android, and Lake says the nascent community that has already sprung up around the device is also talking about building unofficial versions for Linux and NodeJS.</p>
+
+<p>Unlike the API for Microsoft's Kinect 1, however, which sends raw video feeds and point clouds to the connected device, the data developers receive from the MYO will be high-level, not raw directional data. That means they can't extend its abilities the way they can with a Kinect.</p>
+
+<figure class="inline-video inline"><iframe src="http://www.youtube.com/embed/oWu9TFJjHaM?rel=1&amp;autoplay=0" width="631" height="380" frameborder="0"></iframe></figure>
+
+<p>"We're giving you a fist and movement. Like, moving to the right at this speed," Lake explains. Taking a page from Apple's design book, Lake and his team have decided developers shouldn't be able to create their own gestures--even though the decision could close off some of the more creative uses of the device, like the ones that made the Kinect a viral sensation. Why not open it up fully?</p>
+
+<p>For starters, Lake says there are some technical constraints that prevent the MYO from sending raw data. One is power consumption: transmitting all data over Bluetooth would be costlier, resource-wise, than sending just recognized gestures. And without the sizable set of test data needed for machine learning, developer-created gestures would require users to calibrate the device themselves--not easy. Mostly, however, he wants to make sure the MYO offers a consistent experience for consumers regardless of what software you use it with. Like gestures in iOS, MYO is trying to control their new 3-D gestural language and establish some standard interactions before developers go confusing people with new ones.</p>
+
+<p>"We initially thought we need all these different gestures," says Lake, but that notion was quickly abandoned after some initial user testing. "In reality, it's confusing to have all that, it's like a new language. We only have six simple gestures. When you combine that with motion you have an almost unlimited set of combinations."</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/07/3013885-inline-lake-prototype.jpg" alt=""/>
+</figure>
+
+<p>The band contains eight sensors that detect motion as well as electrical activity in the muscle of your arm and send it to a tiny processor, where the raw data is interpreted into gestures and sent to a computer via a Bluetooth low-energy connection.</p>
+
+<p>After fitting the device on my arm, Lake turns to his computer, which shows a series of graphs responding to my movement. There's no setup or calibration. It just works. "This is its position, the X-Y data," he says, pointing to lines that fluctuate instantly as I move my hand. "Right here, this is the roll and pitch." Lake also shows me the one gesture currently mapped to this prototype, which is a squeezing motion meant to simulating pulling a trigger. Then he pulls up the game CounterStrike. Although walking hasn't been implemented yet, the experience is effortless, natural and, at the risk of angering some serious PC gamers, way more fun than playing with a keyboard and mouse. Moving my hand around pans through the game, and squeezing my middle finger like a trigger fires the gun.</p>
+
+<p>"We haven't actually modified any of the source code of this game," Lake explains. Instead, the company is working on a driver for the operating system that simulates keyboard and mouse input, meaning it can work with any number of games and pieces of software out of the box. The lack of configuration or calibration needed to get the device working makes it an attractive piece of consumer hardware, but it also reflects very recent advances in technology that make it possible. When you think about the tech that went into developing the MYO, you realize that it probably couldn't have existed at all just five years ago.</p>
+
+<h4><a name="3D_Printing_The_Control_Device_Of_The_Future">3-D Printing The Control Device Of The Future</a></h4>
+
+<p>For one thing, Thalmic Labs' website doesn't list a single industrial designer or machinist on their "Team" page. This would have been unthinkable for a hardware company a decade ago.</p>
+
+<p>"We use 3-D printers for all of our prototypes," explains Lake, including the device he showed me, which explains its lightness and almost foam-like quality. Having access to cheap, accessible 3-D printers right in their laboratory allows Thalmic to test working prototypes rapidly without having to wait for a machine shop to build new models. The device Lake brought with him to New York is imperfect and somewhat rough where the device meets my skin. "In this one, the sensors are exposed in the bottom," Lake says, "but [eventually] they'll actually be encased in plastic in the injection-molded version." It's still surprisingly comfortable for a prototype.</p>
+
+<figure class="inline-original inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-original/inline/2013/07/3013885-inline-blackmyotop.png" alt=""/>
+</figure>
+
+<p>Then there's the device's chipset. The MYO uses Bluetooth low-energy, which has only been around since 2006, to stream data to the computer, which helps it last for 48 hours on one charge. The device also uses a low-power, low-speed ("roughly 150 megahertz") ARM processor to turn raw data into gestures.</p>
+
+<p>"There's only eight channels of data coming in," explains Lake. "It's not like vision processing where you have millions of pixels, and so we can run pretty sophisticated algorithms on those eight channels and not use a ton of CPU power."</p>
+
+<p>These algorithms are another example of Thalmic making use of newly available technology. Everyone generates electrical signals when they activate their muscles, but each person's signature is slightly different, which is why devices like these usually need to be calibrated. The MYO can recognize gestures without calibration. "We've taken a dataset of lots of people and run machine learning to figure out what each gesture looks like," explains Lake. "So, each user doesn't have to do training on it, it just works right away." Machine learning has been around since the late 50s, but has only become practical in non-academic settings in the last decade or so. Thalmic makes particularly heavy use of it.</p>
+
+<p>"We basically bring in volunteers and bribe them with free food," says Lake. "We have a camera sitting there and a guy says 'okay, we'll do this one a bunch of times,' and we'll take that data over a bunch of people and then our machine learning guys run a bunch of analysis on it. They have all these fancy 3-D plots they use to figure out the characteristics. There's different, subtle ways to look at it. Part of it is which muscles are activated, but part of it is also characteristic of the signal or the frequency content or power spectrum of it."</p>
+
+<p>Using machine learning makes the device a much better experience for users, but it also impacts the way the company will open the device to developers.</p>
+
+<h4><a name="The_Next_Generation_of_Input">The Next Generation of Input?</a></h4>
+
+<p>Thalmic's desire to exert a reasonable amount of control over developer use of the device suggests that it sees the MYO as more than just a supplement to the keyboard, mouse and touchscreen. Lake says that the idea for the MYO came from working with voice control software for the blind. "We just didn't think that was high-fidelity or intuitive or, you know, socially acceptable input for the next generation of computers," he says. If Thalmic's approach strikes the right balance between a consistent consumer experience and developer adoption, the MYO -- ultralight, inconspicuous and highly functional in both traditional and nontraditional computing applications -- has the potential to be just that.</p>

@@ -1,0 +1,63 @@
+<p>While I was doing reporting for this big story about GitHub, a side discussion came up with <a href="https://github.com/schacon" target="_blank">Scott Chacon</a>, one of GitHub’s founders and the tsar of their new office, known to GitHubbers as Office 3.0. As we talked about the architecture of the new space, a “blank slate” industrial building where GitHub will move next month, it became easy to draw an analogical connection to the architecture of good software.</p>
+
+<h4><a name="Pattern_Languages_In_Architecture_And_Software">Pattern Languages In Architecture And Software</a></h4>
+
+<p>This anecdote stuck out: One GitHubber suggested Chacon read a book called <em><a href="http://www.amazon.com/Pattern-Language-Buildings-Construction-Environmental/dp/0195019199" target="_blank">A Pattern Language: Towns, Buildings And Construction</a></em> to help vet ideas for the space. Of course, the title will sound familiar to any front-end designers out there: Design “patterns” are commonly discussed in software as well as architecture.</p>
+
+<p>Since everything at GitHub is done in the open, there were <em>a lot</em> of ideas to vet. Chacon has been managing feedback about Office 3.0 in--where else--a GitHub repo. Since most of GitHub’s staffers are remote--about 70% of its employees are not located in San Francisco--the use cases for the office vary somewhat dramatically.</p>
+
+<p>“I opened up a repository and emailed everybody saying: If you want to see something built, if you try to think about your daily life. Try to think about the time that you spend in the office--which is different whether you live in San Francisco and you use this for work, or whether you don't, and use it to visit,” says Chacon. “Identify the problem-set [you face] when you’re in the office and let me know what works well, and what doesn’t work well.”</p>
+
+<p>But in the back of my mind, that book gnawed. Without much training in architecture, I was curious how town and city “pattern languages” could teach me more about interface design, something I think about constantly for <a href="http://writebot.com/login" target="_blank">Writebot</a>, the collaborative platform I’m building with two friends (and which we use here at <em>Fast Company</em> internally.) I bought <em>A Pattern Language: Towns, Buildings And Construction</em> on Amazon for about $23 used and pored over it for useful advice for software architects. Here’s what I found.</p>
+
+<h4><a name="Think_About_Your_Apps_Circulation_Realms">Think About Your App’s “Circulation Realms”</a></h4>
+
+<p>Chapter 98 of this tome covers “circulation realms,” which I’ll loosely define as the ease with which people can navigate a huge campus of buildings--or in a web analogy, how easy it is for users to find their way around your site. The chapter opens with a pertinent warning on page 481:</p>
+
+<blockquote><p>In many modern building complexes the problem of disorientation is acute. People have no idea where they are, and they experience considerable mental stress as a result.</p></blockquote>
+
+<p>Anyone who has tried to adjust settings in Facebook will know this feeling well; having a non-obvious structure or organization to a space makes navigating feel like cognitive molasses. The real problem, according to the authors, is <em>lack of adequate language</em> to describe where you are. Imagine a first-time visitor to your building (or app, or website) the book says:</p>
+
+<blockquote><p>From your point of view, the building is easy to grasp if someone can explain the position of this address to you, in a way you can remember easily, and carry in your head while you are looking for it.</p></blockquote>
+
+<p>Imagine your mom asks you how you might change her preferences in a certain app. In a user-friendly space--let’s use Mac OS as an example--it’s easy. Navigate to the Apple menu, then select System Preferences. Now imagine explaining how to change privacy settings in Facebook. You’d have to write three paragraphs. The book continues on p.482:</p>
+
+<blockquote><p>To put this in its most pungent form: a person must be able to explain any given address within the building, to any other person, who does not know his way around, in one sentence.</p></blockquote>
+
+<p>This is not just crucial for new users, the book says, but for anyone who has to carry around a mental map of a space. The more complex and nuanced the map required, the more cognitive load the person experiences--even if he’s been in the space for years.</p>
+
+<blockquote><p>If he spends a great deal of time looking out for landmarks, thinking about where to go next, then his time is entirely occupied, and leaves him little time for the process of reflection, tranquil contemplation, and thought.</p></blockquote>
+
+<h4><a name="What_Are_Your_Apps_Main_Buildings">What Are Your App’s “Main Buildings?”</a></h4>
+
+<p>Here the book gives some advice that might sound familiar to anyone who has designed iOS apps, or other applications where extreme simplicity and parsimony are crucial to usability. The book is talking about “main buildings” in a complex of buildings--say, the <a href="http://en.wikipedia.org/wiki/The_Rotunda_%28University_of_Virginia%29" target="_blank">Rotunda at the University of Virginia</a>, my alma mater--the brain, the locus of activity for the community of users. But it could easily be talking about an app’s “main task.” From p.487:</p>
+
+<blockquote><p>For any collection of buildings, decide which building in the group houses the most essential function--which building is the soul of the group, as a human institution... [B]uild the marin part of it higher and more prominent than the rest, so that they eye goes immediately to the part which is most important.</p></blockquote>
+
+<p>Apps or sites which have flat, uniform navigation inevitably leave people wondering what they’re supposed to be doing there. Apps that clearly call out the main task--for example, Instagram’s front-and-center camera button--are much easier for people to gain expertise in. Once they know what the main task is, everything else can be explored in the context of ancillary features.</p>
+
+<h4><a name="Public_Spaces_And_Pedestrian_Streets_In_Software_Design">Public Spaces And “Pedestrian Streets” In Software Design</a></h4>
+
+<p>This section could easily be titled “why people prefer to do things in public.” It’s why countless closed, proprietary networks have lost out to the robust public-ness of Twitter. From p.489:</p>
+
+<blockquote><p>The simple social intercourse created when people rub shoulders in public is one of the most essential kinds of social “glue” in society.</p></blockquote>
+
+<p>Software spaces, like physical buildings, often have centralized “corridors” or gathering spaces where people rub shoulders. This can be a feed or group chat; another example is people commenting around a piece of comment. <em>Too much privacy</em>, the book argues, can make these spaces feel awkwardly intimate:</p>
+
+<blockquote><p>... It is therefore unpleasant, even unnerving, to move through them; people in them are in no state to generate, or benefit from, social intercourse.</p></blockquote>
+
+<p>The book suggests allowing people to move between private spaces via outdoor areas that re-create pedestrian streets, where all sorts of activity is permissible and visible. This should make software architects think twice about what appears on their “home” or “dashboard” screens--whatever the user considers to be the app’s resting place. This is the place to house your most open social environment; closed feeds, groups, and person-to-person communications can branch off the central agora, but what people really want is a public space.</p>
+
+<h3><a name="Coder_Caves_GitHubs_Homebrewed_Architectural_Pattern">Coder Caves: GitHub’s Homebrewed Architectural Pattern</a></h3>
+
+<p>GitHubbers also used the book for inspiration, says Chacon, coming up with ideas that ranged from “super academic discussions” to “we want to have dark, smaller spaces with sound dampening, so it's easy to concentrate.”</p>
+
+<p>Those dark, small spaces earned the nickname “coder caves.” As Chacon describes the design: “It's this maze-like structure where there are all very smaller rooms, they're dark and there are small walls” to break up the space. “People can go in there and escape and have a quiet small space for themselves.”</p>
+
+<p>Chacon shopped the idea around with other GitHubbers. “I was going back and forth with design and sketches with different people in the company, would it look cool like this, or like this? Should it we use it for design? Should we lay them out? Should we be able to see each other?” After some consensus-building, the caves were framed out by the contractor. “They’re built now--we can actually go through and walk through them,” says Chacon.</p>
+
+<p>Design patterns also helped Chacon figure out which ideas to reject. One that seemed particularly dangerous was any design that encouraged GitHubbers to spend too much time in the office.</p>
+
+<p>“Beds--that was something that I specifically pushed back on,” says Chacon. “We said, ‘We're not a company that wants you to spend 18 hours at the office. We want you to go home. We don't want you to plan to sleep in the office. We want to make sure that you have a life outside of GitHub.”</p>
+
+<p>[<em>Image: Flickr user <a href="http://www.flickr.com/photos/jonolave/3636434436/in/photostream/" target="_blank">Jon Olav Eikenes</a></em>]</p>
