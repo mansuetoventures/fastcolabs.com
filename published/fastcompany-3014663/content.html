@@ -27,19 +27,19 @@
 
 <p>In addition to the Amazon's hosting and services, Young's team cobbled together a number of other backend engineering tools and techniques to get Digg Reader to run as quickly and responsively as possible.</p>
 
-<p>"The backend is written in python and is pretty standard in terms of the stack that we use," he says.</p>
+<p>"The backend is written in Python and is pretty standard in terms of the stack that we use," he says.</p>
 
 <h4><a name="Heres_a_breakdown_of_the_other_backend_tools_theyre_using_">Here's a breakdown of the other backend tools they're using: </a></h4>
 
 <ul>
   <li><span><strong><a href="http://www.python.org/" target="_blank">Python</a></strong> is the backend programming language of choice at Digg. The general purpose scripting language is used by everyone from Dropbox to NASA and is generally quite popular, so this is no surprise.</span></li>
-  <li><span><strong>Memcached, redis and twemproxy</strong> are used for caching. <a href="http://redis.io/" target="_blank">Redis</a> and <a href="http://memcached.org/" target="_blank">memcached</a> are popular open source key-value stores designed to speed up Web apps by lightening the load on databases. <a href="https://github.com/twitter/twemproxy" target="_blank">Twemproxy</a> is a light-weight proxy for memcached and redis created by developers at Twitter.    </span></li>
+  <li><span><strong>Memcached, redis, and twemproxy</strong> are used for caching. <a href="http://redis.io/" target="_blank">Redis</a> and <a href="http://memcached.org/" target="_blank">memcached</a> are popular open source key-value stores designed to speed up web apps by lightening the load on databases. <a href="https://github.com/twitter/twemproxy" target="_blank">Twemproxy</a> is a light-weight proxy for memcached and redis created by developers at Twitter.    </span></li>
   <li><span><strong>MongoDB.</strong> In addition to Amazon's DynamoDB, Digg uses the uber-popular NoSQL database system <a href="http://www.mongodb.org/" target="_blank">MongoDB</a>. </span></li>
   <li><span><strong><a href="http://www.tornadoweb.org/en/stable/" target="_blank">Tornado</a></strong> is the Python Web framework and networking library of choice at Digg Reader. Originally developed by FriendFreed, Tornado "can scale to tens of thousands of open connections, making it ideal for long polling, WebSockets, and other applications that require a long-lived connection to each user." </span></li>
   <li><span><strong>Beanstalkd.</strong> To keep processes moving in the background, Digg uses the work queue <a href="https://en.wikipedia.org/wiki/Beanstalkd" target="_blank">Beanstalkd</a> to run tasks asynchronously and keep the user experience as speedy and interruption-free as possible. </span></li>
 </ul>
 
-<p>"For code deployment and server monitoring, we are using a mix of tools right now: fabric, statsd + graphite, Amazon's Cloudwatch, sentry, munin, nagios and pager duty," says Young. "And Chartbeat, of course."</p>
+<p>"For code deployment and server monitoring, we are using a mix of tools right now: fabric, statsd + graphite, Amazon's Cloudwatch, sentry, munin, nagios, and pager duty," says Young. "And Chartbeat, of course."</p>
 
 <p>"Gilad Lotan, the Betaworks Data Scientist, has built a system that allows us to score any url based on a number of signals like Tweets, Facebook shares, Diggs, etc," Young explains. "This is currently shown in the list of 'Popular' stories in Digg Reader. He uses a mix of redis, memcache, zeromq and hypertable."</p>
 
