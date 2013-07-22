@@ -1,4 +1,4 @@
-<p>When the team at Digg learned about the impending demise of Google Reader, they knew they had to act fast--and <a href="http://www.fastcolabs.com/3007556/tracking/lessons-google-reader-reaction" target="_self">build something killer</a>. The resulting void would leave millions of potential users on the hunt for something new and the recently Betaworks-acquired Digg was unusually well-positioned to build a product dedicated to reading things. But with a limited timeframe in which to create Digg Reader, the team had to limit the product's scope and choose its tech tools wisely.</p>
+<p>When the team at Digg learned about the impending demise of Google Reader, they knew they had to act fast--and <a href="http://www.fastcolabs.com/3007556/tracking/lessons-google-reader-reaction" target="_self">build something killer</a>. The resulting void would leave millions of potential users on the hunt for something new, and the recently Betaworks-acquired Digg was unusually well-positioned to build a product dedicated to reading things. But with a limited time frame in which to create Digg Reader, the team had to limit the product's scope and choose its tech tools wisely.</p>
 
 <p>Leading the charge on the technical side at Digg is CTO Mike Young, who gave us a glimpse behind the scenes at the tech stack and development frameworks used to replace a beloved, eight-year-old service in a matter of months.</p>
 
@@ -6,20 +6,20 @@
 
 <p>In 2013, rolling one's own infrastructure might be a laudatory technical feat, but for most, not worth it when super-reliable cloud hosting is so readily available. Not surprisingly, Digg is leaning on Amazon Web Services (AWS) for its hosting and a few additional infrastructural needs.</p>
 
-<p>"We currently have a mix of infrastructure/services that we built ourselves over the last year for Digg.com as well as some of the AWS hosted services for storing data (DynamoDB) and queueing (SQS)," says Young. "Since we had such a short time-frame to build Digg Reader we had to lean heavily on some of the hosted AWS services, like DynamoDB, versus rolling our own."</p>
+<p>"We currently have a mix of infrastructure/services that we built ourselves over the last year for Digg.com as well as some of the AWS-hosted services for storing data (DynamoDB) and queueing (SQS)," says Young. "Since we had such a short time frame to build Digg Reader we had to lean heavily on some of the hosted AWS services, like DynamoDB, versus rolling our own."</p>
 
 <h4><a name="Heres_a_breakdown_of_what_theyre_using_">Here's a breakdown of what they're using: </a></h4>
 
 <ul>
-  <li><span><strong>Amazon Web Services</strong> for hosting and content delivery. Young says they're fully-hosted on AWS, running most of Digg Reader off of instances of Amazon's Elastic Compute Cloud (EC2). </span></li>
-  <li><span><strong>DynamoDB.</strong> Young's team uses Amazon's NoSQL database solution rather than building their own "since we had such a short time-frame to build Digg Reader," he says. </span></li>
-  <li><span><strong>Amazon’s<a href="https://aws.amazon.com/sqs/" target="_blank">Simple Queue Service</a> (SQS)</strong> is used for queuing messages between components of Digg's Amazon-powered backend. For those unfamiliar with message queues, Wikipedia offers a <a href="https://en.wikipedia.org/wiki/Message_queue" target="_blank">pretty thorough primer</a>.   </span></li>
-  <li><span><strong><a href="https://en.wikipedia.org/wiki/Amazon_Route_53" target="_blank">Amazon Route 53</a></strong> is used for DNS management. The service doesn't offer domain names, but rather lets users control the DNS settings the map the domains and subdomains to specific IP addresses and other standard DNS settings. </span></li>
-  <li><span><strong>The AWS <a href="https://aws.amazon.com/elasticloadbalancing/" target="_blank">Elastic Load Balancer</a></strong> is necessary for sites expecting as many sudden visitors as Digg Reader was. It smartly distributes all that inbound traffic amongst Digg's EC2 instances for maximum fault tolerance and stability. </span></li>
-  <li><span><strong>Amazon's <a href="https://aws.amazon.com/s3/" target="_blank">Simple Storage Service</a> (S3)</strong> and Cloudfront CDN are used for storage and delivery of images, JavaScript and CSS. </span></li>
+  <li><span><strong>Amazon Web Services</strong> for hosting and content delivery. Young says they're fully hosted on AWS, running most of Digg Reader off of instances of Amazon's Elastic Compute Cloud (EC2). </span></li>
+  <li><span><strong>DynamoDB.</strong> Young's team uses Amazon's NoSQL database solution rather than building their own "since we had such a short time frame to build Digg Reader," he says. </span></li>
+  <li><span><strong>Amazon’s <a href="https://aws.amazon.com/sqs/" target="_blank">Simple Queue Service</a> (SQS)</strong> is used for queuing messages between components of Digg's Amazon-powered backend. For those unfamiliar with message queues, Wikipedia offers a <a href="https://en.wikipedia.org/wiki/Message_queue" target="_blank">pretty thorough primer</a>.   </span></li>
+  <li><span><strong><a href="https://en.wikipedia.org/wiki/Amazon_Route_53" target="_blank">Amazon Route 53</a></strong> is used for DNS management. The service doesn't offer domain names, but rather lets users control the DNS settings then map the domains and subdomains to specific IP addresses and other standard DNS settings. </span></li>
+  <li><span><strong>The AWS <a href="https://aws.amazon.com/elasticloadbalancing/" target="_blank">Elastic Load Balancer</a></strong> is necessary for sites expecting as many sudden visitors as Digg Reader was. It smartly distributes all that inbound traffic among Digg's EC2 instances for maximum fault tolerance and stability. </span></li>
+  <li><span><strong>Amazon's <a href="https://aws.amazon.com/s3/" target="_blank">Simple Storage Service</a> (S3)</strong> and Cloudfront CDN are used for storage and delivery of images, JavaScript, and CSS. </span></li>
 </ul>
 
-<p>"I don't think we would have been able to pull this off in the timeframe we had without AWS and the ability to scale up a large number of machines in short period of time," says Young.</p>
+<p>"I don't think we would have been able to pull this off in the time frame we had without AWS and the ability to scale up a large number of machines in short period of time," says Young.</p>
 
 <h3><a name="More_Fun_On_The_Backend_of_Digg_Reader_">More Fun On The Backend of Digg Reader </a></h3>
 
