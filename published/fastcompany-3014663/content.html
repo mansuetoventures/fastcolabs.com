@@ -1,0 +1,72 @@
+<p>When the team at Digg learned about the impending demise of Google Reader, they knew they had to act fast--and <a href="http://www.fastcolabs.com/3007556/tracking/lessons-google-reader-reaction" target="_self">build something killer[url/]. The resulting void would leave millions of potential users on the hunt for something new and the recently Betaworks-acquired Digg was unusually well-positioned to build a product dedicated to reading things. But with a limited timeframe in which to create Digg Reader, the team had to limit the product's scope and choose its tech tools wisely.</p>
+
+<p>Leading the charge on the technical side at Digg is CTO Mike Young, who gave us a glimpse behind the scenes at the tech stack and development frameworks used to replace a beloved, eight-year-old service in a matter of months.</p>
+
+<h3><a name="Keeping_Things_Scalable_With_Amazons_Cloud">Keeping Things Scalable With Amazon's Cloud</a></h3>
+
+<p>In 2013, rolling one's own infrastructure might be a laudatory technical feat, but for most, not worth it when super-reliable cloud hosting is so readily available. Not surprisingly, Digg is leaning on Amazon Web Services (AWS) for its hosting and a few additional infrastructural needs.</p>
+
+<p>"We currently have a mix of infrastructure/services that we built ourselves over the last year for Digg.com as well as some of the AWS hosted services for storing data (DynamoDB) and queueing (SQS)," says Young. "Since we had such a short time-frame to build Digg Reader we had to lean heavily on some of the hosted AWS services, like DynamoDB, versus rolling our own."</p>
+
+<h4><a name="Heres_a_breakdown_of_what_theyre_using_">Here's a breakdown of what they're using: </a></h4>
+
+<ul>
+  <li><span><strong>Amazon Web Services</strong> for hosting and content delivery. Young says they're fully-hosted on AWS, running most of Digg Reader off of instances of Amazon's Elastic Compute Cloud (EC2). </span></li>
+  <li><span><strong>DynamoDB.</strong> Young's team uses Amazon's NoSQL database solution rather than building their own "since we had such a short time-frame to build Digg Reader," he says. </span></li>
+  <li><span><strong>Amazon’s [url=https://aws.amazon.com/sqs/]Simple Queue Service</a> (SQS)</strong> is used for queuing messages between components of Digg's Amazon-powered backend. For those unfamiliar with message queues, Wikipedia offers a <a href="https://en.wikipedia.org/wiki/Message_queue" target="_blank">pretty thorough primer</a>.   </span></li>
+  <li><span><strong><a href="https://en.wikipedia.org/wiki/Amazon_Route_53" target="_blank">Amazon Route 53</a></strong> is used for DNS management. The service doesn't offer domain names, but rather lets users control the DNS settings the map the domains and subdomains to specific IP addresses and other standard DNS settings. </span></li>
+  <li><span><strong>The AWS <a href="https://aws.amazon.com/elasticloadbalancing/" target="_blank">Elastic Load Balancer</a></strong> is necessary for sites expecting as many sudden visitors as Digg Reader was. It smartly distributes all that inbound traffic amongst Digg's EC2 instances for maximum fault tolerance and stability. </span></li>
+  <li><span><strong>Amazon's <a href="https://aws.amazon.com/s3/" target="_blank">Simple Storage Service</a> (S3)</strong> and Cloudfront CDN are used for storage and delivery of images, JavaScript and CSS. </span></li>
+</ul>
+
+<p>"I don't think we would have been able to pull this off in the timeframe we had without AWS and the ability to scale up a large number of machines in short period of time," says Young.</p>
+
+<h3><a name="More_Fun_On_The_Backend_of_Digg_Reader_">More Fun On The Backend of Digg Reader </a></h3>
+
+<p>"One of the things that was so amazing about Google Reader was how fast it was, both in serving up content when you loaded the page or paginated through feeds, but also on the feed aggregation/crawling side," Young says. "We spent some time talking with the original Google Reader team when we first started the project, and they were kind enough to give us some great insight into the product and infrastructure."</p>
+
+<p>In addition to the Amazon's hosting and services, Young's team cobbled together a number of other backend engineering tools and techniques to get Digg Reader to run as quickly and responsively as possible.</p>
+
+<p>"The backend is written in python and is pretty standard in terms of the stack that we use," he says.</p>
+
+<h4><a name="Heres_a_breakdown_of_the_other_backend_tools_theyre_using_">Here's a breakdown of the other backend tools they're using: </a></h4>
+
+<ul>
+  <li><span><strong><a href="http://www.python.org/" target="_blank">Python</a></strong> is the backend programming language of choice at Digg. The general purpose scripting language is used by everyone from Dropbox to NASA and is generally quite popular, so this is no surprise.</span></li>
+  <li><span><strong>Memcached, redis and twemproxy</strong> are used for caching. <a href="http://redis.io/" target="_blank">Redis</a> and <a href="http://memcached.org/" target="_blank">memcached</a> are popular open source key-value stores designed to speed up Web apps by lightening the load on databases. <a href="https://github.com/twitter/twemproxy" target="_blank">Twemproxy</a> is a light-weight proxy for memcached and redis created by developers at Twitter.    </span></li>
+  <li><span><strong>MongoDB.</strong> In addition to Amazon's DynamoDB, Digg uses the uber-popular NoSQL database system <a href="http://www.mongodb.org/" target="_blank">MongoDB</a>. </span></li>
+  <li><span><strong><a href="http://www.tornadoweb.org/en/stable/" target="_blank">Tornado</a></strong> is the Python Web framework and networking library of choice at Digg Reader. Originally developed by FriendFreed, Tornado "can scale to tens of thousands of open connections, making it ideal for long polling, WebSockets, and other applications that require a long-lived connection to each user." </span></li>
+  <li><span><strong>Beanstalkd.</strong> To keep processes moving in the background, Digg uses the work queue <a href="https://en.wikipedia.org/wiki/Beanstalkd" target="_blank">Beanstalkd</a> to run tasks asynchronously and keep the user experience as speedy and interruption-free as possible. </span></li>
+</ul>
+
+<p>"For code deployment and server monitoring, we are using a mix of tools right now: fabric, statsd + graphite, Amazon's Cloudwatch, sentry, munin, nagios and pager duty," says Young. "And Chartbeat, of course."</p>
+
+<p>"Gilad Lotan, the Betaworks Data Scientist, has built a system that allows us to score any url based on a number of signals like Tweets, Facebook shares, Diggs, etc," Young explains. "This is currently shown in the list of 'Popular' stories in Digg Reader. He uses a mix of redis, memcache, zeromq and hypertable."</p>
+
+<h3><a name="Styles_Libraries_and_Frameworks_Making_the_FrontEnd_Shine">Styles, Libraries and Frameworks: Making the Front-End Shine</a></h3>
+
+<p>The front-end of Digg Reader is, as Young puts it, "built with Javascript, CSS and a lot of love."</p>
+
+<p>"I'm really proud of what [Design Director] Justin Van Slembrouck  and the dev team pulled off in such a short amount of time," says Young. "There is a lot left to do, but it's really exciting. We are really just getting started with this."</p>
+
+<p>One of the team's biggest challenges was ensuring the Reader experience was as fast and responsive as possible. This isn't easy when you're aggregating and storing more than 8 million feeds and doing all kinds of heavy-lifting on the backend to make everything feel effortless.  Thankfully, for the front-end guys, there's no shortage of frameworks and tools to help patch together something that meets users' not-always-patient demands.</p>
+
+<p>"Jon Ferrer and Kevin Barnett have done a great job in making the site feel very responsive," says Young. "One of our big goals for launch was to make the "All" feed feel very fast for users. We wanted users to be able to scroll through page after page of their "All" feed and have it feel very smooth. Jon is using some tricks in terms of loading and then showing the data to make sure the scolling and pagination of the All feed feels smooth."</p>
+
+<h4><a name="Heres_a_breakdown_of_what_powers_the_frontend_">Here's a breakdown of what powers the front-end: </a></h4>
+
+<p><strong><a href="http://jquery.com/" target="_blank">jQuery</a></strong>, the wildly popular JavaScript framework, is used by the Digg Reader team to simplify scripting tasks and just generally make life easier.</p>
+
+<p><strong><a href="https://en.wikipedia.org/wiki/Backbonejs" target="_blank">Backbone.js</a></strong> is huge. The RESTful JSON Javascript library is used on a wide variety of huge sites and Web apps from Pandora and Hulu to LinkedIn and Pinterest. Digg joins the long list of prominent Web properties that use it make script-wrangling easier.</p>
+
+<p><strong><a href="http://requirejs.org/" target="_blank">Require.js</a> and r.js optimizer</strong> are used to load and manage dependencies between JavaScript module.</p>
+
+<p><strong><a href="https://github.com/mishoo/UglifyJS" target="_blank">Uglify.js</a></strong> is described as a "parser / compressor / minifier / beautifier" for JavaScript code. In other words, it takes often unwieldy-looking JavaScript and crunches it down into something cleaner and lighter weight.</p>
+
+<p><strong><a href="http://lodash.com/" target="_blank">Lo-Dash </a></strong>is a low-level utility library for JavaScript developers that enables customization, improves performance and offers additional features. It's similar to underscore.js, which Digg also uses for JavaScript tempting.</p>
+
+<p><strong><a href="http://lesscss.org/" target="_blank">LESS</a></strong> is a compiler that helps developers extend what's possible with Cascading Style Sheets (CSS), bringing a programmatic flavor to the code that powers how websites look and feel.</p>
+
+<p><strong><a href="http://nodejs.org/" target="_blank">Node.js</a></strong> and Git pre-commit hooks are used to build out Digg's production CSS and JavaScript from their source file.</p>
+
+<p>"Other than that, it's pretty much just Github, Asana, Hipchat and code editors," says Young. "The old guys (like me) use Vi while the younger guys use fancy new tools like CodeKit and Sublime Text that I think pretty much write the code for you! Kids!"</p>
