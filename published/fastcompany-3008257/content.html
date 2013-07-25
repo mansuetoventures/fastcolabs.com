@@ -1,0 +1,191 @@
+<p>"I didn’t want to spend $10,000 making something really great that nobody wanted," says McKendrick in a <a href="http://www.trevormckendrick.com/my-first-year-in-the-app-store/" target="_blank">blog post</a> last week. "I wanted to test the market, and cheaply."</p>
+
+<p>This is the story of a developer with a modest ambition: Pay his rent with App Store sales. Starting with his first installment last week, McKendrick is documenting everything about his project, from the first day's sales ($36) to the way he's reinvesting profits into the app to expand the feature set. If you're too lazy to check back for updates, you can sign up for email delivery of the installments of his story <a href="http://www.trevormckendrick.com/my-first-year-in-the-app-store/" target="_blank">here</a>.</p>
+
+<p>While many developers dream of quitting their day jobs and living off the App Store full time, it's easy to forget how much small details can set back time to market. Especially payments infrastructure, which is why McKendrick's story is exemplary: It's the story of a developer making money on nothing but a simple, straightforward app purchase (although he says he plans to integrate in-app purchases later). While <a href="http://www.fastcolabs.com/3007021/open-company/what-every-ios-developer-should-know-about-app-purchases" target="_self">IAPs are the biggest source of revenue for developers</a> these days, they also require more build time--even if you're just using Apple's StoreKit framework. Even adding well-designed third-party payments frameworks like the excellent Stripe SDK for iOS adds considerable dev time to what was once a "simple project." And since there are many variations to a freemium payment scheme, the more moving parts your payments system has, the more think-time it will require, and the more wide-ranging effects it will have on the data model.</p>
+
+<p>Here are other topics McKendrick will go over in his blog series.</p>
+
+<ul>
+  <li><span>How [he] picked the Spanish Bible niche</span></li>
+  <li><span>Hiring successfully and for cheap on Elance</span></li>
+  <li><span>Running 99Designs contests that actually get you nice design work</span></li>
+  <li><span>Thoughts on Trello vs Basecamp</span></li>
+  <li><span>Finding a long-term designer and developer</span></li>
+  <li><span>How to manage contractors</span></li>
+  <li><span>Making an audiobook</span></li>
+</ul>
+
+<hr />
+
+<h5><a name="This_story_is_tracking_strategies_and_theories_about_pricing_your_software_on_the_web_or_mobile_app_stores_Read_on_for_more_context_or_skip_down_the_page_to_read_back_to_previous_updates">This story is tracking strategies and theories about pricing your software on the web or mobile app stores. Read on for more context, or skip down the page to read back to previous updates.</a></h5>
+
+<p>We'll listen for stories about developers who have conducted pricing experiments with their own products and survived (or failed) to tell the tale. Advice from VCs and entrepreneurs on the psychology of pricing are also fair game for this track. Likewise, we'll pull in news and philosophy about alternative ways of supporting your product when end-user sales aren't a good option.</p>
+
+<h3><a name="Pricing_Your_Software_Product_What_You_Need_To_Know">Pricing Your Software Product: What You Need To Know</a></h3>
+
+<p>You've built something you know has value. Now how do you get people to trade money for that value? Pricing your software product is one of the most difficult strategic processes any team goes through before taking something to market. There are dozens of factors that can influence what people will pay to become users--some of them within your control, many of them outside of it.</p>
+
+<hr />
+
+<h2><a name="Previous_Updates">Previous Updates</a></h2>
+
+<p>Instapaper developer Marco Arment puts app pricing into binary terms, drawing a distinction between apps that are part of your "big six"--his shorthand for your go-to apps--and everything else. A good app might not be good enough to warrant charging money, and a great app might only appeal to a niche audience who can't support your development costs. On <a href="http://www.marco.org/2013/04/19/paid-app-market?utm_source=feedburner&amp;amp;utm_medium=feed&amp;amp;utm_campaign=Feed%3A+macstoriesnet+%28MacStories%29&amp;amp;utm_content=Google+Reader" target="_blank">his blog</a> Arment writes:</p>
+
+<blockquote><p>For these “Big Six” apps, price is almost irrelevant. If your app is useful enough for many of its customers to use it almost every day, they’ll pay a decent price for it. (Not all of them will—but you don’t need all of them.) The challenge is either making your app that much better than the alternatives, or finding new app roles that are that useful to a lot of people.</p></blockquote>
+
+<p>Social apps, he says, will find it the hardest to sneak into this group. In fact, today (April 26, 2013) we published a <a href="http://www.fastcolabs.com/3008819/open-company/your-startup-runt-pivot-hard-or-keep-pushing" target="_self">story about a Y Combinator startup that lived this social-app nightmare scenario</a> and barely survived.</p>
+
+<blockquote><p>It doesn’t matter what your price is—it only matters whether you charge at all, because that slows the rate of new users. This is complicated because you’re not giving people much value in the app itself: You’re relying on the customers to provide most of the app’s value to each other, and you probably need a lot of them to give substantial value to any of them. Social apps must therefore almost always seek indirect, deferred revenue because having as many users as possible is worth much more, long-term, than hindering growth with a paywall.</p></blockquote>
+
+<p>One alternative is to take <a href="http://www.fastcolabs.com/3008760/when-not-think-engineer" target="_self">the advice that Gentry Underwood gave us</a> and pick a less competitive niche in which to solve a problem with software. But Arment says this can be a dangerous strategy too:</p>
+
+<blockquote><p>If you eschew common app categories and try to address a smaller niche to give your app a better chance of standing out, you run a different risk: your niche might be a lot smaller than you think. Usually, this happens:
+
+<ol>
+  <li><span>Paid app isn’t gaining traction.</span></li>
+  <li><span>Developer lowers the price to boost purchases and climb the ranks.</span></li>
+  <li><span>App doesn’t sell much better, and developer just makes less money.</span></li>
+  <li><span>GOTO 2.</span></li>
+</ol>
+
+<p>I’ve seen so many developers fall into this trap, even with good apps: an app can be good but not compelling enough to attract many customers. A game can be beautifully crafted but just not fun. This isn’t a pricing problem.</p></blockquote></p>
+
+<p>The solution, Arment says, is to look at the App Store as a less dynamic place--a market where the same core problems are being approached by millions of different apps.</p>
+
+<blockquote><p>In most categories, if you either solve a new problem that a lot of people have, or solve an old problem in a new and better way, you can sell a paid app today just as well as you could in 2008. In fact, the market is much bigger now. But, as with any maturing market, you’ll need to do more to get noticed since so many problems have already been solved so well. The bar is higher, but the market is fine.</p></blockquote>
+
+<hr />
+
+<p><strong>What would happen to App Store economics if every iOS app cost at least $10?</strong> Designer Craig Grannell tackles the topic based on the release of another Mac developer's new iPad app: A paid, mobile-native version of <a href="https://itunes.apple.com/gb/app/status-board/id449955536?mt=8" target="_blank">Status Board</a>. His post begins as dyspeptically as many people's do when discussing App Store pricing norms, but takes a surprising twist at the end--when he argues that free apps have had the effect of slowing a natural transition from native software to the web. Via <a href="http://reverttosaved.com/2013/04/11/on-pricing-and-the-ios-app-store-economy/" target="_blank">RevertToSaved</a>:</p>
+
+<blockquote><p>[Status Board] costs £6.99/$9.99 and already there are complaints about how expensive the app is, which I find a pity. The App Store really has destroyed people’s sense of value when it comes to software and games.</p></blockquote>
+
+<p>Grannell indulges in imagining this hypothetical: What if the minimum App Store price established in 2008 was $10, not zero? He makes five assertions; the first two aren't so controversial, but the last three are. The first two:</p>
+
+<blockquote><p>First and foremost, it wouldn’t be so full of junk. Secondly, the app revolution would have been slower rather than an explosion… Instead of iPhones full of apps, most people wouldn’t have gone beyond stock apps, and more tech-savvy users would have been considerably choosier. This would have had the knock-on effect of eradicating many one-shot utilities and probably the majority of games.</p></blockquote>
+
+<p>A more expensive App Store might have forced Apple to pick up the slack and do more iOS app development, being a more important source of free apps. But never mind that; here are Grannell's third, fourth, and fifth points, which are more worthy of debate. How would a higher price minimum have affected Apple's marketing machine? And most importantly, what would it have done to quality?</p>
+
+<blockquote><p>I doubt Apple would then have been issuing press releases with the kind of huge sales and app-download numbers we’ve seen since the App Store’s launch. (One benefit, however, is that those apps that did become very popular might have been more likely to result in a viable business, compared to products that sell plenty of copies for a dollar and still don’t provide enough income to the developer.)</p></blockquote>
+
+<p>There are always numbers to trumpet. In the absence of unit sales, Apple could have trumpeted the dollar amount earned, or simply embraced the kind of "quality over quantity" message that it has historically used to argue against the preponderance of Windows machines outnumbering Macs. On the quality question:</p>
+
+<blockquote><p>Thirdly, at the very high end I doubt a great deal would be different in terms of general quality. The very best apps and games on the App Store are phenomenal… Stepping into a world of ten-dollar minimums wouldn’t, I think, make those very best apps any better.</p></blockquote>
+
+<p>In fact, it's conceivable that the average quality of apps might even have been negatively affected by a high minimum price. But Grannell says the biggest impact of Apple's choice to allow free apps might have been to slow down the transition between native software and web apps. Here is his big insight:</p>
+
+<blockquote><p>A final thought is that perhaps a high App Store tier-one would have also galvanised [sic] web apps much earlier (almost immediately). Many cheap apps (and even games) we now see on the App Store would have been created online instead, using web standards.</p></blockquote>
+
+<p>That's not in Apple's interests, or the interests of anyone who's spent years honing their skills with Objective-C and Cocoa frameworks.</p>
+
+<blockquote><p>My thinking, then, is that I’m mostly glad Apple didn’t force a high tier-one price-point. However, I do wonder whether it should have gone for more of a middle-ground… [at 99 cents] now, they have to deal with potentially receiving nothing at all for their work, and figuring out how to get some income from microtransactions… it’ll be interesting to see how the battle plays out between free native apps and free web apps.</p></blockquote>
+
+<hr />
+
+<p><strong>Where did we get the idea for lean development, anyway?</strong> Entrepreneur <a href="http://www.ashmaurya.com/2013/03/your-business-model-is-a-system/?utm_source=feedburner&amp;amp;utm_medium=feed&amp;amp;utm_campaign=Feed%3A+AshMaurya+%28Ash+Maurya%29" target="_blank">Ash Maurya</a> starts this post with a history lesson, but it picks up fast, developing into compelling advice about how "lean" thinking can help developers past the incipient product stages. Via <a href="http://www.ashmaurya.com/2013/03/your-business-model-is-a-system/?utm_source=feedburner&amp;amp;utm_medium=feed&amp;amp;utm_campaign=Feed%3A+AshMaurya+%28Ash+Maurya%29" target="_blank">Maurya's blog</a>:</p>
+
+<blockquote><p>Lean emerged out of the manufacturing world with a rallying cry for “waste reduction” in the production process… Then Lean Startup came along and pointed out that efficient production is NOT enough UNLESS it also delivers customer value and emphasized learning OVER production towards that end.</p></blockquote>
+
+<p>We'll get to the post-MVP stage in a moment; first, Maurya says, it's necessary to understand why true lean thinking usually means a "no code" rule at the outset.</p>
+
+<blockquote><p>… [Y]ou are better served by limiting or completely forgoing production (through an MVP or concierge MVP, for example) to first test value creation. You have to first find a problem worth solving before committing resources to build and scale a solution.</p></blockquote>
+
+<p>Of course, developing a product this way isn't hard: Think in a linear fashion, and only develop what's necessary to prove the concept enough to justify the next stage of development. So it follows that the same logic is useful for getting user feedback and iterating--as unnatural as it might seem.</p>
+
+<blockquote><p>Most learning during the Problem/Solution Fit stage comes through customer interviews. Because this kind of learning is typically qualitative (versus quantitative), it’s often regarded as learning that is “too soft” or “intangible”. This makes entrepreneurs nervous and skeptical.</p></blockquote>
+
+<p>Crucially, a systems engineering approach can help developers limit the scope of this interview/research process. How much is enough? The answer less nebulous than you think.</p>
+
+<blockquote><p>The goal of the Problem/Solution Fit stage isn’t learning for learning’s sake. The output isn’t a 100 page customer research report but rather a repeatable system for acquiring and activating “just enough” customers for Stage 2.</p></blockquote>
+
+<p>Get good enough at the feedback process, Maurya says, and you'll be able to tell whether a customer will buy after asking them only three preliminary questions. <a href="http://www.ashmaurya.com/2013/03/your-business-model-is-a-system/?utm_source=feedburner&amp;amp;utm_medium=feed&amp;amp;utm_campaign=Feed%3A+AshMaurya+%28Ash+Maurya%29" target="_blank">Read on to learn how</a>.</p>
+
+<hr />
+
+<p><strong>It's axiomatic that internet users want things for free, but it may not be for long.</strong> As Obsurvey creator Allan Ebdrup points out here, the flaws of free products are becoming increasingly apparent--witness the Google Reader debacle--and users may acculturate themselves to the idea that paid software is software they can rely on. Via <a href="http://obsurvey.blogspot.dk/2013/04/109-paying-subscribers.html" target="_blank">the Obsurvey company blog</a>:</p>
+
+<blockquote><p>One thing that has surprised me is that with over a thousand likes on the obsurvey facebook page, I was expecting a lot of people to unlike obsurvey when it turned paid. This hasn't happened. In fact since converting to a paid service, the number of likes has continued to increase. I did see some numbers fall. Right before converting to a paid service, obsurvey was getting 2,000 signups a month. This number has dropped to 800 signups for a trial a month. The number of survey responses has dropped from 200,000 a month to 80,000 a month.</p></blockquote>
+
+<p>Developers have been conditioned to maximize user base and TAM to impress investors, but when you're running your own software product, the real metric is revenue--assuming your costs can be controlled and your margin scales. Smaller numbers can equal more money, as counterintuitive as it seems to the state of business on the web today, where much of the money made is based on advertising.</p>
+
+<blockquote><p>What now? I do not intend to focus on conversion rates, optimizing payment tiers, marketing, SEO, partnerships or anything like that. I will instead be focusing on one thing and one thing only. The thing that made obsurvey grow in the first place: Building an even better survey application.</p></blockquote>
+
+<p>That's a great instinct, but the underlying reasons are worth admitting, too. If you're a developer, prioritize what you do best, and surprisingly enough, everything else seems less important.</p>
+
+<blockquote><p>I've tried, but never even been able to muster enough interest in SEO, to even grasph the basics. I love the excitement of building a feature, and testing it on real people on usertesting.com. The feeling of having build something awesome, that users are going to love, can't be beaten. I have limited time to spend, might as spend it on something I'm good at and love to do - things that make me a better developer. When obsurvey users write me emails, saying how much they love obsurvey, it's because the product is great. Nobody writes me thank you notes, because my marketing or SEO is great.</p></blockquote>
+
+<p>Amen, brotha. Perhaps feeling emboldened, Ebdrup makes this final note--we think all developers should have this kind of gumption.</p>
+
+<blockquote><p>Having a small userbase, allows me to spend more time on innovation, when the userbase gets large, change comes slower. You spend more time on support, and you get the dreaded: "But what are the users going to say"-fear of change. I've seen first hand how damaging this fear can be at large SaaS companies. I intend to take full advantage of my small size.</p></blockquote>
+
+<hr />
+
+<p><strong>There are four product qualities that dictate how you can convert new members, says Tom Tunguz.</strong> The right way to court new users depends on how quickly they will derive value from your product, how much of a learning curve it requires, and how much you intend to profit off each user. One important insight here is that your end user is not always the same as your buyer. In business software, Tunguz explains, your end users may simply be cheerleaders for your product who eventually convince whomever controls the purse strings to spring for your paid product. Tunguz calls these people "pre qualifiers." Here's a matrix of the different approaches, and how they correlate to the type of product you're selling. Via <a href="http://tomtunguz.com/your-startups-pricing-plan" target="_blank">Svbtle</a>:</p>
+
+<blockquote><p>Freemium is a strategy for products whose value proposition is simply conveyed and whose value increases with time… The main difference between freemium and trial products is product complexity: trial products are more complex and need time for the user to gain a deeper understanding of the value… To pursue up front payment, you need an established brand with a clear value proposition and you sell the product to the end-user… For products lacking an established brand, but offering an immediate value proposition and charging a high average seat value, there is no better solution than the money back guarantee. </p></blockquote>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/04/3008257-inline-screen-shot-2013-04-12-90925-am.png" alt=""/>
+</figure>
+
+<hr />
+
+<p><strong>One problem with freemium strategies is that they are easy to game.</strong> Knowing which type of freemium strategy to deploy is one step in the right direction, says VC Steven Dupree. Should you use "capacity-based freemium" or "feature-based freemium"? Mixing and matching different freemium models to different use cases is one approach, but certain combinations--namely using too many low-price, low conversion strategies--can sink companies. Here's how to do it right, via <a href="http://www.rglobal.com/flavors-freemium/" target="_blank">Richmond Global</a>:</p>
+
+<blockquote><p>The French vanilla of the freemium world is the “use case freemium.” This overlooked and underused freemium model refers to products or services which are either free or paid based upon how the product is used.  The product functionality may be identical across use cases.  Examples include: free for non-commercial use (often with a label indicating “this is licensed for non-commercial use” so as to embarrass out-of-compliance companies); free for schools (perhaps a dot edu email is required); free for certain distribution channels; and free for non-profits.</p></blockquote>
+
+<hr />
+
+<p><strong>Creating a marketplace for buyers and sellers can be a great way to profit without selling anything.</strong> But evaluating whether there is a need for your site of exchange is a sophisticated process: Some industries welcome new marketplaces, while others utterly ignore them. From VC Bill Gurley, who invested in eBay 15 years ago, comes the 10 factors to consider when evaluating the viability of a digital marketplace, and why you should only attempt a marketplace that can achieve "clearinghouse" status. Via <a href="http://abovethecrowd.com/2012/11/13/all-markets-are-not-created-equal-10-factors-to-consider-when-evaluating-digital-marketplaces/" target="_blank">AboveTheCrowd</a>:</p>
+
+<blockquote><p>A true marketplace needs natural pull on both the consumer and supplier side of the market. Aggregating suppliers is a necessary, but insufficient step on its own. You must also organically aggregate demand. With each step, it should get easier to acquire the incremental consumer AS WELL AS the incremental supplier. Highly liquid marketplaces naturally “tip” towards becoming a clearinghouse where neither the consumer nor the supplier would favor an alternative.</p></blockquote>
+
+<p>Here is a summary of the 10 factors he says you should consider. Find full explanations in his post.</p>
+
+<blockquote><p>New Experience vs. the Status Quo <br />
+Economic Advantages vs. the Status Quo<br />
+Opportunity for Technology to Add Value <br />
+High Fragmentation <br />
+Friction of Supplier Sign-Up<br />
+Size of the Market Opportunity <br />
+Expand the Market <br />
+Frequency<br />
+Payment Flow<br />
+Network Effects</p></blockquote>
+
+<hr />
+
+<p><strong>Should you double your price?</strong> Some of the unconventional wisdom in this piece: Double your price, and see if you can't make more money from less users, cutting your customer service costs in the process. Or switch to subscription pricing if your backend is in the cloud. Built a native app? Exploit in-app purchases, which are <a href="http://www.fastcolabs.com/3007021/open-company/what-every-ios-developer-should-know-about-app-purchases" target="_self">earning more and more as a proportion of total developer income</a>, at least on the iTunes Store. Via <a href="http://kevinhoctor.blogspot.com/2013/03/the-future-of-software-pricing.html" target="_blank">Kevin Hoctor</a>, the case for why developers should think carefully about the price of their software:</p>
+
+<blockquote><p>I think everyone can agree that we won't survive long as indie developers if we can only charge one or two dollars for our apps. I don't even think $15 is enough unless you have an enormous audience. So what do we do? How do we compete with the "race to the bottom" inspired by the App Store? I don't have all the answers, but I do have my opinions and I'm willing to back them up with evidence through my business actions.</p></blockquote>
+
+<hr />
+
+<h3><a name="This_story_branches_off_here_Interested_in_learning_more_about_inapp_purchases_Read_urlhttpwwwfastcolabscom3007021opencompanywhateveryiosdevelopershouldknowaboutapppurchasesWhat_Every_iOS_Developer_Should_Know_About_InApp_Purchasesurl">This story branches off here. Interested in learning more about in-app purchases? Read <a href="http://www.fastcolabs.com/3007021/open-company/what-every-ios-developer-should-know-about-app-purchases" target="_self">What Every iOS Developer Should Know About In-App Purchases</a>.</a></h3>
+
+<hr />
+
+<p><strong>Developers don't always have a common-sense understanding of "value" as the user sees it.</strong> This blog post by Lexi Friedman in Macworld is one example:</p>
+
+<blockquote><p>Of the top 20 best-selling iPhone apps, 15 of them cost $1; the priciest one costs $7. The average price of the top 100 paid apps in the App Store is less than $2. I’m neither an economist nor a psychologist, but it strikes me that too many iOS device owners fail to act in their own best interests—both in the immediate near term and in the long term—when they scoff at the thought of spending money in the App Store. Here’s how customers who spend lavishly on iOS hardware punish themselves by skimping on apps.</p></blockquote>
+
+<p>Friedman continues by saying that developers have gotten themselves in this fix by creating a vicious cycle of low-priced apps:</p>
+
+<blockquote><p>Now, if developers are pricing their apps at $1 (even though some would argue that they shouldn’t), then we needn’t feel guilty for buying them. But, to a certain extent, it’s become a catch-22: Developers are pricing their apps too cheaply, because that’s what they think people will actually pay. And so long as they’re right, we as cheap customers are having a negative impact on a lot of both real and potential businesses.</p></blockquote>
+
+<p>Friedman's argument is that apps cost money--usually the better the app, the more it costs to develop. But developers need to consider that their end user may not be the best person to pay for the service, even if it's excellent, and even if they love it. If your user won't tolerate a higher price, then you need to find alternative ways to monetize him or her, which may include using their aggregate data to collect insights you sell to a third party, or exploiting advertising or partnerships. Friedman seems to think that an underlying problem is that consumers don't think rationally about the value of an app, versus other small purchases:</p>
+
+<blockquote><p>I’m not a fan of the “cup of coffee” comparison so often bandied about in conversations about spending money on apps—both because I dislike the comparison and coffee itself. I’ll use my own Diet Soda Analogy instead: I often skip the diet soda at a restaurant, because water’s fine, and I’m happy to save a couple bucks on chemical-laden beverages, regardless of how delicious they may be. But where the $2.50 soda might have brought me mere minutes of enjoyment, a $5 game could bring me hours of fun and a $10 app could boost my productivity in all sorts of ways. I’ll also spend $9 per month on Netflix for the promise of a few hours of entertainment each month, and many will spend $40 to $60 for a console video game. It’s worth spending money on things that can improve your life—even if they don’t come shipped to your home in a cardboard box.</p></blockquote>
+
+<p>But developers can't simply argue users into seeing the value and coughing up money. The problem is trust--not that people are too dumb to see what software is worth. In other words, most users don't trust they'll actually get long-term value out of this thing, because they may not be aware of the person who built it, or their motivations. Will it work? Will it do what I want? Will it still be supported in a few months? Many users might be surprised to learn that so many small businesses--the kind they support IRL in their own communities--make their living off apps, or that these indie developer shops might have better intentions than the average corporate software company.</p>
+
+<hr />
+
+<h3><a name="Stay_Tuned_As_Coverage_Continues">Stay Tuned As Coverage Continues!</a></h3>
+
+<hr />
+
+<aside class="info"><div class="info-inner"><p>This is a big story, so we're building the article as it develops. As we go along, we'll talk to experts to help make sense of it all. You can influence the direction of this story by <a href="http://twitter.com/chrisdannen" target="_blank">tweeting at the author</a>.</p></div></aside>
+
+<p>[<em>Image: Flickr user <a href="http://www.flickr.com/photos/steve_edgeworth/274713097/sizes/o/in/photostream/" target="_blank">agtwo</a></em>]</p>
