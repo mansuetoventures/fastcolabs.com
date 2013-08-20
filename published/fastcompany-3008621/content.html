@@ -1,3 +1,45 @@
+<p>Deciding where to build a new coffee shop or fast food outlet is an expensive and risky business. Traditionally, planners use data on demographics, revenue, nearby businesses and aggregated human ﬂow, much of which is expensive to gather. But the expense is worth it, because when it comes to foot traffic, even a few feet can make a huge difference.</p>
+
+<p>“Open a new coffee shop in one street corner and it may thrive with hundreds of customers. Open it a few hundred meters down the road and it may close in a matter of months,” explains University of Cambridge researcher Anastasios Noulas and colleagues in a new paper that puts a social spin on <a href="http://arxiv.org/pdf/1306.1704v1.pdf" target="_blank">choosing the best retail location</a>.</p>
+
+<p>In addition to the usual geographical data, Noulas’s team wanted to see if adding freely available FourSquare check-in data combined with Machine Learning algorithms to the mix could help planners choose better locations. The team focused on three chains ubiquitous in New York, FourSquare’s home turf: Starbucks, McDonalds, and Dunkin’ Donuts.</p>
+
+<p>The researchers started by looking at features that might affect foot traffic, like what other businesses operated near a given location, including the number of competitors, and how diverse those businesses were. They also took into account nearby landmarks that help attract customers. People coming out of a train station, for example, often head to a Starbucks, so features like these were included in location descriptions.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/08/3008621-inline-locations.png" alt=""/>
+</figure>
+
+<p>Then the team turned to FourSquare, which they used to understand how people flow between locations. By analyzing 620,932 check-ins shared on Twitter over a period of 5 months (about 25% of all FourSquare check-ins during that period), they were able to determine if an entire area is popular, instead of just one retail location, and analyze how users move from one retail location to another within an area and from outside it. For each feature they identified, the team computed a score that they used to rank each candidate location.</p>
+
+<p>These features and values were used to describe each location and train several different supervised Machine Learning algorithms: Support Vector Regression, M5 decision trees and Linear Regression with regularization. Each algorithm was trained 1000 times using a random sample of two thirds of the locations and their known levels of popularity. The trained algorithms then tried to predict how popular the remaining third of locations would be. The result was a ranking of the locations with the optimal location at the top of the ranking. The predicted ranking was then compared with the true popularity of those locations measured via FourSquare check-ins.</p>
+
+<p>The team found that the check-in patterns for each of the three chains were unique. Starbucks locations had five times as many check-ins as McDonalds and Dunkin’ Donuts, a difference not entirely accounted for by the fact that Starbucks has twice as many stores as McDonald’s and Dunkin’ Donuts in the area around Manhattan. A Starbucks was also much more likely to be located by a train station than the other two chains.</p>
+
+<p>The most predictive individual features of any given location also varied between chains. Competitiveness was the most predictive feature for Starbucks, indicating that the stores do better when they face less competition from nearby competitors. Incoming Flow, or customers coming from outside the retail area, was the top feature for McDonalds, whose customers will travel further for a burger. Dunkin’ Donuts, on the other hand, sees most business from customers stopping in to refresh themselves during a shopping spree. The number of customers who also checked in at nearby other local businesses was the most important feature for the chain.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/08/3008621-inline-radius.png" alt=""/>
+</figure>
+
+<p>In spite of these differences, the study found that a combination of traditional geographical and FourSquare-based mobility features turned out the best predictions for all three chains. Using the methodology, the researchers chose locations for Starbucks with a 67% accuracy overall, and 76% when predicting the Top-10% and the Top-15% most popular locations.</p>
+
+<p>But don’t think that you can attract mores stores to your neighborhood by checking-in just yet. Although their results seem to show a correlation, one possible flaw in the research is that FourSquare check-ins are used as a proxy for the popularity of a location. The researchers don’t provide evidence in the paper to show that check-in numbers translate into overall popularity.</p>
+
+<hr />
+
+<h3><a name="Keep_reading_Whos_Afraid_of_Data_Science_What_Your_Company_Should_Know_About_Data">Keep reading: Who's Afraid of Data Science? What Your Company Should Know About Data</a></h3>
+
+<hr />
+
+<h3><a name="Previous_Updates">Previous Updates</a></h3>
+
+<hr />
+
+<h3><a name="Is_Data_Science_Just_Sexed_Up_Statistics_">Is Data Science Just “Sexed Up” Statistics? </a></h3>
+
+<p><span class="subhead">August 14, 2013</span></p>
+
 <p>Superstar statistician <a href="http://fivethirtyeight.blogs.nytimes.com/" target="_blank">Nate Silver</a> recently ruffled some feathers in the data science world by <a href="http://simplystatistics.org/2013/08/08/data-scientist-is-just-a-sexed-up-word-for-statistician/" target="_blank">proclaiming that “Data scientist is just a sexed up word for statistician</a>.” Now IT industry analyst Robin Bloor has claimed that there is <a href="http://insideanalysis.com/2013/08/a-data-science-rant/" target="_blank">no such thing as data science</a>, because a science must apply the scientific method to a particular domain:</p>
 
 <blockquote><p>Science studies a particular domain, whether it be chemical, biological, physical or whatever. This gives us the sciences of chemistry, biology, physics, etc. Those who study such domains will gather data in one way or another, often by formulating experiments and taking readings. In other words, they gather data. If there were a particular activity devoted to studying data, then there might be some virtue in the term “data science.” And indeed there is such an activity, and it already has a name: it is a branch of mathematics called statistics.</p></blockquote>
@@ -35,14 +77,6 @@
 <blockquote><p>As data science matures as a discipline I think it will be closer to a trade discipline than a scientific one. Much in the same way there are practicing physicians, and research physicians. Practicing doctors have to constantly review medical research, and maintain their understanding of new technologies in order to best serve their patients. Conversely, research physicians run experiments and build knowledge that other doctors can implement. Data scientists will implement the work of statisticians, machine learners, mathematicians, computer scientists etc., but very likely spend little to no time building new models or methods.</p></blockquote>
 
 <p>Much like computer science, the data science landscape may eventually diverge into two distinct, but cooperative research and practical branches. When that happens, we may need another name, like data engineering, to describe the practical side of the field. For now, the debate over defining data science says more about the nascent, evolving nature of the field than it does the actual differences between branches.</p>
-
-<hr />
-
-<h3><a name="Keep_reading_Whos_Afraid_of_Data_Science_What_Your_Company_Should_Know_About_Data">Keep reading: Who's Afraid of Data Science? What Your Company Should Know About Data</a></h3>
-
-<hr />
-
-<h3><a name="Previous_Updates">Previous Updates</a></h3>
 
 <hr />
 
