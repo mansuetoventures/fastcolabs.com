@@ -1,0 +1,131 @@
+<p>If you want a true barometer of the health of your product organization, take a hard look at how you collect, think about, and use data.</p>
+
+<p>Data should be the engine oil for every aspect of your work. If you’re low on oil, if it doesn’t flow smoothly into every interaction, if it isn’t constantly being refined and clarified, then your shit’s going to break down on some desert road, too late to pivot or complain.</p>
+
+<p>What follows is a series of reflections about data process. These reflections are more loosely compiled than what I’ve written in other articles in this series.</p>
+
+<h4><a name="Respect_The_Mystery_Of_Human_Desire">Respect The Mystery Of Human Desire</a></h4>
+
+<p>You do not know what people want. Nor do you know what they are going to do with the products you build. Maybe this is less true for certain enterprise product-market fit software--and perhaps there are a few radically intuitive product geniuses who <em>just know</em>--but regarding consumer web products being built by basically normal men and women, prediction about how someone will engage with what you're building is near impossible.</p>
+
+<p>Let me give you an example from HowAboutWe Dating. We surface what is ostensibly an ad to our new users suggesting that they upgrade their accounts. Below are a few versions of this ad, which shows up on our site's right rail on various pages.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/08/3015932-inline-screen-shot-2013-07-31-at-61218-pm.png" alt=""/>
+</figure>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/08/3015932-inline-screen-shot-2013-07-31-at-61234-pm.png" alt=""/>
+</figure>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/08/3015932-inline-screen-shot-2013-07-31-at-61250-pm.png" alt=""/>
+</figure>
+
+<p>What do you think the impact on conversion rates is for these different ads?</p>
+
+<p>My point here isn't actually to talk about which ad won--the orange one did, by over 100%!--but I'll tell you right now that no matter what you guessed, you can't trust yourself to consistently predict how users will respond to new tests like this. More complex tests like algorithmic tweaks are even more difficult to understand. Only data can begin to provide a trustworthy answer.</p>
+
+<p>An appreciation for mystery is the bedrock of smart data processes.</p>
+
+<h4><a name="Everything_Is_A_Test">Everything Is A Test</a></h4>
+
+<p>The scientific approach to knowing should drive your every action in creating a new product. Hypothesis, test, analysis, iteration, hypothesis, test, analysis... leading to infinitely expanding knowledge and constant improvement.</p>
+
+<p>This is the pedagogy of the Enlightenment. It is curiosity manifest. It is adult education.</p>
+
+<p>If you get everyone in your product organization to start thinking like this, rather than thinking in terms of launches and releases and perfection, you will move faster, produce better results, and sustain higher morale. The only bad features you can ship are features that provide no learning.</p>
+
+<p>Almost every new feature we release on HowAboutWe Dating is launched as a multivariate test. For any given test, if you ask 10 people you will never get 10 identical predictions; more often you will get a five-and-five split.</p>
+
+<p>It's not that new products you build shouldn't be built with the belief that they are the best possible solution to the problem at hand. You should build like you're Steve Jobs. But you should test like you’re Mark Zuckerberg. Watch the data and be ready to be humbled by the radical unpredictability of the human species.</p>
+
+<p>Everything is a test.</p>
+
+<h4><a name="Build_Cheaply_Learn_Quickly_And_Keep_At_It">Build Cheaply, Learn Quickly, And Keep At It</a></h4>
+
+<p>Much of my thinking in these pieces aligns with the <a href="https://en.wikipedia.org/wiki/Minimum_viable_product" target="_blank">Minimum Viable Product methodology</a>. One way to articulate this approach to product development processes is to say: Spend as little money as possible to gain the most action-informing knowledge possible.</p>
+
+<p>Here's a good example. HowAboutWe Dating powers the dating experiences of about 40 online publishers. For instance, we have partnered with <em>New York</em> magazine to provide a co-branded dating experience on <a href="http://nymag.com/" target="_blank">Nymag.com</a>. Our partners display ads on their sites to drive traffic into their dating experiences which we then monetize. We get on the order of ~100 million monthly impressions of these ads.</p>
+
+<p>We built our original ad units years ago, and they are a bit outdated. Recently we decided to change the creative. Obviously we wanted to test this. But we also didn't want to test it using the complex, dynamic ad serving system we'd built to surface these ads. That would take a day of work, maybe even two. So instead, we used a lightweight, multivariate testing tool to split test our dynamic ads against a series of jpg simulations of our dynamic ads. It took a few hours to implement. If it wins, we'll implement the full, dynamic system. If it loses, sweet--we didn't lose much time, we know how to test the next round, and we learned something about what creative is successful.</p>
+
+<p>Every hour spent building one thing is an hour spent not testing something else. People often think a failed test is a sign of stupidity. They're wrong. What's really stupid is not learning.</p>
+
+<h4><a name="Dont_Think_About_It_Until_Its_Statistically_Significant_Kinda_">Don't Think About It Until It's Statistically Significant... Kinda </a></h4>
+
+<p>The first error that most people make in thinking about data is not really understanding statistical significance. I'll save the math for another post, but for now the key thing is to be sure that the outcome of your analyses are real--and not just a reflection of expected standard deviation or some other, uncontrolled change in your system.</p>
+
+<p>That said, if you don’t have that much data, if your standard deviations are high, and if you’re looking for winners in the 5-10% range, you may run into the epic problem of struggling to “know” about any of your tests. If there’s no cost in continuing to run a test, then just be patient. If there is a cost, then your task is to make an informed decision and move. Respect significance, but don’t be dogmatic about it. Honoring reason doesn’t mean waiting forever for proof; that would be unreasonable and wasteful.</p>
+
+<h4><a name="For_Analytics_The_Database_Is_King">For Analytics, The Database Is King</a></h4>
+
+<p>Analytics tools like Google Analytics, KissMetrics, MixPanel, and bigger enterprise solutions are cool for certain problems. But in complex testing situations, I find that they very often become unreliable, or that making them reliable is stupidly costly. My personal preference is to use database-level analytics whenever possible. I have a feeling a lot of people will think I'm nuts about this.</p>
+
+<p>Here's a good example. We recently launched a radically new landing page for <a href="http://www.howaboutwe.com/" target="_blank">howaboutwe.com</a>. From our new page, you could sign up for two different sites: Dating and Couples. It used to be just Dating-focused; login behavior was changed dramatically, and parts of the subsequent sign-up flow also had to change accordingly. Further complicating things, our Couples site is a different app, different database, different analytics account, different everything. We launched the new page as a test, but only for users in certain IP-address-determined geographical areas. Our goal was to achieve no decrease in conversion rates (visit to registration and registration to subscription) for Dating traffic, and a boost in Couples signups given the increasing prevalence of that option on the site.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/08/3015932-inline-screen-shot-2013-07-31-at-61519-pm.png" alt=""/>
+</figure>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/08/3015932-inline-screen-shot-2013-07-31-at-61612-pm.png" alt=""/>
+</figure>
+
+<p>We tried (pretty earnestly) to build smart funnels in MixPanel to represent the two situations. But every time we did a deep dive into the MixPanel data I was left with a sense of distrust. What about repeat visits? What about complex movements through the funnel, backwards and forward? What about weird mobile moments? What about the fact that we have four different versions of our funnel depending on your traffic source? Et cetera, ad infinitum.</p>
+
+<p>I ended up building a system for logging in our database the landing page that converted all new sign-ups. I could then look at all sign-ups who were in the test (based on IP) and simply compare those who came from the old page and those who came from the new one. I relied on our 50/50 "show" split. I could also then compare very clearly the subsequent behavior of each group--conversions, messaging, date posting, and so on. This I trusted completely. I didn't get hyper-detailed data on user flows, where exactly people were exiting, and questions like that--and that’s one downside--but I did get baseline data that I believed 100%.</p>
+
+<p>(For the record: Our first iteration lost. So did our second, and our third. By the fourth we not only had higher conversion rates to registration for Dating traffic, but those users also converted to subscription at significantly higher rates (&gt;20%). A huge, unexpected win.)</p>
+
+<p>Anyway, I might just be a hater or a snob (or lazy!?!?) but I like metrics that live in my database, linked to real users.</p>
+
+<h4><a name="Centralize_Data_">Centralize Data </a></h4>
+
+<p>You build a product. Data collection and analysis are scattered throughout your organization. Everyone does it as needed--organically, scrappily. Then one day you look around and realize that there are four different definitions of conversion percolating, there are conflicting records about message response rates, there are three different analytics accounts, and on and on. I've talked to people at dozens of startups (including many very well known and successful ones) who describe this exact experience. It's natural. It’s even good--a reflection that your team is self-sufficient and moving quickly. But what next?</p>
+
+<p>Time to centralize data.</p>
+
+<p>I've come to believe that centralizing data happens most effectively through the building of a smart data warehousing system. Use this process to define all key metrics, centralize and optimize all key queries used in every area of the organization, build flexible dashboards for data analysis (using a tool like Tableau or a homegrown solution), roadmap data questions, train key people in data analysis, and define systems for effectively disseminating data throughout the company.</p>
+
+<p>Data itself should become a core organizational product and should be treated as such--with a roadmap, a process for building, iteration, et cetera.</p>
+
+<h4><a name="Like_The_Plague_Five_Things_To_Avoid">Like The Plague, Five Things To Avoid</a></h4>
+
+<ol>
+  <li><span><strong>Avoid Conflicting Tests</strong><br /><br /> If you’re shipping quickly, then you’re going to run into many situations in which you are launching experiments that could potentially conflict. You are launching a new paywall, an alternate sign-up flow, a price test, and a series of new algorithms all within less than the amount of time it will take to arrive at statistical significance on any of these tests, particularly if the impact is &lt; ~20%. Hard problem.<br /><br />The answer is intelligent sequencing of tests on a case-by-case basis. If you do run potentially conflicting tests, you can cross-check them to ensure that a combination of two test cases isn’t creating surprising results. </span></li>
+  <li><span><strong>Avoid Stupid Tests</strong><br /><br /> If you know it will take a long time to arrive at statistical significance on a test because of limited traffic, don’t bother. Or only run the test long enough to be sure you aren’t going to generate a large-scale negative result.<br /><br />If the change you are making has major structural implications on your site (say a redesign that requires new CSS) and will be expensive to implement as a test, you have to decide if the test is worth it. It may not be.<br /><br />If business needs require a change--even if it creates a negative result--sometimes you’ve just gotta do it. There’s no reason to run a test the outcome of which won’t actually end up determining your course of action. </span></li>
+  <li><span><strong>Avoid Brand Depleting Tests</strong><br /><br />  Metrics matter. They reflect growth and revenue. But brand also matters. A site optimized through relentless multivariate testing can become a brand disaster. You should never run a test in which you can’t live with both options if they “win.”<br /><br />Brand is fundamentally about your users--what message and product truly speaks to them. So, if your tests "win" but actually hurt the user experience in the deepest sense, then "win" is implicitly a euphemism for short-term gain and long-term loss. </span></li>
+  <li><span><strong>Avoid Long-term Problems For Short-term Gains</strong><br /><br /> You increase 7- and 14-day conversion rates. Yes! A winner! Little did you realize that your renewal rates have been negatively affected and you’ve actually decreased LTV per new lead. It would have taken months, if not years, to get statistically significant data to show this. Hard problem.<br /><br />The solution here is basically just avoiding stupidity. Think through the long-term implications of your changes and be wary of short-term gains. </span></li>
+  <li><span><strong>Avoid Debt.</strong><br /><br /> Say a test wins but it was built in an extremely minimal fashion for the sake of speed and learning. It’s quite hard to prioritize going back and building the feature properly. There’s just something about doing so that feels backwards. This requires discipline.<br /><br />Likewise for going back and cleaning up (in most cases this means deleting) losing tests. If you wait too long this becomes quite complex. And yet, code deletion is hard to prioritize without strong foresight. </span></li>
+</ol>
+
+<h5><a name="Getting_Better_All_The_Time">Getting Better All The Time</a></h5>
+
+<p>I decided that for this post on data I wouldn't focus on the details of data roadmapping, sprints, reviews, retros, et cetera. You should do all those things, much in alignment with how I described them for engineering and design in the previous parts of this series. That's the easy part. The hard part--which is what I've tried to urge you towards here--is how to think effectively about data. The collection, storage, and analysis of data should drive your entire company to constantly improve. If it doesn't, your algorithm is wrong.</p>
+
+<hr />
+
+<p>You are reading <a href="http://www.fastcolabs.com/3015920/open-company/a-guide-to-making-things-people-love-part-1" target="_self">Unblocked: A Guide To Making Things People Love</a>, a series in seven parts.</p>
+
+<h3><a name="urlhttpwwwfastcolabscom3015933opencompanyconcludingthoughtsyourjobistomakewonderfulthingspart7Click_here_to_read_the_next_article_in_this_series_Your_Job_is_to_Make_Wonderful_Thingsurl"><a href="http://www.fastcolabs.com/3015933/open-company/concluding-thoughts-your-job-is-to-make-wonderful-things-part-7" target="_self">Click here to read the next article in this series: Your Job is to Make Wonderful Things</a></a></h3>
+
+<hr />
+
+<h5><a name="Articles_In_This_Series">Articles In This Series</a></h5>
+
+<h4><a name="urlhttpwwwfastcolabscom3015920opencompanyaguidetomakingthingspeoplelovepart1Part_1_Unblocked_A_Guide_To_Making_Things_People_Loveurl"><a href="http://www.fastcolabs.com/3015920/open-company/a-guide-to-making-things-people-love-part-1" target="_self">Part 1: Unblocked: A Guide To Making Things People Love</a></a></h4>
+
+<h4><a name="urlhttpwwwfastcolabscom3015926opencompanyvaluedrivenproductdevelopmentusingvaluepropositionstobuildarigorouspPart_2_ValueDriven_Product_Development_Using_Value_Propositions_To_Build_A_Rigorous_Product_Roadmapurl"><a href="http://www.fastcolabs.com/3015926/open-company/value-driven-product-development-using-value-propositions-to-build-a-rigorous-p" target="_self">Part 2: Value-Driven Product Development: Using Value Propositions To Build A Rigorous Product Roadmap</a></a></h4>
+
+<h4><a name="urlhttpwwwfastcolabscom3015928engineeringflowplanningforhighvelocitysprintspart3Part_3_Engineering_Flow_Planning_For_HighVelocity_Sprintsurl"><a href="http://www.fastcolabs.com/3015928/engineering-flow-planning-for-high-velocity-sprints-part-3" target="_self">Part 3: Engineering Flow: Planning For High-Velocity Sprints</a></a></h4>
+
+<h4><a name="urlhttpwwwfastcolabscom3015930opencompanyfacilitatinghighvelocityengineeringsprintspart4Part_4_Facilitating_HighVelocity_Engineering_Sprintsurl"><a href="http://www.fastcolabs.com/3015930/open-company/facilitating-high-velocity-engineering-sprints-part-4" target="_self">Part 4: Facilitating High-Velocity Engineering Sprints</a></a></h4>
+
+<h4><a name="urlhttpwwwfastcolabscom3015931onemorethingdesignflowachievingbreakthroughcreativityandhighyieldproductionpartPart_5_Design_Flow_Achieving_Breakthrough_Creativity_And_High_Yield_Productionurl"><a href="http://www.fastcolabs.com/3015931/one-more-thing/design-flow-achieving-breakthrough-creativity-and-high-yield-production-part-" target="_self">Part 5: Design Flow: Achieving Breakthrough Creativity And High Yield Production</a></a></h4>
+
+<h4><a name="urlhttpwwwfastcolabscom3015932dataflowusingdatatoconstantlyimprovepart6Part_6_Data_Flow_Using_Data_to_Constantly_Improve_You_are_hereurl"><a href="http://www.fastcolabs.com/3015932/data-flow-using-data-to-constantly-improve-part-6" target="_self">Part 6: Data Flow: Using Data to Constantly Improve (You are here)</a></a></h4>
+
+<h4><a name="urlhttpwwwfastcolabscom3015933opencompanyconcludingthoughtsyourjobistomakewonderfulthingspart7Part_7_Concluding_Thoughts_Your_Job_is_to_Make_Wonderful_Thingsurl"><a href="http://www.fastcolabs.com/3015933/open-company/concluding-thoughts-your-job-is-to-make-wonderful-things-part-7" target="_self">Part 7: Concluding Thoughts: Your Job is to Make Wonderful Things</a></a></h4>
+
+<p>[<em>Image: Flickr user <a href="http://www.flickr.com/photos/blprnt/5364233472/in/photostream/" target="_blank">Jer Thorp</a></em>]</p>
