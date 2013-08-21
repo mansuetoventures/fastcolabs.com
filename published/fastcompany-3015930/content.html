@@ -1,0 +1,144 @@
+<p>The center of our engineering process is the two-week sprint. This is perhaps the most carefully crafted process in our entire organization. <a href="http://www.fastcolabs.com/3015928/engineering-flow-planning-for-high-velocity-sprints-part-3" target="_self">The previous article</a> in this series was about how to prepare for this process. This article is about the elements of a sprint and how to execute one.</p>
+
+<h3><a name="Standups_">Standups </a></h3>
+
+<p>Team coordination over the course of a sprint is key. For this, our weapon of choice is the Standup. Each morning at the ungodly hour of 9:30 teams gather together to review succinctly: "Yesterday I...", "Today I will...", "I am blocked by..."</p>
+
+<p>I once had all our teams in Standup together; that got a bit challenging and tended towards "Yesterday I...” because of team size and time constraints. If you do have a larger team, a great tool is to put a downward counting clock on a computer screen at the start of the meeting. Set it for 12 minutes or less. Under seven minutes would be ideal.</p>
+
+<p>When I say that developers express what they’re "<a href="http://www.fastcolabs.com/3015920/open-company/a-guide-to-making-things-people-love-part-1#The_Theory_and_Practice_of_Product_Development" target="_self">blocked by</a>," I’m talking about statements like: “This is taking longer than I expected, let's discuss our game plan.” This is a fast meeting, so we “Parking Lot” big topics and talk about them informally afterwards as we're grabbing coffee in the office. Often, right after Standups, engineers review pull requests and do any deploy-oriented coordination.</p>
+
+<p>Standup is also the place where the team keeps track of how it's doing regarding its Sprint Waterline goal. And it’s one of the essential places where we coordinate <strong>pairing, pull requests, rotation, replacements, and ownership</strong>--five topics of infinite intrigue.</p>
+
+<h4><a name="The_Great_Pairing_Debate">The Great Pairing Debate</a></h4>
+
+<p>When we first built an in-house dev organization, we pair programmed almost 100% of the time. Everything was built in pairs for almost a year. There are huge benefits to this approach, among others: deep knowledge sharing, nearly 100% time on task (versus time on blogs and Twitter), strong camaraderie in the best cases, collaborative architectural decisions (although that may or may not lead to better choices; I think the jury is out on this).</p>
+
+<p>Over time, I came to believe less and less in the 100% pairing methodology. I think it's extremely powerful for a consulting environment, but not so effective for a long-term company structure.</p>
+
+<p>The most obvious downside to pairing is wasted time; some argue that ultimately time is saved by pairing but I think that this logic relies on an implicit, and somewhat insulting belief that engineers will slack if they are working solo.</p>
+
+<p>The other major downside to pairing is that it is emotionally exhausting. Having to mediate the whims of another human being all day is just a lot. It is an intensely rigorous form of collaboration that, over time, can become too much if it’s always required.</p>
+
+<p>I gently shifted us towards a more hybrid model, which people prefer. This involves pairing when it's merited. Things that merit pair programming might include a challenging problem with which someone wants help; an explicit effort to share knowledge about one area of the code base; on-boarding new engineers, either new to the team, junior, or just new to the company; hashing out a new architectural decision; or just for fun. In all other cases, people work alone.</p>
+
+<p>Pairing is a fluid choice that devs make as they go. If a pair is requested or suggested, that request or suggestion is honored. But it's not dogmatic. In the absence of a pair, pull requests go a very long way towards generating the same results as pairing--without the downsides.</p>
+
+<h4><a name="Rotation_And_Avoiding_Solo_Ownership">Rotation And Avoiding Solo Ownership</a></h4>
+
+<p>Rotation just means that you avoid a situation in which someone on a dev team says, "Oh, I have no idea, that's Jim's area of the code." It's not that all devs know all areas of the code base at all times; that's too much. But there shouldn't be many situations in which a single person--a single point of failure--is the only expert and architect on a specific area of the code base. To ensure that this doesn't happen, we use rotation. If you've been working alone on Search for two months, ummmm, it might be time to do a bit of rotation.</p>
+
+<p>Again, I'm pro-reason and anti-dogma, so this needs to get worked out in practice. Some people thrive on long-term, focused work. Others like rapid rotation. A malleable middle ground is usually best. I think the most important thing is to embrace a philosophy of rotation and knowledge sharing; and then work out the implementation details based on who's who and what's what on the ground.</p>
+
+<h4><a name="How_To_Handle_Replacement_Stories">How To Handle “Replacement” Stories</a></h4>
+
+<p>The Standup meeting is ideally also the place where the Product Manager for the team announces any changes to the sprint, which I call "Replacements." Replacements are when you add a story to the sprint and take one out of equal point value.</p>
+
+<p>The Product Manager should minimize Replacements; they are disruptive and generally annoying. But obviously they are sometimes necessary.</p>
+
+<h4><a name="Coordination_Of_Ownership_And_Deployment">Coordination Of Ownership And Deployment</a></h4>
+
+<p>The coordination of who is working on what and of deployments also can happen in Standups and Sprint Planning Meetings. The Team Lead is responsible for this, garnering support from the Product Manager, who often has the best perspective on the state of the whole.</p>
+
+<p>In an ideal world, each story can be delivered to production in its own right. This supports the vision of true continuous deployment. Honestly though, this isn't always possible, and it's pretty damn annoying to try to make this work. Here are some tricks that help with this: <br />
+<ul>
+  <li><span>If you have a framework for multivariate testing you can launch a feature as an A/B test where the split is 0/100. Etsy does this for most new features, rolling them out just to admins for live testing. </span></li>
+  <li><span>You can also paddock a feature in various ways--for instance, by building a live page with no links leading to it. Sure, someone might discover it randomly, but who cares? </span></li>
+  <li><span>When you have a string of stories that depend on each other for deployment, the product manager can use a deploy waterline to indicate when the next deploy should happen. Development branches also support you to keep the master clean at all times. (More on deployment in a bit.)</span></li>
+</ul></p>
+
+<p>Don't go crazy over continuous deployment, at least not early on. But do try to write your stories and manage them such that you <em>can</em> deploy as frequently as possible.</p>
+
+<p>Sometimes one story relies on the previous one to be built. For this we mark them: "<em>blocked-parallelization</em>." This tag gets removed once the previous story in the parallel track gets delivered; then one dev can move sequentially down a series of stories (or rotate as appropriate). This can be gently coordinated in Standups.</p>
+
+<h3><a name="Getting_Code_And_Designs_Ready_For_Quality_Assurance">Getting Code And Designs Ready For Quality Assurance</a></h3>
+
+<p>Before an engineer delivers a story for QA, they must have built it in a pair or get appropriate pull request approval, run a passing test suite, and--as applicable--seek out design QA.</p>
+
+<p>When a story is delivered to product QA, it is delivered with the firm confidence that it could go to production, not with a sense of fear that implies reliance on QA to find errors.</p>
+
+<p>Browser testing is a particular pain point here. Is it the responsibility of the engineer to ensure that the feature works in all supported browsers? We’ve oscillated on this one. I tend to think it is, at least for major browsers. Perhaps the engineer won’t catch a bug that’s in certain versions of Internet Explorer, for example. But they shouldn’t send a feature to QA without looking at it in at least one version.</p>
+
+<h3><a name="Deploying_Approved_Code_And_Designs">Deploying Approved Code And Designs</a></h3>
+
+<p>If QA rejects a story, they record their reasoning in Pivotal Tracker. If the story is almost perfect, but has a small bug that can be marked as a separate story for later, do that. That bug should be prioritized against all the other stories in the backlog.</p>
+
+<p>Logging bugs for just-deployed software takes a lot of painful (for the perfectionist) discipline and deep rationality, but it's critical. A small, acceptable bug in the backlog is better than an un-shipped feature.</p>
+
+<p>There are great posts about continuous deployment <a href="http://codeascraft.com/2010/05/20/quantum-of-deployment/" target="_blank">like this one by the developers at Etsy</a>. So I’ll leave that topic alone, except to say: Deployment is progress! Celebrate it. Play deploy music. Play the Rocky soundtrack. Have a drink. Go nuts.</p>
+
+<p>Make sure you update the company about your progress; our Product Manager sends out updates to all applicable stakeholders after every deploy.</p>
+
+<p>Finally, I think your deploy patterns tend to be a good reflection of your overall process success. Pay attention to them and fix them if they feel broken or clogged.</p>
+
+<h3><a name="Conducting_A_Sprint_Retrospective">Conducting A Sprint Retrospective</a></h3>
+
+<ol>
+  <li><span>Each sprint concludes with a retrospective or “Retro.” The Dev Team Lead runs this meeting (or teams rotate who runs it). Someone keeps time. Here’s how it works: </span></li>
+  <li><span>We start by reviewing action points that were assigned in the retro that occurred two weeks earlier. Anything that wasn't done gets passed on into the current retro as an action point. This should take about three minutes.</span></li>
+  <li><span>We add all the action points to a chart on a board that has three categories:<br /><br /><strong>:) Smile:</strong> These are reasons for celebration<br /><br /><strong>?: Question:</strong> These are issues we think need discussion<br /><br /><strong>:( Frown:</strong> Things that need improvement</span></li>
+  <li><span>Everyone adds one thing to the board in any column verbally by saying, "I have a question about X" or “I have a smiley about Y.” Then X and Y are added to the board. </span></li>
+  <li><span>After everyone has added at least one thing, we add at will. Topics can range from issues we're having with Jasmine on IE to the need for more dry erase markers. This part of the meeting should take about 10 minutes.</span></li>
+  <li><span>Then we discuss the questions and frowny faces, with the goal of arriving at clear action points that are assigned to specific people. </span></li>
+</ol>
+
+<p>Strong facilitation is helpful here. If there are too many topics for discussion, some people think you should do something like vote on the most important topics. I actually disagree with this; I think it’s better to try to manage time effectively and allocate the right amount of time to each topic, pushing harder topics into separate meeting processes. This way everyone feels heard and the slate feels clean.</p>
+
+<p>The discussion process takes between 20 and 45 minutes depending on how many issues there are. I would not let this meeting go longer than an hour. I used to run very long Retros, but they were painful. Cap yourself to 60 minutes total. Forty-five is better.</p>
+
+<h4><a name="Use_Highly_Focused_OnePointer_Meetings">Use Highly Focused “One-Pointer” Meetings</a></h4>
+
+<p>Inevitably, the development team has a lot to talk about: Code conventions, usage of new technologies, and so on. The challenges you inevitable bump into when trying to build time for such dialogue are:<br />
+<ul>
+  <li><span>How to allocate preparation resources for these conversations so time is well spent</span></li>
+  <li><span>How to prioritize topics</span></li>
+  <li><span>How to ensure strong facilitation so the meetings don't become endless, pointless debates without clear actions</span></li>
+  <li><span>How to ensure that the right people are at the right meetings, etc. </span></li>
+</ul></p>
+
+<p>Our solution to this is “one-pointer” meetings: Highly focused (single focal point) meetings for which a single developer is given “one point” in a sprint to prepare.</p>
+
+<p>There is a single, constant facilitator of our one-pointers who ensures a tight, consistent, action-oriented 30-minute meeting: <br />
+<ul>
+  <li><span>10 minute presentation of an issue/problem/question/solution; </span></li>
+  <li><span>17 minutes for discussion; </span></li>
+  <li><span>3 minutes to define clear action points and owners of these action points.</span></li>
+</ul></p>
+
+<p>The facilitator also owns the list of one-pointer topics and works with the CTO and other devs to prioritize the list and assign points to people who will present at the meetings. The meetings occur about once every two weeks, more often as needed.</p>
+
+<h4><a name="9010_Time">90/10 Time</a></h4>
+
+<p>Friday afternoons are dubbed 90/10 time. If your core work allows, people pursue projects that are personally exciting to them and that could bring value to our company, but that wouldn't get prioritized through our normal processes. This is time for exploration of new technical frameworks, open sourcing projects, writing blog posts, building features people personally want, etc.</p>
+
+<h3><a name="And_That_Ladies_And_Gentlemen_Is_Our_Engineering_Flow">And That, Ladies And Gentlemen, Is Our Engineering Flow</a></h3>
+
+<p>A final thought: Process is nothing without great people. Find your people. Your engineering process is like an organism. It has a feel. It has qualities. Some people will love it. Some will hate it. Everyone will contribute to it, for better or worse. Find the people who love it, who thrive in it, and who make it amazing--and hire them.</p>
+
+<p>Then building great things will become a delight. And your users will feel it. They really will. When you use something, you can feel its makers. You can feel how they made it. It's in the tendons of the thing itself.</p>
+
+<hr />
+
+<p>You are reading <a href="http://www.fastcolabs.com/3015920/open-company/a-guide-to-making-things-people-love-part-1" target="_self">Unblocked: A Guide To Making Things People Love</a>, a series in seven parts.</p>
+
+<h3><a name="urlhttpwwwfastcolabscom3015931onemorethingdesignflowachievingbreakthroughcreativityandhighyieldproductionpartClick_here_to_read_the_next_article_in_this_series_Design_Flow_Achieving_Breakthrough_Creativity_And_High_Yield_Productionurl"><a href="http://www.fastcolabs.com/3015931/one-more-thing/design-flow-achieving-breakthrough-creativity-and-high-yield-production-part-" target="_self">Click here to read the next article in this series: Design Flow: Achieving Breakthrough Creativity And High Yield Production</a></a></h3>
+
+<hr />
+
+<h5><a name="Articles_In_This_Series">Articles In This Series</a></h5>
+
+<h4><a name="urlhttpwwwfastcolabscom3015920opencompanyaguidetomakingthingspeoplelovepart1Part_1_Unblocked_A_Guide_To_Making_Things_People_Loveurl"><a href="http://www.fastcolabs.com/3015920/open-company/a-guide-to-making-things-people-love-part-1" target="_self">Part 1: Unblocked: A Guide To Making Things People Love</a></a></h4>
+
+<h4><a name="urlhttpwwwfastcolabscom3015926opencompanyvaluedrivenproductdevelopmentusingvaluepropositionstobuildarigorouspPart_2_ValueDriven_Product_Development_Using_Value_Propositions_To_Build_A_Rigorous_Product_Roadmapurl"><a href="http://www.fastcolabs.com/3015926/open-company/value-driven-product-development-using-value-propositions-to-build-a-rigorous-p" target="_self">Part 2: Value-Driven Product Development: Using Value Propositions To Build A Rigorous Product Roadmap</a></a></h4>
+
+<h4><a name="urlhttpwwwfastcolabscom3015928engineeringflowplanningforhighvelocitysprintspart3Part_3_Engineering_Flow_Planning_For_HighVelocity_Sprintsurl"><a href="http://www.fastcolabs.com/3015928/engineering-flow-planning-for-high-velocity-sprints-part-3" target="_self">Part 3: Engineering Flow: Planning For High-Velocity Sprints</a></a></h4>
+
+<h4><a name="urlhttpwwwfastcolabscom3015930opencompanyfacilitatinghighvelocityengineeringsprintspart4Part_4_Facilitating_HighVelocity_Engineering_Sprints_You_are_hereurl"><a href="http://www.fastcolabs.com/3015930/open-company/facilitating-high-velocity-engineering-sprints-part-4" target="_self">Part 4: Facilitating High-Velocity Engineering Sprints (You are here)</a></a></h4>
+
+<h4><a name="urlhttpwwwfastcolabscom3015931onemorethingdesignflowachievingbreakthroughcreativityandhighyieldproductionpartPart_5_Design_Flow_Achieving_Breakthrough_Creativity_And_High_Yield_Productionurl"><a href="http://www.fastcolabs.com/3015931/one-more-thing/design-flow-achieving-breakthrough-creativity-and-high-yield-production-part-" target="_self">Part 5: Design Flow: Achieving Breakthrough Creativity And High Yield Production</a></a></h4>
+
+<h4><a name="urlhttpwwwfastcolabscom3015932dataflowusingdatatoconstantlyimprovepart6Part_6_Data_Flow_Using_Data_to_Constantly_Improveurl"><a href="http://www.fastcolabs.com/3015932/data-flow-using-data-to-constantly-improve-part-6" target="_self">Part 6: Data Flow: Using Data to Constantly Improve</a></a></h4>
+
+<h4><a name="urlhttpwwwfastcolabscom3015933opencompanyconcludingthoughtsyourjobistomakewonderfulthingspart7Part_7_Concluding_Thoughts_Your_Job_is_to_Make_Wonderful_Thingsurl"><a href="http://www.fastcolabs.com/3015933/open-company/concluding-thoughts-your-job-is-to-make-wonderful-things-part-7" target="_self">Part 7: Concluding Thoughts: Your Job is to Make Wonderful Things</a></a></h4>
+
+<p>[<em>Blur Lights: <a href="http://www.shutterstock.com/cat.mhtml?lang=en&amp;search_source=search_form&amp;version=llv1&amp;anyorall=all&amp;safesearch=1&amp;searchterm=abstract+speed&amp;search_group=#id=117853870&amp;src=30o-SZMAbZHcJGtTl9_R-A-1-21" target="_blank">Timy</a> via Shutterstock</em>]</p>
