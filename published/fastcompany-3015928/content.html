@@ -1,0 +1,179 @@
+<p>Over the last three years, I have occasionally had the strange pleasure of running the @howaboutwe development process. I am non-technical and have compensated by trying to construct and refine an engineering process that yields high productivity, low debt, and high morale.</p>
+
+<h3><a name="The_Four_Principles_Of_Successful_Engineering_Processes">The Four Principles Of Successful Engineering Processes</a></h3>
+
+<p>The center of the engineering process is the two-week sprint. This is perhaps the most carefully crafted process in our entire organization.</p>
+
+<aside class="info"><div class="info-inner"><p><strong>Caveat:</strong> My sprint process is probably extremely similar to some agile or kanban process that has been written up beautifully elsewhere. Please feel free to leave links in the comments to other helpful, in-depth descriptions of successful engineering processes. Also, check out the list of suggested reading <a href="http://www.fastcolabs.com/3015920/open-company/a-guide-to-making-things-people-love-part-1#Other_Things_Worth_Reading" target="_self">at the end of the first part of this series</a>.</p></div></aside>
+
+<p>To start, I'd like to outline a few general principles that every engineer in your organization should understand, uphold, and come to trust are being upheld by everyone else. <br />
+<ol>
+  <li><span><strong>Reason pummels dogma:</strong><br /><br />I hate dogma. I find it nauseating. And to an equal extent, I adore reason. Reason seems to me like the antithesis to pride, ego, prejudice, and waste. We gather data. We outline options. We ensure that we understand the pros and cons. We weigh predicted value and value loss and then we choose. We don't always choose through complete consensus, because attaining consensus is itself a cost that we consider--and we’re just as cognizant of the morale loss that comes from lack of consensus. We might be wrong, but we try earnestly to be reasonable and transparent about what motivates our reasoning. Reason wins over dogma every time in my shop. </span></li>
+  <li><span><strong>Perfection is a cardinal sin:</strong><br /><br />That's right, a sin--and I don't even believe in “sin.” This isn’t an assertion that comes naturally to me; like a lot of people in this industry, I'm a perfectionist at heart. I like to leave my desk with literally nothing on it at the end of the day. I hunt inbox zero like it's the goddamn elixir of immortality.<br /><br />And yet, every day we ship features that are imperfect--I know they are imperfect. I make 100 decisions every day that stab the perfectionist in me. Yes, that email template is good enough (even though I hate those buttons). Yes, ship that new search interface (even though there are six known bugs). If perfectionism rears its glistening silver head in the midst of your engineering process, you will suffer. Do not allow this.<br /><br />Here’s why: Perfection applied to any particularity will inevitably annihilate any possible perfection in the whole. Engineers sometimes understand this perfectly and implicitly, like the words of a well-worn bible. Other times, they are like me and find this larger view to be pure pain and suffering. Both positions are noble. But only the belief that perfectionism is a sin should have a place in your organization. </span></li>
+  <li><span><strong>Every hour is well spent or wasted:</strong><br /><br />Every hour spent is reflective of a strategic decision. The sum total of all strategic decisions determines, in large part, the success of our work. Every engineer should feel that they are constantly making choices about how to offer the most value. It is the job of your entire engineering team to make sure that each person is offering the most possible value with each hour.<br /><br />Ultimately, this makes everyone happier, more fulfilled, and more productive. Another way of thinking about this is: Identify and avoid small and large black holes aggressively. It is the tendency of many engineers to want to solve a problem no matter what it takes--again, a noble way of being, but a propensity that should be completely avoided for the sake of overall value creation.</span></li>
+  <li><span><strong>Prioritization and freedom are brothers, not enemies:</strong><br /><br />Intense prioritization of what is going to be built can easily feel to the dev team like some top-down bureaucratic bullshit: the opposite of freedom. And engineers love freedom, as they should. But I categorically disagree with the idea that prioritization and freedom are in opposition; In fact, I think this is a destructive idea.<br /><br />If I am alone on an island, well-used freedom looks something like this: I decide what my goals are (survival, let's say). Then I think through options about how to achieve these goals (which would include collecting wood and hunting whales). Then I weigh costs and benefits and decide on how to use my time and energy (presumably to collect wood). Collecting wood in this instance feels like--and truly is--a good use of my freedom.<br /><br />In a company, no one is alone on an island. That means that one cannot understand all the options about how to use one’s freedom, nor can one understand all the costs and benefits implied by that use. The prioritization process must be collaborative.<br /><br />But a collaborative prioritization process doesn't imply that the act of doing what's next on the roadmap isn't any less free than collecting wood. It is the responsibility of the company leaders to ensure that the prioritization process involves listening deeply to everyone's best ideas and then transparently weighing all possible benefits and costs. A roadmap is a collective guide for <em>how each employee should use their freedom</em>.<br /><br />In the next section of this series I’m going to outline the details of the @howaboutwe engineering sprint, a functional manifestation of the principles I just described. </span></li>
+</ol></p>
+
+<h3><a name="Planning_the_Sprint">Planning the Sprint</a></h3>
+
+<p>Now that I’ve covered the principles behind development sprints, I’ll explain the brass tacks of sprint planning. I’ll begin by discussing team structure and the sprint schedule, and then turn to the intricacies of story writing.</p>
+
+<h4><a name="Small_Teams_Are_Best">Small Teams Are Best</a></h4>
+
+<p>My engineers work in small teams of 3-5 members each. Every team is focused on a particular product and platform. Currently we have the following teams:<br />
+<ul>
+  <li><span>Dating Server Side (includes website, mobile web, api, backend) </span></li>
+  <li><span>Dating Mobile </span></li>
+  <li><span>Couples Server Side</span></li>
+</ul></p>
+
+<h4><a name="The_TwoWeek_Sprint_Cycle">The Two-Week Sprint Cycle</a></h4>
+
+<p>We think of our dev schedule in two-week increments. These are our sprints. The calendar runs something like this:</p>
+
+<h5><a name="Day_1">Day 1</a></h5>
+
+<p>Developers: Conclude previous sprint with team retrospective<br />
+Product Managers and Team Leads: Run Sprint Planning Meeting with dev teams</p>
+
+<h5><a name="Day_2">Day 2</a></h5>
+
+<p>Developers: Sprint begins!</p>
+
+<h5><a name="Days_38">Days 3-8</a></h5>
+
+<p>Developers: Daily Standup meetings; check-in as needed. <br />
+Product Managers and Team Leads: Prepare for the next sprint</p>
+
+<h4><a name="Stories_Are_The_Heart_Of_Sprint_Development_">Stories Are The Heart Of Sprint Development </a></h4>
+
+<p>If there was a single thing I wish someone had taught me early on in my time as a product leader it is the art of story writing. It's not hard, but it's easy to screw up. And <em>it is vital</em>. The most important day-to-day decisions your organization is making about its product happen through story writing. Before I go any further, I’ll define what I mean by “story.”</p>
+
+<blockquote><p>A <strong>story</strong> is a brief description of something you want to ship to users. A story includes all the details an engineer needs in order to make smart decisions about how to implement it. This includes design assets and written specs outlining how the feature should work.</p></blockquote>
+
+<p>Stories can be as simple as “change the label on this button" or as complex as “create an ABC test for our baseline search algorithm in which Group A gets the following results <em>x</em>, Group B gets these results <em>y</em>, and Group C gets these results <em>z</em>."</p>
+
+<p>What’s critical is that each story: <br />
+<ul>
+  <li><span>can stand on its own; if it has dependencies, combine them into one story</span></li>
+  <li><span>can be delivered to QA and tested</span></li>
+  <li><span>can be shipped to production (even if it has to be paddocked in some way)</span></li>
+</ul></p>
+
+<h5><a name="You_Are_As_Smart_As_Your_Stories_">You Are As Smart As Your Stories </a></h5>
+
+<p>Stories are the building blocks of product development. In the aggregate, the stories you ship are a representation of your organization's strategy. A hundred micro-errors at the story level lead to massive organizational lethargy. Stories define the molecular structure of your company's leanness.</p>
+
+<p>Your product managers and engineers need to be cutthroat in their decisions about what to build and what not to build. Every feature on your roadmap could be built in radically different amounts of time. You could spend a year building out a new search experience--or a month. The stories you write about this feature will define this difference. Everything is about opportunity cost; yes, this story will make this feature better, but what else could we be making in this same time period?</p>
+
+<p>The more specific your stories are, the more they will help engineers to understand the intended scope of the project. This is generally a good thing. However, hopefully your engineers are creative, smart, independent thinkers with a deep interest in the product they are making--so when stories are overwritten it can feel wasteful and demoralizing. This is a fine balance.</p>
+
+<h4><a name="Behind_The_Scenes_Of_Effective_Sprint_Planning_">Behind The Scenes Of Effective Sprint Planning </a></h4>
+
+<p>The product manager for a team needs to prepare for each upcoming sprint, which means ensuring that the Sprint Planning Meeting involves a smooth review of a prioritized and defined list of stories. Achieving this smoothness, prioritization, and definition is not easy. Here's how we do it.</p>
+
+<ol>
+  <li><span>First, the product manager tries to construct their best bet about what should be built in the next two weeks based on the broad organizational roadmap (we do <a href="http://www.fastcolabs.com/3015926/open-company/value-driven-product-development-using-value-propositions-to-build-a-rigorous-p#What-To_Build_And-When" target="_self">quarterly roadmapping</a>, requests from marketing and sales, requests from engineering via our CTO and Team Leads, an understanding of what is unblocked by design processes and dev planning processes, and (if we’re being honest) the whims of the organizational leadership. </span></li>
+  <li><span>Next, the product manager presents this broad plan--usually on the Thursday prior to the next sprint--to applicable leadership. In our company I am both co-CEO and Head of Product, so that's easy: our product manager just presents to me. (I am lucky to have the most remarkable VP of Product ever; she manages all our teams, so it’s a one-on-one meeting for us.) <br /><br />
+
+<aside class="info"><div class="info-inner"><p><strong>Note:</strong> During this meeting, we make on-the-fly calls about what to pull out ("build this, table that") based on larger scale company priorities. We also discuss implementation details to the degree that it will be helpful in increasing efficiency.</p></div></aside>
+
+<p></span></li><li><span>The product manager then goes through a similar process with our CTO and Engineering Team Leads, sometimes simultaneously. This means reviewing all stories and calling out what needs advanced technical planning. This includes stories that imply database schema changes, difficult algorithmic moments, significant architectural choices, etc. </span></li>
+  <li><span>Finally, the CTO and Team Leads engage in a process of calling together applicable stakeholders (devs as needed, data architect, and so on) before sprint planning to hash out implementation details. The goal of this process is preparation for sprint planning; ideally most major technical decisions have either already been made, or if unmade, have been clearly identified as needing careful attention during the building process. </span></li>
+</ol></p>
+
+<h5><a name="A_Brief_Debate_About_Bugs_">A Brief Debate About Bugs </a></h5>
+
+<p>Bugs and features draw from the same limited pool of resources. For this reason, my belief is that bugs should be considered and written as stories just like features. Likewise with technical chores. Likewise with marketing requests. Anything that is going to require engineering resources should be reduced into the common unit of a story.</p>
+
+<p>The power of this approach is that it requires you to make hard resource allocation choices. If you have separate processes for prioritizing bugs and technical chores then you are subtly shirking the difficult questions about what is most important. This is a temptation the perfectionist will need to fight.</p>
+
+<p>One of the most challenging things about this process is ensuring that all relevant perspectives are included in the prioritization process. I consider it my job as Head of Product (and, incidentally, as co-CEO)  to understand and mediate all of these perspectives and make the tough choices.</p>
+
+<p>Listening and responding thoughtfully is the most important way that people build trust. I am counting on everyone who will execute these decisions to trust that I have incorporated all relevant perspectives and am making smart, balanced choices. People should feel that they are heard and that what they are doing is the best application of their time and intelligence. If the particular task they are doing is kind of annoying, people should trust that their annoyance is understood and has been factored into our estimation of the cost of that task. Too much grunt work kills morale, which kills productivity and increases recruiting costs. And it is also the responsibility of everyone to question things when they feel dumb.</p>
+
+<p>The result you want from this process is a feeling in the whole group that that their precious assets--time, thought, creativity, care, sheer will--are being truly valued and effectively utilized. Of course, the other ideal result is that this is actually true.</p>
+
+<h4><a name="Holding_The_Sprint_Planning_Meeting">Holding The Sprint Planning Meeting</a></h4>
+
+<p>This meeting is facilitated by the Product Manager. It is 45-90 minutes long, depending on the team. Preparation for this meeting will dictate its success, so if you spaced out during the previous section, well, get ready for a painful meeting.</p>
+
+<p>The important thing to note is that the stories reviewed in the Sprint Planning Meeting represent a prioritized list of what the company--which very much includes every person in it--believes are the most important things to be built in the next two weeks.</p>
+
+<h5><a name="Our_Meeting_Setup">Our Meeting Setup</a></h5>
+
+<ul>
+  <li><span>Pivotal Tracker, the story-tracking software we use, is projected on a wall where everyone in the meeting can see it. </span></li>
+  <li><span>Periodically, about every two or three sprints, the meeting begins with a quick overview of the larger-scale roadmap.</span></li>
+  <li><span>We begin by reviewing stories currently in progress. </span></li>
+  <li><span>Next, we go through the "Backlog" of stories. </span></li>
+  <li><span>All necessary preparation with devs, designers, and product leaders has happened to ensure that these stories--as much as possible--are clearly conceived, listed in a prioritized order, and unblocked (meaning, for instance, that design assets are ready).  </span></li>
+</ul>
+
+<h3><a name="Handling_Story_Review">Handling Story Review</a></h3>
+
+<p>For each story, we do the following:<br />
+<ol>
+  <li><span>Read it aloud. You can rotate who reads each story to keep everyone sharp and involved.</span></li>
+  <li><span>Discuss any peculiarities or special considerations.</span></li>
+  <li><span>Throw point estimates for the story as a group. (More on this below.)</span></li>
+</ol>
+“This is stupid.” “That’s now how we should do it.” These are all healthy reactions to stories, even if not healthily articulated, by an engaged group. Hopefully most of this has already been handled through many rounds of dev review, but it's inevitable that people can be highly critical in Sprint Planning Meetings. The role of the facilitator is to figure out on the fly whether the issue can be worked out in the meeting in under 3-5 minutes without creating too much conflict. If it looks like it’s going to be a hornet’s nest, offline the issue and move on.</p>
+
+<h4><a name="Estimating_The_Cost_Of_Each_Story">Estimating The Cost Of Each Story</a></h4>
+
+<p>Estimating stories works a little like rock, paper, scissors. We bring up a story, and the devs use their fingers to simultaneously throw a point estimate: “zero points” is a fist; two fingers is a two; four fingers is a four, and so on. We use the 0,1,2,4,8 point scale.</p>
+
+<p>There are two schools of thought that I know of regarding points. They are:<br />
+<ol>
+  <li><span>Points don’t refer to specific measures of time. One way to use points is to reflect the team's sense of how difficult a story is. Over time, by watching our "velocity"--points per time period--we get a sense of our efficacy relative to the past. By keeping the points relative we can use our velocity to mark progress. This requires very consistent teams over time and a general belief in magical forces (I think). </span></li>
+  <li><span>Points represent specific amounts of time. The other approach is to say, well, zero points is something that will take under 30 minutes, one point is an hour or two, two points is about a day, four points is two or three days, and eight points is a big fucking mess. </span></li>
+</ol></p>
+
+<p>We use the second approach.</p>
+
+<p>Estimation of stories includes, implicitly, an understanding of the team's relationship to building things. For example, our team believes that you should always leave the code base cleaner than it was when you arrived. That means cleaning as you go, always. It means always looking for ways to refactor and reduce debt. This means stories sometimes take on a slightly larger size because they are in an area of code base that everyone knows could use a bit of refinement. That's fine--it's good. It should be called out and embraced. Likewise for test-driven development; estimation takes into account the already agreed upon fact that everything you build is surrounded by smart tests. On the other hand, the goal is to ship iteratively and rapidly, so this might not be the time to completely reconceive our CSS. Or: We know that we’re implementing a major redesign shortly, so it’s probably not the time to mess with our JavaScript framework. Balance. Reason.</p>
+
+<p><strong>Bugs Are Stories:</strong> We believe in assigning points to everything--including bugs and chores. Some people think points distort the point values of the original stories that generated the bugs and subtly promote sloppy work. I believe this is true, but I also believe that by counting bugs as stories you require yourself to make hard decisions between perfecting features and building new ones. I count bugs as stories.</p>
+
+<p><strong>Spikes are an Exploratory Tool:</strong> One useful tactic is to turn from exact descriptions of how something should be done into more general "Spike" stories, where the story becomes an exploration to actually determine the best way to attack a given problem. Spikes (which can also be thought of as “Discovery Stories”) should be time-capped to no more than two points. The outcome of the Spike is the writing of stories for implementation in the next sprint.</p>
+
+<p><strong>Don’t Get Lost In Implementation Details:</strong> Another challenge is figuring how many of the implementation details of a story should be worked out in the Sprint Planning Meeting. My general approach here is something like: “about half.”</p>
+
+<p>For the most part, devs can creatively solve granular problems as they are coding. The purpose of the Sprint Planning Meeting is to convey from a product perspective what the result of their work should be, and to estimate how long it will take to achieve that result. Implementation details can get hammered out later.</p>
+
+<p>That said, major architectural decisions require extensive group processes. Further, implementation details frequently affect estimations and how stories are written. The facilitating project manager will need to mediate this on-the-fly. Discussing implementation details even cursorily can support knowledge sharing and save lots of time later, so don’t skip it entirely. Find a way to get into it without getting mired in the granularities.</p>
+
+<p><strong>Coordinate Specialists Beforehand:</strong> Another challenge is the coordination of different types of engineers: Front-end, back-end, data architects, data scientists, and so on. Solutions here depend very much on the structure of your team. We have a generally full-stack, highly integrated team, which makes this coordination both easier (not that much needed) and harder (it's tough to integrate the occasional needs for intense specialization).</p>
+
+<p>Whatever your team looks like, coordinate beforehand. The Sprint Planning Meeting is a terrible place to mediate complex decision-making--that needs a smaller, more focused group.</p>
+
+<p><strong>Sprint Waterlines:</strong> At some point we've gone through enough stories to feel pretty sure that we're past the “what we can do in two weeks” line. The product manager calls this out. She somewhat arbitrarily makes a guess in the tracker about where to put the "Sprint Waterline"--the team's goal for the following two weeks. There is sometimes discussion and movement of the waterline. Then the entire team simultaneously throws a "Fist to Five", a fist being "No friggin way we can do this, absolutely not" and five fingers being "Yup, I'm completely positive we can do that unless an act of god interferes, and even then." We play around with the location of the Waterline until everyone comfortably throws fours and above. And that's our goal for the next two weeks.</p>
+
+<p>Time to build.</p>
+
+<hr />
+
+<p>You are reading <a href="http://www.fastcolabs.com/3015920/open-company/a-guide-to-making-things-people-love-part-1" target="_self">Unblocked: A Guide To Making Things People Love</a>, a series in seven parts.</p>
+
+<h3><a name="urlhttpwwwfastcolabscom3015930opencompanyfacilitatinghighvelocityengineeringsprintspart4Click_here_to_read_the_next_article_in_this_series_Facilitating_HighVelocity_Engineering_Sprintsurl"><a href="http://www.fastcolabs.com/3015930/open-company/facilitating-high-velocity-engineering-sprints-part-4" target="_self">Click here to read the next article in this series: Facilitating High-Velocity Engineering Sprints</a></a></h3>
+
+<hr />
+
+<h5><a name="Articles_In_This_Series">Articles In This Series</a></h5>
+
+<h4><a name="urlhttpwwwfastcolabscom3015920opencompanyaguidetomakingthingspeoplelovepart1Part_1_Unblocked_A_Guide_To_Making_Things_People_Loveurl"><a href="http://www.fastcolabs.com/3015920/open-company/a-guide-to-making-things-people-love-part-1" target="_self">Part 1: Unblocked: A Guide To Making Things People Love</a></a></h4>
+
+<h4><a name="urlhttpwwwfastcolabscom3015926opencompanyvaluedrivenproductdevelopmentusingvaluepropositionstobuildarigorouspPart_2_ValueDriven_Product_Development_Using_Value_Propositions_To_Build_A_Rigorous_Product_Roadmapurl"><a href="http://www.fastcolabs.com/3015926/open-company/value-driven-product-development-using-value-propositions-to-build-a-rigorous-p" target="_self">Part 2: Value-Driven Product Development: Using Value Propositions To Build A Rigorous Product Roadmap</a></a></h4>
+
+<h4><a name="urlhttpwwwfastcolabscom3015928engineeringflowplanningforhighvelocitysprintspart3Part_3_Engineering_Flow_Planning_For_HighVelocity_Sprints_You_are_hereurl"><a href="http://www.fastcolabs.com/3015928/engineering-flow-planning-for-high-velocity-sprints-part-3" target="_self">Part 3: Engineering Flow: Planning For High-Velocity Sprints (You are here)</a></a></h4>
+
+<h4><a name="urlhttpwwwfastcolabscom3015930opencompanyfacilitatinghighvelocityengineeringsprintspart4Part_4_Facilitating_HighVelocity_Engineering_Sprintsurl"><a href="http://www.fastcolabs.com/3015930/open-company/facilitating-high-velocity-engineering-sprints-part-4" target="_self">Part 4: Facilitating High-Velocity Engineering Sprints</a></a></h4>
+
+<h4><a name="urlhttpwwwfastcolabscom3015931onemorethingdesignflowachievingbreakthroughcreativityandhighyieldproductionpartPart_5_Design_Flow_Achieving_Breakthrough_Creativity_And_High_Yield_Productionurl"><a href="http://www.fastcolabs.com/3015931/one-more-thing/design-flow-achieving-breakthrough-creativity-and-high-yield-production-part-" target="_self">Part 5: Design Flow: Achieving Breakthrough Creativity And High Yield Production</a></a></h4>
+
+<h4><a name="urlhttpwwwfastcolabscom3015932dataflowusingdatatoconstantlyimprovepart6Part_6_Data_Flow_Using_Data_to_Constantly_Improveurl"><a href="http://www.fastcolabs.com/3015932/data-flow-using-data-to-constantly-improve-part-6" target="_self">Part 6: Data Flow: Using Data to Constantly Improve</a></a></h4>
+
+<h4><a name="urlhttpwwwfastcolabscom3015933opencompanyconcludingthoughtsyourjobistomakewonderfulthingspart7Part_7_Concluding_Thoughts_Your_Job_is_to_Make_Wonderful_Thingsurl"><a href="http://www.fastcolabs.com/3015933/open-company/concluding-thoughts-your-job-is-to-make-wonderful-things-part-7" target="_self">Part 7: Concluding Thoughts: Your Job is to Make Wonderful Things</a></a></h4>
+
+<p>[<em>Image: Flickr user <a href="http://www.flickr.com/photos/hanspoldoja/5001818922/in/photostream/" target="_blank">Hans Põldoja</a></em>]</p>
