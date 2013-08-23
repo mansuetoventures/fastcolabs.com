@@ -1,0 +1,96 @@
+<p>Today’s web programmers grapple with problems that people in the early days never had to deal with. They’re building complex UIs, juggling a bunch of APIs and running multiple processes at the same time. All of these tasks require mastering the flow of data between application components in real-time, something which even the most advanced developers struggle with.</p>
+
+<p>Why can’t things be easier? Most modern programming techniques descend from a 60 year-old computing paradigm which stipulates, among other things, that all programs must run one step at a time--not good for handling multiple tasks at once. But there’s no reason it has to be that way. Many computer scientists have invented alternative programming techniques that attempt to solve these problems, only to be shunned by an establishment uncomfortable with thinking about programming differently. Fortunately, the dogma that exists today is now dying.</p>
+
+<p>Dan Tocchini, CEO of a startup called The Grid, is part of a new generation of programmers who grew up struggling with complex multithreaded programming, asynchronous I/O and nearly unlimited sources of data from hundreds of modern APIs. He believes that resurrecting an old paradigm from the 1970s might be the solution.</p>
+
+<h3><a name="The_Solution_Is_Not_More_Programmers">The Solution Is Not “More Programmers”</a></h3>
+
+<p>In the 1970s, a Canadian bank serving five million customers implemented a brand new computer system using a new and little heard-of software development paradigm called “flow-based programming” (FBP). The software was a hit, largely because it allowed the bank to build working applications using easy-to-visualize graphs of data flowing between components, which non-developers could understand. The new apps became so popular at the bank that some of them are still being used forty years later, and yet FBP itself never caught on because most programmers at the time resisted adopting the new paradigm.</p>
+
+<p>One of the reasons programmers didn’t warm to FBP is that it requires a new way of thinking about development. Traditional apps become easier to break as they grow larger and more complex. The usual solution to this problem is to throw more developers at the project and use careful deployment strategies like continuous integration to avoid breaking things. Lots of developers swear by the brute-force approach, but it doesn’t scale.</p>
+
+<p>“What we need is not more programmers. What we need is to enable non-programmers to participate in the creation process, not just the ideation process,” says Kenneth Kan, CTO of a company called Pixbi and a recent convert to flow-based programming. “Rather than making us humans think like machines. It's time to make machines to be able to think more like us.”</p>
+
+<p>Traditional programming paradigms force programmers to think one step at a time and combine the actual work done by an application, its program, with the order in which it runs, its logic or flow. The upshot is that applications quickly become tangled jumbles of code that rely on each other. If you want to change the order of one sequence of events, you need to rewrite everything that depends on it. And good luck getting anyone else, even another developer, to understand it.</p>
+
+<p>“It just became a fucking mess. It was just unmanageable,” says Tocchini about the nightmare project that prompted him to look for new solutions. His company is busy resurrecting flow-based programming with a framework called <a href="http://noflojs.org/" target="_blank">NoFlo</a>, an implementation of FBP for NodeJS.</p>
+
+<p>According to Tocchini, managing the expanding codebase of the JavaScript front-end MVC framework he was using became totally untenable as he added more features, increasing the complexity of components until it took a week just to make small changes. Switching to flow-based programming allowed him to focus on individual components, and understand bottlenecks visually.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/08/3016289-inline-noflo-spring-drag-closeup.png" alt=""/>
+<figcaption>Image by The Grid</figcaption>
+</figure>
+
+<p>“The workflow of sticking to the components, I love it man. It just feels so much better,” he says. “You don’t have those kinds of brutal moments and if you do, it’s because you wired things wrong. Your spaghetti looks like spaghetti, right?”</p>
+
+<h3><a name="Software_Development_Isnt_A_OnePerson_Show">Software Development Isn’t A One-Person Show</a></h3>
+
+<p>“It doesn't ‘feel’ like programming,” says Kan. Through NoFlo, he’s become a convert to the FBP development process. “It's about solutions without coding much. As long as web programming remains a hacker-only party, FBP would have no room to thrive.”</p>
+
+<p>J. Paul Morrison, the creator of flow-based programming, has a slightly different take. He doesn’t think that we need fewer programmers, but that programming will become mainstream as developers make way for a new type of application architect.</p>
+
+<p>“There’s two roles: There’s the person building componentry, who has to have experience in a particular program area, and there’s the person who puts them together,” explains Morrison. “And it’s two different skills.”</p>
+
+<p>If NoFlo succeeds, it could herald a new paradigm of web programming. Imagine a world where anyone can understand and build web applications, and developers can focus on programming efficient components to be put to work by this new class of application architects. In a way, this is the same promise as the learn to code movement, which wants to teach everyone to be a programmer. Just without the programming.</p>
+
+<h3><a name="How_A_Brilliant_Paradigm_Got_Buried_In_History">How A Brilliant Paradigm Got Buried In History</a></h3>
+
+<p>FBP seems like it could be the solution to many modern development problems. It’s naturally parallelizing, which helps programmers handle multiple, concurrent tasks and complex, physics-based UIs. Because it lends itself to visualization, flow-based applications are easy for the increasing number of non-technical product stakeholders to understand. So why did it take so long to catch on?</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/08/3016289-inline-fbpanims.gif" alt=""/>
+<figcaption>Image by J. Paul Morrison</figcaption></figure>
+
+<p>Morrison discovered flow-based programming a decade before he built the software for the bank, while working as an engineer at IBM. He was in Montreal experimenting with discrete simulations of cars moving through gas stations, when it occurred to him that the same techniques used in discrete modeling could be applied to software development.</p>
+
+<p>“I said, ‘what if we could have some different processes that were running at the same time, with data going through them?,” recalls Morrison. “How hard would that be to do for programming with business data rather than cars?’ I drew some pictures and suddenly came up with this beautiful component that would make a big chunk of programming more reusable.”</p>
+
+<p>The idea of modeling applications as graphs of data moving between independent, reusable blocks of code was not new. In fact, Morrison admits that he lifted the idea from his experiences working with early card-based computing systems where you could literally see stacks of cards carrying data moving back and forth in the machine room. What was new about the approach was applying it to von Neumann architecture, the basis for all modern computer design.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/08/3016289-inline-johnvonneumann-losalamos.gif" alt=""/>
+<figcaption>John Von Neumann</figcaption></figure>
+
+<p>Named for Princeton mathematician John Von Neumann, the design replaced the program-controlled card systems that Morrison worked on with computers that could store instructions in memory. It specifies, among other things, that these instructions must pass from memory to the CPU one “word” at a time, a constraint which forces programmers to write lines of code that execute one at a time, largely in the order in which they’re written.</p>
+
+<p>Morrison’s flow-based concept effectively rebuilt the earlier program-controlled approach, where data is routed in streams to and from purpose-built applications, on top of von Neumann architecture. This allows programmers to write individual functions that execute one step at a time, but route data between these functions asynchronously and concurrently using a network definition graph. According to Morrison, flow-based programming is an improvement over other approaches because it allows programmers to build reusable components that can be integrated into any application, and because it allows them to visualize applications.</p>
+
+<p>“It capitalizes on the visual capabilities of human beings. Instead of doing reams of text, you can draw pictures,” explains Morrison. “We used to do these diagrams on huge sheets of paper, and the neat thing about that was you could annotate them and they would get all dog-eared and people would draw cartoons on them and comments and you could put descriptive information on them. Then you could basically turn these into flow-based programming network definitions.”</p>
+
+<p>The idea was so obvious that IBM declined to patent the new approach, calling it “much more like a law of nature” than a new invention, according to Morrison. Instead, the company published FBP as a <a href="https://en.wikipedia.org/wiki/IBM_Technical_Disclosure_Bulletin" target="_blank">technical disclosure bulletin</a>, effectively making it public domain. And yet, except for a few rare applications like the Canadian bank, it never really caught on.</p>
+
+<p>According to Morrison, FBP’s failure to take off was caused partly by his inability to properly market the approach, and partly by the programming paradigm that had already formed around von Neumann architecture, which he compares to the scientific paradigms described by Thomas Kuhn in his groundbreaking book <a href="https://en.wikipedia.org/wiki/IBM_Technical_Disclosure_Bulletin" target="_blank">The Structure of Scientific Revolutions</a>.</p>
+
+<p>“You have a computer that can do anything, and one thing at a time, and that’s such a powerful paradigm, nobody sees any problem with it, any need to come up with something different,” says Morrison. “All programs were loop win loops win loops. If you had a problem, you were told you just didn’t think hard enough. It was not the computer’s problem or the architecture’s problem, it was your problem.”</p>
+
+<p>Kuhn’s book on scientific revolutions includes a famous quote from physicist Max Planck about what really causes paradigm shifts:</p>
+
+<blockquote><p>A new scientific truth does not triumph by convincing its opponents and making them see the light, but rather because its opponents eventually die, and a new generation grows up that is familiar with it.</p></blockquote>
+
+<p>Fifty years have now passed since Morrison first discovered FBP, and the programmers who worked during the beginning of the von Neumann era are dying off. In their place, a new generation of programmers frustrated with the shortcomings of the traditional paradigms is coming of age, and they’re willing to try something new.</p>
+
+<h4><a name="How_People_Are_Rediscovering_FlowBased_Programming">How People Are Rediscovering Flow-Based Programming</a></h4>
+
+<p>Tocchini stumbled upon FBP almost by accident, when he saw some designers at Facebook using Apple’s flow-based Quartz Composer tool to create iOS app mockups instead of Photoshop. Although the flow-based approach as described by Morrison never fully caught on, some flow-based concepts did eventually make their way to niche developer communities, like game development and film compositing, where flow-like tools are used to model physical interactions. Flow-based programming is especially useful for these applications, because modeling realistic physics requires running multiple equations simultaneously. To help app designers make use of the advanced graphical libraries available in OS X, Apple included the Quartz Composer mockup tool in the software development kit when it first released OS X in 2001.</p>
+
+<p>Tocchini loved the idea of live prototyping, especially because web app UIs are becoming more complex and implementing more physics-based interactions, but wanted to take it a step further.</p>
+
+<p>“One of the problems is that it has to be rebuilt,” says Tocchini. “It’s purely prototyping. The only reason it’s like that is because of what you get out of Quartz Composer. There’s no reason why you can’t have a fully functioning final product with it.”</p>
+
+<p>So, he joined with Henri Bergius, the creator of NoFlo, and started porting his company’s applications from their old MVC framework to the new paradigm.</p>
+
+<h4><a name="The_NoFlo_Programming_Interface">The NoFlo Programming Interface</a></h4>
+
+<p>NoFlo works by tying together <a href="http://wiki.commonjs.org/wiki/CommonJS" target="_blank">CommonJS</a> components with a graph, specified in JSON. It also includes a domain-specific language that allows developers to embed graphs in existing applications. It’s been available for two years and has a small, devoted user base who have helped Tocchini and Bergius build 250 components.</p>
+
+<p>Like Morrison’s original FBP implementation, however, it hasn’t become widespread, especially compared with traditional Node-based frameworks like Meteor or SailsJS. Tocchini and Bergius believe that NoFlo is missing a key component: An interface.</p>
+
+<p>To facilitate building an interface for their framework, Tocchini and Bergius recently launched a <a href="http://www.kickstarter.com/projects/noflo/noflo-development-environment" target="_blank">Kickstarter</a> campaign to fund the development of a UI for NoFlo. The campaign raised $80,000 of the requested $100,000 in just six days, signaling that interest in FBP is growing.</p>
+
+<p>One of the main benefits of flow-based programming is that it takes control logic out of the main program and instead abstracts it into a network graph that anyone, even those with no programming experience, can understand. Imagine a program as a graph of “black boxes” with inputs and outputs connected by wires that represent streams of data. Got it? Congratulations, you’ve built a program.</p>
+
+<p>It will take developers giving up some of the “feel” and control over programming that Kan describes if FBP is to succeed. But in a way, the promise of FBP is every programmer’s dream. Instead of struggling to make stakeholders understand why adding a new feature that requires reading yet another API concurrently is difficult, imagine if they could simply see and understand it. Instead of dealing with connecting bits and pieces of your applications, you could leave that up to the people who use it, and just focus on making things work.</p>
+
+<p><em>[Poster image by The Grid]</em></p>
