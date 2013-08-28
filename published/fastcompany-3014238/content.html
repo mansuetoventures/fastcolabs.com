@@ -1,16 +1,24 @@
-<p>Security researcher and law student Brendan O’Connor realized recently that with just a few hundred dollars, some Wi-Fi adapters and sensors, and a Raspberry Pi he could create a system that <a href="http://bits.blogs.nytimes.com/2013/08/02/a-cheap-spying-tool-with-a-high-creepy-factor/?_r=0" target="_blank">compiled and visualized all the unencrypted data</a> coming from his laptop, iPad, and smartphone. Appropriately, he named it the Creepy Distributed Object Locator, or creepyDOL.</p>
+<p>The problem with webmail is that it has to exist somewhere. If it’s going to be accessible from any device you have to be able to login. That means that your credentials are being stored on a server. And those credentials are the key to reading even the most strongly encrypted emails.</p>
 
-<p>If he was on public Wi-Fi, O’Connor could identify the OS and make of nearby devices, monitor their web browsing, or find their unique IDs and then track their locations when they queried servers for emails or instant messages. He was all up in his own business, testing how much data was available about him simply through his Internet-connected devices.</p>
+<p>“Perfect forward secrecy” works by sending messages between devices in real time, so decryption keys are generated randomly on the fly. Instead of using the same key over and over to encrypt and decrypt messages, the way PGP (<a href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy" target="_blank">Pretty Good Privacy</a>) does for example, secure messaging apps generate random and transient keys that only work and exist in a given moment for a single message. A crucial component of this system, though, is that both parties be in the app and messaging in real time. It is this coordinated connection that differentiates these secure apps from “asynchronous messaging,” or communications like email that can be sent at one time and read at another. If the message isn’t being stored on a server until the recipient is ready to read it, there isn’t a copy of it out there. It only exists locally on the device it was sent to.</p>
 
-<p>Doing this to someone else violates the <a href="http://en.wikipedia.org/wiki/Computer_Fraud_and_Abuse_Act" target="_blank">Computer Fraud and Abuse Act</a>, but why? Who could possibly care about the mind-numbing minutiae of a person’s daily data? You browse Facebook and Twitter, shop on Amazon, read boring work emails, maybe watch some light porn and check the news. But I couldn’t help but wonder what it would be like to date a guy--a wily, more obsessive version of someone like O’Connor--with the technical know-how to bug your entire life. So I went looking for people who could tell me.</p>
+<p>But asynchronous messaging is popular and convenient for obvious reasons. Coordinating real time (synchronous) messaging sessions can be difficult. So with competitors nipping at their heels, the makers of a tool called <a href="https://play.google.com/store/apps/details?id=org.thoughtcrime.securesms&amp;hl=en" target="_blank">TextSecure</a> are rolling out upgrades that don’t require real time interaction, but keep the perfect forward secrecy.</p>
 
-<p>A <a href="http://forums.malwarebytes.org/index.php?showtopic=123253" target="_blank">MalwareBytes user</a> posted this in February:</p>
+<p>With secure communication becoming a bigger, and trendier, priority since revelations about the reach and scope of NSA surveillance, discussion is ramping up about whether webmail can ever be secure. Services like <a href="http://www.fastcompany.com/3015492/the-code-war/edward-snowdens-email-service-lavabit-shuts-down-so-it-doesnt-spy" target="_self">Lavabit</a> have already shut down rather than face the implications of this predicament, namely that if they were subpoenaed they would probably have to give the government the keys to your correspondence castle. Available encryption options, like PGP, <a href="http://www.pgp.net/pgpnet/pgp-faq/pgp-faq-common-problems.html" target="_blank"> have drawbacks and are too involved</a> for the average user. So consumers are turning to encrypted smartphone messaging as an accessible avenue to inaccessible communication.</p>
 
-<blockquote><p>Dear all, I was wondering which are the best ways to protect my computer from my ex-boyfriend who is a professional hacker. He is a very nice and honest person, just a little crazy: he still hacks me, in spite of my filling several reports with the police. It's just a game for him, but it's getting a little excessive.</p></blockquote>
+<p>The Wall Street Journal <a href="http://online.wsj.com/article/SB10001424127887323980604579029021434314880.html" target="_blank">reported last week</a> that the popularity of encrypted messaging apps like <a href="https://www.mywickr.com/en/index.php" target="_blank">WickR</a> for iOS and TextSecure for Android has increased dramatically in the last few months. Though neither app would release exact download figures, both are working on expanding to other mobile environments. WickR is promising an Android app, and TextSecure, which is developed by the open source group <a href="https://whispersystems.org/" target="_blank">Open Whisper Systems</a>, has an iOS release slated for the end of September.</p>
 
-<p>And an aptly named MacRumors forum, “<a href="http://forums.macrumors.com/showthread.php?t=1309945" target="_blank">HELP, my ex hacked my iphone 4 and everything else</a>,” includes suggestions from users like, “Restore your iPhone and computer. Get a new boyfriend. Someone that's not a psycho and u can trust.” And, “He probably sees that you are typing on this forum right now. You should just reformat your computer.”</p>
+<p>One of TextSecure’s developers, who goes by the name Moxie Marlinspike, has created a workaround using a concept called “prekeys.” In a <a href="https://whispersystems.org/blog/asynchronous-security/" target="_blank">blog post about the approach</a>, Marlinspike says:</p>
 
-<p>Data protection has become such a blanket topic recently that it’s easy to forget the link between security and scale. Different types of data are vulnerable to different people or groups depending on their interests, and microdata that is attached to an identity is most useful to someone directly in that microcosm. The more I do online, the more I’m aware that my activity has value to specific people who may be motivated to figure out ways to screen it. And the more I’ll check into the technical skills of the people I get involved with.</p>
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/08/3014238-inline-newmessage-scaled.jpg" alt=""/>
+</figure>
+
+<blockquote><p>[In] synchronous messaging systems . . . if someone sends you a message after the app has been out of the foreground for two minutes, you just don’t get the message. This results in an awkward scenario. On the other hand, iOS apps like Threema and the proposed Heml support asynchronous messaging, but do not provide forward secrecy.[/url]
+
+<p>In the upcoming versions of TextSecure for Android and iOS, users all download 100 prekeys when they install TextSecure. Later when they send a message to someone who is not currently in TextSecure, the app uses information about both users’ prekeys to allow the creation of a “shared secret” that is sent with the message. When the recipient goes to retrieve the message, the package contains what they need to decrypt it. Marlinspike explains, “Since the server never hands out the same prekey twice (and the client would never accept the same prekey twice), we are able to provide forward secrecy in a fully asynchronous environment.”</p>
+
+<p>TextSecure has competition from WickR, as well as apps like <a href="https://silentcircle.com/web/silent-text/" target="_blank">Silent Text</a>. As the market for secure messaging apps grows, TextSecure’s asynchronous messaging with perfect forward secrecy will presumably create competitive pressure for other apps to build out their capabilities and offer increasingly secure environments combined with transparent code.</p>
 
 <hr />
 
@@ -22,6 +30,26 @@
 <hr />
 
 <h3><a name="Previous_Updates">Previous Updates</a></h3>
+
+<hr />
+
+<h3><a name="Why_You_Should_Fear_Your_ExBoyfriend_More_Than_The_NSA">Why You Should Fear Your Ex-Boyfriend More Than The NSA</a></h3>
+
+<p><span class="subhead">August 6, 2013</span></p>
+
+<p>Security researcher and law student Brendan O’Connor realized recently that with just a few hundred dollars, some Wi-Fi adapters and sensors, and a Raspberry Pi he could create a system that <a href="http://bits.blogs.nytimes.com/2013/08/02/a-cheap-spying-tool-with-a-high-creepy-factor/?_r=0" target="_blank">compiled and visualized all the unencrypted data</a> coming from his laptop, iPad, and smartphone. Appropriately, he named it the Creepy Distributed Object Locator, or creepyDOL.</p>
+
+<p>If he was on public Wi-Fi, O’Connor could identify the OS and make of nearby devices, monitor their web browsing, or find their unique IDs and then track their locations when they queried servers for emails or instant messages. He was all up in his own business, testing how much data was available about him simply through his Internet-connected devices.</p>
+
+<p>Doing this to someone else violates the <a href="http://en.wikipedia.org/wiki/Computer_Fraud_and_Abuse_Act" target="_blank">Computer Fraud and Abuse Act</a>, but why? Who could possibly care about the mind-numbing minutiae of a person’s daily data? You browse Facebook and Twitter, shop on Amazon, read boring work emails, maybe watch some light porn and check the news. But I couldn’t help but wonder what it would be like to date a guy--a wily, more obsessive version of someone like O’Connor--with the technical know-how to bug your entire life. So I went looking for people who could tell me.</p>
+
+<p>A <a href="http://forums.malwarebytes.org/index.php?showtopic=123253" target="_blank">MalwareBytes user</a> posted this in February:</p>
+
+[quote]Dear all, I was wondering which are the best ways to protect my computer from my ex-boyfriend who is a professional hacker. He is a very nice and honest person, just a little crazy: he still hacks me, in spite of my filling several reports with the police. It's just a game for him, but it's getting a little excessive.</p></blockquote>
+
+<p>And an aptly named MacRumors forum, “<a href="http://forums.macrumors.com/showthread.php?t=1309945" target="_blank">HELP, my ex hacked my iphone 4 and everything else</a>,” includes suggestions from users like, “Restore your iPhone and computer. Get a new boyfriend. Someone that's not a psycho and u can trust.” And, “He probably sees that you are typing on this forum right now. You should just reformat your computer.”</p>
+
+<p>Data protection has become such a blanket topic recently that it’s easy to forget the link between security and scale. Different types of data are vulnerable to different people or groups depending on their interests, and microdata that is attached to an identity is most useful to someone directly in that microcosm. The more I do online, the more I’m aware that my activity has value to specific people who may be motivated to figure out ways to screen it. And the more I’ll check into the technical skills of the people I get involved with.</p>
 
 <hr />
 
