@@ -1,0 +1,71 @@
+<p>Nathan Jenkins is a condensed matter physicist and programmer who has worked at CERN, the European Organization for Nuclear Research. He recently left his post-doc program at New York University to cofound <a href="http://authorea.com" target="_blank">Authorea</a>, a platform that helps scientists draft, collaborate on, share, and publish academic articles. We talked with him about the idea behind Authorea, the open science movement, and the future of scientific publishing.</p>
+
+<p><p class="interview-question">How did you come up with the idea for Authorea?</p></p>
+
+<p><p class="interview-answer">I had left my post-doc. I was going to leave for a year. I just planned on playing guitar and going climbing. Then Alberto [Pepe, Authorea cofounder] came down for a visit to New York. We had a long talk about open science. He mentioned an idea of starting Authorea, which we did not name at the time. The idea was really when you publish a paper, for example, if you write a simulation on the traffic in New York, or, in my case, you fit a superconductor in spectrum, you have some source data. You have some analytical code, and you have a model. You represent that model with code, and you apply that to the data. That gives your best fit, which is what you publish. <br />
+<br />Every scientist that I know has gone through and picked out the points on the curve with various tools to do this. It's quite a tedious little task, but you have some software to do that because people are not sharing their source data.</p></p>
+
+<p><p class="interview-question">They’re not sharing the source data as data?</p></p>
+
+<p><p class="interview-answer">As data, no. They're sharing the image. Sometimes you can ask them nicely. They don't have to give it to you. Now, governments are putting pressure on government-funded research to share data. I know examples where people still, they really give the minimum. It’s not required.</p></p>
+
+<p><p class="interview-question">Is there a reason they don’t share data?</p></p>
+
+<p><p class="interview-answer">It's competitive advantage, I think. Overall, I think the incentives are wrong. In anything, if you get the incentives right, then the behavior's going to come. If you want scientists to share all their data, the way it goes with conversation with professors is typically always the same: Professors don't want to share their own data because if you went through this hard work of getting some data, then there's some papers to be published with that data. You don't want someone else to scoop you on the physics part where it's just actually thinking about the results and writing up some reasonable opinions and publishing some papers. You want to keep that data as long as possible. <br />
+<br />What generally happens is once you’re all finished with the data, it just sits on a hard disk somewhere and dies.</p></p>
+
+<p><p class="interview-question">We hear a lot about the open science movement, which is about giving everyone access to this data. Why is it a bad thing that the data just sits there and dies?</p></p>
+
+<p><p class="interview-answer">This is bad because you might have an idea but you might not have this data set. You might want to look at combinations of data sets. There's lot of different things. Even though I'm the one who takes the data, there's no reason that I have all the ideas on how to analyze it. If you just gave it away for free, it would already be an improvement because any further contributions are just icing on the cake if what we want is to know more in science. <br />
+<br />Obviously, people are worried about advancing their career. People are not so much worried about advancing science, but making sure that they have a job.</p></p>
+
+<p><p class="interview-question">That’s really happening?</p></p>
+
+<p><p class="interview-answer">I can give you an example in biophysics. There's maybe 10 groups that matter in the world in this specific field. It's about protein unfolding in this very specific field. <br />
+<br />They don't share any data between each other. There's a lot of details in the experiments that don't get spoken about. I say, "I know you don't want to share your data. Absolutely not. Under no question. At the same time, I know you would love to have all the data from your competitors." They say, "Yes, I would love that because then I could do this, this, and this.” Most just give up this long list. They say, "Well, if I share my data, I'm giving up an advantage because now everybody else can profit. For me, I don't get anything out of it."<br />
+<br />If this whole subgroup, if these 10 groups would just get together, which already happens at conferences, and say, "Okay, we're going to do more sharing, and we need to figure out a way. If it's your data and I use it, I need to cite you. Maybe your name needs to go on the paper even though you're my competitor.” This doesn't happen today, but it doesn't mean it can't. It just means that the current paradigm doesn't incentivize sharing.</p></p>
+
+<p><p class="interview-question">Is the appeal of accessing competitors' data alone enough to get rid of that disincentive?</p></p>
+
+<p><p class="interview-answer">The question you get at every conference is, “How sensitive is this to the parameters?” You say, "It's not sensitive at all." I always find this exact optimal fit. No one ever believes you, but that's the way it goes.<br />
+<br />It'd be great if in the paper, they can see, "Here's my fit. Here's my parameters. Now you can change those parameters and refit it and see." The incentive there is that I can publish now a better paper that's going to be cited more, and it's those citations that really matter. If I can see that up, now I'm going to get 30 more citations if I publish an interactive figure, which requires the source data.</p></p>
+
+<p><p class="interview-question">So how does Authorea address these issues?</p></p>
+
+<p><p class="interview-answer">My one-liner is we’re Google Docs meets GitHub for science.</p></p>
+
+<p><p class="interview-question">Why does science need a Google Docs or a GitHub?</p></p>
+
+<p><p class="interview-answer">Most of hard sciences is using LaTeX as a markup language. There have been people who’ve tried to change that in the past. They said let's modify the PDF, and make all this interactivity possible inside the PDF. Now, you run in a lot of problems because you're working with a proprietary format. It's complicated. It's already made a lot of decisions. PDFs do a lot more than just publishing a research article.<br />
+<br />Our main backend is Ruby on Rails. What I really like with that is there's been constraints placed upon you. You follow these rules; you get all this stuff for free. I like this idea of constraint.<br />
+<br />LaTeX is totally open-ended. You can do whatever you want in LaTeX. Nobody ever uses any of this, but it means that you can compile your paper, and it might crash, and you get some totally non-obvious error.<br />
+<br />It's complicated, but we're writing research papers and no one ever needs to write text  that goes around some arbitrary vector. It doesn't happen. If you remove that, things get simpler and you can start thinking of doing more.<br />
+<br />That's the mode we set on. We said we want interactive figures. Let's just make the decisions that make that possible, and not make all the decisions right away. The decision that makes that possible means that the figures are no longer included in the LaTeX sources. They're pulled out. If you import a document into Authorea, that's a LaTeX file. It's going to take all the figures and for each figure, it's going to make a directory. The directory introduces a very simple constraint. There's a size file. There's a caption file. There's either the figure or there's some HTML that has some JavaScript in it and some data files.</p></p>
+
+<p><p class="interview-question">So everything becomes a structured Git directory?</p></p>
+
+<p><p class="interview-answer">Everything is stored in Git at the moment. There's a file that’s called layout. The layout file lists the elements that are going to be in the article. Currently, this means some content or a figure, which can be in LaTeX or Markdown. Two possibilities.</p></p>
+
+<p><p class="interview-question">Does Authorea look for these by the file extension, or is it like in a JSON configuration file or something?</p></p>
+
+<p><p class="interview-answer">It's by the file extension. It's in the Git repository and based on the file, like intro.txt. It's going to look for that. Then it can either be content, text content, or it can be a figure.</p></p>
+
+<p><p class="interview-question">And how does Authorea know how to lay out this content into a whole paper?</p></p>
+
+<p><p class="interview-answer">Super-duper simple. Again, I just thought “what's the simplest thing?” So it’s just a layout.txt file. I love text configuration. A worry with researchers is that I don't want to give the impression to people that we can blackmail them for their data. Everything that could be in text should be in text. And it's a Git repository, which was basically chosen for two reasons. One is that we were using Git for development, and it seemed like a good call to keep it the same. Two, since it's not a database-based version system, but it's a file-based version system, you can tell people that, "Look, you can just take your whole repository. We can give it to you. We don't have to put it all on the database or anything, we can just give it to you as is, and you can have a local copy.”</p></p>
+
+<p><p class="interview-question">If it’s totally open like that, how do you make money?</p></p>
+
+<p><p class="interview-answer">We are charging. I'm saying if you have your stuff on Authorea, you should always to be able to get it back. Our philosophy: We want people to be reassured that if we go under, you can get everything back. If we get sold for some reason, you can get everything back. You can jump ship easily. Everybody has problems with lots of web services where you can’t get your stuff. We are trying to be a business. For users, we’re similar to GitHub’s pricing model and philosophy. We limit the number of private articles you can have, but if you write an article from scratch in the open, that’s free forever.</p></p>
+
+<p><p class="interview-question">So you have this concept of open articles? In a way, it sounds like you’re trying to be a repository yourself--not in the Git sense, but similar to <a href="http://arxiv.org" target="_blank">arXiv</a> or something like that?</p></p>
+
+<p><p class="interview-answer">That is actually the exact term I was going to use. We want to be a better arXiv. ArXiv is great--it’s been a great service for a long time--but I don’t feel like it’s changing fast enough. You can do a lot more. Once you publish, with traditional publishers, there’s a lot of constraints that they have to live with because they’re big companies. We’re small. We can do whatever we want. As long as users are happy, people find interesting content, that’s great.<br />
+<br />In the short term or in the medium term, I think being a better arXiv is valuable. We don’t want to tell people that if you write your article on Authorea, you have to publish on Authorea because it’s important to go and publish in <em>Nature</em> and <em>Science</em> or wherever you publish, but we want to be a better pre-publishing server.</p></p>
+
+<p><p class="interview-question">Speaking of scientific publishers, they’re notoriously picky about submission formatting. Will they work with a platform like Authorea that sort of enforces formatting conventions?</p></p>
+
+<p><p class="interview-answer">Publishers have a very inefficient process right now. They would love to have structured data the way they want it structured, submitted to them from the users. Users are now submitting doc files or LaTeX files with PDFs, that sort of thing. Publishers have to deconstruct all of that. They put it into an external XML representation, they send it off, they outsource it to a typesetter, and they get it back. That’s how it works. <br />
+<br />They would love to just get that XML right away. Users worry about formatting in articles. It doesn’t matter at all because it’s all removed anyway. We want to be that middle ground. It would be great to be a big publisher ourselves. If people would just publish on Authorea, that would be fantastic. But that’s the crazy, long-term dream. What’s reasonable is to say: “Okay, well, now users can collaborate easily on articles together, and if they want to publish in <em>Nature,</em> there’s a little button that publishes to <em>Nature.</em>” Publishers are willing to pay. If you can get them, if you can gain them a little bit of efficiency, they’re willing to pay for that.</p></p>
+
+<p>[<em>Image: Flickr user <a href="http://www.flickr.com/photos/foam/5984203017/in/photostream/" target="_blank">Foam</a></em>]</p>
