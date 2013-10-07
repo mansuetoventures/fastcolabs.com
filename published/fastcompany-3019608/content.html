@@ -1,0 +1,57 @@
+<p>New York City has a pulse. It’s not as steady as yours or mine, but the Big Apple--just like every other metropolis on the planet--has a certain rhythm of activity that goes on within it. This rhythm jumped out at Matt Healey, while the Foursquare designer was playing with a slice of the company's user location data. He wanted to figure out how to show the urban heartbeat visually.</p>
+
+<p>That was months ago. In a series of animated data visualizations published last week, Healy and the folks at Foursquare were finally able to illustrate precisely how people move around cities like Tokyo, Istanbul and New York City--and the result is stunning.</p>
+
+<p><figure class="inline inline-iframe"><iframe src="//player.vimeo.com/video/75413842" border="0" frameborder="0" height="375" width="500" ></iframe></figure></p>
+
+<p>Healy prototyped and built the Pulse visualizations using Processing, the design-centric programming language and development environment. "That's something that Processing is really great for: Quickly, rapidly prototyping a visualization, seeing how it works and then making some of the changes from there," Healey says.</p>
+
+<p>Working with Foursquare Data Scientist Blake Shaw, Healey mapped a year's worth of user check-ins within each city, paying particular attention to pairs of sequential check-ins and condensing all that activity down into a 24-hour span.</p>
+
+<p>Since each check-in is a discrete data point without any directionality, Shaw and Healey needed to build in some assumptions about how people behave in order to “animate” the human traffic patterns in Foursquare’s data. The pair used a three-hour window between check-ins to define what constitutes two subsequent check-ins, which gave them a logical basis for drawing movement from place to place.</p>
+
+<p>"If I check in at Foursquare headquarters and then check into a coffee shop an hour later, then we assume I went from Foursquare to that coffee shop," says Healey. "So the visualization takes the dot representing me at the time that I checked into Foursquare headquarters and then gradually moves it over to the coffee shop in the window between those two times. It then multiplies that by millions." (Below, Foursquare data points in New York.)</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/10/3019608-inline-foursquare-data-colors.jpg" alt=""/>
+</figure>
+
+<p>In each animation, color-coded dots and lines are used to represent people checking into various locations and then moving about within the city. Each color represents a different type of venue: Red for residences, lime green for food, dark blue for nightlife, turquoise for transit, and so on. The end result looks like a massive colony of fluorescent insects zooming throughout their habitat in loosely organized groups, flickering with an intensity that eventually dims as people return home and go to sleep.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/10/3019608-inline-foursquare-flow.jpg" alt=""/>
+</figure>
+
+<h3><a name="The_Ingredients_To_A_Killer_Visualization">The Ingredients To A Killer Visualization</a></h3>
+
+<p>At Foursquare, an idea for an infographic or animated visualization is first crystallized in the form of a paper-based sketch or digital wireframe. In the case of the Pulse city visualizations, the sketching was done with code. Like most of Foursquare's data visualizations, Pulse started with a database query. The resulting text file - which can sometimes be as large as 5 GB - is then handed off to Healey, who starts experimenting using design tools like Adobe Illustrator or, in this case, Processing.</p>
+
+<p>Using Processing's interface as a sort of virtual sketchbook, Healey prototyped various ways of mapping this aggregate location-to-location behavior, looking for patterns and tweaking things like colors and the speed of the animation. The duo fine-tuned the visualization, which was then layered atop geographic tiles from <a href="http://www.mapbox.com/" target="_blank">MapBox</a>, which powers the company's Web-based maps.</p>
+
+<p>"We realized that having these move at speeds that match a human heartbeat was really effective," says Shaw. "There really are these fundamental rhythms of cities that are kind of like heartbeats. Some categories will peak during the day, like food and some things will peak in the morning, like coffee. When you look at enough of them, they look like an EKG or something. It feels alive."</p>
+
+<p>On the data side, Shaw swears by tools like Hive and MapReduce to wrangle and tame an ever-exploding ocean of data. For Healey, the built-in graphing tools inside Adobe Illustrator are priceless, but for designers who aren't afraid to dabble with a little bit of code, Processing is the way to go.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/10/3019608-inline-foursquare-transition-data.jpg" alt=""/>
+</figure>
+
+<p>"It's just incredible," says Healey. "They have these great tutorials on the website that really get you ramped up quickly from not being able to do anything to being able to import data and visualize it."</p>
+
+<p>Before the data and design tools even come into play, there are bigger, more fundamental questions to be explored. Startups of all shapes and sizes are sitting on a pile of data, often in constantly-expanding quantities. The first step, advises Shaw, is determining what's most unique and interesting about the data.</p>
+
+<p>"It doesn't take a ton of data to answer interesting questions," says Shaw. "It's a matter of finding those nuggets and then extracting some very basic attributes about whatever data you're working with. You can use very simple tools to do that. A SQL database and a Processing script can get you really really far."</p>
+
+<h3><a name="Why_Data_Visualizers_Matter_To_Every_StartupThey_Lead_To_Features">Why Data Visualizers Matter To Every Startup--They Lead To Features</a></h3>
+
+<p>At Foursquare, engineers and designers are encouraged to create their own data visualizations. They’re not only good for generating headlines, but can also lead to insights about an ever-expanding mountain of numbers and code.</p>
+
+<p>"It certainly helps us build intuition about the product that we want to build," says Shaw. "For example, when we started looking at this transition data months ago, we were wondering whether we could make a product out of it too. We did both. We built these visualizations and we also built the 'places people go next' feature on the Web."</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/10/3019608-inline-port-authority-lasers.jpg" alt=""/>
+</figure>
+
+<p>Eventually, the value of Foursquare's user-generated data will move beyond the check-in. Since the app's 2009 launch, users have left millions of tips at locations spanning the globe. Mining those data points and putting them through some kind of sentiment analysis is something Healey and Shaw are eagerly looking forward to doing. In the meantime, there’s plenty left to learn from the data Foursquare is already crunching.</p>
+
+<p>"You really see this sort of network effect happen in the cities," says Shaw. "Certain places are just connected to certain other places and they're communicating back and forth. I don't think you'd see that as much if you just looked at all the different routes people take. When you connect the places to one another, you see this network emerge, which is definitely an effect that's going on inside the city, but it was hidden before until you plot things this way."</p>
