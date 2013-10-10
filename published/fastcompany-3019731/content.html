@@ -24,7 +24,7 @@
 
 <p>For journalists, wrapper classes are valuable because they allow us to connect pieces of information from all different kinds of systems, which is important because no two apps, websites or servers are ever exactly alike. Wrappers allow us to build customized newsroom tools which can connect to other apps and help us collect content, analyze what makes something popular, and or measure traffic could be improved.</p>
 
-<p>When I say wrappers are a “class,” that’s just code jargon for saying it holds the characteristics (<a href="https://en.wikipedia.org/wiki/Attribute_%28computing%29" target="_blank">attributes</a>) and abilities (or <a href="https://en.wikipedia.org/wiki/Method_%28computer_programming%29" target="_blank">methods</a>) of a “type.” Things are getting abstract, so here’s an example. An example of a “class” in real life would be a car, which you would express as type:car. Some of the “attributes” would be the color, the miles per gallon, and the model. The “methods,” which describe what can be done with the car, are commands like drive, reverse, or park.</p>
+<p>When I say wrappers are a “class,” that’s just code jargon for saying it holds the characteristics (<a href="https://en.wikipedia.org/wiki/Attribute_%28computing%29" target="_blank">attributes</a>) and abilities (or <a href="https://en.wikipedia.org/wiki/Method_%28computer_programming%29" target="_blank">methods</a>) of a “type.” Things are getting abstract, so here’s an example. An example of a “class” in real life would be a car, which you would express as <strong>type:car</strong>. Some of the “attributes” would be the color, the miles per gallon, and the model. The “methods,” which describe what can be done with the car, are commands like drive, reverse, or park.</p>
 
 <p>One of our creative technologists <a href="https://twitter.com/jihyun_says" target="_blank">Jihyun Lee</a> was able to make a 3-D interactive model of Earth that positions all of our readers around the world in real time. She used a program written in C++ and employing--guess what--JSON. You can read more about <a href="http://www.fastcolabs.com/3019729/our-3-d-interactive-map-shows-fastcompany-traffic-in-real-time" target="_self">her adventures with JSON here</a>.</p>
 
@@ -36,13 +36,13 @@
 
 <p>When you initially import the data into your program, it has no idea what’s what. The program only recognizes the data as a very long sequence of characters--a <a href="https://en.wikipedia.org/wiki/String_%28computer_science%29" target="_blank">string</a>.</p>
 
-<p>In Javascript, the JSON.parse command allows you to dissect the data and take the parts that you need so that you may use those as <a href="https://en.wikipedia.org/wiki/Parameter_%28computer_science%29" target="_blank">parameters</a> in other places. Parameters are just variables--stored values, like in Algebra--which are used in the subroutines or methods. Remember our example of a “class,” the car? A parameter for the method car.drive might be the distance to take the car, or the direction to drive in.</p>
+<p>In Javascript, the <strong>JSON.parse command</strong> allows you to dissect the data and take the parts that you need so that you may use those as <a href="https://en.wikipedia.org/wiki/Parameter_%28computer_science%29" target="_blank">parameters</a> in other places. Parameters are just variables--stored values, like in Algebra--which are used in the subroutines or methods. Remember our example of a “class,” the car? A parameter for the method <strong>car.drive</strong> might be the distance to take the car, or the direction to drive in.</p>
 
 <p>To use Jihyun’s 3-D global map project as an example, the two parameters most important were latitude and longitude, because they specified where to plot our our readers in a global map. Initially, they were lost in the vicinity of a long string--the unrecognizable JSON data-format. She needed to extract them from the string so that C++ could understand what it all meant--she needed to parse it.</p>
 
 <p>Take this example of a JSON format listing groceries:</p>
 
-<p>{ milk: 0.02, siracha: true, eggs: 12, yogurt : “Greek” }</p>
+<p><strong>{ milk: 0.02, siracha: true, eggs: 12, yogurt : “Greek” }</strong></p>
 
 <p>Writing a wrapper class to implement a parse command would allow you to differentiate the types of data found inside the example above--otherwise in C++, it is just a jumble of characters, a useless string.</p>
 
