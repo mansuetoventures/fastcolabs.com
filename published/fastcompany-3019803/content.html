@@ -1,0 +1,31 @@
+<p>Digital journalists are obsessed with traffic. <a href="https://twitter.com/jihyun_says" target="_blank">Jihyun Lee</a>, one of our creative technologists, thought it might be fun to project our traffic in an interactive map on the wall--across 8 LCD displays, using an Xbox Kinect camera as the interface. This article is about how it works.</p>
+
+<p>The idea here is to give people a snapshot of who is on the site now and what they’re reading. There are three metrics in the display: trending stories, people on the site right now, and a map showing where these readers are located. After about 8 weeks of experimenting, it’s done--now anyone can play with the FC Globe, seeing a glimpse of our performance in real time.</p>
+
+<p>The ingredients: raw data from Chartbeat, one of the analytics services we use, plus an Xbox Kinect camera, an old Mac tower, 8 LCD screens, and the power of open source (<a href="http://greenhouse.oblong.com/" target="_blank">Greenhouse</a> in particular).</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2013/10/3019803-inline-fcglobeworkflow.png" alt=""/>
+</figure><div class="caption">Jihyun’s diagram showing how FC Globe works.</div>
+
+<p>After stumbling across Greenhouse, Jihyun began building the globe. Greenhouse provides users with a library that comes packaged with an API for hand gestures on the XBOX kinect. Their goal is to make all projects spatially interactive. You can check out Greenhouse’s downloadable library <a href="http://greenhouse.oblong.com/reference.html" target="_blank">here</a>.</p>
+
+<p>The raw data Chartbeat provides on their API includes the latitude and altitude (the geolocation!) of our readers. The raw data came formatted in JSON--<a href="http://www.fastcolabs.com/3019731/a-dead-simple-intro-to-programming-for-journalists" target="_self">you can read our JSON tutorial here</a>--but since the Greenhouse application was in C++ she realized she needed a wrapper to manipulate and parse the data. After searching Github, she a found <a href="https://github.com/MJPA/SimpleJSON" target="_blank">repository</a> of exactly what she needed.</p>
+
+<p>She then constructed the class “Reader” that generated a reader with attributes like from the Chartbeat data. The attributes for a given reader (latitude and longitude) are obtained through an HTTP request to Chartbeat’s API. On the FC Globe, the information updates by timer trigger every three seconds. An event requests a real time update of information on Chartbeat.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/10/3019803-inline-fcglobe.jpg" alt=""/>
+</figure>
+
+<p>The screenshot of the FC Globe above shows a panned out view of the globe which is zoomed into the United States, each dot representing a reader. A user can simply zoom in by moving their fist forward when they stand in front of the globe, or vice versa.</p>
+
+<p>In high population areas, squares start to form because there are so many readers and the dots begin to overlap. To solve this, FC Globe implements a third variable: depth. We are able to get a true picture of how many readers are on a given location by making an L shape on your left hand. This tells the map to show us a side view, allowing us to see readers by stacking the dots on top of one another:</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/post/inline-image/fcglobe-depth%20%282%29.jpg" alt=""/>
+</figure><div class="caption">Depth view. Taller spikes mean more traffic is coming from that city.</div>
+
+<p>As if virtually spinning the globe, hand gestures allow you to zoom into different areas to focus in particular regions. You can view the world upside down, on its side, or focus on a specific region--traffic has never looked so beautiful. Whether in Singapore or Ohio, live analytics allow us to look at you reading this right now.</p>
+
+<p>If you have questions about how we implemented our traffic visualizer, tweet at us <a href="https://twitter.com/FastCoLabs" target="_blank">@FastCoLabs</a>. And look out for more Co.Labs in-house projects in the future.</p>
