@@ -1,0 +1,59 @@
+<p>Here at FastCompany Digital, about half of our in-house development team--DJ, <a href="http://distinctplace.com/" target="_blank">Sergey</a>, Sylvia, <a href="https://twitter.com/chris_mcclellan" target="_blank">Chris</a>, <a href="https://twitter.com/hguillermo" target="_blank">Harry</a>, <a href="https://twitter.com/jihyun_says" target="_blank">Jihyun</a>--picked up coding in their spare time.</p>
+
+<p>The “learn to code” maintra is becoming more and more mainstream, abetted by sites like <a href="http://www.codecademy.com/" target="_blank">Codeacademy</a>. Journalism in particular seems have a <a href="http://www.poynter.org/how-tos/newsgathering-storytelling/219610/how-learning-to-program-can-make-you-a-better-writer/" target="_blank">special interest</a> in coding, and even some adjacent skills; good code and good writing are both about efficiency, style, and structure.</p>
+
+<p>As a reporter interning here at FastCo.Labs, my job is to write stories about tech. Back in college, I’m also studying computer science, with two formal computer science college classes done so far. But I’m still green enough that I can remember what it’s like to encounter some of these abstract concepts, so this series of articles is written to be easy to understand; as I learn to improve my coding from our development team here, I’ll report on it and explain it so that any other journalists (or whomever) can follow along.</p>
+
+<p>Right now, I’m independently learning <a href="http://www.json.org/" target="_blank">JSON</a>, or JavaScript Object Notation-- a lightweight interchange data format. Translation: this is how two computers send short bits of information back and forth across the internet. “Lightweight interchange” simply means that the format is easy for the computer to generate read, write, and parse.</p>
+
+<p>Think of JSON like letter-writing between two humans. When composing a letter, you put it into a certain format--you know, like the letter template in Microsoft Word. Computers do the same thing when they exchange data, too, putting information into a format that another computer knows how to interpret.</p>
+
+<p>In many ways, “call and response” is basis of the relationship between your computer and the remote server where a webpage lives. A <a href="https://en.wikipedia.org/wiki/Server_%28computing%29" target="_blank">server</a> is a system whose job it is to respond a question. When a website or app asks, the answer is returned from the server in a “data format” like JSON. Once the website or app (which are known as “clients”) receive the answer, they can then use this data for their own purposes.</p>
+
+<p>Data in JSON is typically structured as an <a href="https://en.wikipedia.org/wiki/Array" target="_blank">array</a>, which is a type of list that has an index (a slot) for each item. Sometimes JSON can just be an <a href="https://en.wikipedia.org/wiki/Object_%28computer_science%29" target="_blank">object</a>--check out the shopping list example below. In this case, “sriracha” is an object within the array of foods.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/10/3019731-inline-arrayandobjects.jpg" alt=""/>
+</figure>
+
+<p>What sets JSON apart from other formats is that in addition to being completely language independent, it is extremely adaptable. JSON uses conventions familiar to programmers that use the titans: C++, C, C#, Java, JavaScript, Perl, Python, and many others. A prominent number of websites use it for this reason.</p>
+
+<p>Twitter, for example, uses a JSON format to provide info about tweets to other apps and websites talking with Twitter servers. But for the clients asking the questions, they have to know the right way to ask. Clients know <em>how</em> to talk to the specific server because of its <a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a>, which is something like a list of “approved questions” that programmers have to know when they’re writing the code that connects to a specific server like Twitter’s. Think of an API as a super powerful instruction manual that has access to databases and hardware--the stuff programmers want their apps and sites to have access to.</p>
+
+<p>JavaScript (one of the most popular languages right now for building websites and web apps) is the only language equipped with a JSON API, meaning that for any other language you must construct a wrapper class to <em><a href="https://en.wikipedia.org/wiki/Wrapper_function" target="_blank">wrap</a></em> the functionality of the JSON.</p>
+
+<p>For journalists, wrapper classes are valuable because they allow us to connect pieces of information from all different kinds of systems, which is important because no two apps, websites or servers are ever exactly alike. Wrappers allow us to build customized newsroom tools which can connect to other apps and help us collect content, analyze what makes something popular, and or measure traffic could be improved.</p>
+
+<p>When I say wrappers are a “class,” that’s just code jargon for saying it holds the characteristics (<a href="https://en.wikipedia.org/wiki/Attribute_%28computing%29" target="_blank">attributes</a>) and abilities (or <a href="https://en.wikipedia.org/wiki/Method_%28computer_programming%29" target="_blank">methods</a>) of a “type.” Things are getting abstract, so here’s an example. An example of a “class” in real life would be a car, which you would express as type:car. Some of the “attributes” would be the color, the miles per gallon, and the model. The “methods,” which describe what can be done with the car, are commands like drive, reverse, or park.</p>
+
+<p>One of our creative technologists <a href="https://twitter.com/jihyun_says" target="_blank">Jihyun Lee</a> was able to make a 3-D interactive model of Earth that positions all of our readers around the world in real time. She used a program written in C++ and employing--guess what--JSON. You can read more about <a href="http://www.fastcolabs.com/3019729/our-3-d-interactive-map-shows-fastcompany-traffic-in-real-time" target="_self">her adventures with JSON here</a>.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/post/inline-image/fcglobe%20%281%29.jpg" alt=""/>
+</figure>
+
+<p>In C++, however,  there are no predefined JSON methods allowing you to parse or stringify the data, so the computer has to parse it. Parsing, simply put, is the process of taking raw data and sorting out the gruesome details.</p>
+
+<p>When you initially import the data into your program, it has no idea what’s what. The program only recognizes the data as a very long sequence of characters--a <a href="https://en.wikipedia.org/wiki/String_%28computer_science%29" target="_blank">string</a>.</p>
+
+<p>In Javascript, the JSON.parse command allows you to dissect the data and take the parts that you need so that you may use those as <a href="https://en.wikipedia.org/wiki/Parameter_%28computer_science%29" target="_blank">parameters</a> in other places. Parameters are just variables--stored values, like in Algebra--which are used in the subroutines or methods. Remember our example of a “class,” the car? A parameter for the method car.drive might be the distance to take the car, or the direction to drive in.</p>
+
+<p>To use Jihyun’s 3-D global map project as an example, the two parameters most important were latitude and longitude, because they specified where to plot our our readers in a global map. Initially, they were lost in the vicinity of a long string--the unrecognizable JSON data-format. She needed to extract them from the string so that C++ could understand what it all meant--she needed to parse it.</p>
+
+<p>Take this example of a JSON format listing groceries:</p>
+
+<p>{ milk: 0.02, siracha: true, eggs: 12, yogurt : “Greek” }</p>
+
+<p>Writing a wrapper class to implement a parse command would allow you to differentiate the types of data found inside the example above--otherwise in C++, it is just a jumble of characters, a useless string.</p>
+
+<p>The code in the wrapper class would specify that anything between double quotation marks classifies as a type of string; there are many of these in C++. It would sort the boolean values (aka “true” and “false”) from the numeric ones. Once it recognized the data types inside JSON, it would convert them all into individual objects that are ready to manipulate.</p>
+
+<p>Milk, siracha, eggs, and yogurt would no longer just be a meaningless sequence of characters--each would be paired with its own value and each would be its own object. For the first pair, “milk” is the identifier and “skim” the value--together, they are an independent object that can be used as a variable.</p>
+
+<p>So, if I wanted to verify if I was shopping for a dozen eggs, all I would have to do is check the value of it. This information would be ready for me to simply call on it--a parameter.</p>
+
+<p>We found that the best  version of a wrapper class for JSON in C++ has been built <a href="https://github.com/MJPA/SimpleJSON" target="_blank">here</a>. Fortunately, open-source platforms like <a href="https://github.com/" target="_blank">GitHub</a>, <a href="http://processing.org/" target="_blank">Processing</a>, <a href="http://www.arduino.cc/" target="_blank">Arduino</a>, <a href="http://www.openframeworks.cc/" target="_blank">OpenFrameworks</a>, are all  full of eager collaborators willing to share what they have previously built.</p>
+
+<p>You can actually find lots of prebuilt open source wrappers like the one I found, but understanding how it works is key to understanding which one fits best for you project. The beauty of open-source platforms allow people to get started in new projects much more quickly, so that they can get to building for a passion-specific goal.</p>
+
+<p>Please tweet suggestions for our next tutorials to @NataliasTweeet.</p>
