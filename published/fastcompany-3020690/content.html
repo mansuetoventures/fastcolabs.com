@@ -1,0 +1,56 @@
+<p>In modern apps, API integration is crucial; without connecting to the other networks we use, an app is just a silo. By now, developers have largely accepted the headaches of dealing with <a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">APIs</a>—the hours lost <a href="http://www.fastcolabs.com/3019731/a-dead-simple-intro-to-programming-for-journalists" target="_self">building and modifying wrappers</a>—as a natural part of the development process. By the time programmers start cranking out the original code for their project, they’ve often already lost creative momentum just integrating with other services.</p>
+
+<p>Temboo is one of those rare developer tools which could quickly become invaluable to app-builders. What follows is a simplified explanation of how this little startup is attempting to save the world thousands of hours of busy work--and, if they succeed, what their service means for the future of the “internet of things.”<br />
+ <br />
+<h3><a name="Why_APIs_Cause_Developers_Pain">Why APIs Cause Developers Pain</a></h3></p>
+
+<p>The real hassle with APIs is that your knowledge of one doesn’t translate to another. Once you get the hang of one kind of integration, it doesn’t help you much with the second. It’s hard to build up knowledge this way; each API has its own learning curve, its own methods, its own way of returning data in different formats. APIs also have different authentication protocols for login.</p>
+
+<p>And that’s leaving aside the perpetual updates that API creators release, forcing developers to update their code. Some web services give warnings of changes, some don’t. Documentation, which explains how to interact with the data, is also inconsistent in quality between sites. If app developers don’t take note of a change happening on an API on their app and don’t update their code accordingly, the results can be a catastrophic.<br />
+ <br />
+<h3><a name="What_Temboo_Does">What Temboo Does</a></h3></p>
+
+<p>Temboo acts like a layer on top of the APIs, providing users with code snippets that trigger complex processes that run on their cloud platform. For every five to six lines of Temboo code inside your program, there are about 200 on the cloud.<br />
+ <br />
+Take any sample code for specific Choreos in Temboo’s library, and you'll see that the code looks very similar when compared to one for a different API. This is because when these code snippets are run, they call up Temboo's cloud platform, which then performs the process, often but not always an API interaction, and return the data.<br />
+ <br />
+Without Temboo, programmers have to learn the particular way to 'talk' to an API. The goal is for the cloud to compute all the sophisticated steps. When a change occurs on an API, which is often, Temboo updates their code on the cloud side. Before this, programmers would have change their code manually, but now this extra step is no longer necessary. Vaughn Shinall, Director of Product Outreach at Temboo, explained some of possibilities this unlocks.</p>
+
+<p>“You have less of your own code to maintain and the code that you’re actually writing is the most creative part of it,” says Shinall. “Now you can just focus on what’s groundbreaking and unique about your invention rather than reinventing the wheel for all the other steps. Why should you ever have to program something that someone else has already figured out?”</p>
+
+<h3><a name="More_Than_An_API_Curator">More Than An API Curator</a></h3>
+
+<p>At a glance, APIs are the most prominent feature of Temboo’s service, but scrolling a little longer has big rewards. Temboo’s “Utilities” Tab allows users to do things like generate emails, convert data, and use their authentication plug-ins like OAuth.<br />
+ <br />
+OAuth is a popular authentication protocol. It works by generating a temporary password with limited privileges to a user’s profile, whether it is a twitter handle or Facebook timeline, depending on the app’s purpose.<br />
+ <br />
+Most APIs use OAuth. Understanding it is key when trying to build an app that interacts with a user’s outside information. It can get confusing, but Temboo offers a package similar to the ones it offers for APIs.</p>
+
+<p>“This is a great tool for both new programmers and experienced ones. We want to make it easy to be a programmer and have the freedom to use whatever language you are most comfortable with. No one is really focused on the user experience for programmers” says Shinall.</p>
+
+<h3><a name="What_This_Means_For_The_Internet_Of_Things">What This Means For The Internet Of Things</a></h3>
+
+<p>Temboo recently partnered with <a href="http://www.arduino.cc/" target="_blank">Arduino</a> to answer one question—“Makers are going to want to make projects that interact with APIs, how can we make it easier?”<br />
+ <br />
+When you are using Temboo’s code, you are only putting five or six lines on the small board as opposed to the cloud’s equivalent 200 lines of code.<br />
+ <br />
+Temboo’s cloud is doing the complex interactions executing the actual code. In a way, Temboo allows the cloud to exist inside of small boards. This allows for a hardware that doesn’t have much <a href="https://en.wikipedia.org/wiki/RAM" target="_blank">RAM</a> or sophisticated processing power, behave much more intelligently. Precisely enough, Yun in Mandarin translates to cloud.<br />
+ <br />
+At times, APIs return information the user may not have even requested.<br />
+“For example, the Foursquare API will just send all of this crazy glut back to you with extra details that you may not need. Say you want to check on the status of a venue on Foursquare, the data sent back will tell you who is the mayor of that region, how many people are checked in, and blah blah blah. But maybe you only want to know its rating” says Shinall.<br />
+ <br />
+This extra amount of unnecessary information is usually not a problem if it is sent back to a regular computer, but on a small piece of hardware that amount of data can be overwhelming for the RAM.<br />
+ <br />
+Temboo created output filters so that when you’re writing in a Choreo, you can select what data you want the API to cloud to shoot back.<br />
+ <br />
+Small hardware opens up a whole new world of possibilities for what can be done with Temboo past an API standpoint, making it ideal for programming tiny hardware and running Internet Of Things applications.<br />
+“The thing about connected devices everywhere is that they are not computers. They have no visual interfaces sometimes.” explains Shinall. “It’s hard to access pipe in a warehouse or a device in an the agricultural field reading soil temperature.”<br />
+ <br />
+The fact stands. These devices are not as smart as a computer, making them harder to update the software they run on whenever they are due for an upgrade. With Temboo, the device is hooking up to a cloud-based system, eliminating the need to go dig it out in the fields. Now, makers can just update the code on their computer and keep the device updated this way.<br />
+ <br />
+“It’s really easy to program connected devices. You can create all sorts of interactions. Think of all the different things it makes possible.<br />
+The menu on a TV never gets updated since you don’t plug it in. Now, you can have virtual firmware. That’s the interesting story and it’s where we see the technology going.”<br />
+ <br />
+As cloud computing technology develops, the ability to hold the cloud power without a huge server on location is powering small devices.<br />
+ <br />
+“We’re excited about embracing a whole new audience. Makers are an awesome group of people, full of great ideas. As more and more companies are making new small boards, like <a href="http://www.intel.com/content/www/us/en/do-it-yourself/galileo-maker-quark-board.html" target="_blank">Intel</a>, <a href="http://www.wired.com/geekdad/2012/02/inexpensive-arduino-alternatives/" target="_blank">Texas Instruments</a>, and <a href="http://www.raspberrypi.org/" target="_blank">Raspberry Pi</a>, this huge build up of creative is building up so that the Internet of Things is becoming more of a real thing. We’re proud to be part of something that connects everything together.”</p>
