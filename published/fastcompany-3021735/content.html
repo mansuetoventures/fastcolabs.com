@@ -1,0 +1,121 @@
+<p>We are living in a time of <a href="http://www.fastcolabs.com/3016702/why-the-next-big-thing-in-computing-is-conversation" target="_self">context-aware applications</a>. Driven by the forces of mobile computing, big data, ubiquitous sensors, social networks and GPS, these “aware” apps are becoming commonplace: Siri, Google Now, Tempo, Donna and, perhaps most saliently, the Google Glass platform are all examples.</p>
+
+<p>However, the voice of product designers has thus far been largely missing from the conversation. For over a decade, product design for the web has primarily meant creating wireframes and user flows directly from high-level business objectives, but wireframing is a poor fit for contextual apps. How do you draw a wireframe for Siri or Google Now when most of the functionality changes dynamically in response to the circumstances of the user?</p>
+
+<p>Without a design language to articulate contextual application behavior, the development of contextual apps is bottlenecked. Since we're building the technology to power these kinds of apps here at our company <a href="http://www.axilent.com/" target="_blank">Axilent</a>, we care about this sort of thing.</p>
+
+<p>We decided to see if we could address the design gap by creating a totally new design language. What we created is called CAVE, or Conversational Architecture Visual Expression. It’s designed to be used between ideation and the various discipline-specific activities of product development--engineering planning, UX design, visual design, and content strategy. Plus the name is fun: <em>“Do we have CAVE drawings for this app?”</em></p>
+
+<p>It’s now in alpha state at this point, but once we’re further along, the entire language will be released under a Creative Commons license, free for anyone to use. Here’s how we developed it.</p>
+
+<h3><a name="Designing_Contextual_Apps">Designing Contextual Apps</a></h3>
+
+<p>We started by asserting that product designers should use natural, one-to-one conversations as the fundamental design metaphor to describe contextual apps. It was a good start, but we needed to take it a step further.</p>
+
+<p>We wanted a visual design language that could fully articulate the behavior of a contextual app, and that could provide all the project participants the information they needed in order to do their jobs in the development of the app: developers would know what to build, copywriters would know what to write, visual designers would need creative direction, and so on.</p>
+
+<p>For our language, we decided there would be four requirements:<br />
+<ul>
+  <li><span>It had to be whiteboard, napkin and fancy presentation-friendly.</span></li>
+  <li><span>It had to be methodology neutral. At this point, the best practices for contextual app design are unknown. Therefore, we chose to just create a language, not a methodology. (The difference is a language lets you express ideas, whereas a methodology tells you how to approach the project.)</span></li>
+  <li><span>It had to both scale up and down: you should be able to describe a complicated app in a holistic way, but also illustrate a simple facet of an app.</span></li>
+  <li><span>Finally, everyone involved in the creation of an app should be able to read the language's description of that app and understand what they needed to know in order to do their jobs. That includes business stakeholders, user experience designers and developers.</span></li>
+</ul></p>
+
+<h3><a name="The_Challenges_Of_Language_Design">The Challenges Of Language Design</a></h3>
+
+<p>Creating a language is an ugly process. It involves making up a way to say something at the same time as you're trying to say it. You frequently struggle to express yourself. You find yourself wondering if there is an idea missing from the conversation, waiting for you to invent a name for it.</p>
+
+<p>We had to fight scope creep. With earlier versions of the language we were trying to solve adjacent but ultimately different problems, such as identifying customer segments for business stakeholders or prioritizing features for the product team. While these are admirable activities, they are not part of the problem that we're trying to solve. We found that we needed to remind ourselves that our goal was to describe a contextual app for the product team. Period.</p>
+
+<p>Finding in the right level of abstraction for the language was another challenge. The underlying design problem for contextual apps is that they are potentially very, very complicated. They shift and change depending on a wide variety of circumstances. If the language was too high-level, it would miss describing critical details.</p>
+
+<p>On the other hand, if the language was too low-level, app descriptions would be too complicated to be practical. We felt that the language needed to support detailed but practical levels of abstraction, and that it should let the app designer transition from one level of abstraction to another, as they felt appropriate. We decided to focus on three levels of abstraction that were critical for describing contextual applications: raw data, meaningful context, and application behavior.</p>
+
+<p>Finally, we had to keep it real: throughout the design process we continuously tested the language by using it for actual contextual application design. The design process quickly brought out any weaknesses in the language.</p>
+
+<h3><a name="What_CAVE_Does_For_App_Design">What CAVE Does For App Design</a></h3>
+
+<p>CAVE shows the relationship between devices, sensors and data, and how they relate to user context. It expresses an application’s modal response to context, and how that response relates to any user interfaces.</p>
+
+<p>CAVE diagrams are meant to be read by the whole team, and we imagine that they may also be authored by more that one member of the team, as different disciplines may be more comfortable with different abstraction layers. For example, a technical lead may choose to author the data layer of an application, whereas an experience lead may author the application's modal response.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/11/3021735-inline-cave-layers.png" alt=""/>
+</figure>
+
+<h3><a name="Starting_With_Data">Starting With Data</a></h3>
+
+<p>Context starts with data. To make a contextual app, you need to know what data is available to you, and where it originates. In the era of mobile computing, a large amount of data comes from sensors attached to mobile devices.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/11/3021735-inline-device-sensor-data.png" alt=""/>
+</figure>
+
+<p>However, sometimes data isn't collected directly, it comes from an external source, (such as Facebook).</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/11/3021735-inline-datasource-data.png" alt=""/>
+</figure>
+
+<h3><a name="Building_Context_From_Data">Building Context From Data</a></h3>
+
+<p>In order for data to be useful, one needs to extract context from it. In CAVE, a user's context is expressed with four kinds of elements: Persona, Affinity, Goal and Environment (PAGE).</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/11/3021735-inline-page.png" alt=""/>
+</figure>
+
+<p>A Persona is behavioral segment for users. It represents a long-standing pattern of behavior for a user that is unlikely to change much over time. Examples might be “social sharer” or “discount shopper”. Affinity represents a user’s preference for something. A Goal is a task that a user is attempting to accomplish at a given time and the Environment represents everything surrounding the user’s interaction with the app.</p>
+
+<p>We get from data to context via *inferences*, drawing conclusions about the user from conditions found in their behavior. An inference with a condition looks like this:</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/11/3021735-inline-inference-with-condition.png" alt=""/>
+</figure>
+
+<p>In this case, the square brackets indicate an inference is being made from the "Motion" data associated with the user. The condition is "Motion Detected" and the resulting context is On The Move (a part of the user's Environment).</p>
+
+<p>Sometimes no condition is required for an inference to build context.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/11/3021735-inline-context-capture.png" alt=""/>
+</figure>
+
+<p>Here we're capturing a user's product affinity from their Facebook data, regardless of what it might be.</p>
+
+<h3><a name="Modes_Responding_to_Context">Modes: Responding to Context</a></h3>
+
+<p>An application may respond to a given user context with a mode. A modal response looks like this:</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/11/3021735-inline-page.png" alt=""/>
+</figure>
+
+<p>The modal response diagram is organized into three columns. The left column shows the triggering user context. In this case the user must be proximate to the supermarket Goodways (part of their Environment) and that she must currently have the Goal of needing to shop for groceries.</p>
+
+<p>The right hand column is a representation of the user interface of the modal response. In this case it's an audio interface, so it represents the words spoken by the application to the user.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/11/3021735-inline-mode-inventory.png" alt=""/>
+</figure>
+
+<p>In the middle lies the mode inventory. This shows all of the elements required of the application in its response to the user context. A modal response can consist of Content, Functionality, Rules and Style.</p>
+
+<p>Content is content: text, speech, video, audio and so forth. Functionality represents interactive features of the application, Rules refer to business rules adhered to by the application and Style is the subjective manner in which the app interacts with the user.</p>
+
+<h3><a name="Organizing_The_Application">Organizing The Application</a></h3>
+
+<p>All of an applications modes are organized in a stack, prioritized from top to bottom. The idea is the application will look for a user context match at the top of the stack, and then fall down through it, looking for a match, until finally reaching the default mode at the bottom. We call this structure a Switch.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/11/3021735-inline-switch.png" alt=""/>
+</figure>
+
+<p>Applications can be single-Switch, or organized into multiple Switches (probably a good idea for anything but the simplest contextual applications).</p>
+
+<h3><a name="Where_Are_We_Going_From_Here">Where Are We Going From Here?</a></h3>
+
+<p>We will be putting up a more formal definition with some examples at <a href="http://www.cavelanguage.org/" target="_blank">cavelanguage.org</a> and requesting feedback from as many people as possible. We'd love to hear from anyone who's interested. Send me your thoughts <a href="https://twitter.com/LorenDavie" target="_blank">@LorenDavie</a> on Twitter.</p>
+
+<p><em>Loren Davie is the CEO and founder of <a href="http://www.axilent.com/" target="_blank">Axilent</a>, which aids developers in building contextual applications. You can find his blog <a href="http://www.axilent.com/blog/" target="_blank">here</a>.</em></p>
