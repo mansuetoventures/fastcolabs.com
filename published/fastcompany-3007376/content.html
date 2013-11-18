@@ -1,0 +1,637 @@
+<style>
+
+	#fc-quiz h2 {
+		margin-bottom: 0!important;
+		margin-top: 24px;
+		margin-bottom: 24px;
+	}
+	.quiz-point {
+		width: 38px!important;
+		display: inline!important;
+		margin-right: 10px!important;
+		text-align: center!important;
+		float: left;
+	}
+
+	.quiz-point p {
+		height: 30px;
+	}
+	.quiz-score {
+		font-size: 36px;
+	}
+
+	#quiz-tweet {
+		position: relative;
+		display: inline-block;
+		left: 82px;
+		top: 4px;
+	}
+
+	.quiz-error {
+		display: none;
+		margin-bottom: 24px;
+		color: red;
+	}
+
+	#quiz-result-info {
+		display: none;
+		width: 50%;
+		margin: 0 auto;
+		margin-bottom: 40px;
+	}
+
+	#quiz-result-description {
+		margin-top: 5px;
+	}
+
+	#quiz-result-description div{
+		font-size: 16px;
+	}
+
+	#quiz-result-image p {
+		line-height: 18px;
+	}
+
+	.quiz-reset {
+		color: #364E85 !important;
+		text-align: center;
+		font-size: 16px !important;
+		cursor: pointer;
+	}
+
+	button#quiz-calculate {
+		height: 45px;
+		font-weight: bold;
+		font-size: 14px;
+		margin-bottom: 24px;
+	}
+
+</style>
+
+<div id="fc-quiz">
+
+<p>
+Read these nine statements. Type in the number for how much you agree or disagree. When you're done (you have to answer them all), click "Which type am I" and share your type with friends.</p>
+
+<p>
+5 points = Strongly Agree<br>
+4 points = Agree<br>
+3 points = Somewhat Agree<br>
+2 points = Disagree<br>
+1 points = Strongly Disagree<br>
+<br>
+
+<p><input type="number" min="0" max="5" step="1" class="quiz-point" data-bucket="nightOwl-2|fireFighter-1">After most people go to bed, I go to work solving problem after problem.</p>
+
+<p><input type="number" min="0" max="5" step="1" class="quiz-point" data-bucket="loneWolf-2|monoTasker-2">One person, one task is the best formula for success.</p>
+
+<p><input type="number" min="0" max="5" step="1" class="quiz-point" data-bucket="connector-2|monoTasker-1">It's important to maintain a network of people with specific sets of skills.</p>
+
+<p><input type="number" min="0" max="5" step="1" class="quiz-point" data-bucket="multiTasker-2|connector-1">I can balance an extraordinary workload because I know the perfect people to handle certain details.</p>
+
+<p><input type="number" min="0" max="5" step="1" class="quiz-point" data-bucket="earlyBird-2|loneWolf-1">I start work at the crack of dawn, because no one pesters me for help.</p>
+
+<p><input type="number" min="0" max="5" step="1" class="quiz-point" data-bucket="procrastinator-2|multiTasker-1">It's okay to push off deadlines if I'm balancing more work than one person can usually handle.</p>
+
+<p><input type="number" min="0" max="5" step="1" class="quiz-point" data-bucket="earlyBird-1">If an assignment comes in late, it's best to get up early to tackle it.</p>
+
+<p><input type="number" min="0" max="5" step="1" class="quiz-point" data-bucket="procrastinator-1">Perfect is better than on time.<br>
+
+<p><input type="number" min="0" max="5" step="1" name="" class="quiz-point" data-bucket="fireFighter-2|nightOwl-1">If you leave behind a problem at quitting time, I'll solve it by the time you wake up.</p>
+<button id="quiz-calculate">Which type am I?</button>
+<div class="quiz-error"></div>
+<br>
+<div id="quiz-result-info">
+	<h2>
+		<span class="quiz-score"></span>
+		<div id="quiz-tweet"></div>
+	</h2>
+	<div id="quiz-result-description"></div>
+	<div id="quiz-result-image"></div>
+</div>
+    </div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+     <script>
+
+    //Buckets: nightOwl, fireFighter, loneWolf, monoTasker, connector, earlyBird, procrastinator
+
+    $(function(){
+    	$('#quiz-calculate').click(function(){
+    		//Various buckets and set up default points
+				var bucket = {
+					nightOwl: {
+						propername: 'The Night Owl',
+						score: 0,
+						description: 'You reach peak productivity after everyone else has gone to bed.',
+						link: 'http://www.fastcompany.com/3021657/the-night-owl',
+						image: 'http://f.fastcompany.net/assets/2013/11/14/i-9-181-most-productive-people-archetypes.png',
+						tweet: 'I\'m a Night Owl: I reach peak productivity after everyone else has gone to bed. What type are you? http://f-st.co/6baoCk2 #worksmarter'
+					},
+					fireFighter: {
+						propername: 'The Firefighter',
+						score: 0,
+						description: 'When you\'re at work, you\'re on, putting out one blaze after another, without distraction or delay.',
+						link: 'http://www.fastcompany.com/3021699/the-firefighter',
+						image: 'http://d.fastcompany.net/assets/2013/11/14/i-7-181-most-productive-people-archetypes.png',
+						tweet: 'I\'m a Firefighter: At work, I put out one blaze after another without delay. What type are you? http://f-st.co/6baoCk2 #worksmarter'
+					},
+					loneWolf: {
+						propername: 'The Lone Wolf',
+						score: 0,
+						description: 'You work solo, loading complex problems into your head and working them out from there.',
+						link: 'http://www.fastcompany.com/3021695/the-lone-wolf',
+						image: 'http://c.fastcompany.net/assets/2013/11/14/i-6-181-most-productive-people-archetypes.png',
+						tweet: 'I\'m a Lone Wolf: I work solo, and isolation is great for my productivity. What type are you? http://f-st.co/6baoCk2 #worksmarter'
+					},
+					monoTasker: {
+						propername: 'The Mono-Tasker',
+						score: 0,
+						description: 'You sneer at multitabs, loathe push notifications, and grab each task with both hands.',
+						link: 'http://www.fastcompany.com/3021691/the-mono-tasker',
+						image: 'http://a.fastcompany.net/assets/2013/11/14/i-4-181-most-productive-people-archetypes.png',
+						tweet: 'I\'m a Mono-tasker: I grab each task with both hands. What type are you? http://f-st.co/6baoCk2 #worksmarter'
+					}, 
+					multiTasker: {
+						propername: 'The Multitasker',
+						score: 0,
+						description: 'You wish your phone\'s browser could handle more than eight windows. Perhaps you\'re using that phone right now.',
+						link: 'http://www.fastcompany.com/3021686/the-multitasker',
+						image: 'http://f.fastcompany.net/assets/2013/11/14/i-3-181-most-productive-people-archetypes.png',
+						tweet: 'I\'m a Multitasker: I wish my phone\'s browser could handle more than 8 windows. What type are you? http://f-st.co/6baoCk2 #worksmarter'
+					},
+					connector: {
+						propername: 'The Connector',
+						score: 0,
+						description: 'You\'re constantly meeting new people--and these relationships are the foundation of your productivity.',
+						link: 'http://www.fastcompany.com/3021693/the-connector',
+						image: 'http://b.fastcompany.net/assets/2013/11/14/i-5-181-most-productive-people-archetypes.png',
+						tweet: 'I\'m a Connector: My connections (new and old) are the foundation of my productivity. What type are you? http://f-st.co/6baoCk2 #worksmarter'
+					}, 
+					earlyBird: {
+						propername: 'The Early Bird',
+						score: 0,
+						description: 'You get up early. Insanely early. You find your peace--and most productive hours--in the first slice of the day.',
+						link: 'http://www.fastcompany.com/3021689/the-early-bird',
+						image: 'http://c.fastcompany.net/assets/2013/11/14/i-2-181-most-productive-people-archetypes.png',
+						tweet: 'I\'m an Early Bird: My most productive hours are in the first slice of the day. What type are you? http://f-st.co/6baoCk2 #worksmarter'
+					}, 
+					procrastinator: {
+						propername: 'The Proscrastinator',
+						score: 0,
+						description: 'Instead of making a decision right away, you wait for more info to come in. You are intimate with deadlines.',
+						link: 'http://www.fastcompany.com/3021633/the-procrastinator',
+						image: 'http://a.fastcompany.net/assets/2013/11/14/i-8-181-most-productive-people-archetypes.png',
+						tweet: 'I\'m a Procrastinator: I don\'t make decisions right away. I\'m intimate with deadlines. What type are you? http://f-st.co/6baoCk2 #worksmarter'
+					}
+				};
+
+
+			var totalScore = 0;
+    		var quizPoint = $('.quiz-point');
+    		var isValid = true;
+
+    		//process each line of question and process data-attribute for bucket name and multiplier
+    		$.each(quizPoint, function(key,val){
+	    		var score = Number($(val).val());
+	    		var dataBucket = String($(val).data('bucket')).split('|');
+	        if ($(val).val().length === 0) {
+	        	isValid = false;
+	        }   
+	        $.each(dataBucket, function(bucketKey,bucketVal) {
+	    			var bucketData = String(bucketVal).split('-');
+	          var bucketName = bucketData[0];
+	          var multiplier = Number(bucketData[1]);
+	          //We have bucket name , multiplier and point, we push that to the bucket object
+	          bucket[bucketName]['score'] += score * multiplier;
+	    		});
+    		});
+    		
+    		//detemine the winning value and set the winning type to the object key (name)
+    		var result = {
+    			value: 0,
+    			type: '',
+    			description: '',
+    			link: '',
+    			image: '',
+    			tweet: ''
+    		}
+        var winningVal = 0;
+        var winningType = '';
+
+        $.each (bucket, function(key,val){
+          if (val['score'] >= result.value) {
+           result.value = val['score']; 
+           result.type = val['propername'];
+           result.description = val['description'];
+           result.link = val['link'];
+           result.image = val['image'];
+           result.tweet = val['tweet'];
+          }
+        });
+        if (isValid) {
+	        $('.quiz-score').html(result.type);
+	        $('html,body').animate({scrollTop:$('#quiz-calculate').offset().top}, 500);
+
+	        $('#quiz-result-description').html('<div>' + result.description + '</div>');
+	        $('#quiz-result-image').html('<img class="inline-sidebar inline" src="' + result.image + '">' + '<p>Read more about ' +'<a href="' + result.link + '"><b>' +result.type +'</b> </a> or <span class="quiz-reset"><b>take this quiz again.</b></span></p>');
+	        // $('#quiz-tweet').html('<a href="http://twitter.com/home?status='+ encodeURIComponent(result.tweet) + '" target="_blank" onclick="window.open(this.href,\'targetWindow\',\'resizable=yes,width=550,height=550\')"><img src="http://f.fastcompany.net/assets/2013/11/14/twitterbutton.png"></a>');
+	        $('#quiz-tweet').html('<a href="http://twitter.com/home?status='+ encodeURIComponent(result.tweet) + '" target="_blank"><img src="http://f.fastcompany.net/assets/2013/11/14/twitterbutton.png"></a>');
+	        _gaq.push(['_trackEvent', 'User' , 'Quiz:3021596' , result.type, null, true]);
+	        $('#quiz-result-info').fadeIn();
+
+	       	$('.quiz-reset').click(function(){
+				$('html,body').animate({scrollTop:$('#fc-quiz').offset().top}, 500);
+				$('.quiz-point').val('');
+				result = {};
+				bucket = {};
+				$('#quiz-result-info').fadeOut();
+			});
+
+        } else {
+        	$('.quiz-error').html('Please enter a number for each statement.').fadeIn();
+        }
+    	});
+
+		$('#quiz-tweet').click(function(e){
+			e.preventDefault();
+			var link = $(this).find('a').attr('href');
+			window.open(link, '_blank', 'width=800,height=350');
+		})
+
+    });
+    </script>
+    
+[carousel title="a b c"]
+
+[/carousel]
+
+[s]strike[/s]
+
+[figure=inline-original]
+[img]multisite_files/fastcompany/inline/2013/10/3007376-inline-us.jpeg[/img]
+[/figure]
+
+[figure=inline-original]
+[img]multisite_files/fastcompany/inline/2013/11/3007376-inline-3021203-inline-wdgxu5a.jpg[/img]
+[/figure]
+
+
+
+[interview=question]What was the original pitch to Opera to start building Coast?
+[/interview]
+
+[interview=answer]The original pitch is quite close to what Coast has become today. If you analyze how technology and user experience paradigms have changed the last decades it becomes quite clear that existing browsers are doing a poor job and only taking baby steps at the time in the right direction. I proposed a project to make the browser invisible and designed for touch.[br][br]Since I had been working on the idea for several months (though still as a side project), the case that I presented to the president of engineering at Opera was relatively complete. The case include historical context, technical and UX justifications, new paradigms and principles for browsing, technical/UX solutions for invisible technology, and two visual designs. To give an example, two principles from the pitch were:
+[/interview]
+
+
+
+[list]
+[*]Content is king, the browser should be invisible and not dominate the visual experience.
+[*]Websites are becoming applications and shouldn't be interweaved with the browser chrome. It's up to the each site to decide what interaction model to employ, how users can manage their favorite content, and how contextual actions such as sharing or printing should be presented.
+[/list]
+
+
+[quote]this is a quote[/quote]
+[quote=pull]This is a pullquote2[/quote]
+
+[info][url=www.twitter.com]Twitter[/url][url=]test[/url][url=www.fb.com]facebook[/url][url=www.linkedin.com]linkedin[/url][/info]
+gfdgdf
+[info][list]
+  [*][url=www.twitter.com]Twitter[/url]
+  [*][url=]test[/url]
+  [*][url=www.fb.com]facebook[/url]
+  [*][url=www.twitter.com]Twitter[/url]
+[/list][/info]
+gg
+
+[figure][tweet]https://twitter.com/tim_cook/statuses/381131235247923201[/tweet][/figure]
+
+[iframe height=200 scroll=no]https://s3.amazonaws.com/infographics.fastcompany.com/miscellaneous/svgClock.html[/iframe]
+
+<p><strong>The photos</strong> and updates began appearing on individual profiles, then popped up across interrelated news feeds: The first Facebook-staffer wedding had gone off without a hitch. Two beloved engineers, Ruchi Sanghvi and Aditya Agarwal, had arrived at Facebook as a couple in 2005 and survived the unique pressure of cranking out code for the hottest startup in the world. "They were a package deal," says Facebook founder and CEO Mark Zuckerberg. So, over what the company still calls its "Christmas break," Zuckerberg and more than a dozen past-and-present Facebook indispensables -- including now-departed cofounders Adam D'Angelo and Dustin Moskovitz -- trekked to a beach in Goa, India, for a week-long family celebration. Everyone dressed in costumed splendor; Zuckerberg looked fetching in a maroon silk sherwani. Women flashed henna tattoos. The groom arrived on horseback.</p>
+
+
+<p>The elaborate Indian ceremony, a Bollywood spectacle with a big helping of Silicon Valley, presented a rare, vulnerable moment for the Facebook infrastructure -- one rogue wave could have taken out much of the site's brain trust. But it also offered a point of reflection for the crew. "All of us together, in that beautiful place," one attendee recalls. "We've come so far. Literally."</p> 
+
+<div id="extra_box">
+      <div class="extra">
+            <img src="http://images.fastcompany.com/MIC/icon_slide.gif" border="0" alt="Slideshow" />
+            <p>Slideshow</p>
+      </div>
+      <p><a href="http://www.fastcompany.com/pics/behind-scenes-facebooks-grown-headquarters" target="_blank">Behind the Scenes at Facebook's Grown Up Headquarters</a></p>
+</div>
+
+<p>Facebook, which is just turning six, has achieved a level of maturity most wags thought would never come. Somewhere along the road to becoming the platform of choice for 400 million users in every country on earth, the company grew up. Baby photos now dot the worktables at its Palo Alto headquarters. Chefs provide free gourmet fare in the company cafeteria. And the founder, <a href="http://www.fastcompany.com/magazine/115/open_features-hacker-dropout-ceo.html">who once coded the site while dashing between makeshift offices</a> in a beat-up car that didn't need a key, now mingles with his 1,200 employees, recruited and supported by a real HR person, in a new 135,000-square-foot office space. "We used to stand outside of Stanford looking for engineers to help us," laughs Chris Cox, vice president of product, and creator of the original news-feed feature.</p>
+
+<p><img class="float-right" src="http://images.fastcompany.com/magazine/143/56-Facebook-graph-inlinejpg" alt="Tower of Power" />
+Today, Facebook feels the way <a href="http://www.fastcompany.com/mic/2010/profile/google">Google</a>, <a href="http://www.fastcompany.com/mic/2010/profile/intel">Intel</a>, and <a href="http://www.fastcompany.com/mic/2010/profile/microsoft">Microsoft</a> likely did at similar stages in their own life cycles -- still agile enough to invent the future, but sufficiently stable to handle some real turbulence. In fact, Zuckerberg has been studying those companies, and their histories, closely. "There are advantages to being both bigger and smaller," he tells me. "But the cool thing is, we're in our sweet spot now."</p>
+
+[figure=inline-small align=right]
+[img]multisite_files/fastcompany/inline/2013/10/3020026-inline-i-2-burberry-trench-coat.jpg[/img]
+[caption]The Burberry trench coats[credit]Image via Burberry World[/credit][/caption]
+[/figure]
+
+<p>For Zuckerberg, sweetness translates as pure power, which is now Facebook's to lose. Having all but vanquished MySpace, and pushing <a href="http://www.fastcompany.com/mic/2010/profile/twitter">Twitter</a> ever closer to becoming a mere utility for ego-streaming, Facebook lords over the social-media landscape, with no pretenders in sight. The company more than doubled its user base last year, a scale that's hard to fathom until you hear, as I did sitting in Zuckerberg's conference room the day after the earthquake, that Facebook users were updating their statuses with the word "Haiti" some 1,500 times a minute. But part of the genius of Facebook is that it has used this seemingly unassailable position to double down on its commitment to improving itself, even in the least-visible aspects of the site. Despite the grim economic outlook early in 2009 -- "We didn't know how bad things might get," says Zuckerberg -- the young CEO did what every great Valley CEO has done in down years: sink money and time into continually perfecting "the product." Zuckerberg grew Facebook's engineering ranks by 50%, and those teams, though increasingly staffed by greenhorns, unveiled features and products at a record pace -- from the very practical (tripling site speed) to the profound (the launch of peace.facebook.com). At the same time, the company encouraged its people not to fear the monstrous thing they had created. "If you roll out a feature to 10 million people and 10% don't like it, that's a lot of hate mail," says Mike Schroepfer, VP of engineering. But not enough to threaten the site's existence. (A recent revision to its privacy policy was, relative to past experiences, largely uncontroversial.) And although the company achieved cash-flow positive status for the first time last year, that wasn't the primary goal. "What 2009 was about for us was making the site better and growing users," says Zuckerberg.</p>
+
+[figure=inline-small align=left]
+[img]multisite_files/fastcompany/inline/2013/10/3020026-inline-i-2-burberry-trench-coat.jpg[/img]
+[caption]The Burberry trench coats[credit]Image via Burberry World[/credit][/caption]
+[/figure]
+
+<p>Zuckerberg himself, a majority stakeholder who cannot be shoved aside, exemplifies the way that crushing the competition has freed the company to gamble even harder. "A lot of companies are set up so that people judge each other on failure. But I'm not going to get fired if I have a bad year. Or a bad five years." It's an attitude he hopes will outlast him, and will liberate even those who are less insulated. "I don't worry about making things look good if they're actually not," he says, nodding to invisible investors in the room. "So many businesses just get so worried about looking like they might make a mistake that they get afraid to take any risks." Zuckerberg himself, a majority stakeholder who cannot be shoved aside, exemplifies the way that crushing the competition has freed the company to gamble even harder. "A lot of companies are set up so that people judge each other on failure. But I'm not going to get fired if I have a bad year. Or a bad five years." It's an attitude he hopes will outlast him, and will liberate even those who are less insulated. "I don't worry about making things look good if they're actually not," he says, nodding to invisible investors in the room. "So many businesses just get so worried about looking like they might make a mistake that they get afraid to take any risks."</p>
+
+
+<div id="essentials_box">
+  <table border="0" cellspacing="0" cellpadding="0" width="100%">
+      <tbody><tr>
+         <td width="91"> <img style="display:block;" src="http://images.fastcompany.com/MIC/essentials.gif" border="0" alt="" /> </td>
+         <td width="120"> <span class="ess_title">WHEN<br />FOUNDED</span><br />2004 </td>
+         <td width="121"> <span class="ess_title">HEADQUARTERS</span><br />Palo Alto, CA </td>
+         <td width="120"> <span class="ess_title">CEO</span><br />Mark Zuckerberg </td>
+         <td width="120"> <span class="ess_title">NUMBER OF<br />EMPLOYEES</span><br />1000+ </td>
+         <td width="39" valign="bottom"><p class="trigger"><a href="#"><img src="http://images.fastcompany.com/MIC/more.gif" border="0" alt="" /></a></p></td>
+      </tr>
+      <tr>
+   </tr></tbody></table>
+   
+   <div class="toggle_container">
+      <h3>Facebook</h3>
+      <div id="more_info">
+         <p><span class="ess_title">total revenues for most recent fiscal year</span> <br /> $500 million (estimated) </p>
+         
+         <p><span class="ess_title">what the company is most famous for</span> <br /> Developing Facebook. </p>
+ 
+         <p><span class="ess_title">why it's innovative</span> <br /> With more than 350 million users around the world, Facebook has become the platform of choice for major brands, political candidates, scrapbooking moms, and social causes looking to "engage" and "converse" rather than merely "sell" and "broadcast."</p>
+ 
+         <p><span class="ess_title">web</span> <br /> <a href="http://www.facebook.com" target="_blank">http://www.facebook.com/</a></p>
+                  
+         <p><span class="ess_title">blog</span> <br /> <a href="http://blog.facebook.com/" target="_blank">http://blog.facebook.com/</a></p>
+         
+         <p><span class="ess_title">facebook</span> <br /> <a href="http://www.facebook.com/facebook" target="_blank">http://www.facebook.com/facebook</a></p>
+      </div>
+   </div>
+</div>
+
+<p><strong>It is inside</strong> Facebook's engineering ranks that the company's love of risk really reveals itself. "We move very fast," says Andrew "Boz" Bosworth, an engineer who heads up Facebook's "boot camp," a six-week introduction into its code and customs that he calls a "cultural indoctrination" for incoming engineers. "And we definitely fight. We expect people to be passionate, and they're going to fight to make their case." In fact, "fight," along with "entrepreneurial" and "impact," are words one hears constantly on the Facebook campus. Bosworth arrived via Harvard -- he was Zuckerberg's teacher in an artificial-intelligence class -- and Microsoft, an environment he suggests is less than inspired. ("It's a world like 'insert product specification, receive code,' " he says.) At Facebook, by contrast, "it's free form. If you're not coming up with new ideas, then you're just along for the ride."</p>
+
+<p>The sparring -- which takes place at meetings, in prototype demos, and in constant online conversations, and often gets mischaracterized as staff revolt -- focuses routinely on the small issues, such as how to make the main page less cluttered. But the big-picture stuff also looms large. "I didn't realize it from the outside, but the change in going from a [college-student-only] site to being open to the world was extremely controversial," says Paul Buchheit, who came to Facebook last August after his company, FriendFeed, was acquired. "Most people [at Facebook] thought it was a bad idea and was going to ruin the site." Buchheit, a Valley legend, was an early Google employee who helped develop Gmail and coined the Google motto "Don't be evil." He sees Zuckerberg's decision to push Facebook ahead -- despite a big buyout offer from Yahoo sitting on the table -- as a defining moment. "They basically gambled the whole company on that one step."</p><p>
+
+<iframe src="http://www.fastcompany.com/embed/a4d7c3a57e920" width="640" height="360" scrolling="no" frameborder="0"></iframe>
+
+</p><p><em><span style="font-size:small;">Facebook recruitment videos like this one give prospective employees a window into the company's culture.</span></em>
+</p>
+
+<p>Now at work on next-generation infrastructure at Facebook, Buchheit is a living cautionary tale about how hard it is for big companies to scale. He cofounded FriendFeed after a short post-Google recovery period. By the time he left Google, "the pipeline for releasing features was getting really long. If I checked in code now, it might be live to the world in three months." It felt good to move quickly again. "At FriendFeed, if we had an idea, we could make it live right away. That's how I enjoy developing things," he says. The benefit to waiting is a stable system. The cost comes in time to market, in the ability to deliver even an early version of a future killer idea. "People underestimate the cost of slowing things down and focus instead on the benefits of the increased stability," Buchheit says. "But you think differently about a product that takes so long. If you're not sure if it's a good idea or not, you are reluctant to try it out." Facebook has weekly product updates, but if you really want to test something, you can push your code out daily to a group of users to test. "We win our fights through prototyping," says Bosworth. "We get our ideas out there."</p>
+
+<p><strong>Zuckerberg,</strong> like Buchheit and Bosworth, is keenly aware of the importance of rapid deployment and iteration, even as the company has become too big for staffers to shout updates to one another across the room. At the heart of the process is the notion of "hacking," which Zuckerberg insists is not about breaking and entering: "It's about being unafraid to break things in order to make them better." Buchheit, a strong internal voice for hacking, describes it as a mix of arrogance and curiosity. "The root of the hacker mind-set is 'There's a better way,' " he says. "Just because people have been doing it the same way since the beginning of time, I'm going to make it better." After years of making and remaking the site, pride of ownership takes a backseat to the sheer rush of creation. "It's like castles in the sand," designer Soleio Cuervo says of the countless product changes that happen over the course of a week, month, and year. "What we make won't last, but we make things fast and get to test our ideas quickly with real users. We're in it for the impact."</p>
+
+<p>Determined to keep that mind-set alive as the company grows, Facebook has raised the all-nighter to an art form. "Hackathons," which started when the site was just a handful of friends around a dining table, are now all-hands meetings held every other month or so. Any project, any idea is on the table. If you can find some friends to work on it with you, go for it. The company provides food, music, and beer. It sounds like so much code-boy BS, except that most everyone shows up, even the lawyers. Even Zuckerberg. And the sessions have produced an astonishing array of popular site features, including video messaging and chat. Bosworth's boot-camp training comes in handy for the hackathons, since at any given time some 40% of engineers are brand new. "We get them working on every area of the site, so they know different code, different products," he says, adding that ultimately, cross-disciplinary teams naturally form around good ideas. "If you can get it into prototype, we can evaluate it." The boot-camp system also yields a healthy measure of empathy for just how hard others are working. "It's easy to think you are the only one doing something important if you don't know how tough everyone else's projects are," Bosworth says.</p>
+
+<p>New ideas, better products, and more users are still on Zuckerberg's mind for 2010. There are more mundane chores as well: The site is so large now that the Facebook crew is in the midst of cleaning up years' worth of the underlying code -- a multigenerational hodgepodge of so-called spaghetti, which could pose a threat to site stability and product development down the road.</p>
+
+<p>Yet the real target for 2010 may well be Google, for which Zuckerberg has always professed a profound admiration. After I ask about the big, hairy goal for user growth I've heard he has set for 2010, he refuses to put a number on it. "We don't like to talk about that sort of stuff," he says. "Three-hundred-and-fifty million is good. But when you compare it to everyone in the world, it's just a start." Nevertheless, he can't help but mention Google and its 800 million users. Shooting for that? Smile. No comment. But it's the number that hides in plain sight for everyone at the company. "We always have a big dragon to slay," one staffer tells me, "and this year it's Google."</p>
+
+<p>Even more than an assault on a hero-competitor, Facebook's growth is a shot across the bow of <a href="http://www.fastcompany.com/blog/kit-eaton/technomix/if-youve-got-more-150-facebook-friends-theyre-no-friends-all">Dunbar's number</a>, a wonky theoretical limit to the number of people one can supposedly maintain stable social relationships with -- like how a dinner-party conversation becomes unwieldy with too many people at the table. Dunbar's number is brought up at Facebook nearly as often as "risk" and "impact," and all three concepts are inextricably linked: Can the site maintain its groove under the weight of all those users? "We really believe that if the world becomes more open and transparent, things will be better," says Zuckerberg, reverting to tech evangelist. Then he mentions Facebook's engineer-to-user ratio, a point of serious hacker pride. "We're at the spot where each engineer is personally responsible for at least a million users," and growing, he says, tracing an upward line in the air. He gives me a "That's impressive, right?" look before pointing out that Google needs 10,000 engineers to serve its 800 million customers -- a much lower ratio. "Yeah," he smiles. "I think the next few years are going to be a very fun period for the company."</p>
+
+Beef strip steak kielbasa, short loin leberkas turducken biltong spare ribs. Tri-tip kielbasa corned beef ham hock, sausage turkey hamburger ham pork chop pork turducken. T-bone shoulder spare ribs, capicola leberkas filet mignon pork chop rump pancetta prosciutto. Drumstick brisket salami meatball sirloin rump<ground round. Hamburger beef sirloin fatback turkey. Hamburger corned beef meatball tail meatloaf bresaola capicola strip steak pork loin short ribs fatback shoulder. [b]Bresaola bacon[/b] ball tip rump salami pastrami prosciutto cornedbeef kielbasa chicken ribeye jerky strip steak.
+
+[figure][tweet height=210]https://twitter.com/elonmusk/status/375535096998006784[/tweet][/figure]
+[figure][tweet]https://twitter.com/elonmusk/statuses/375535096998006784[/tweet][/figure]
+
+[info]
+[h4]SPONSORED:[/h4]
+Explore the evolving science of content marketing: The consumer's needs, the tools employed, and the latest learnings from the best brands in the business--with an eye toward the future of brand content marketing. 
+
+[url=http://www.fastcocreate.com/section/content-and-pervasive-creativity][i]Click here for more Content & Pervasive Creativity[/i][/url].
+[/info]
+
+Andouille bacon cow tongue. [b]Kielbasa salami tongue[/b] chicken capicola [i]short ribs turkey[/i], ribeye frankfurter venison [u]tri-tip rump cow[/u] sirloin ham. [s]Spare ribs turkey[/s] ground round pork loin doner meatball, turducken tongue short loin pork chop shankle jerky. Pork corned beef biltong kielbasa doner turducken shankle short loin brisket chuck pancetta sausage. Chicken meatloaf shankle chuck boudin pork belly turkey. Strip steak jowl beef ribs meatloaf ground round.
+
+[subhead]Kielbasa chuck sausage strip steak jerky tenderloin.[/subhead] 
+
+Pig filet mignon meatball biltong. Kielbasa pork loin pork belly tenderloin meatball boudin spare ribs brisket pork chop ham. Ground round swine chicken corned beef, biltong beef bacon short loin. Bison burger. 
+
+Pancetta pork chop tail kielbasa jowl, andouille ground round venison corned beef meatball beef ribs hamburger bresaola pastrami shank. Tail meatloaf ribeye, capicola t-bone spare ribs cow jowl short loin pastrami venison sirloin beef chicken pork loin. Shankle swine salami leberkas capicola. Turducken salami shankle swine turkey corned beef, pancetta ham bresaola tri-tip. Pork loin meatloaf tri-tip bresaola pork belly turkey tenderloin jowl chicken boudin beef ribs chuck.
+
+[quote=pull]This is a pullquote with auto-quotation marks, aligned left by default.[/quote] 
+
+Turducken pork loin flank doner. Beef ribs doner cow, ball tip strip steak shankle bresaola sirloin. Ribeye pork meatloaf, prosciutto ham hock pork belly chuck doner. Biltong pork chop frankfurter jowl, sirloin corned beef meatloaf swine shank turkey pork belly salami ham hock chicken.
+
+Pork loin capicola pork chop short loin. Chuck tongue drumstick ball tip, corned beef ham hock hamburger pig rump ground round. Leberkas andouille drumstick meatloaf corned beef salami pig. Doner cow sirloin sausage biltong. Spare ribs sirloin ground round andouille pig frankfurter ham hock shoulder strip steak meatloaf pork belly pork loin chicken. Strip steak bresaola pancetta short ribs, chuck pastrami pork belly meatball fatback beef filet mignon andouille.
+
+[quote]This is a blockquote: Prosciutto pork loin shankle brisket. Salami venison flank corned beef tenderloin shoulder jerky, strip steak pork pastrami kielbasa. Drumstick short ribs ribeye ham tongue turducken flank corned beef boudin jerky turkey tail brisket shoulder. Pork belly short ribs tail meatball, t-bone bresaola flank pork fatback cow boudin tri-tip rump drumstick. Prosciutto pork loin shankle meatloaf turducken shank ground round filet mignon chicken sausage bresaola ham hock jowl strip steak corned beef. Pastrami capicola leberkas, kielbasa tail flank turkey tri-tip hamburger pork belly filet mignon meatball ball tip ham hock brisket. Capicola tenderloin shankle brisket strip steak pancetta.[/quote]
+
+Cow bresaola frankfurter tenderloin ham. Pork chop bresaola beef andouille doner, bacon short ribs chuck strip steak shankle sirloin. Shoulder pork chop short loin, fatback ham hock venison tenderloin ground round pancetta capicola jerky. Shankle sirloin jowl shank, pancetta jerky meatball shoulder leberkas boudin sausage beef ribs turkey prosciutto swine. Pork chicken hamburger tail meatball meatloaf, biltong jowl rump sirloin ribeye ham bresaola shank. Chicken bacon tail, sausage andouille pig shank fatback chuck swine. Shank pork belly brisket, jerky short ribs sirloin cow chuck ball tip kielbasa ground round rump.
+
+Tri-tip meatball sirloin, bacon pork short loin andouille pastrami tenderloin corned beef pig shoulder pork chop beef ribs tongue. Shank pork chop prosciutto sirloin, fatback chicken beef shoulder shankle meatball ham short loin. Doner t-bone jerky, brisket strip steak pork chop pork belly jowl chuck turkey. Pork belly andouille pancetta, meatball salami flank tongue strip steak t-bone pork brisket shankle ribeye turkey. Sausage sirloin shoulder bresaola, pork chop pastrami swine doner leberkas. Tenderloin cow meatloaf shank pork chop shankle turkey, chicken swine boudin turducken. Ribeye t-bone shank beef.
+
+[highlight=pull]This is a highlighted text sans auto-quotation marks[/highlight]
+
+Leberkas doner pork chop, chuck short ribs swine turducken bresaola salami corned beef rump venison strip steak t-bone filet mignon. Salami chuck tongue short ribs shankle chicken pork loin t-bone rump fatback. Meatloaf hamburger beef ribs salami pancetta doner shoulder bresaola short loin spare ribs jowl tenderloin prosciutto.
+
+Tongue pancetta pastrami pork chop, meatball spare ribs leberkas corned beef pork loin swine. Hamburger corned beef swine ball tip pancetta, leberkas prosciutto short ribs shoulder tongue tenderloin pastrami chicken. Jowl chuck pancetta, ground round doner ball tip ham hock boudin corned beef short ribs turkey leberkas pork. Doner pork chop bresaola beef ribs, shank boudin kielbasa jerky tenderloin ham strip steak. Tongue short loin tail shankle sausage. Shoulder meatloaf pancetta turkey doner ball tip, short ribs spare ribs jowl.
+
+[quote=pull-right]This is a pullquote with auto-quotation marks, aligned right[/quote] 
+
+Brisket chicken tail sausage bresaola meatloaf. Filet mignon leberkas sirloin tongue. Rump ham hock brisket chicken. Meatloaf pork loin jerky, boudin pig cow tail venison leberkas spare ribs strip steak chicken shoulder meatball prosciutto.
+
+Cow t-bone venison swine jerky. Salami drumstick pork chop turducken shankle strip steak. Tri-tip turducken sausage beef pork chop turkey rump jerky short loin ball tip kielbasa. Venison pork loin pancetta beef ribs turkey salami rump chicken corned beef flank strip steak hamburger. Salami hamburger jowl, ground round meatloaf flank ham hock prosciutto boudin ham strip steak tri-tip shankle capicola.
+
+[h2]Heading 2 to 6 are all the same style to make life simple. See below.[/h2]
+Turducken ribeye ham ball tip pastrami tail, venison bacon shank pork belly doner. Biltong brisket ribeye tail t-bone boudin doner pig tenderloin shoulder pork drumstick filet mignon. Turducken cow pork loin prosciutto beef ribs. Meatball kielbasa sausage, beef ribs brisket rump leberkas cow short ribs tongue capicola pork belly biltong tail. Leberkas short ribs sausage andouille jerky. Sirloin pork chuck frankfurter. Pork hamburger ball tip corned beef drumstick biltong prosciutto ribeye chuck beef ribs.
+
+[h3]Heading 3[/h3]
+Turducken ribeye ham ball tip pastrami tail, venison bacon shank pork belly doner. Biltong brisket ribeye tail t-bone boudin doner pig tenderloin shoulder pork drumstick filet mignon. Turducken cow pork loin prosciutto beef ribs. Meatball kielbasa sausage, beef ribs brisket rump leberkas cow short ribs tongue capicola pork belly biltong tail. Leberkas short ribs sausage andouille jerky. Sirloin pork chuck frankfurter. Pork hamburger ball tip corned beef drumstick biltong prosciutto ribeye chuck beef ribs.
+
+[h4]Heading 4[/h4]
+Turducken ribeye ham ball tip pastrami tail, venison bacon shank pork belly doner. Biltong brisket ribeye tail t-bone boudin doner pig tenderloin shoulder pork drumstick filet mignon. Turducken cow pork loin prosciutto beef ribs. Meatball kielbasa sausage, beef ribs brisket rump leberkas cow short ribs tongue capicola pork belly biltong tail. Leberkas short ribs sausage andouille jerky. Sirloin pork chuck frankfurter. Pork hamburger ball tip corned beef drumstick biltong prosciutto ribeye chuck beef ribs.
+
+[h5]Heading 5[/h5]
+Turducken ribeye ham ball tip pastrami tail, venison bacon shank pork belly doner. Biltong brisket ribeye tail t-bone boudin doner pig tenderloin shoulder pork drumstick filet mignon. Turducken cow pork loin prosciutto beef ribs. Meatball kielbasa sausage, beef ribs brisket rump leberkas cow short ribs tongue capicola pork belly biltong tail. Leberkas short ribs sausage andouille jerky. Sirloin pork chuck frankfurter. Pork hamburger ball tip corned beef drumstick biltong prosciutto ribeye chuck beef ribs.
+
+[h6]Heading 6[/h6]
+Turducken ribeye ham ball tip pastrami tail, venison bacon shank pork belly doner. Biltong brisket ribeye tail t-bone boudin doner pig tenderloin shoulder pork drumstick filet mignon. Turducken cow pork loin prosciutto beef ribs. Meatball kielbasa sausage, beef ribs brisket rump leberkas cow short ribs tongue capicola pork belly biltong tail. Leberkas short ribs sausage andouille jerky. Sirloin pork chuck frankfurter. Pork hamburger ball tip corned beef drumstick biltong prosciutto ribeye chuck beef ribs.
+
+Turducken ribeye ham ball tip pastrami tail, venison bacon shank pork belly doner. Biltong brisket ribeye tail t-bone boudin doner pig tenderloin shoulder pork drumstick filet mignon. Turducken cow pork loin prosciutto beef ribs. Meatball kielbasa sausage, beef ribs brisket rump leberkas cow short ribs tongue capicola pork belly biltong tail. Leberkas short ribs sausage andouille jerky. Sirloin pork chuck frankfurter. Pork hamburger ball tip corned beef drumstick biltong prosciutto ribeye chuck beef ribs.
+
+Turducken ribeye ham ball tip pastrami tail, venison bacon shank pork belly doner. Biltong brisket ribeye tail t-bone boudin doner pig tenderloin shoulder pork drumstick filet mignon. Turducken cow pork loin prosciutto beef ribs. Meatball kielbasa sausage, beef ribs brisket rump leberkas cow short ribs tongue capicola pork belly biltong tail. Leberkas short ribs sausage andouille jerky. Sirloin pork chuck frankfurter. Pork hamburger ball tip corned beef drumstick biltong prosciutto ribeye chuck beef ribs.
+
+[list=1]
+  [*]sirloin
+  [*]pork
+  [*]bacon
+  [*]tripe
+  [*]gizzard
+[/list]
+
+Sirloin meatball pancetta ham hock venison swine ball tip short ribs jowl pork ham. Ball tip venison meatball, prosciutto pancetta beef ribs bacon tri-tip pig biltong. Biltong chuck pork belly, ground round leberkas prosciutto swine venison capicola frankfurter. Beef ribs pork strip steak pastrami capicola chuck pig, salami shoulder jowl andouille pork chop. Turducken jerky tail shoulder prosciutto doner, sausage beef.
+
+[list]
+  [*]sirloin
+  [*]pork
+  [*]bacon
+  [*]tripe
+  [*]gizzard
+[/list]
+
+Cow flank leberkas prosciutto, meatloaf turducken beef ribs pork pork belly shoulder ball tip venison meatball. Rump beef ribs tri-tip corned beef ham hock jerky frankfurter hamburger boudin flank drumstick kielbasa pastrami. Capicola biltong pork belly ham boudin shoulder andouille cow chuck kielbasa tri-tip ham hock. Shank bresaola pancetta pork loin short ribs biltong ground round tenderloin ham hock cow short loin bacon turducken sirloin jowl. Bacon biltong jowl ribeye sausage jerky ham hock fatback tenderloin ground round meatloaf pig turkey. Pork loin ham shoulder pork rump swine chicken. Pork belly tongue biltong sausage t-bone bresaola pork.
+
+[b]What follows below is an example of a Q&A style:[/b]
+
+[interview=question]Pig salami rump hamburger pork swine pastrami. [/interview]
+[interview=answer]Rump shankle sirloin capicola, boudin pig ham ribeye ham hock pork belly andouille turducken kielbasa. Cow pork chop kielbasa, meatloaf meatball biltong spare ribs capicola pancetta ball tip bacon t-bone doner chicken short ribs. Turkey jerky sausage short loin tenderloin, beef doner salami spare ribs pig meatloaf strip steak andouille ham.[/interview]
+
+[interview=question]Pig salami rump hamburger pork swine pastrami. [/interview]
+
+[interview=answer]Rump shankle sirloin capicola, boudin pig ham ribeye ham hock pork belly andouille turducken kielbasa. Cow pork chop kielbasa, meatloaf meatball biltong spare ribs capicola pancetta ball tip bacon t-bone doner chicken short ribs. Turkey jerky sausage short loin tenderloin, beef doner salami spare ribs pig meatloaf strip steak andouille ham.[/interview]
+
+[interview=question]Pig salami rump hamburger pork swine pastrami. [/interview]
+
+[interview=answer]Rump shankle sirloin capicola, boudin pig ham ribeye ham hock pork belly andouille turducken kielbasa. Cow pork chop kielbasa, meatloaf meatball biltong spare ribs capicola pancetta ball tip bacon t-bone doner chicken short ribs. Turkey jerky sausage short loin tenderloin, beef doner salami spare ribs pig meatloaf strip steak andouille ham.[/interview]
+
+[interview=question]Pig salami rump hamburger pork swine pastrami. [/interview]
+
+[interview=answer]Rump shankle sirloin capicola, boudin pig ham ribeye ham hock pork belly andouille turducken kielbasa. Cow pork chop kielbasa, meatloaf meatball biltong spare ribs capicola pancetta ball tip bacon t-bone doner chicken short ribs. Turkey jerky sausage short loin tenderloin, beef doner salami spare ribs pig meatloaf strip steak andouille ham.[/interview]
+
+[interview=question]Pig salami rump hamburger pork swine pastrami. [/interview]
+
+[interview=answer]Rump shankle sirloin capicola, boudin pig ham ribeye ham hock pork belly andouille turducken kielbasa. Cow pork chop kielbasa, meatloaf meatball biltong spare ribs capicola pancetta ball tip bacon t-bone doner chicken short ribs. Turkey jerky sausage short loin tenderloin, beef doner salami spare ribs pig meatloaf strip steak andouille ham.[/interview]
+
+[hr]
+
+[b]End Q&A style. I also used an HR (horizontal rule) above to show you that.[/b]
+
+Jerky fatback beef tongue filet mignon pork loin jowl shank. Tenderloin turkey sausage chicken, rump frankfurter ham drumstick jerky pastrami doner pancetta andouille strip steak beef. Tongue bresaola pancetta, pork chop ham venison sausage andouille flank hamburger biltong swine kielbasa pig. Flank cow chicken jerky ribeye short loin leberkas chuck pancetta beef ribs pig venison fatback shoulder. Ham capicola kielbasa flank, cow jerky meatloaf sausage tail frankfurter drumstick tenderloin meatball pork loin. Biltong short loin hamburger swine turkey filet mignon.
+
+[figure=inline-large]
+[img]multisite_files/fastcompany/inline/2013/04/3008363-inline-sausage-cia.jpg[/img][caption]This is a full-width photo caption.[/caption]
+[/figure]
+
+Pork belly doner ribeye, prosciutto beef meatloaf short ribs. Turducken shankle pork loin chicken pastrami. Biltong sausage meatball shankle pig short ribs. Short ribs ham cow, pork belly bresaola turducken pig. Cow ribeye pancetta fatback meatloaf. Frankfurter shank turkey spare ribs shoulder capicola prosciutto pig swine.
+
+Brisket jerky shankle doner, turkey jowl venison leberkas. Tail t-bone pork, andouille pork loin ball tip ground round corned beef pig leberkas meatball brisket fatback chuck short loin. Jowl fatback capicola ribeye ground round. Ribeye biltong pig brisket ham. Pastrami swine prosciutto drumstick salami pork belly cow venison spare ribs jowl short ribs corned beef short loin. T-bone tri-tip drumstick, ham hamburger shank pastrami bacon filet mignon pork loin ribeye ground round spare ribs frankfurter andouille.
+
+[sidebar=left]
+[subhead]Sidebar left, regular text:[/subhead]
+Beef ribs jerky tri-tip ball tip turkey rump tongue, andouille frankfurter. Hamburger tenderloin salami, chuck tail venison turducken filet mignon. Shank ham chicken chuck beef ribs bacon beef shankle drumstick boudin flank venison. Bresaola ham hock tenderloin capicola venison drumstick, pork belly boudin. Turducken brisket pork loin cow salami ham flank tenderloin prosciutto leberkas pork belly rump ground round tail short loin.
+[/sidebar]
+
+Bresaola venison rump brisket drumstick kielbasa ball tip ribeye shankle flank jowl t-bone boudin biltong. Ball tip shankle meatball cow sausage chuck pork loin ham hock boudin bacon ham tail salami. Pork loin pig tongue pork belly, jowl frankfurter bacon sausage fatback flank drumstick leberkas meatloaf beef. Prosciutto pork loin flank venison sirloin turkey ground round andouille doner shank tenderloin chicken pastrami. Flank pork loin venison turducken, meatloaf spare ribs ribeye pancetta filet mignon t-bone rump. Ham hock strip steak pork chop jerky sausage venison, shank filet mignon drumstick hamburger bresaola boudin chuck ball tip shoulder.
+
+[figure=inline-small]
+[img]multisite_files/fastcompany/inline/2013/04/3008363-inline-sausage-cia.jpg[/img][caption]This is an inline-small photo align right by default. It should not be pixelized though. Fixing![/caption]
+[/figure]
+
+Tenderloin shank pastrami, pork jowl doner venison. Tri-tip ham rump tail biltong spare ribs frankfurter bacon venison beef ribs chicken short loin. Ham hock venison jowl short ribs swine shoulder shank brisket kielbasa hamburger turkey capicola tongue. Shank ribeye ham hock spare ribs doner flank chuck. Strip steak biltong cow ground round prosciutto pork belly capicola bresaola flank. Leberkas short ribs tri-tip hamburger, bacon ball tip beef venison jowl sirloin meatball. Tri-tip andouille sausage ham hock, jowl filet mignon capicola chuck sirloin beef ribs meatloaf shankle leberkas salami boudin.
+
+[sidebar=right]
+[h2]Sidebar right, with header in H2:[/h2]
+Frankfurter. Hamburger tenderloin salami, chuck tail venison turducken filet mignon. Shank ham chicken chuck beef ribs bacon beef shankle drumstick boudin flank venison. Bresaola ham hock tenderloin capicola venison drumstick, pork belly boudin. [url=http://www.fastcompany.com/]Read More >>[/url][/sidebar]
+
+Turkey t-bone ground round tongue shank turducken frankfurter pork filet mignon sausage brisket strip steak spare ribs tenderloin chicken. Turducken fatback shank, pancetta cow shankle turkey tenderloin meatloaf. Turducken pancetta bresaola, jerky pork shoulder meatball pig swine pork chop frankfurter beef boudin. Pork belly shankle tongue, cow bacon ham hock prosciutto jerky turducken frankfurter capicola venison corned beef brisket andouille. Spare ribs jerky short ribs ribeye bacon, ball tip ham pork chop pig. Ground round pork chop ball tip venison swine doner corned beef.
+
+Pork drumstick salami, swine bresaola boudin chicken ribeye pastrami doner. Brisket bresaola shank corned beef pork shankle capicola pig leberkas ham ball tip short ribs chuck pork belly. Bresaola pork ham leberkas frankfurter. Biltong sirloin shankle pancetta frankfurter pork belly, jerky fatback kielbasa beef pig tongue venison leberkas. Kielbasa tri-tip ham jowl bresaola doner pancetta frankfurter swine turducken pork belly sirloin.
+
+[sidebar=right]
+[h4]Sidebar right, with header in H4:[/h4]
+Andouille frankfurter. Hamburger tenderloin salami, chuck tail venison turducken filet mignon. Shank ham chicken chuck beef ribs bacon beef shankle drumstick boudin flank venison. Bresaola ham hock tenderloin capicola venison drumstick, pork belly boudin. [url=http://www.fastcompany.com/]Read More >>[/url][/sidebar]
+
+Shank pork belly shoulder tenderloin chuck ribeye pork chop. Chicken turducken doner rump t-bone jowl pork chop pork belly ball tip. Biltong doner tail venison shankle beef ribs fatback pork belly. Andouille ham hock ground round venison shoulder. Pork belly doner pork chop corned beef, pork ham hock andouille. Pork pancetta drumstick, pork chop ribeye leberkas tri-tip beef short ribs corned beef tongue.
+
+[sidebar=right]
+[h4]Sidebar right, with strong lead-in:[/h4]
+[b]This phrase here is bolded[/b], andouille frankfurter. Hamburger tenderloin salami, chuck tail venison turducken filet mignon. Shank ham chicken chuck beef ribs bacon beef shankle drumstick boudin flank venison. Bresaola ham hock tenderloin capicola venison drumstick, pork belly boudin. Turducken brisket pork loin cow salami ham flank tenderloin prosciutto leberkas pork belly rump ground round tail short loin.[/sidebar]
+
+Bresaola ground round andouille t-bone meatloaf brisket chuck. Tail ground round sirloin ham. Pork tail filet mignon ham hock leberkas corned beef capicola chicken. Corned beef sirloin flank, beef prosciutto hamburger chicken shoulder capicola. Hamburger pig venison kielbasa flank. Spare ribs flank meatloaf andouille pork. Sausage biltong ball tip shankle bacon.
+
+Filet mignon prosciutto sausage kielbasa pork ham, turkey shankle shoulder ham hock t-bone bacon. Short ribs jerky shoulder pastrami bresaola. Ball tip meatloaf t-bone sausage cow, leberkas short ribs beef chicken sirloin. Ground round filet mignon shankle short loin turducken. Ball tip meatloaf bresaola prosciutto biltong hamburger. Tongue fatback shankle, pork belly doner ham hock pork loin jowl shoulder andouille.
+
+Bresaola tongue cow ball tip short ribs fatback spare ribs rump. Pork chop bacon andouille beef ribs. Leberkas pastrami strip steak hamburger, boudin drumstick tenderloin spare ribs jowl t-bone. Rump beef ribs boudin, corned beef pork loin short loin frankfurter tri-tip drumstick pancetta bresaola pastrami flank pork belly strip steak. Tenderloin boudin cow, capicola swine pork beef ribs tri-tip.
+
+[sidebar=right]
+[h4]Sidebar right, with a numbered list[/h4]
+[list=1]
+  [*][h4]Sirloin[/h4]You can add a definition in this list.
+  [*]pork
+  [*]bacon
+  [*]tripe
+  [*]gizzard[/list][/sidebar]
+
+Cow andouille chicken, pork ball tip filet mignon jerky ground round prosciutto turducken beef ribs drumstick. Boudin bacon strip steak ham, turducken shoulder biltong flank pastrami brisket ball tip. Pig tail pastrami shankle fatback flank sausage tenderloin pork loin pork chop. Chicken ribeye turducken boudin pork loin shankle. Turkey ham hock strip steak ground round. Drumstick short ribs tenderloin, sirloin andouille ball tip spare ribs fatback pork loin cow ground round tri-tip. Ham tongue capicola tri-tip drumstick shankle.
+
+Ham hock venison shank, pastrami ground round frankfurter short loin turducken. Shank pancetta pastrami bresaola frankfurter, swine pork loin. Corned beef doner pig leberkas. Strip steak spare ribs beef ribs pig shoulder pastrami tenderloin capicola biltong venison. Andouille jerky filet mignon, bresaola frankfurter tail cow tri-tip sirloin ball tip shoulder flank short ribs.
+
+[sidebar=right]
+[h4]Sidebar right, with an unordered list[/h4]
+[list]
+  [*]sirloin
+  [*]pork
+  [*]bacon
+  [*]tripe
+  [*]gizzard
+[/list][/sidebar]
+
+Sausage frankfurter pork loin turkey. Frankfurter andouille corned beef, short ribs tenderloin pork belly chicken. Drumstick sirloin ham fatback hamburger capicola leberkas brisket tail cow sausage filet mignon. Shankle frankfurter jerky, fatback drumstick tri-tip meatloaf pastrami.
+
+Ground round salami pastrami, prosciutto spare ribs andouille frankfurter tail ham shoulder jowl. Sirloin fatback ham pastrami, beef jowl capicola tenderloin meatloaf. Ground round sausage rump, bacon turducken pork loin biltong ribeye swine pig doner. Strip steak meatball sausage, sirloin pork chop ham hock tail.
+
+Here's a bulleted list outside a sidebar with long definitions:
+[list]
+  [*][h4]Branding and design are, to a large extent, inseparable.[/h4] "A brand is not your logo or ID system," says Brunner. "It's a gut feeling people have about you. When two or more people have the same feeling, you have a brand. You get that feeling via smart design, which creates the experiences people have with the brand. Everything you do creates the brand experience, ergo design IS your brand."
+
+  [*][h4]Branding and design are, to a large extent, inseparable.[/h4] "A brand is not your logo or ID system," says Brunner. "It's a gut feeling people have about you. When two or more people have the same feeling, you have a brand. You get that feeling via smart design, which creates the experiences people have with the brand. Everything you do creates the brand experience, ergo design IS your brand."
+[/list]
+
+Here's a numbered list outside a sidebar with long definitions:
+[list=1]
+  [*][h4]Branding and design are, to a large extent, inseparable.[/h4] "A brand is not your logo or ID system," says Brunner. "It's a gut feeling people have about you. When two or more people have the same feeling, you have a brand. You get that feeling via smart design, which creates the experiences people have with the brand. Everything you do creates the brand experience, ergo design IS your brand."
+  [*][h4]Branding and design are, to a large extent, inseparable.[/h4] "A brand is not your logo or ID system," says Brunner. "It's a gut feeling people have about you. When two or more people have the same feeling, you have a brand. You get that feeling via smart design, which creates the experiences people have with the brand. Everything you do creates the brand experience, ergo design IS your brand."
+[/list]
+
+Below is a list with paragraph-long definitions:
+
+[b]If design is the brand, stop thinking of branding and design as distinct disciplines.[/b]
+"It's all about integrating design and brand," says Doucet. "We need to cease thinking of them as different disciplines. The essence of the Apple brand comes through its design. Take the logo off a BMW and you still know it's a BMW."
+
+[b]Brands need to create an emotional relationship with people.[/b]
+"We are all emotional beings and we have emotional relationships with brands we trust," says Brunner. "Designers need to make that happen. A
+ designer must take the values and assets of a company and transform 
+them in a special way that connects with people emotionally."
+
+[b]Integrate design early in the process to drive innovation and create solutions.[/b]
+"Good designers approach design as an opportunity to ask questions," says Doucet. "Solution generation starts by questioning initial assumptions. Rather than ask myself 'How should I design Widget X?' I need to be asking 'Do we really need Widget X or is there a better solution to this customer problem? So a designer needs be there at the beginning and be connected to the decision-makers. For example, at Braun, Dieter Rams sat across from the owner of the company."
+
+[b]Don't overdesign.[/b]
+"With the increasing emphasis on design in the world today, it's important to avoid the 'over-designed syndrome,'" says Hill. "A simple, well-thought-through, authentic design is often the best. Everything doesn't need to be redesigned; sometimes what we have in hand is better than what we seek. It's not all about being different; it's about being better. If Levi Strauss wanted me to redesign the patch on the back of their jeans, I would look in their archives for the original."
+
+Leberkas frankfurter corned beef pork spare ribs tongue pancetta shoulder meatloaf pastrami swine. Shoulder shankle pork chop chuck ham hock pancetta. Short loin kielbasa shankle, spare ribs ham t-bone leberkas prosciutto shank pancetta short ribs chuck jowl andouille. Meatball venison swine ham hock, pastrami tongue boudin fatback rump leberkas t-bone short ribs beef brisket sausage. Meatball shank swine spare ribs corned beef, venison ball tip turkey fatback frankfurter flank chuck pastrami.
+
+Pork belly ham prosciutto cow jerky sausage. Hamburger fatback corned beef beef frankfurter meatball ribeye pancetta strip steak leberkas tail shankle chicken pork loin. Pork chop rump strip steak, pastrami boudin sausage tail pork loin brisket. Tri-tip biltong ham short loin pancetta.
+
+Pastrami short ribs pork chop shankle tail bresaola salami leberkas frankfurter. Brisket pork leberkas shankle pancetta, doner ham hock tri-tip chuck spare ribs tongue andouille meatball biltong. Fatback biltong bresaola short loin meatloaf. Swine salami cow, chicken short ribs turkey meatloaf pork jerky fatback filet mignon. Pig pastrami drumstick, ball tip pork pork chop meatball tongue t-bone. Jowl pork t-bone tongue sausage shank. Bacon kielbasa fatback jerky.
+
+Tenderloin pork andouille pancetta ham hock spare ribs. Swine pig boudin pork belly tail bresaola salami flank corned beef. Swine frankfurter pig sirloin, ground round venison tri-tip. Beef ribs boudin pancetta hamburger rump ball tip prosciutto corned beef tongue venison salami fatback. Pancetta meatball flank short loin beef ribs venison. Andouille leberkas turkey beef ribs drumstick capicola. Hamburger t-bone pork belly pig meatball filet mignon.
+
+[h4]Here's a video:[/h4]
+[figure][video]http://vimeo.com/27243869[/video][caption]Video caption style[/caption][/figure]
+
+Venison capicola pastrami sausage fatback chuck. Swine ham beef ribs shankle sausage ground round, beef chicken frankfurter pork strip steak tongue tenderloin pork belly. Fatback chicken boudin flank doner ball tip shankle t-bone corned beef biltong bresaola pig. Spare ribs pork belly sirloin venison filet mignon, tail leberkas. Meatloaf drumstick leberkas bacon, flank swine pork chop salami tail tongue andouille biltong turkey.
+
+[b]You can now embed a Tweet while still on BBCode![/b] You have to add a height to reduce the white space after the embed. You will see a scroll within the container if your height is too short. This Kanye tweet has a 210 height.
+[figure][tweet height=210]https://twitter.com/ltsKanyeWest/status/359555486670008323[/tweet][/figure]
+
+Boudin andouille turducken spare ribs, t-bone tri-tip tongue drumstick chicken ham prosciutto capicola. Pork jowl corned beef turducken. Hamburger swine sausage pig pork tri-tip ham hock strip steak. Cow hamburger fatback, tongue swine spare ribs ham biltong meatloaf strip steak pork chop. Pastrami salami filet mignon, t-bone pork turkey andouille capicola bresaola fatback. Cow beef flank pork belly corned beef ground round.
+
+[figure][vine]https://vine.co/v/bThFt1qVJnW[/vine][caption]This is a Vine video embed[/caption][/figure]
+
+Filet mignon sausage ground round ball tip, frankfurter cow capicola. Drumstick turducken cow meatloaf. Beef ribs shank ham hock capicola bacon corned beef andouille. Biltong pork loin swine short loin shank pastrami. Leberkas tongue bacon meatloaf kielbasa jerky meatball shank biltong ball tip ribeye chicken shoulder pork belly bresaola. Short ribs corned beef pork loin short loin tail tri-tip, spare ribs pork chop fatback pork bacon beef tenderloin brisket. Brisket hamburger pork belly tri-tip jowl.
+
+Capicola pork doner shankle. Tenderloin bresaola beef, hamburger bacon tail short loin swine turkey. T-bone leberkas tri-tip sausage short ribs. Bresaola leberkas corned beef chuck jowl ribeye turkey, tri-tip pork loin rump turducken frankfurter kielbasa. Chuck fatback ground round, ribeye beef ribs swine biltong.
+
+[figure][instagram]http://instagram.com/p/bWXZBljehz/[/instagram][caption]This is an Instagram static photo[/caption][/figure]
+
+[gist]https://gist.github.com/yongzhihuang/5c1489356c76dc072607[/gist]
+
+Filet mignon sausage ground round ball tip, frankfurter cow capicola. Drumstick turducken cow meatloaf. Beef ribs shank ham hock capicola bacon corned beef andouille. Biltong pork loin swine short loin shank pastrami. Leberkas tongue bacon meatloaf kielbasa jerky meatball shank biltong ball tip ribeye chicken shoulder pork belly bresaola. Short ribs corned beef pork loin short loin tail tri-tip, spare ribs pork chop fatback pork bacon beef tenderloin brisket. Brisket hamburger pork belly tri-tip jowl.
+
+Capicola pork doner shankle. Tenderloin bresaola beef, hamburger bacon tail short loin swine turkey. T-bone leberkas tri-tip sausage short ribs. Bresaola leberkas corned beef chuck jowl ribeye turkey, tri-tip pork loin rump turducken frankfurter kielbasa. Chuck fatback ground round, ribeye beef ribs swine biltong.
