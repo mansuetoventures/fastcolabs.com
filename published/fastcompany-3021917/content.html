@@ -1,0 +1,92 @@
+<p>In early October, startup <a href="http://tessel.io/" target="_blank">Technical Machine</a> blew up the crowdfunding scene with its first product: Tessel, an open-source, Arduino-like microcontroller that runs JavaScript on the chip. Finally, web developers could have an easy way to prototype hardware projects.</p>
+
+<p>People went crazy for it. Enthusiasm was so high that the campaign met its $50,000 goal in just three hours. (Full disclosure: enthusiastic myself, I was one of the first customers). By the time it was finished, the company had raised $196,682, nearly four times the campaign’s target amount.</p>
+
+<p>So why do people care so much about a little microcontroller running a popular web language? Javascript is easier to learn and far more widespread than the C/C++ hybrid that powers Arduino devices. Many developers won’t have to learn anything new to immediately take advantage of the hardware. Tessel also makes it easier to connect to the Internet--surprisingly hard to do with a typical Arduino. The Tessel, on the other hand, ships with onboard WiFi and will be compatible with the popular NodeJS web framework and package manager NPM out of the box, meaning it already supports a huge set of familiar libraries.</p>
+
+<p>Now Technical Machine is shipping its first units to beta users and taking pre-orders for the next round of devices. We spoke to Cofounder Jon McKay and Head of Marketing and Finance Kelsey Breseman about the device’s origins, its potential, and how the company plans to monetize its open-source designs and software.</p>
+
+<p><p class="interview-question">How did the idea for the Tessel come about?</p></p>
+
+<p><p class="interview-answer"><strong>Jon:</strong> Last year, we did a senior capstone project at school for Facebook and we were asked to make Internet-connected devices beyond the phone and laptop. Facebook wanted to see how people could interact with their website when they weren't sucked into a screen. We made devices like a bracelet called "Elephant" where if two people were wearing it and they shook hands, it would automatically record the content around the meeting -- who they met, where they met them, things like that.<br />
+<br />When we were doing that, we realized one, that it was really fun to make these things; two, a lot of people wanted to make them; and three, it was really hard to make these things, especially for people like us with a web background. We decided that it was a problem that we really wanted to try to solve and something that we are excited to do.</p></p>
+
+<p><p class="interview-question">What exactly was hard about developing these devices?</p></p>
+
+<p><p class="interview-answer"><strong>Jon:</strong> Just connecting to Internet was really difficult. We were using an Arduino the majority of the time, which meant that we’d have to go out and buy a WiFi shield for somewhere between $35 and $80. Once we get the WiFi shield, solder on some jankety wires and then figure out where to plug it in, and then write the HTTP protocol so that we can actually send a request. Then once we get a request, there's about 8 kilobytes of RAM on there, at least with the Uno we were using, and it would fill up after one JSON packet. It was just a horrible experience connecting to the Internet from the get-go.</p></p>
+
+<p><p class="interview-question">The Arduino’s been around for a while now. Why is it still hard to connect it to the web with it?</p></p>
+
+<p><p class="interview-answer"><strong>Jon:</strong> I think the Uno wasn't made with the web in mind, really. I think it was made for people learning how to move things and dabble in programming and hardware. It just wasn't made for the added complexity of the web.</p></p>
+
+<p><p class="interview-question">So, how did you make sure the Tessel wouldn’t have that problem?</p></p>
+
+<p><p class="interview-answer"><strong>Jon:</strong> Once we decided that we wanted to make an Internet-connected device for web developers, we thought how we could make the hardware so that web developers were instantly comfortable with it. There are a couple of things that we thought were really important.<br />
+<br />The first was a programming language. We picked JavaScript, because JavaScript is one of the most successful languages, it's the most popular language on the GitHub, and it's the language we know really well.<br />
+<br />We also decided to be compatible with NodeJS because we really admire the speed of development on NodeJS and we think that Tessel could really benefit from that. Hardware, in general, could really benefit from that sort of open source environment and really, really fast development times.<br />
+<br />We also wanted to make sure that Tessel was solderless so that people could just plug things in. Going back to that Facebook project I was talking about, we found that soldering was a huge obstacle. Not because soldering is hard, per se, but just because you have to go out and find a soldering iron, find solder, find the things you need to solder together and spend time doing it and hope you don't break it. It adds a lot of barriers that don't need to be there. We decided early on that we wanted a new system that you didn't have to solder anything; it was just plug in and go from the get go.<br />
+<br />Once we had this set of core features in mind, we went about designing the hardware. We knew we really wanted WiFi, because it's something that web developers are used to, we started looking for WiFi chips. We found the Texas Instruments CC3000 chip. It's become really popular because it's relatively cheap and it has some cool technology.</p></p>
+
+<p><p class="interview-question">How did you prototype and test your initial boards?</p></p>
+
+<p><p class="interview-answer"><strong>Jon:</strong> Don't tell the fire marshal, but we just had a $20 skillet from Target in our office for the first three revisions, where we had a pretty large board. It was 4 inches by 4 inches and we were just making sure everything worked. So, we would then place all the components on there by hand, by putting little dabs of solder on every little place where the pads touch the PCB and then putting it on the skillet for three to four minutes. Just one side, lightly.</p></p>
+
+<p><p class="interview-answer"><strong>Kelsey: Sunny side up.</p></p>
+
+<p><p class="interview-question">That’s really funny. Switching gears, let’s talk about the software. The Tessel’s main selling point is that it runs JavaScript on the chip. For those of us who don’t understand the hardware world fully, what does that mean, exactly?</p></p>
+
+<p><p class="interview-answer">[b]Jon:</strong> That phase is a little misleading because the JavaScript isn't actually being run on the chip. It just means that you can program it in JavaScript and not worry about how it's being implemented. The way you we’re doing it right now is you write the JavaScript file and when you push it to our device, [co-founder] Tim [Ryan]’s software will compile it to a programming language called Lua, zip it up and then send it over WiFi or USB to Tessel, which is running a Lua interpreter. So it will just take that code and just throw it in the interpreter and run it.<br />
+<br />This is our prototype software. It's really slow. We're going to be changing it before we release to something that's really fast.</p></p>
+
+<p><p class="interview-question">What’s the new version going to look like?</p></p>
+
+<p><p class="interview-answer"><strong>Jon:</strong> For this next version, we're going to take the JavaScript file, and when you push it, we're going to push that file directly onto a file system on Tessel. Once that file is on there, there's going to be a compiler in Tessel that compiles that JavaScript to Lua bytecode, and then we're going to be running our own, open-source version of the LuaJIT runtime, which, in a benchmark, was as fast as statically-typed languages, so it's going to be really speedy.</p></p>
+
+<p><p class="interview-question">Let's talk about the funding campaign itself. You met your initial goal within...how many hours was it?</p></p>
+
+<p><p class="interview-answer"><strong>Kelsey:</strong> Three.</p></p>
+
+<p><p class="interview-question">Unbelievable. To what would you attribute that success?</p></p>
+
+<p><p class="interview-answer"><strong>Jon:</strong> I think it's really the community. We had this base of people who were already excited about it and so as soon as we started the campaign, we told them, "hey, guys, we're open for business. Come and get the Tessel." They responded, which was really awesome. I think people are really excited that they can use the same skills that they use to make website to start making physical devices.</p></p>
+
+<p><p class="interview-question">On that note, we have this buzz phrase, “the Internet of things.” Do you buy into the idea that everything ought to be connected at some point?</p></p>
+
+<p><p class="interview-answer"><strong>Jon:</strong> It's interesting that you say that. We were talking with Kelsey's mother recently and she hates the idea of everything connected to the Internet.</p></p>
+
+<p><p class="interview-answer"><strong>Kelsey:</strong> She doesn’t hate it.</p></p>
+
+<p><p class="interview-answer"><strong>Jon:</strong> She's skeptical about it. I think the Internet of things will happen. I personally don't think it's going to be as sexy as everyone thinks it will be. I think it's going to be a lot about agriculture, a lot about putting sensors in cities, and a lot about optimizing our lives in ways that we can't really see. Hopefully, we'll be able to notice eventually and say, "hey, we're using this much less energy or making this much more food. We're doing good things for the planet, finally, with the technology we're using. It's not because we're stuck to our screens four hours a day, it's because it's working constantly behind the scenes for us.”</p></p>
+
+<p><p class="interview-question">What were your mother's reservations, Kelsey?</p></p>
+
+<p><p class="interview-answer"><strong>Kelsey:</strong> Well, I said there's nothing that you couldn't connect to the Internet and not get some useful things. She said, “well, what about my socks?” I told her people are actually doing that now. You can get socks that can measure the way your foot is used and then you can use it to get better shoes for your feet, especially if you're a runner. She's like, "Well, what about the painting behind you?" Oh, yeah, you could it hook up. Say you really cared about this painting. You could put it an ambient sensor on it and find out how much UV light it's getting, find out if it's getting a little too humid or whatever.<br />
+<br />It seems silly to connect everything, but my take on it is there’s something you could do with everything that would probably be useful for someone.</p></p>
+
+<p><p class="interview-question">What kinds of things are people talking about prototyping with it?</p></p>
+
+<p><p class="interview-answer"><strong>Kelsey:</strong> We've gotten some really varied responses. We've had people talked about biosensors. There's a lot of little companies that have reached out to us and been really excited about integrating it into their specific product. Then there are probably the people who are most excited, people who are just really into JavaScript, who are like, "I'm getting your product. I don't care what it does. I'm getting it." But I'm sure they'll figure out eventually what to do.</p></p>
+
+<p><p class="interview-answer"><strong>Jon:</strong> Yeah, I'm sure once they start plugging in modules and just trying different combinations and using different web APIs, ideas will emerge.</p></p>
+
+<p><p class="interview-question">Are these companies talking about prototyping, or do you think there’s the possibility they’ll embed your chips directly into their final products? Is that something you’d support?</p></p>
+
+<p><p class="interview-answer"><strong>Jon:</strong> That's exactly what we want. We want our runtime to power every embedded device that gets made, ultimately. These people do want to embed our run time in their fully manufactured device and that's exactly the direction that we want to go.</p></p>
+
+<p><p class="interview-question">So given that, it seems like the purpose of the Tessel is to just get this technology into people’s hands. But the chip designs and the software are open-source. So, where does Technical Machine, the company, ultimately stand to profit from this? Selling units, consulting on the implementation of the runtime?</p></p>
+
+<p><p class="interview-answer"><strong>Jon:</strong> What we really want to end up doing is being able provide new services for people who are making hardware devices. Services like, being able to see how people are using your device, which is something that we know we can do because we have WiFi built-in. So we can say, “all right, you made this device and 90% of people are using feature X but not feature Y. Let's take out feature Y.” In the same vein, we can have tools for them to update the firmware wirelessly, so that whatever hardware devices they start making can start being updated just like your iPhone apps will.<br />
+<br />We could also do things like send out automated crash reports. There's a lot of things that are being built around websites that we can start building our own physical devices once we know that there's WiFi built in. That's real value we can add to hardware companies.<br />
+<br />The three founders are web developers at heart. So anytime we work on hardware we can't help but describe parallels between it and the web. Web development has become the standard for efficiency and optimization. Those are things we don't see hardware, so we sort of naturally see things that the hardware community can benefit from that the web development community has already made possible.</p></p>
+
+<p><p class="interview-question">That’s a really interesting way of putting it. What other things should hardware developers be doing that’s currently in the domain of web development?</p></p>
+
+<p><p class="interview-answer"><strong>Jon:</strong> I think what would be really interesting is A/B testing with hardware. Obviously, you can't change the form factor right now, but you can change the firmware and how things react to people. You can see how people use it. So, just a simple thing might be different error messages, or you add a faster algorithm and see how people react to it. I think A/B testing would be something super interesting to have on hardware and something I want to play around with.</p></p>
+
+<p><p class="interview-question">Very interesting. It occurs to me that the idea of extending web development tools and ideas everywhere, particularly JavaScript, kind of runs parallel to that discussion of the Internet itself being embedded in everything. Do you think that this one language, this one set of tools, should be repurposed everywhere, or do we need to be cautious that we’re not stunting the development of other tools that might be better suited for these tasks?</p></p>
+
+<p><p class="interview-answer"><strong>Jon:</strong> I think it's a valid question. I think that there's always going to be a language that could be better for what you're doing. But really, when you want to see really cool things made, when you want to see devices made, the creativity is going to happen when a lot of people are putting a lot of ideas together. The way you get that is you have a lot of people working on it and the way to get that is you have something that's successful to everyone.<br />
+<br />One of the reasons we picked JavaScript and web developers in general is that they have a whole culture of innovation around them. There is this idea of open source that is sort of a shrine that everyone bow to and is really useful. A lot of people in the web developer community are just putting ideas together and making a minimum viable product, and seeing how people like it. The fact that they can now do that really quickly means that we're going to see a whole lot more devices being made. And the fact that they're using JavaScript is sort of not important. The devices are going to work the way they're going to work.<br />
+<br />The people who are making these things, they just want to have the ability to make them. Our runtime is portable, so if they prototype something and to manufacture it, they can use that exact same code to manufacture it. If they decide that JavaScript wasn't the right tool for them, they can go ahead and port it to C or whatever other language they want. The real important thing here is accessibility and creativity.</p></p>
+
+<p><p class="interview-answer"><strong>Kelsey:</strong> Jon mentioned that getting to an MVP was one of the pieces of JavaScript and I want to highlight that. A big piece of what Technical Machine is really excited about is the idea that people can have a great idea and put it together in a short time without needing to start a company already, without needing to get an electrical engineer on board. They just need to get to the point where they can say, "Hey, this is a viable product. Now I could start a hardware company." Yes, eventually, you're going to need somebody who knows electrical engineering if you're going to do a hardware company. But, getting to the point where you know you need that person currently sucks and now it doesn't have to.</p></p>
