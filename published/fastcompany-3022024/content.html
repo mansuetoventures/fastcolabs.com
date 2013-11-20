@@ -1,0 +1,37 @@
+<p>Interactive maps can draw people into complicated stories in an easy-to-understand way, making them great traffic-earners for media sites. But building those maps often involves working with arcane geographical software and writing lots of Javascript, making Internet cartography too difficult and time-consuming for a lot of journalists and online storytellers.</p>
+
+<p>The founders of Vizzuality, the company behind the cloud-based mapping tool <a href="http://cartodb.com/" target="_blank">CartoDB</a>, intend to democratize interactive maps so that overhead is a thing of the past.</p>
+
+<p>“Anybody who knows how to use Excel should be able to build a map,” said Vizzuality CEO and cofounder Javier de la Torre. “We want to provide the technology so that they can do it.”</p>
+
+<p>CartoDB makes it possible to create interactive maps just by uploading a spreadsheet with a column of addresses or other location information.</p>
+
+<p>The software, which has been used by journalists at publications including <em><a href="http://blog.cartodb.com/post/26837195815/the-wall-street-journals-2012-election-map-done-with" target="_blank">The Wall Street Journal</a></em> and <em><a href="http://blog.cartodb.com/post/28487635064/our-first-collaboration-with-the-guardian-a-time-lapse" target="_blank">The Guardian</a></em>, as well as <a href="http://blog.cartodb.com/post/66779883192/visualizing-the-osm-volunteer-activity-in-response-to" target="_blank">humanitarian groups</a> responding to the recent typhoon in the Philippines, will automatically turn the locations into latitudes and longitudes and plot them on a map--a process called geocoding. CartoDB can also process other commonly used geographical data formats, like the <a href="https://en.wikipedia.org/wiki/Shapefile" target="_blank">shapefiles</a> favored by many government agencies, or <a href="http://blog.cartodb.com/post/65639747344/create-real-time-maps-from-data-anywhere-on-the-web?utm_source=CartoDB+customers&amp;utm_campaign=cfef4edb10-Newsletter_13111911&amp;utm_medium=email&amp;utm_term=0_c1af368f4a-cfef4edb10-326389261" target="_blank">slurp in and sync live data</a> from online sources like the National Weather Service.</p>
+
+<p>Then, step-by-step wizards and built-in templates let users quickly customize what gets displayed, color-coding points or shapes based on other columns in the data and designing tooltips and pop-up windows. Users can switch between mapping individual points, like which <a href="http://vizzuality.github.io/rollingstonesmap/#/32" target="_blank">cities</a> the Rolling Stones visited on each of their tours over their 50-year history, and creating heat maps, like <a href="http://vimeo.com/59791629" target="_blank">one</a> de la Torre created clustering every known meteorite strike in Earth’s history.</p>
+
+<p>The maps live in the cloud, so users can easily share links to them online or embed them in articles on their own sites and let CartoDB handle the scaling issues if their maps go viral.</p>
+
+<p>This month, Vizzuality also announced support for geo-temporal mapping, meaning animated maps that show changes in datasets over time. One <a href="http://here.com/livingcities/#cities/chicago/" target="_blank">example</a> shows minute-by-minute traffic trends in cities around the world; <a href="http://mwcimpact.com/" target="_blank">another</a> compares credit card transactions in Barcelona during the Mobile World Congress and in a typical week.</p>
+
+<p>To make a temporal map, users can upload a spreadsheet or other dataset with at least a location column and a time column.</p>
+
+<p>“This is something we’re very excited about,” de la Torre said. “It hasn’t been possible to do these kinds of maps where it changes over time very easily.”</p>
+
+<p>CartoDB’s built on open-source technology, meaning users can choose between building their maps on Vizzuality’s servers--they offer a variety of hosting plans, including one that’s free of charge – and downloading the <a href="https://github.com/Vizzuality" target="_blank">code</a> from GitHub and running the code from GitHub and running CartoDB on their own machines. That option is preferred by some organizations, such as banks, with sensitive data, de la Torre said.</p>
+
+<p>Behind the scenes, CartoDB’s servers use the open-source <a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a> database and its geographical plugin package <a href="http://postgis.net/" target="_blank">PostGIS</a> to store data and the <a href="http://mapnik.org/" target="_blank">Mapnik</a> toolkit to help generate the actual map images. On the client side, JavaScript libraries <a href="http://developers.cartodb.com/documentation/cartodb-js.html" target="_blank">CartoDB.js</a> and <a href="https://github.com/CartoDB/torque" target="_blank">Torque</a>, used for animated maps, make the maps actually show up in the web browser, using the HTML5 canvas element where it’s available and basic images where it’s not.</p>
+
+<p>CartoDB’s interactive wizards actually generate SQL database queries and stylesheets in the <a href="https://github.com/mapbox/carto" target="_blank">CartoCSS</a> language used by Mapnik. Power users can tweak those or write their own SQL queries, stylesheets and JavaScript code to further customize their maps, joining data from multiple tables or drawing shapes around a given point, for instance.</p>
+
+<p>“Users, particularly thinking about journalists, like a lot to use our software because they can do visualizations very quickly and very easily,” de la Torre said. “They start learning about it and start doing more complex visualizations.”</p>
+
+<p>Soon, Vizzuality is planning to add support for more intricate animations using its <a href="https://github.com/Vizzuality/VECNIK" target="_blank">Vecnik</a> JavaScript library, which, on modern browsers with HTML5 support, handles more of the map rendering in the web browser rather than on the server, de la Torre said.</p>
+
+<p>The company’s also looking to add more flexible payment plans letting users pay variable fees based on the amount of bandwidth and other resources their maps consume each month, similar to Amazon Web Services’ pricing plans.</p>
+
+<p>“We want to simplify our pricing by just giving a more elastic model, where people just pay for what they use,” de la Torre said.</p>
+
+<p>Right now, pricing <a href="http://cartodb.com/" target="_blank">plans</a> named for geographical pioneers like Ferdinand Magellan and London cholera-mapper <a href="https://en.wikipedia.org/wiki/John_Snow_%28physician%29" target="_blank">John Snow</a> allow for certain amounts of data, addresst translations and page views each month.</p>
+
+<p>“There’s very exciting moments coming in the next year,” de la Torre said. “A lot of interactions in a lot of new technologies.”</p>
