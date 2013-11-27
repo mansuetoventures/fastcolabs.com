@@ -1,0 +1,47 @@
+<p>The appeal of 3-D imagery is innate: it can make the user experience in games, commerce and communication more lifelike. But reproducing 3-D shapes in a computer takes hours of CAD word and rendering. Unless, of course, you have 64 digital SLR cameras rigged up to capture this stuff in real life.</p>
+
+<p>“Three-D is inherently a more tactile medium,” says photographer Alexx Henry, who has built a camera capture studio called the <a href="http://xxarray.com/about/technology/" target="_blank">xxArray</a>, which was used to create the interactive image above.</p>
+
+<p>“To be able to actually reach out and manipulate something and use augmented reality apps to experience the content is incredibe and I think 3D is the most logical next step. Putting it in everyone's hands in the mobile and tablet space is going to happen with or without us.”</p>
+
+<h3><a name="Oh_The_Places_Youll_Go_In_3D">Oh, The Places You’ll Go (In 3D)</a></h3>
+
+<p>If you could capture a photorealistic 3D model of just about anything, what you do with it? The xxArray makes 3D imaging about as simple as entering a photobooth and pushing a button. And the implications for digital media forms are tantalizing to say the least.</p>
+
+<p>Henry is using the rig initially for the launch of <a href="http://artandskin.com/" target="_blank">Art and Skin</a>, a 3D tattoo magazine launched just last week for the iPad. But other industries outside of media are already attempting to include more 3D in their media. Ikea made a splash a couple months ago when it released its <a href="http://www.fastcodesign.com/1673164/ikeas-new-catalog-magically-transforms-into-your-furniture" target="_self">augmented reality catalog</a>, and nearly every car, clothing and bicycle manufacturer these days allows you to “test drive” their wares by spinning a 3-D rendering.</p>
+
+<h3><a name="How_The_xxArray_Works">How The xxArray Works</a></h3>
+
+<p>The “array” in the name refers to a group of cameras: 64 Nikon D5200 bodies, to be exact. “There was a lot of trial and error involved in setting this up,” says Henry. “We went through about four different set ups before we got it right.”</p>
+
+<p>Software called <a href="http://www.agisoft.ru/products/photoscan" target="_blank">Agisoft Photoscan</a> stitches the images from the 64 cameras together to make it a cohesive whole. Agisoft was originally designed for the <a href="https://en.wikipedia.org/wiki/GIS" target="_blank">Geographic Information Systems</a> industry as a tool for photogrammetry, which is the science behind <a href="http://appleinsider.com/articles/13/07/31/apples-ios-7-3d-maps-leave-google-earth-nokia-3d-maps-looking-old-fashioned" target="_blank">Apple's 3D maps</a>, for instance. But the same techniques that capture buildings and topographic features apply equally to the contours and textures of the human body.</p>
+
+<p>Using the whopping 15 gigapixels of separate images taken by the xxArray, Agisoft stitches together the 2D photographs into one 3D model. Normally the process is fairly labor intensive, but with a heavy dose of Python scripting, Henry says his team has gotten the process down to about 90% automated and 10% manual.</p>
+
+<p>Over five dozen DSLR cameras that retail at around $1,000 each may sound like a lot. But in the world of photogrammetry, Henry calls it an “impressively low” number. Similar setups have used upwards of 80 or even 100 cameras.</p>
+
+<p>“It's very easy to solve your problems by adding cameras. But in trying to keep our camera budget to a minimum, we had to be very creative in positioning the cameras,” Henry says.</p>
+
+<p>Using as few cameras as possible is crucial for Henry’s project, if the xxArray is going to be able to scale beyond his studio’s walls. Even with such a relatively low number of cameras, the rig makes extensive use of stereo pairs--cameras targeted at the same focal point--in order to capture rich textures, making images more lifelike.</p>
+
+<p>“Stereo pairing gives incredibly high confidence for the software when you compare those points. We're getting really incredible texture quality,” Henry says.</p>
+
+<figure class="inline-video inline"><iframe src="http://player.vimeo.com/video/75321200" width="604" height="340" frameborder="0"></iframe></figure>
+
+<h3><a name="How_The_xxArray_Could_Be_Commercialized">How The xxArray Could Be Commercialized</a></h3>
+
+<p>“We believe that the 3D asset is the digital currency of the future,” he says. This isn’t Henry’s first foray into the future of digital media; his studio has a track record of <a href="http://www.huffingtonpost.com/ramon-nuez/why-change-not-the-ipad-w_b_504773.html" target="_blank">innovation in digital publishing</a>, so it's worth taking Henry's foresight seriously.</p>
+
+<p>Augmented reality apps could go far beyond Ikea's furniture catalog. With a 3D avatar of yourself, a clothing store that integrates 3D scans of its products could let you see how a suit or dress would actually fit on your body.</p>
+
+<p>In video games, we might finally be able to do away with character creation screens. Instead, you could play as yourself and see your own face and body in the game, competing the immersion experience. Imagine if this combined with virtual reality video games and you could walk through a fantasy world and actually look at yourself in a mirror.</p>
+
+<p>And of course 3D printing would have extensive use for such a tool. It could join the growing list of software that is simplifying the CAD process, such as <a href="https://tinkercad.com/" target="_blank">Tinkercad</a>. It's foreseeable that software will be developed to translate a 3D image directly to a CAD format.</p>
+
+<p>Meanwhile, the Javascript API <a href="http://www.khronos.org/webgl/" target="_blank">WebGL</a> builds upon the HTML5 canvas element so that all major browsers are capable of rendering and manipulating 3D graphics. So we could start seeing this being used on the open web too, not just in apps and games. (The 3D model above is rendered using WebGL.)</p>
+
+<h3><a name="Will_It_Scale">Will It Scale?</a></h3>
+
+<p>Despite the almost limitless potential of the technology, it's not clear if it's going to take off. “Right now there are the two main problems that we need to solve,” Henry says. “The first is getting arrays propagated. Second is and equally important is getting people to want a 3D scan. We need to have real meaningful use cases.”</p>
+
+<p>So meaningful, Henry says, that the practice might require new verbiage. “Think about what photography has always been. Photography has always been taking the latest bleeding edge technology and describing something in a new way. That's exactly what <em>photogrammetry</em> is.”</p>
