@@ -1,0 +1,65 @@
+<p>It’s impossible to say this comprehensively, but most people in publishing hate the CMS, or <a href="https://en.wikipedia.org/wiki/Content_management_system" target="_blank">content management system</a>, they’re forced to use at work. Increasingly, media companies are opting away from open source platforms like Drupal and Wordpress building custom content management systems to power their websites.</p>
+
+<p>Exactly how integral is the content management system to good storytelling on the Web? And what’s so hard about building a decent one?</p>
+
+<h3><a name="The_Publishers_Competitive_Advantage">The Publisher’s Competitive Advantage</a></h3>
+
+<p>Reuters columnist Felix Salmon predicted that media companies would either thrive or perish on the <a href="http://blogs.reuters.com/felix-salmon/2013/11/11/content-economics-part-4-scale/" target="_blank">efficacy of their publishing platforms</a>. Indeed, several companies, from BuzzFeed to Vox Media, publisher of The Verge, have made notable investments in their CMS, even as innovators in the space declare the CMS needs to be “<a href="http://www.niemanlab.org/2011/10/meet-scroll-a-new-tool-that-wants-to-de-templatize-the-news-web/" target="_blank">burned to the ground</a>.”</p>
+
+<p>Why so much pressure on the lowly CMS? For one, the complexity of editorial packages continues to increase, thanks in part to the success of projects such as the <em>New York Times</em>' "<a href="http://www.nytimes.com/projects/2012/snow-fall/" target="_blank">Snow Fall</a>" and the <em>Guardian</em>'s "<a href="http://www.theguardian.com/world/interactive/2013/nov/01/snowden-nsa-files-surveillance-revelations-decoded" target="_blank">NSA Files: Decoded</a>." These interactive pieces get lots of attention, and publishers are seeking to better exploit the rich storytelling features offered by the Web.</p>
+
+<p>But how much does a site's underlying technology actually influence its day-to-day operations?</p>
+
+<h3><a name="Its_Not_About_TechIts_About_Workflow">It’s Not About Tech--It’s About Workflow</a></h3>
+
+<p>Despite the hullabaloo over the clever design of projects such as "Snow Fall," the CMS arguably has a greater impact on editorial workflow than design. Take <em>FastCompany</em> itself--its CMS was rebuilt after the magazine launched two new sites, Co.Design and Co.Create. Previously, each site had its own CMS, slightly modified from that of the main site. When changes needed to be made across verticals, each site had to be updated separately. After joining <em>FastCompany</em> in 2011, CTO Matt Mankins decided to rebuild the CMS from the ground up on Node.js.</p>
+
+<p>"It was my stance that the only rational way forward was to consolidate the CMSes and create a presentation layer," he says. In other words: all the different FastCompany client sites or apps would load their content from one common stack.</p>
+
+<p><em>FastCompany</em>'s current CMS unites the main site and and its sister sites (including Co.Labs) under one platform, so that universal changes can be made at once. It also separates content from presentation. Writers and editors submit text, images, and videos for stories through a Drupal layer, a vestige of the old CMS. That content is captured and stored as data on a Solr server with a Redis caching layer, and then styled according to the site's master design using Node.js. Converting the content to data before adding presentation details ensures that even if Fast Company undergoes a redesign, the site will have a consistent look from story to story.</p>
+
+<p>Other sites' content management systems are similarly structured according to their distinctive editorial functions. <a href="http://pitchfork.com/" target="_blank">Pitchfork</a>, for instance, depends on the timeliness of its reviews, which are largely written by freelancers, not in-house. To expedite the process of assigning and editing reviews, the site's CMS, which was built using Django, doubles as a schedule manager: it alerts writers when reviews have been assigned or canceled (say, if an album release is delayed) and reminds them of pending deadlines. The site's CMS also readily adapts Web content for Pitchfork's mobile app, without editors or designers having to make alterations.</p>
+
+<p>In the case of <a href="http://qz.com/" target="_blank">Quartz</a>, the Atlantic's business-focused site, the CMS, a custom installation of WordPress, is designed to serve the site's mobile-first functionality. The company developed its publishing tools to equip its reporters and writers to complete most production tasks, such as developing charts and graphs, independently.</p>
+
+<p>Doing so, says senior editor Zach Seward, encourages staffers to develop components of a story--from text to graphics--holistically rather than tacking on additional media after a story has been reported and written. "We've found that it helps people write more natively for the Web," he says.</p>
+
+<h3><a name="Perils_Of_Going_Outside_The_CMS">Perils Of Going Outside The CMS</a></h3>
+
+<p>Although well-designed content management systems can greatly expedite an online newsroom's day-to-day workflow, it also imposes limits upon a site's structure. After all, a CMS is a system meant to stamp out mass-produced online articles--not bespoke projects.</p>
+
+<p>After the success of "Snow Fall," Andrew Kueneman, the <em>New York Times</em>' deputy director of digital design, told the <a href="http://www.thewire.com/technology/2012/12/new-york-times-snow-fall-feature/60219/" target="_blank">Atlantic Wire</a>, "This story was not produced in our normal CMS, which is probably pretty obvious… We don’t have the luxury of doing this type of design typically on the web."</p>
+
+<p>Other sites face similar issues. Pitchfork, for instance, uses a whole separate production process for its cover stories, such as its feature on <a href="http://pitchfork.com/features/cover-story/reader/daft-punk/" target="_blank">Daft Punk</a>, which typically include visual effects such as animations. In fact, the workflow for such stories is quite similar to the design process for print.</p>
+
+<p>Once a cover story is written, the site's creative director develops the concept for the accompanying photography and video; the developers then work to produce those visual effects.</p>
+
+<p>"It's typically done in a couple of days," says Matt Dennewitz, Pitchfork's vice-president of technology. "Some elements require some back-and-forth."</p>
+
+<p>To expand their design capabilities without drastically altering their CMS, other sites have turned to supplementary software for special editorial projects. PandoDaily, for instance, has used <a href="https://www.scrollkit.com/" target="_blank">ScrollKit</a>, a visual editor built by <a href="http://www.fastcolabs.com/3018570/native-ads-arent-evil-youre-just-doing-them-wrong" target="_self">Cody Brown</a> with JavaScript and HTML5, to experiment with multimedia projects, such as an in-depth overview of the <a href="http://pando.com/2013/08/05/who-killed-the-music-industry-an-interactive-explainer/" target="_blank">business challenges of the music industry</a>. ScrollKit integrates with WordPress, which PandoDaily uses to run its site.</p>
+
+<h3><a name="The_Trouble_With_Custom">The Trouble With Custom</a></h3>
+
+<p>Adding such bells and whistles to the main CMS can have help editors and technologists build custom editorial packages, but they also let editors do too much. Plug-and-play tools such as <a href="https://www.scrollkit.com/" target="_blank">ScrollKit</a> can greatly expand the capabilities of smaller sites like PandoDaily; at larger publishers, custom features can help eliminate the silos that usually develop between writers and editors, designers, and technologists, allowing them to collaborate more effectively.</p>
+
+<p>"It's best when producers, designers, and writers are working in tandem the whole time," says David Holmes, PandoDaily's head of social media and experimental journalism.</p>
+
+<p>But making features such as parallax scrolling and 3D animations central to a site's publishing platform poses the risk of abuse. Indeed, the most successful multimedia projects, such as the Guardian's feature on the NSA, incorporate various types of media in such a way that they are integral to the narrative, not merely supplementary. But doubtless a lot of publications overuse visual effects like parallax scrolling, to the reader’s frustration.</p>
+
+<p>Pitchfork's development team kept those caveats in mind when it developed a modular visual editor for the site's less intricately designed features. "It's good to limit what you do per piece," Dennewitz says. "That's a big driver keeping certain features out of the CMS."</p>
+
+<h3><a name="To_Go_Custom_Or_Not_To_Go_Custom">To Go Custom, Or Not To Go Custom?</a></h3>
+
+<p>Evidently, a site's CMS can restrict certain modes of storytelling just as readily as it facilitates others. For media companies eager to propagate their distinctive brand of journalism, developing a robust CMS would seem to be critical to their ability to scale, as Salmon argues. But is developing custom software the best way to accomplish that goal?</p>
+
+<p>On one hand, the size of a site's editorial operations seems to have little bearing on its choice of CMS, as illustrated by the number of large sites, from CNN to the <em>Economist</em>, that use customized versions of readily available systems such as WordPress and Drupal. "We've been joking for years that we should just run [FastCompany] on Tumblr," Mankins says.</p>
+
+<p>Instead, the decision is often more dependent on the outlet's core editorial philosophy. Salmon, for instance, cites the distinctive, bespoke quality of BuzzFeed and Gawker's content management systems. In BuzzFeed's case, the CMS facilitates the rapid sharing of content across social media; in Gawker's, it enables readers' posts to be featured as prominently as its paid staffers' work. (A <a href="http://www.fastcompany.com/665030/media-social" target="_self">previous incarnation</a> of <em>FastCompany</em>'s site also attempted to promote readers' contributions alongside staff-written articles.)</p>
+
+<p>But few sites have such a singular mission that an off-the-shelf CMS cannot be adapted to their needs. Though Quartz's mobile-first approach and classification of stories by temporary "obsessions" rather than permanent news categories lend the site a distinctive character, its editors and developers never considered building a custom CMS according to those features, Seward says. "A lot of us worked with terrible CMSes at other organizations," he says, "but it turns out there are a number of lovely systems out there."</p>
+
+<p>On the other hand, a site's philosophy--editorial or business-wise--may change radically enough that its underlying technology also requires a major overhaul. Preparing for that possibility is one reason Mankins opted for a custom CMS for <em>FastCompany</em>'s site.</p>
+
+<p>"I think you should choose a technology where you have a clear understanding of how to modify it to grow with you," he says. "If you’re lucky, you’ll keep growing out of your CMS and there will be a new one, custom or otherwise, to take its place."</p>
+
+<p>Do you work at a publishing company? What’s your CMS situation? Let me know <a href="https://twitter.com/aprjoy" target="_blank">on Twitter</a>.</p>
