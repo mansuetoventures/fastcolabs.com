@@ -1,0 +1,37 @@
+<p>After merging with Philadelphia-based Neiman Group, Boston ad agency Allen &amp; Gerritsen found itself with two teams of employees separated by 300 miles. It presented an increasingly common problem: When colleagues don't work in the same location, how can you foster a sense of not just collaboration, but comraderie as well? Using its internal hacker space, A&amp;G cobbled together hardware, sensors and code to build something to help bridge the divide.</p>
+
+<p>To do this, <a href="http://a-glabs.com/" target="_blank">A&amp;G Labs</a> built Pic Tap Toe, an interactive rethinking of tic tac toe designed to give their Boston and Philly employees a way to connect in a context that's more fun than Web-based collaboration software and conference calls. The game uses nine RFID sensors, an Arduino Yun housed in a custom-built wooden box to control the board, which is made up nine LCD screens affixed to the wall of a common area of the firm's downtown Philadelphia office. Using a game piece equipped with an RFID chip, the Philly team places their "X", which has the additional effect of displaying an Instagram photo snapped by somebody from the Philly office in the same on-screen square. In Boston, an identical setup invites colleagues to place their "O," a pattern that repeats until either Boston or Philly wins (or there's a tie).</p>
+
+<p><iframe src="//player.vimeo.com/video/80007154" width="500" height="281"></iframe></p>
+
+<p>"We wanted to make it a gateway between the two offices," says George Ward, A&amp;G's Senior Vice President of Innovation. "Whether or not it bonds us closer, I think it's too early to tell. It's fun, though. People like playing it."</p>
+
+<h3><a name="How_They_Built_Pic_Tap_Toe">How They Built Pic Tap Toe</a></h3>
+
+<p>Pulling up the lid of the electronic game board, Ward reveals its guts: Wiring, RFID readers and the Arduino Yun, which wirelessly communications with a custom game controller application built by developers at A&amp;G. That app, which runs on one of the Mac Minis hidden in a small room behind the screens, detects which RFID sensor was triggered by the game piece. Based on that knowledge, the controller application sends a data request to the browser using a Web Sockets API called Pusher. A database of staffers' Instagram photo--collected via a Node.js-powered module built by the agency's dev team--is queried for new images, one of which is displayed on screen with each team's turn.</p>
+
+<p>"People's Instagrams are so personal," notes Ward. "Not only do we have a game connecting the offices here with the offices there, but you start to see the name of a coworker and go, "Oh, they have three young boys. Oh, they bicycle a lot." You can start to know hobbies and interests. That's one of the interesting things. That personal side of it."</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/12/3023024-inline-ag-labs-1.jpg" alt=""/>
+</figure>
+
+<p>It's true. Pic Tac Toe would function just fine without the photographs and Instagram usernames that pop up on the game board. But as you play the game, you see why this addition was worth the trouble. By building and querying that database of everyone's photos, the game adds a uniquely personal flavor: Here's a tiny slice of a colleague's life, from their own vantage point. Perhaps it's a shot of their lunch or a selfie, to take two common Instagram cliches. Or maybe it's a creatively-composed shot of the side of a building in downtown Boston, giving you a glimpse of how they see the world.</p>
+
+<p>The gameboard itself was also built in house. After visiting nearby University of The Arts to use its laser woodcutter, the team assembled the box that houses the technical guts powering the gameplay. Elevated just high enough above the wooden box is a plastic apparatus with nine recessed slots into which the game's small wooden game piece fit snugly with each turn. The height of this component was just one of the seemingly minor details that had to be tweaked with precision: If the game piece hovers too closely above the RFID readers, they would all be triggered, resulting in some pretty chaotic gameplay. The box also sports a small speaker and an arcade-style button that initiates and resets games.</p>
+
+<h3><a name="What_RampD_Means_For_A_Creative_Agency">What R&amp;D Means For A Creative Agency</a></h3>
+
+<p>For A&amp;G, Pic Tap Toe offers something fun to do at Friday happy hours, when staffers shut down their workstations, crack open a beer and socialize in the lounge. Except now, in both offices, they interact with colleagues who are normally a five-hour drive away. The game is also, as Ward isn't shy about pointing out, a good way to impress clients. As a digital ad agency, A&amp;G is eager to show off a culture that it hopes will be perceived as both innovative and creative. It's the same reason it sends out holiday cards featuring interactive holograms and regularly tinkers with things like Leap Motion and Google Glass.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/12/3023024-inline-ag-labs-2.jpg" alt=""/>
+</figure>
+
+<p>"We're just swirling around to understand the tech so we can offer a solution," says Ward, noting that gestural control and RFID were big on his list of must-try technology for 2013. "We're not just hedging it on one. And that's the purpose of the lab: R&amp;D. To be confident, play around, get everybody conversant."</p>
+
+<p>This time next year, each office's nine screens may well be displaying something entirely different. Ward is intrigued by the idea of connecting the offices using ambient, real-time data displayed on a massive dashboard. In Boston, the screens might show tweets from Philly-based employees and run some kind of basic sentiment analysis on them. Above that might be the current weather in Philly. Maybe some more social media posts. Back in the Philadelphia office, similar data would be displayed about Boston. Ward talks about putting sensors in everybody's chairs so colleagues in each sister city can get an at-a-glance idea about who's in the office 300 miles away.</p>
+
+<p>"We want to respect employee's privacy," Ward says, acknowledging the potentially creepy vibe of an employee tracking its employees. "But if there was something we could put in the desks, or use the key fobs they use to get in the building. Or there may be more data visualizations to get the pulse and vibe of what's happening in the sister city.</p>
+
+<p>"We're still exploring."</p>
