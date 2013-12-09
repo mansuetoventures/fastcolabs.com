@@ -1,5 +1,9 @@
 <p>Last week, Apple became the latest retailer to use its own iBeacon technology in a bricks-and-mortar retail environment. But the tech--which enables stores to beam messages to iOS device-toting patrons--is based on the existing low energy Bluetooth spec. So is there any reason you couldn't just build your own with a Raspberry Pi and Bluetooth dongle?</p>
 
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/12/3023173-inline-i-1-this-guy-made-his-own-ibeacon-for-70.jpg" alt=""/>
+</figure>
+
 <p>Nope! You can build your own indeed, and that's exactly what <a href="http://www.theregister.co.uk/2013/11/29/feature_diy_apple_ibeacons/" target="_blank">Tony Smith</a> did recently. The El Reg writer made the equivalent of an iBeacon with a $50 Raspberry Pi and <a href="http://www.iogear.com/product/GBU521/" target="_blank">$20 Bluetooth 4.0 dongle</a>, prepped the Pi with the Linux Bluetooth stack, BlueZ, and various USB development packages. Any curious tinkerer can follow <a href="http://www.theregister.co.uk/2013/11/29/feature_diy_apple_ibeacons/" target="_blank">Smith’s instructions</a> to set up the beacon, then head to <a href="http://developer.radiusnetworks.com/2013/10/09/how-to-make-an-ibeacon-out-of-a-raspberry-pi.html" target="_blank">this Radius Networks write-up</a> to script one's own advertising message. Tada!</p>
 
 <p>The iBeacon beams up to 31-byte packets to “participating” iOS devices--in Macy’s case, anyone who downloaded <a href="http://www.theregister.co.uk/2013/11/21/macys_is_first_shop_to_test_apples_ispy_tracking_system/" target="_blank">their Shopkick-designed app</a>. Each packet includes a 128-bit Universally Unique Identifier (UUID) keyed to the service (IDing the packet as Macy’s, say) along with two 16-bit numbers, a “Major” number (which might distinguish stores) and a “Minor” number (which might distinguish departments).</p>
