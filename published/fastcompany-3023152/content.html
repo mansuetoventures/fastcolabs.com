@@ -1,0 +1,81 @@
+<p>"What cool new products are you using?"</p>
+
+<p>We all ask this question. It's a common conversation starter, especially in the startup community. I'm particularly fond of this topic--I enjoy geeking out about products, writing <a href="http://ryanhoover.me/product-design-deconstructions" target="_blank">design deconstructions</a>, and swapping discoveries with smart folks. But these conversations provide more than just entertainment value: they are also a great learning opportunity. Understanding the subtleties of good and bad products is critical for product builders. As Paul Buchheit <a href="http://paulgraham.com/startupideas.html" target="_blank">says</a>, you must "live in the future" to shape it. Playing with early, innovative products can provide a competitive advantage.</p>
+
+<p>This was the basis for Product Hunt. Here's how we prototyped it.</p>
+
+<h3><a name="The_Idea_In_Its_Simplest_Form">The Idea In Its Simplest Form</a></h3>
+
+<p>The concept was simple: to build a community for product product people to share, discover, and discuss new and interesting products. But when I came up with the idea, I lamented the amount of work needed to build a first version of Product Hunt. Even a basic Ruby on Rails app would take me weeks to build. Although confident in my idea, I didn't really know if anyone else would use a service like this. I wasn't about to spend dozens of my nights and weekends building something no one cared about. How could I bring it to market sooner to test my hypothesis?</p>
+
+<h3><a name="The_20_Minute_MVP">The 20 Minute MVP</a></h3>
+
+<p>It was unusually chilly that morning in San Francisco when I walked to my office, Philz Coffee. I ordered and claimed my usual seat. After unloading my MacBook, I peeked at my to-do list to find something I jotted the previous week:<br />
+<ul>
+  <li><span>Create Product Hunt</span></li>
+</ul></p>
+
+<p>In a burst of motivation to make Product Hunt a reality, I brainstormed ways to build a quick MVP to see if people cared to share and discover products. After noodling over a few ideas, I was reminded of <a href="http://linkydink.io/" target="_blank">Linkydink</a>, a link-sharing tool by the friendly folks at Makeshift. Simply create a group and invite people to share links with other contributors and subscribers. Each day, the collection of posts are emailed to the group. "This is perfect!" I thought, mentally fist-pumping with excitement.</p>
+
+<p>I logged into Linkydink, created a group, and invited a few of my startup friends to contribute. I wrote a quick <a href="http://ryanhoover.me/post/66192199851/announcing-product-hunt" target="_blank">blog post</a>, announced the project on <a href="http://quibb.com/links/announcing-product-hunt" target="_blank">Quibb</a> and tweeted.</p>
+
+<p>Within 20 minutes, I had an MVP.</p>
+
+<p>I sat back, sipping my coffee, anxious to see how people would respond.</p>
+
+<h3><a name="The_Results">The Results</a></h3>
+
+<p>Immediately, I received overwhelmingly positive feedback, first from Ash Bhoopathy, Entrepreneur-in-Action at Sequoia Capital.</p>
+
+<blockquote><p>Fun experiment, I've been wondering why something like this hasn't existed on a larger scale. It's probably the PM / growth dude's best replacement for 'Dribbble' for collecting inspiration.</p></blockquote>
+
+<p>Then from a partner at Union Square Ventures, Andrew Weissman:</p>
+
+<blockquote><p>Love how you have all kinds of VCs subscribed! Build an angel list syndicate off this list and disrupt them (us) ;-).</p></blockquote>
+
+<p>And then from Talton Figgins, Product Support Lead, Disqus:</p>
+
+<blockquote><p>Wrote this idea off at first when I first read about it but after checking out some of the recommendations (Peak, Sqwiggle, Calm, and Cycloramic) I'm hooked. Can't wait to check out more.</p></blockquote>
+
+<p>Within two weeks, over 170 people had subscribed to product discoveries from 30 hand-picked contributors, consisting of startup founders, VC's and prominent bloggers. Even more encouraging were the numerous unsolicited emails and in-person conversations expressing their love and support of the project.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/12/3023152-inline-linkydink-subscribers.png" alt=""/>
+</figure>
+
+<p>It's still very early but these signs of traction are encouraging, especially considering the minimalism of the "Linkydink MVP" and my (intentional) lack of marketing of the product. Granted, I didn't launch the MVP with a blank slate. Years of blogging, relationship building, and projects like <a href="http://startupedition.com/" target="_blank">Start Edition</a> have given me an audience and network of supporters. The term "startup" is deceiving. Successful companies don't start up overnight; they are founded upon years of experience and help from others that must be earned.</p>
+
+<h3><a name="Now_For_Building_a_Real_Product_Hunt">Now, For Building a "Real" Product Hunt</a></h3>
+
+<p>The results of the MVP gave me confidence in the idea: I had found something compelling. I began to research technology to build a complete product. Some of my engineering friends recommended Sinatra or Ruby on Rails. Unfortunately, I didn't have any experience with these frameworks and while assured in my idea, I was still operating with many hypotheses of what the product could be. I wanted something sooner to test my next series of assumptions. I started to look into Sacha Greif's <a href="http://telesc.pe/" target="_blank">Telescope</a>, an open-source app for creating your own Hacker News or Reddit-like community. Pleased, I reached out to my good friend and designer/developer <a href="https://twitter.com/nbashaw" target="_blank">Nathan Bashaw</a> to get his thoughts:</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/12/3023152-inline-ph-email-to-nathan.png" alt=""/>
+</figure>
+
+<p>Yes! Eight days later, we launched <a href="http://www.producthunt.co/" target="_blank">Product Hunt</a>.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2013/12/3023152-inline-product-hunt-homepage.png" alt=""/>
+</figure>
+
+<h3><a name="An_MVP_is_Not_a_Product">An MVP is Not a Product</a></h3>
+
+<p>The "20 minute Linkydink MVP" was a great starting point. It allowed me to validate some assumptions very quickly and observe real user behavior without a single line of code. Entrepreneurs often assume an MVP needs to be "built." The purpose of an MVP is to learn, to <a href="http://ryanhoover.me/post/45112508553/there-will-be-wrong-assumptions" target="_blank">validate and invalidate assumptions</a>. There are almost always faster ways to do this than building a product.</p>
+
+<p>Next time you have an idea for a new product or startup, ask these questions before touching a line of code:<br />
+<strong>Identify your assumptions:</strong> What assumptions do you have about your idea? What must be true for the product to succeed? How do you identify your audience?<br />
+<ol>
+  <li><span><strong>Test your assumptions:</strong> With your riskiest assumption in hand, brainstorm ways to validate or invalidate that assumption quickly. Use landing page tests, Wizard of Oz experiments, customer interviews, and other tactics to gather feedback from your target audience.</span></li>
+  <li><span><strong>Learn and iterate:</strong> If your assumption in the previous step is invalid, reevaluate the idea and your target audience. If you're lucky enough to be right, congratulate yourself and test the next riskiest assumption.</span></li>
+</ol></p>
+
+<p>This lean approach and mentality was used to birth Product Hunt and its ongoing development.</p>
+
+<h3><a name="Join_the_Hunt">Join the Hunt</a></h3>
+
+<p>Over Thanksgiving break, my talented friend Nathan built the first version of Product Hunt. On November 26th we began seeding the community with a few select founding contributors. A week later, we formally <a href="http://pando.com/2013/12/04/can-the-democratic-power-of-a-platform-like-hacker-news-be-applied-to-products/" target="_blank">launched in the press</a>, receiving another healthy spike of adoption and feedback.</p>
+
+<p>This is just the first post of a series where I will share the strategies, tactics, and surprises we encounter building Product Hunt. Check back on FastCo.Labs for more, or <a href="http://ryanhoover.us2.list-manage.com/subscribe?u=b6293be3a86314759fb879446&amp;id=1acf8ff64e" target="_blank">subscribe to my blog</a> to follow along.</p>
+
+<p>Ryan Hoover is the Director of Product at PlayHaven and creator of <a href="http://startupedition.com/" target="_blank">Startup Edition</a>. Visit <a href="http://ryanhoover.me/" target="_blank">his blog</a> and follow him on <a href="https://twitter.com/rrhoover" target="_blank">Twitter</a> for more on startups and product design.</p>
