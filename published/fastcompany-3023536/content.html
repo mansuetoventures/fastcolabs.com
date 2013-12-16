@@ -10,13 +10,13 @@
 
 <p>Today, the software controlling most quadcopters is designed to have all four propellers functional at the same time. As ETH Zurich doctoral student (and key researcher on this algorithm) <a href="http://www.idsc.ethz.ch/people/staff/mueller-m" target="_blank">Mark Müller</a> explains, drone software doesn't do a good job accounting for emergency scenarios.</p>
 
-<p>“During normal flight, a quadcopter can produce three independent torques to control its attitude: ‘roll’, 'pitch' and ‘yaw’,” says Müller. “If a propeller fails, this is no longer possible--the strategy for our algorithm is to give up the yaw torque, and let the machine spin uncontrolled about this axis. We then use the remaining propellers to tilt this axis of rotation, allowing the machine to move around.”</p>
+<p>“During normal flight, a quadcopter can produce three independent torques to control its attitude: ‘roll,’ 'pitch,' and ‘yaw,’” says Müller. “If a propeller fails, this is no longer possible--the strategy for our algorithm is to give up the yaw torque, and let the machine spin uncontrolled about this axis. We then use the remaining propellers to tilt this axis of rotation, allowing the machine to move around.”</p>
 
 <p>If it’s difficult to imagine what this might look like, so here’s a video of the algorithm in action:</p>
 
 <figure class="inline-video inline"><iframe src="http://www.youtube.com/embed/bsHryqnvyYA?rel=1&amp;autoplay=0" width="560" height="340" frameborder="0"></iframe></figure>
 
-<p>“The hardest part of the work was the initial mathematics,” says Müller. “How [do you] describe the system in a way that captures the relevant dynamics, but is still simple enough for us to analyse and manipulate? We started with Euler's law--a set of three differential equations that describe the rotation of a body as a function of the torques applied to that body. These equations are a gold mine of unexpected and surprising results, and trying to wrap our heads around this was probably the biggest challenge.”</p>
+<p>“The hardest part of the work was the initial mathematics,” says Müller. “How [do you] describe the system in a way that captures the relevant dynamics, but is still simple enough for us to analyze and manipulate? We started with Euler's law--a set of three differential equations that describe the rotation of a body as a function of the torques applied to that body. These equations are a gold mine of unexpected and surprising results, and trying to wrap our heads around this was probably the biggest challenge.”</p>
 
 <p>If the initial mathematics proved a steep learning curve, however, what surprised Müller about the eventual algorithm was its conceptual simplicity. “The derivation is quite complex, and required a lot of time,” he continues. “The implementation on a quadcopter was relatively simple. The control law that we use (the set of equations that calculate the required motor forces) ends up being very concise: to calculate the motor forces only requires a handful of multiplications and additions.”</p>
 
@@ -28,7 +28,7 @@
 
 <p>What started as a safety precaution, however, quickly developed into an intriguing computer science question in its own right as the team realized the complexity of the problem they were dealing with.</p>
 
-<p>“The idea of allowing the machine to spin at high speed, and still being able to control its position, had the perfect flavour for us,” Müller says. “It sounded surprising and hard to do, but our intuition said that it should be possible. We first looked at the problem of flying the machine with only two propellers, and only later discovered a solution that uses three propellers. After that, we could also show that it is possible to fly the machines with only one propeller.”</p>
+<p>“The idea of allowing the machine to spin at high speed, and still being able to control its position, had the perfect flavor for us,” Müller says. “It sounded surprising and hard to do, but our intuition said that it should be possible. We first looked at the problem of flying the machine with only two propellers, and only later discovered a solution that uses three propellers. After that, we could also show that it is possible to fly the machines with only one propeller.”</p>
 
 <h3><a name="Improve_Your_Flying_Theres_An_App_For_That">Improve Your Flying? There’s An App For That</a></h3>
 
@@ -38,7 +38,7 @@
 
 <p>By creating an entirely software-based solution, the ETH Zurich team have not only found a way past these issues, but have also come up with a concept that could easily be applied to a large batch of existing quadcopters.</p>
 
-<p>“[In this way] our work is not focused on quadcopters as such, but rather on algorithms and mathematics that allow us to fully explore and exploit the capabilities of dynamic machines,” Müller says. “As such we do a lot of work on mathematical modelling and abstraction, allowing us to control complicated systems, and getting them to do interesting things.”</p>
+<p>“[In this way] our work is not focused on quadcopters as such, but rather on algorithms and mathematics that allow us to fully explore and exploit the capabilities of dynamic machines,” Müller says. “As such we do a lot of work on mathematical modeling and abstraction, allowing us to control complicated systems, and getting them to do interesting things.”</p>
 
 <p>Currently the ETH Zurich team has a patent pending on their algorithm, while a paper detailing the invention will be published in 2014.</p>
 
