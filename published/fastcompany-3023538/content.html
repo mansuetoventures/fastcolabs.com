@@ -1,4 +1,4 @@
-<p>One day Dragos Ruiu noticed that his MacBook Air was behaving like it had a virus. Over the next few months, things got stranger: one of Ruiu’s other computers running Open BSD started to modify its own settings and delete data without any explanation--even though Ruiu, a security consultant, had removed all of the networking cards from the machines as a preventative measure.</p>
+<p>One day Dragos Ruiu noticed that his MacBook Air was behaving like it had a virus. Over the next few months, things got stranger: One of Ruiu’s other computers running Open BSD started to modify its own settings and delete data without any explanation--even though Ruiu, a security consultant, had removed all of the networking cards from the machines as a preventative measure.</p>
 
 <p>How were his computers infecting each other without being connected?</p>
 
@@ -8,13 +8,13 @@
 
 <p>Ruiu called the anomaly "BadBIOS" and has spent much of the past few years investigating it--although up until recently it hadn't received much in the way of academic scrutiny. Now two German computer scientists named Michael Hanspach and Michael Goetz claim to have cracked the mystery (or a variation of it) by creating a proof-of-concept code which shows that the technology does indeed exist to allow malware to jump between two non-connected systems.</p>
 
-<p>Why this should be an important discovery is clear: conventional wisdom states that removing a computer from the Internet makes it all but impenetrable. Just last month, while speaking at a Defense One conference, retired Capt. Mark Hagerott theorized that malware able to jump the airgap could “<a href="http://www.businessinsider.com/navy-acoustic-hackers-could-halt-fleets-2013-11" target="_blank">disrupt the world balance of power</a>”. It is for this reason that some people have referred to the mysterious BadBIOS as the "<a href="http://www.infosecurity-magazine.com/view/35661/badbios-the-god-of-malware/" target="_blank">God of Malware</a>" due its apparent invulnerability and potentially major consequences.</p>
+<p>Why this should be an important discovery is clear: Conventional wisdom states that removing a computer from the Internet makes it all but impenetrable. Just last month, while speaking at a Defense One conference, retired Capt. Mark Hagerott theorized that malware able to jump the airgap could “<a href="http://www.businessinsider.com/navy-acoustic-hackers-could-halt-fleets-2013-11" target="_blank">disrupt the world balance of power</a>.” It is for this reason that some people have referred to the mysterious BadBIOS as the "<a href="http://www.infosecurity-magazine.com/view/35661/badbios-the-god-of-malware/" target="_blank">God of Malware</a>" due its apparent invulnerability and potentially major consequences.</p>
 
-<p>So how exactly does does Hanspach and Goetz's power-disrupting malware work then?</p>
+<p>So how exactly does Hanspach and Goetz's power-disrupting malware work then?</p>
 
 <h3><a name="The_Sound_And_The_Fury">The Sound And The Fury</a></h3>
 
-<p>As it turns out, the answer is all to do with sound. In their <a href="http://www.jocm.us/index.php?m=content&amp;c=index&amp;a=show&amp;catid=124&amp;id=600" target="_blank">paper</a>--published last month by the Journal of Communications--the two computer scientists describe the way in which a computer’s built-in sound card and microphone can be used to transmit information from one end (the client or application installed on the target system) to the other (the server) through the air.</p>
+<p>As it turns out, the answer is all to do with sound. In their <a href="http://www.jocm.us/index.php?m=content&amp;c=index&amp;a=show&amp;catid=124&amp;id=600" target="_blank">paper</a>--published last month by the <em>Journal of Communications</em>--the two computer scientists describe the way in which a computer’s built-in sound card and microphone can be used to transmit information from one end (the client or application installed on the target system) to the other (the server) through the air.</p>
 
 <p>“Our research was carried out half a year ago, so it wasn’t motivated by [the BadBIOS] findings, but it’s certainly a similar type of attack pattern,” Hanspach says.</p>
 
@@ -22,15 +22,15 @@
 
 <p>The technology Hanspach and Goetz used to create their prototype malware was based on software originally designed for underwater communication, which uses ultrasonic frequency ranges to transmit messages.</p>
 
-<p>While the distances involved are impressive, however, Hanspach points out that transmitting data is slow going. In fact, in their study the researchers measured a transmission speed of just 20 bits per second, which averages to two keyed-in characters each second. To put that in perspective, an article like the one you’re reading right now would take roughly 30 minutes to send via such acoustical methods: hardly the stuff for the kind of high speed espionage you see in a spy movie, where whole hard drives are transferred within minutes or even seconds.</p>
+<p>While the distances involved are impressive, however, Hanspach points out that transmitting data is slow going. In fact, in their study the researchers measured a transmission speed of just 20 bits per second, which averages to two keyed-in characters each second. To put that in perspective, an article like the one you’re reading right now would take roughly 30 minutes to send via such acoustical methods: hardly the stuff for the kind of high-speed espionage you see in a spy movie, where whole hard drives are transferred within minutes or even seconds.</p>
 
-<p>Reaching this “optimal” speed is also dependent on having access to a clear and reliable data feed. This is easily established when working under lab conditions, but is likely to prove more difficult to replicate win the real world, where interference like cell phone signals, television, and other electronic emissions may all have a detrimental effect.</p>
+<p>Reaching this “optimal” speed is also dependent on having access to a clear and reliable data feed. This is easily established when working under lab conditions, but is likely to prove more difficult to replicate in the real world, where interference like cell phone signals, television, and other electronic emissions may all have a detrimental effect.</p>
 
-<p>This last point was made by Malware Intelligence Team lead and Malware Unpacked scribe Adam Kujawa, who also speculated that infection (in order to allow the signals to be sent and receive) could not be carried out <a href="http://blog.malwarebytes.org/cyber-crime/2013/12/yelling-across-the-gap/" target="_blank">entirely without contact</a>:</p>
+<p>This last point was made by Malware Intelligence Team lead and Malware Unpacked scribe Adam Kujawa, who also speculated that infection (in order to allow the signals to be sent and received) could not be carried out <a href="http://blog.malwarebytes.org/cyber-crime/2013/12/yelling-across-the-gap/" target="_blank">entirely without contact</a>:</p>
 
 <blockquote><p> “While I personally don’t think remote infection would be possible using this method, if an attacker were to use something like an infected USB that was plugged into an airgapped system, it could automatically install the malware and begin sending or receiving data.” </p></blockquote>
 
-<p>“None the less, it’s pretty interesting,” Kujawa writes.</p>
+<p>“Nonetheless, it’s pretty interesting,” Kujawa writes.</p>
 
 <h3><a name="What_Can_You_Do_About_It">What Can You Do About It?</a></h3>
 
@@ -42,6 +42,6 @@
 
 <p>“People working in security are understandably on the lookout for problems like this which could result in theft--since they represent remaining threats in high security systems,” Hanspach says. “People need to be aware of these attack patterns because if, for example, you have a laptop that contains highly valuable information, you should not assume that the data cannot be stolen just because the computer is not connected to any existing networks. It’s all about creating a more secure system for high security applications.”</p>
 
-<p>As to what concerned parties can do about the problem, Hanspach and Goetz have a few suggestions. “The most obvious solution would be to deactivate your audio devices, although you don’t have to do this,” Hanspach says. “Instead you could carry out audio filtering--to filter out parts of the signals that are do not register to the human ear, so that this sort of communication no longer becomes possible.”</p>
+<p>As to what concerned parties can do about the problem, Hanspach and Goetz have a few suggestions. “The most obvious solution would be to deactivate your audio devices, although you don’t have to do this,” Hanspach says. “Instead you could carry out audio filtering--to filter out parts of the signals that do not register to the human ear, so that this sort of communication no longer becomes possible.”</p>
 
 <p>“These are the solutions we reported in our paper, although I am sure that far more countermeasures will be presented in the future.”</p>
