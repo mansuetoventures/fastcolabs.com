@@ -4,7 +4,7 @@
 
 <p>Quadcopters are mechanically simple and built for durability. As aircraft go, they're also extremely agile, a flip side to their instability. That also makes them potentially very dangerous.</p>
 
-<p>A group of researchers from the Dynamic Systems and Control (IDSC) department of <a href="http://www.idsc.ethz.ch/" target="_blank">ETH Zurich</a> think they come up with a solution: an algorithm able to detect propellor faults and allow a quadcopter to be brought in for a safe controlled landing--even in situations in which it has lost 75% of its engine power. So how exactly does it work?</p>
+<p>A group of researchers from the Dynamic Systems and Control (IDSC) department of <a href="http://www.idsc.ethz.ch/" target="_blank">ETH Zurich</a> think they have come up with a solution: an algorithm able to detect propellor faults and allow a quadcopter to be brought in for a safe controlled landing--even in situations in which it has lost 75% of its engine power. So how exactly does it work?</p>
 
 <h3><a name="An_Algorithm_For_Propellor_Failure">An Algorithm For Propellor Failure</a></h3>
 
@@ -18,7 +18,7 @@
 
 <p>“The hardest part of the work was the initial mathematics,” says Müller. “How [do you] describe the system in a way that captures the relevant dynamics, but is still simple enough for us to analyze and manipulate? We started with Euler's law--a set of three differential equations that describe the rotation of a body as a function of the torques applied to that body. These equations are a gold mine of unexpected and surprising results, and trying to wrap our heads around this was probably the biggest challenge.”</p>
 
-<p>If the initial mathematics proved a steep learning curve, however, what surprised Müller about the eventual algorithm was its conceptual simplicity. “The derivation is quite complex, and required a lot of time,” he continues. “The implementation on a quadcopter was relatively simple. The control law that we use (the set of equations that calculate the required motor forces) ends up being very concise: to calculate the motor forces only requires a handful of multiplications and additions.”</p>
+<p>If the initial mathematics proved a steep learning curve, however, what surprised Müller about the eventual algorithm was its conceptual simplicity. “The derivation is quite complex, and required a lot of time,” he continues. “The implementation on a quadcopter was relatively simple. The control law that we use (the set of equations that calculate the required motor forces) ends up being very concise: To calculate the motor forces only requires a handful of multiplications and additions.”</p>
 
 <h3><a name="This_Is_A_Safety_Announcement">This Is A Safety Announcement</a></h3>
 
@@ -34,7 +34,7 @@
 
 <p>What makes the ETH Zurich algorithm different to previous attempted solutions is that it is entirely software-based--requiring no added hardware whatsoever. Previous solutions were mainly centered on physical additions to the quadcopter concept--often proposing hexa- and even octocopters, equipped with six or eight motors/propellers.</p>
 
-<p>While these may have improved safety they would also have done away with many of the plus-sides of quadcopters--since the augmentations would make the machines heavier, more complex, less maneuverable, and more expensive to manufacture.</p>
+<p>While these may have improved safety, they would also have done away with many of the plus-sides of quadcopters--since the augmentations would make the machines heavier, more complex, less maneuverable, and more expensive to manufacture.</p>
 
 <p>By creating an entirely software-based solution, the ETH Zurich team have not only found a way past these issues, but have also come up with a concept that could easily be applied to a large batch of existing quadcopters.</p>
 
@@ -52,4 +52,4 @@
 
 <p>Thanks to ETH Zurich, we’re now one step closer to seeing these solutions realized.</p>
 
-<p>“Machines that significantly interact with their environment are fundamentally different than mobile phones, tablets, et cetera,” says ETH Zurich group head and co-founder of Kiva Systems, <a href="http://raffaello.name/" target="_blank">Raffaello D’Andrea</a>. “You can’t ‘reboot’ a flying machine if something goes wrong, for example. Safety, reliability, and predictability are going to be the most important attributes of intelligent machines.”</p>
+<p>“Machines that significantly interact with their environment are fundamentally different than mobile phones, tablets, et cetera,” says ETH Zurich group head and cofounder of Kiva Systems, <a href="http://raffaello.name/" target="_blank">Raffaello D’Andrea</a>. “You can’t ‘reboot’ a flying machine if something goes wrong, for example. Safety, reliability, and predictability are going to be the most important attributes of intelligent machines.”</p>
