@@ -16,13 +16,17 @@
 
 <p>To make all this possible, the scientists, salaried and otherwise, needed new software. Zooniverse had access to lots of additional data about galaxies which wasn’t necessary to run the core Galaxy Zoo classification project. Being able to query and analyze this data would allow participants to independently investigate questions like the correlation between galaxies of a particular type and the age of the black holes are at their centers.</p>
 
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2014/01/3024378-inline-screen-shot-tools.png" alt=""/>
+</figure>
+
 <p>Arfon Smith is one of the founders of Zooniverse, the website which hosts Galaxy Zoo and dozens of other citizen science projects, and he also served as its CTO. “We had nowhere to expose that information to people,” says Smith. “So out of this came a desire to build an environment where you could start to delve into the some of the data behind the projects and that's basically what Tools is. There are lots of common tasks: plotting, tables, maps. When you have grabbed some data and plotted it, the dashboard is shareable within the community. Anyone who gets that URL gets a clone of that thing.There's always going to be a point where you want to pull down the data and do something in R or Matlab, but there's a whole bunch you can do that's quick and easy and will help you understand if what you are looking at is interesting. That's where Tools gets us to.”</p>
 
 <p>Zooniverse was already using MongoDB to store the the heterogeneous data required for its various projects and exposed a common API which was used by the projects. Zooniverse Tools was built on top.</p>
 
-<p>Extreme Citizen Scientists</p>
+<h3><a name="Extreme_Citizen_Scientists">Extreme Citizen Scientists</a></h3>
 
-<p>Galaxy Zoo Quench is using Zooniverse Tools, a set of discussion forums and a collaborative writing environment called Authorea (also used by physicists at CERN) to enable its scientific work. The research issue being addressed is of a similar level of difficulty to a Masters project which might form the starting project for a PhD.</p>
+<p>Galaxy Zoo Quench is using Zooniverse Tools, a set of discussion forums and a collaborative <a href="http://www.fastcolabs.com/3016677/can-the-github-for-science-convince-researchers-to-open-source-their-data" target="_self">writing environment called Authorea</a> (also used by physicists at CERN) to enable its scientific work. The research issue being addressed is of a similar level of difficulty to a Masters project which might form the starting project for a PhD.</p>
 
 <p>The first stage, like Galaxy Zoo, was classification. Post-quenched galaxies are rare but Galaxy Zoo Quench created a sample of 3002 quenched galaxied and a control sample of the same number of non-quenched galaxies with a similar total stellar mass and redshift (the light from an object moving away from the observer appears to increase in wavelength shifting to the red end of the spectrum). 1200 participants answered a series of questions helping to identify the characteristics of the galaxy’s morpologies. A smaller group of around 250 participants then started to analyze them using Zooniverse Tools.</p>
 
@@ -30,17 +34,21 @@
 
 <p>“Anecdotally, we have a mixture of people who have careers in a technical field but they were not astronomers,” says Trouille. “We have one person who has a really deep understanding of statistical analysis, so he has been an integral part of the research team. There's quite a good population of stay-at-home mothers who have always been interested in science and if they have an hour here or there they get online.”</p>
 
-<p>The citizen scientists spent several months exploring the data and sharing their findings with the salaried scientists and each other on the project’s discussion boards. Then one of them stumbled across something interesting.</p>
+<p>The citizen scientists spent several months exploring the data and sharing their findings with the salaried scientists and each other on the project’s discussion boards. Then one of them <a href="http://quenchtalk.galaxyzoo.org/#/boards/BGS0000008/discussions/DGS00001zx" target="_blank">stumbled across something interesting</a>.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2014/01/3024378-inline-mergerfraction-mass.jpg" alt=""/>
+</figure>
 
 <p>“One of my favorite examples is someone who didn't have a background in the technical side,” says Trouille. ”She posted one of our major plot results. The X axis is galaxy mass. The Y axis shows whether the galaxy has signatures of having collided with another galaxy. From her data you could see that there's a very weird statistical difference between our post-quenched galaxy samples especially at the higher mass end. Those galaxies have a much higher likelihood of having undergone a major merger. It's a clear suggestion that major mergers are one mechanism for shutting off star formation.” The team is starting work on a research paper documenting their results.</p>
 
-<p>Science And Social Computing</p>
+<h3><a name="Science_And_Social_Computing">Science And Social Computing</a></h3>
 
-<p>One intruiging issue for future Zooniverse projects is how to best combine automated techniques like Machine Learning with human input, a field known as Social Computing. In fact, at least one Zooniverse project, Galaxy Zoo Supernova, has already automated itself out of existence.</p>
+<p>One intruiging issue for future Zooniverse projects is how to best combine automated techniques like Machine Learning with human input, a field known as <a href="http://www.media.mit.edu/research/groups/social-computing" target="_blank">Social Computing</a>. In fact, at least one Zooniverse project, Galaxy Zoo Supernova, has already automated itself out of existence.</p>
 
 <p>“They would survey the sky every night with a telescope in Panama and they'd get about 50,000 candidates things which could be supernovae, “ says Smith. “They'd cull about 49,000 of those and were left with around a few hundred to a thousand every night. It was a mixture of supernovae, variable stars, asteroids. All of these things look like supernovae unless your algorithms are incredibly good and they often rely on a lot of additional information. That project after about a year and a half put itself out of business, because the team used the dataset from the project to train their algorithms to behave like the Zoo project.”</p>
 
-<p>There are some problems, however, machine and human brainpower can be combined to get the best results. The Planethunters project, for example, uses data from the Kepler satellite to find new planets. When a planet passes in front of a star, there’s a dip in the star’s brightness. There are accurate computer algorithms which can find elliptical planetary systems but citizen scientists have found more exotic objects like Planet Hunters 1 (PH1) which the computer algorithms didn’t recognize. “What's definitely interesting for the future is the human computer interaction,” says Trouille. “You have your computer algorithms but then have human eyes look through the data to see what has been missed and teach the algorithms what the humans have learnt.”</p>
+<p>There are some problems, however, machine and human brainpower can be combined to get the best results. The <a href="http://www.planethunters.org/" target="_blank">Planethunters</a> project, for example, uses data from the Kepler satellite to find new planets. When a planet passes in front of a star, there’s a dip in the star’s brightness. There are accurate computer algorithms which can find elliptical planetary systems but citizen scientists have found more exotic objects like <a href="http://blog.planethunters.org/2012/10/15/ph1-a-planet-in-a-four-star-system/" target="_blank">Planet Hunters 1</a> (PH1) which the computer algorithms didn’t recognize. “What's definitely interesting for the future is the human computer interaction,” says Trouille. “You have your computer algorithms but then have human eyes look through the data to see what has been missed and teach the algorithms what the humans have learnt.”</p>
 
 <p>Another strategy is to have an algorithm optimize the allocation of data to the human volunteers. A paper from Microsoft research used the original Galazy Zoo data but developed a dynamic model of the ability level and availability of the various volunteers to determine the optimal allocation of images to volunteers. The researchers estimated that the same classification fidelity could be achieved with only 25% of the classification events from the original project. Zooniverse plans to use the system, which is called Crowdsynth, in a future Zooniverse project.</p>
 
