@@ -1,0 +1,37 @@
+<p>Paying developers to find bugs is all the rage these days. GitHub just <a href="https://github.com/blog/1770-github-security-bug-bounty?utm_source=tuicool" target="_blank">announced</a> a bug bounty program offering ethical hackers $5,000 rewards for discovering vulnerabilities in its platform. This comes just a week after <a href="https://m.facebook.com/BugBounty/posts/778897822124446?stream_ref=10" target="_blank">Facebook paid out a $33,500 reward</a> to a researcher who uncovered a security hole.</p>
+
+<p>So how can fledging hackers reap these kinds of huge rewards?</p>
+
+<p>"If you're interested in getting involved in security as a field, bug bounty programs are a great way as a practical matter to demonstrate your mastery of the material," says Neal Poole, a security researcher at Facebook. He would know. Before starting his current position, Poole claimed more than 20 bounties from <a href="https://nealpoole.com/blog/2011/08/lessons-from-facebooks-security-bug-bounty-program/" target="_blank">Facebook</a>, <a href="https://nealpoole.com/blog/tag/google-vulnerability-reward-program/" target="_blank">Google</a> and <a href="https://nealpoole.com/blog/responsible-disclosure-programs/" target="_blank">other tech companies</a>.</p>
+
+<p>Now that Poole's doing internal security audits at Facebook, he has the advantage of being able to access company source code to look for unusual programming styles or areas of code where special requirements force programmers to deviate from standard security practices.</p>
+
+<p>But as an outside bug bounty participant, he got used to relying on "black box" analysis--having access only to the requests sent by the browser to the target server and the responses sent back.</p>
+
+<p>"As an outside researcher, when you're looking at Facebook, all you have to go on is the requests and responses you see," says Poole.</p>
+
+<p>To help with that analysis, he uses a free tool called <a href="http://portswigger.net/burp/proxy.html" target="_blank">Burp Proxy</a> that sits between his browser and the rest of the Internet. It lets users replay and tweak requests from the browser to better understand how different parameters affect what the server sends back.</p>
+
+<p>"It just makes the testing process that much easier," he says.</p>
+
+<p>Poole occasionally uses more sophisticated vulnerability-scanning tools, but warns they can sometimes generate time-wasting false positives or lead to a false sense of security when they miss genuine security holes.</p>
+
+<p>"If I run a scanner and it tells me everything is clean, it's not the same as me looking at the site and saying everything is clean," he says.</p>
+
+<p>Cross-site scripting vulnerabilities, where it's possible for a hacker to inject JavaScript into the content a site shows to another user, are among those Poole sees most often, he says. Such attacks generally rely on either linking a victim to a URL with JavaScript encoded inside the address to be regurgitated to the victim's browser or circumventing restrictions preventing users from posting live code to social networking profiles or forum posts.</p>
+
+<p>"When you're looking for a cross-site scripting issue, one of the things you often do is you take all these fields that are taking user input and you put in all these strings and when they come out, you see if they're being escaped properly," says Poole.</p>
+
+<p>Poole's website features a <a href="https://nealpoole.com/blog/tag/xss/" target="_blank">number</a> of those types of bugs that he's found, and, he says, people interested in learning more about searching for security holes can read numerous online tutorials and books like browser security expert Michal Zalewski's <a href="http://www.amazon.com/The-Tangled-Web-Securing-Applications/dp/1593273886" target="_blank"><em>The Tangled Web</em></a>. Aspiring bug bounty hunters can also practice with tutorials like <a href="https://www.owasp.org/index.php/Category%3AOWASP_WebGoat_Project" target="_blank">WebGoat</a> and <a href="http://www.dvwa.co.uk/" target="_blank">Damn Vulnerable Web App</a> that offer downloadable websites with deliberately inserted vulnerabilities for researchers to experiment with.</p>
+
+<p>Once new hackers have mastered the basics, they can start looking for holes in real-world sites like Facebook and GitHub, as long as they follow accepted bug bounty <a href="https://www.facebook.com/whitehat" target="_blank">practices</a> for not interfering with site operations or other users.</p>
+
+<p>"When you are trying to demonstrate your mastery of the material, the best way to do that is to find a real-world site that has these issues," he says. "Build a good report; build a proof of concept."</p>
+
+<p>As the web incorporates new technologies, new classes of security holes inevitably arise, though often they're variations on bugs that have been seen in the past, Poole says. For instance, as sites move from traditional structured SQL databases to more customizable NoSQL data stores, they've seen attackers move from SQL injection to NoSQL injection, but the general principle is the same: sneaking malicious database commands into data sent to the site.</p>
+
+<p>"Very often, right on the heels of those [new] technologies, security researchers are coming along and saying, 'make sure you don't forget the lessons of the past in building out these new systems,'" Poole says.</p>
+
+<p>As for Poole's own activities, he's enjoying working with bug bounty participants from the other side of the fence but finding that he's spending less time actually searching after other companies' bounties than he did in his college days.</p>
+
+<p>"I've been kept pretty busy here, so I haven't quite as much time to spend on bug bounty programs as I used to," says Poole. "Sometimes, I just lie down and watch some TV or read a good book."</p>

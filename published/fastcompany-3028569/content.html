@@ -1,0 +1,160 @@
+<p>Over the past two weeks, FastCoLabs has been building a Monte Carlo model to predict potential paths of MH370. <a href="http://www.fastcolabs.com/3028265/how-i-narrowed-down-the-location-of-malaysia-air-using-monte-carlo-data-models" target="_self">I wrote about Version 1</a> last week and after the piece hit Reddit <a href="http://www.fastcolabs.com/3028331/more-about-our-methodology-tracking-mh370-with-monte-carlo-data-models" target="_self">I added a more technical description</a>. Now I've updated and extended the model, using information that wasn't yet available earlier.</p>
+
+<h4><a name="Picking_Up_Where_We_Left_Off">Picking Up Where We Left Off</a></h4>
+
+<p><a href="http://nbviewer.ipython.org/github/myhrvold/MH370_MCMC/blob/master/MH370_MC_ConorMyhrvold-bug_fixes.ipynb?create=1" target="_blank">We last left off</a> with a relatively simple <a href="http://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo" target="_blank">Markov Chain Monte Carlo</a> (MCMC) model, trying to predict possible flight paths for the missing airliner. I used the plane's previous heading--assuming MH370 tended to along a similar direction as before, with some ability to turn--<em>and</em> the tendency to head to the last ping arc (8:11 am) at each time to probabilistically determine its subsequent locations.</p>
+
+<hr />
+
+<h3><a name="See_the_post_that_sparked_this_discussion_here_urlhttpwwwfastcolabscom3028265howinarroweddownthelocationofmalaysiaairusingmontecarlodatamodelsHow_I_Narrowed_Down_The_Location_Of_Malaysia_Air_Using_Monte_Carlo_Data_Modelsurl_Then_read_our_followup_entitled_urlhttpwwwfastcolabscom3028331moreaboutourmethodologytrackingmh370withmontecarlodatamodelsMore_About_Our_Methodologyurlbr__">See the post that sparked this discussion here: <a href="http://www.fastcolabs.com/3028265/how-i-narrowed-down-the-location-of-malaysia-air-using-monte-carlo-data-models" target="_self">How I Narrowed Down The Location Of Malaysia Air Using "Monte Carlo" Data Models</a>. Then read our followup entitled <a href="http://www.fastcolabs.com/3028331/more-about-our-methodology-tracking-mh370-with-monte-carlo-data-models" target="_self">More About Our Methodology</a>.<br />
+</a></h3>
+
+<hr />
+
+<p>The last ping arc took into account enough distance on either side--through the standard deviation--to effectively cover an area which blanketed the other pings as well [1]. Each new location only depended on the heading of the previous step, while the ping arc probability grid which made the plane tend toward the last ping arc, remained constant.</p>
+
+<p>Results consistently showed, across a range of reasonable variations, that MH370 “chose” the southern arc most frequently and ended off the Australian West Coast, confirming independent Inmarsat Doppler analysis identifying a similar area of ocean nearby:</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2014/04/3028569-inline-figure1version1normal5percenterror.png" alt=""/>
+</figure>
+
+<p><em>5% error, normal distribution</em></p>
+
+<h4><a name="Heading_Off_Criticism">Heading Off Criticism</a></h4>
+
+<p>Yet the <a href="http://en.wikipedia.org/wiki/Normal_distribution" target="_blank">normal distributions</a> I used for the plane heading, and the probability grid, were still criticized for being, well, too normal. So I implemented two heading choice distributions as well, both quite popular in some circles (unit circles, actually): the <a href="http://en.wikipedia.org/wiki/Wrapped_Cauchy" target="_blank">Wrapped Cauchy</a> and the <a href="http://en.wikipedia.org/wiki/Von_Mises_distribution" target="_blank">Von Mises</a>. Both generated heading selections that were similar and then dramatically different, from how I chose the heading in <a href="http://www.fastcolabs.com/3028265/how-i-narrowed-down-the-location-of-malaysia-air-using-monte-carlo-data-models" target="_self">Version 1</a>.</p>
+
+<hr />
+
+<p>This project is also available as code: <a href="http://qa.nbviewer.ipython.org/github/myhrvold/MH370_MCMC/blob/master/MH370_MC_ConorMyhrvold-V2-Part1.ipynb?create=1" target="_blank">Part 1</a>, <a href="http://qa.nbviewer.ipython.org/github/myhrvold/MH370_MCMC/blob/master/MH370_MC_ConorMyhrvold-V2-Part2.ipynb?create=1" target="_blank">Part 2</a>, and <a href="http://qa.nbviewer.ipython.org/github/myhrvold/MH370_MCMC/blob/master/MH370_MC_ConorMyhrvold-V2-Part3.ipynb?create=1" target="_blank">Part 3</a>, and as a full file via <a href="https://github.com/myhrvold/MH370_MCMC" target="_blank">GithHub</a>.</p>
+
+<hr />
+
+<p>I also found the Inmarsat ping error range: a specialty satellite industry blog pointed out a <a href="http://i55.servimg.com/u/f55/14/14/01/64/arcs_11.jpg" target="_blank">careful calculation</a> on PPRuNe [2], which <a href="http://tmfassociates.com/blog/2014/03/24/understanding-the-satellite-ping-conclusion/" target="_blank">determined 1º to 2º error</a>. For the last ping, where the satellite was 40º from the plane’s perspective, this would mean error of 2.5% or 5% of the total distance between the satellite and the plane, measured by the lag time [3].</p>
+
+<h4><a name="Here_is_one_set_of_the_results">Here is one set of the results:</a></h4>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2014/04/3028569-inline-figure2vonmises15percenterror.png" alt=""/>
+</figure>
+
+<p><em>Von Mises, uniform distribution, 5% error</em></p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2014/04/3028569-inline-figure3wrappedcauchy055percenterror.png" alt=""/>
+</figure>
+
+<p><em>Wrapped Cauchy, quasi-uniform distribution, 5% error</em></p>
+
+<p>All showed that if MH370 did a true <a href="http://en.wikipedia.org/wiki/Random_walk" target="_blank">random walk</a>--picking plane headings which wandered any which way, and using just the ping arc to constrain MH370’s ultimate location--MH370 ends up all over the arc within its flight range. This was the uniform distribution so vaunted on Reddit, confirming my original intuition on how to not pick the heading.</p>
+
+<h4><a name="Desserting_The_Data_Through_CherryPicking">Desserting The Data Through Cherry-Picking</a></h4>
+
+<p>Next, I wanted all the pings to make my model the <a href="http://en.wikipedia.org/wiki/I_Want_It_All" target="_blank">Queen of them all</a>. Enough infographics had shown multiple pings, and my error assumptions were accommodating enough, that with some effort in Mathematica, I could now plot all of the plane pings. So each time step would have its own unique ping, instead of ping-ybacking on the generous error assumptions of another ping. I also plotted the Great Circle path from MH370’s last known location to where it ended up in all of my models, a standard feature in the Python library I used [4]. Importantly, a Boeing 777 such as MH370 will either fly by magnetic bearing (<a href="http://tmfassociates.com/blog/wp-content/uploads/2014/03/Agonicmap_zps3fab6ace.jpg" target="_blank">unlikely</a> just by eyeballing) or <a href="http://tmfassociates.com/blog/2014/03/24/understanding-the-satellite-ping-conclusion/" target="_blank">alternatively via the Great Circle</a> to maximize fuel efficiency (via distance efficiency) between two waypoints.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2014/04/3028569-inline-figure4allpingsgreatcircle.png" alt=""/>
+</figure>
+
+<p>Version 1 of the model simultaneously and independently came to the southern route conclusion; now, I wanted to see the complete picture of the flight. All of the plane’s possible locations, over the whole duration. I had not yet seen modeled, let alone guesstimated with specific scenarios in mind.</p>
+
+<p>The National Transportation and Safety Board provided Australia with <a href="http://tmfassociates.com/blog/wp-content/uploads/2014/03/Googleearth1_zps810c179b.jpg" target="_blank">few possible paths</a> to aid in the search, in a reserved or miserly manner, depending on your perspective. Malaysia, in turn, has released its <a href="http://tmfassociates.com/blog/wp-content/uploads/2014/03/Malaysia-full-tracks-Mar25.png" target="_blank">own few paths</a>; but none of them appeared to plot the pings arcs to see whether these paths were actually possible, let alone showing them in the plot.</p>
+
+<p>Now, it was time to generate thousands of paths. Our simulation would be the ultimate pathfinder (sorry, Nissan!) No more cherry-picking several fortunate few. This would be equal opportunity, Monte Carlo style, which would lead to unequal outcomes [5] in a fraction of the time and expense of the traditional way you can narrow down potential paths of MH370.</p>
+
+<h4><a name="Reconstructing_The_Pings_And_Why_This_Is_Right_On_Average">Reconstructing The Pings, And Why This Is Right (On Average)</a></h4>
+
+<p>Several quick points about accuracy:</p>
+
+<ol>
+  <li><span>The error I assume in each ping is still generous; the standard deviation is 2.5% and 5% of the last ping’s radius arc--which is more than the distance differences between the pings. So I am allowing for as much wiggle room as possible in terms of how I pick where the pings are; and then some.</span></li>
+  <li><span>Even if the ping timings between the first ping and the last ping are not exact in an absolute sense, they certainly are in an average sense. Which means that using the plane’s ultimate location on the arc, as the end point for the Great Circle, is a sound strategy.</span></li>
+  <li><span>Looking at where the plane is plotted over time, the conclusions are plain to see--there is just not enough wiggle room to adjust the ping spacings in a way that allow for a flight path which does not make turns contrary to what an autopilot would automatically pick.</span></li>
+</ol>
+
+<h4><a name="MH370_Flight_Trajectory_Through_All_Pings">MH370 Flight Trajectory Through All Pings</a></h4>
+
+<p>So, here are the results, with the realistic normal heading assumption of Version 1 along with the realistic options in Version 2 for Wrapped Cauchy [6] and Von Mises:</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2014/04/3028569-inline-figure5allpingsnormal5percent.png" alt=""/>
+</figure>
+
+<p><em>normal distribution, 5% error</em></p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2014/04/3028569-inline-figure6allpingsnormal2percent.png" alt=""/>
+</figure>
+
+<p><em>normal distribution 2.5% error</em></p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2014/04/3028569-inline-figure7allpingsvonmises5percent.png" alt=""/>
+</figure>
+
+<p><em>Von Mises distribution, 5% error</em></p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2014/04/3028569-inline-figure8allpingsvonmises2percent.png" alt=""/>
+</figure>
+
+<p><em>Von Mises distribution, 2.5% error</em></p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2014/04/3028569-inline-figure9allpingswrappedcauchy5percent.png" alt=""/>
+</figure>
+
+<p><em>Wrapped Cauchy distribution, 5% error</em></p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2014/04/3028569-inline-figure10allpingswrappedcauchy2percent.png" alt=""/>
+</figure>
+
+<p><em>Wrapped Cauchy distribution, 2.5% error</em></p>
+
+<h4><a name="Autopilot_Analysis">Autopilot Analysis</a></h4>
+
+<p>Through many thousands of simulations of various parameters specific to MH370’s predicament, we now have a much better idea of what MH370’s flight paths could be. My model shows likelihoods for MH370, not a definitive location. Is it possible that what is most likely is not in fact the case? Yes, of course, but the very notion of a Monte Carlo is predicated on the odds, meaning this analysis comes with an unfortunate realization--even if you don’t want a scenario to be true, if all of the available information points to that, then it is the likely leading outcome.</p>
+
+<p>What does this all mean? Autopilot is out of options. You see, here is the simple problem--none of the possible paths can be reconciled with a <a href="http://en.wikipedia.org/wiki/Geodesic" target="_blank">geodesic</a> (<a href="http://en.wikipedia.org/wiki/Great_circle" target="_blank">Great Circle</a>) which means that the plane turned at multiple points. <a href="http://tmfassociates.com/blog/2014/03/24/understanding-the-satellite-ping-conclusion/" target="_blank">How could it turn</a>? Well, the plane was “flown” to its final location--either manually by a human, or by a program entered into the flight management system. These results strongly suggest that wherever MH370 is, the odds are that someone wanted it there.</p>
+
+<p><strong><u>Inmarsat Ping Timeline Table</u></strong></p>
+
+<p>2:11 am -- First ping.</p>
+
+<p>2:15 am -- Last sighting of MH370 by Malaysia military radar.</p>
+
+<p>3:11 am -- Second ping. First ping after plane disappeared [7].</p>
+
+<p>4:11 am -- Third ping.</p>
+
+<p>5:11 am -- Fourth ping.</p>
+
+<p>6:11 am -- Fifth ping.</p>
+
+<p>7:11 am -- Sixth ping.</p>
+
+<p>8:11 am -- Seventh ping. Last full ping from MH370. (What earlier was thought of as the 5 th ping after disappearance, but is actually the 6th ping.)</p>
+
+<p>8:19 am -- Partial ping?! (Still not understood.)</p>
+
+<p>Source: <a href="http://en.wikipedia.org/wiki/Malaysia_Airlines_Flight_370" target="_blank">MH370 Article, Wikipedia</a>.</p>
+
+<p><em>Additional Note: <a href="http://tmfassociates.com/blog/category/operators/inmarsat/" target="_blank">TMF Associates blog</a>, with insightful previous analysis, references a different set of aperiodic ping times from 2:11 am and 8:11 am, and an MH370 radar disappearance at 2:22 am, inferred from Inmarsat Doppler analysis. These are at odds with the Wikipedia timeline. I use the hourly pings for simplicity’s sake. The 2.5-5% error more than accounts for any timing discrepancies.</em></p>
+
+<hr />
+
+<p>[1] 5%, 10%, and 20% of the distance from the last ping arc to the Inmarsat geostationary satellite, a coarse way to account for all pings with just the last one.</p>
+
+<p>[2] Professional Pilots Rumor Network. No, I am not making this up !</p>
+
+<p>[3] I was modeling 5%, 10%, and 20%, and trying to encompass multiple pings in that breadth, which wasn’t bad but could be improved on.</p>
+
+<p>[4] Matplotlib Basemap. <a href="http://matplotlib.org/basemap/" target="_blank">“You know you want it!”</a></p>
+
+<p>[5] Probably a libertarian’s dream.</p>
+
+<p>[6] Note that using a Wrapped Cauchy distribution splits roughly even-steven north and south; all of my other results show southern tendencies.</p>
+
+<p>[7] Below 1 hour; accounted for in my model.</p>

@@ -1,0 +1,57 @@
+
+
+<aside class="info"><div class="info-inner"><p>This story contains interviews with Breather chief engineer and CTO Evan Prodromou and Breather CEO Julien Smith.</p></div></aside>
+
+<p>As city dwellers know, it's awesome to live here but it can sure suck to visit. Without a pad of your own, out-of-towners are left skipping from Starbucks to Whole Foods to Starbucks to collect themselves and wait for bathrooms.</p>
+
+<p>Montreal-based startup <a href="http://breather.com/" target="_blank">Breather</a> wants to take an Airbnb approach to fixing this problem--without the overnight. The company lets people reserve quiet rooms in Montreal, New York, and--coming next month--San Francisco for an hour at a time. It's "the best friend’s apartment that you’re really jealous of," says chief engineer and CTO, Evan Prodromou. "A really nice place to sit down and get some things done."</p>
+
+<p>The question is: How do they get people into strange buildings? “The biggest problem we had to solve was how to get people through the door. We’re trying to say ‘you have access to this room during a pre-agreed period of time, not before or after. And only one person can do it.’"</p>
+
+<p>According to Prodromou, smart locks weren’t reliable or readily available. Key handoff didn't make sense, given the short-term nature of rentals. So the founding team found a hack: hotel locks and cryptography. They turned to old one-time password algorithms to enable dumb-locks to intelligently grant access only during a specific period of time, only to the person who booked the reservation.</p>
+
+<p>"The technical problem we’re solving with the lock system is that we need to have a way to grant access to the rooms remotely without actually directly talking to the locks," says Prodromou. Here's how they solved it.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2014/04/3028724-inline-i-1-lead-hunter-breather.jpg" alt=""/><figcaption>Image courtesy of Breather</figcaption>
+</figure>
+
+<h4><a name="How_Breathers_Custom_Door_Locks_Work">How Breather's Custom Door Locks Work</a></h4>
+
+<p>Picture a Breather customer walking up to a door at the beginning of the rental period. They're delivered a code through a push notification in the Breather app, and they punch that six-digit number into a keypad on the ordinary hotel lock called the Oracode 660K made by a company called ILCO. On the UX side, it's as simple as that.</p>
+
+<p>However, what's happening behind the scenes is much more interesting.</p>
+
+<p>"We used ILCO lock’s API to map your reservation at a particular time onto the lock that you’re using. You’re supposed to be at this door at this time. We give you a code that’s valid from about 15 minutes before you’re supposed to be in the room until about 15 minutes after--we give you a little bit of a grace period."</p>
+
+<p>"Our app calls the server side API, our API. Which in turn is using an API through ILCO to get a new code that we in turn forward to the end user. We show you a code through our app and you punch it into the keypad."</p>
+
+<p>And then the door opens.</p>
+
+<p>"It works every single time, unless you punch it in wrong,” says Prodromou. “But most people get it the first time."</p>
+
+<p>Breather didn't develop the lock technology itself. Two-factor systems like Google Authenticator and RSA key fobs use similar systems, but they did build a smart hack to make the app talk to the lock--and to ensure that it only works for the rental period.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2014/04/3028724-inline-i-2-lead-hunter-breather.jpg" alt=""/><figcaption>Image courtesy of Breather</figcaption>
+</figure>
+
+<h4><a name="Making_The_System_Durable">Making The System Durable</a></h4>
+
+<p>The founding team considered smart locks and other app connected systems, but most of them weren't robust enough to handle multiple users a day. "We have between four and six users coming into a room a day. The kinds of locking systems we were looking at were hobbiest-oriented devices intended for home automation. They just weren’t able to stand up to the use or abuse."</p>
+
+<p>"We went with these type of ILCO locks because they've got that great disconnected mechanism,” says Prodromou. Because of the way that cryptography works, the locks are robust in the face of connectivity failures. They don’t depend on the Internet staying up, or the phone working--as would an app-controlled smart lock. “We’re not depending on you holding your phone in a particular way or even necessarily having the same phone; you can use the locks that we have with iOS, with Androids, with other systems.”</p>
+
+<p>So how does a disconnected lock "speak" with a connected system to generate these codes? Complex math. As Prodromou says, “The lock gets a seed value when it's installed, and it does a transformation on that value over time. Since the server has the same seed value, and it does the same transformation over time, the two outcomes will be the same, even though they don't communicate directly.”</p>
+
+<p>“It's like if I put you and a friend in separate rooms and gave you a seed value of 139 and told you to add 1 to it every hour. After three days you'd both have 211 even though you haven't communicated with each other. The math is way more complicated than this. Much bigger numbers and more complicated transformations."</p>
+
+<p>CEO Julien Smith describes it this way: "Your friend in a room, who you can't communicate with, chooses a number between 1 and 100. You can't reach them, but you have to choose the right number every time."</p>
+
+<p>There's no chance someone can just remember the code and walk back in again. According to Prodromou, even if you know the algorithm and a past value you can't predict the next value. "The combination get reset based on the time, so the combinations only last for about ½ hour apiece, though we have some combinations that can last longer. It’s really tied up with how the cryptography works. The crypto code depends not only on the values that create when we program the locks, but also on the current time. Every lock also has a clock."</p>
+
+<p>It is also virtually impossible for the same code to come back up. With a six-digit lock code, there are more than a million possible number combinations.</p>
+
+<p>While far fewer unique codes are needed at present, that will come in handy as the young company expands. Breather currently has 11,863 registered users. Of those, 652 have used the service and 410 have used it in the last 30 days. "We have a total of 10 spaces: five in Montreal, five in New York. Our next city is San Francisco. We are shooting for that sometime in May," says Prodromou.</p>
+
+<p>What do users find behind the door? A couch, a table, comfortable chairs, a pillow and a blanket--a still spot in the middle of the city storm. Quiet, calm, and locked up tight.</p>

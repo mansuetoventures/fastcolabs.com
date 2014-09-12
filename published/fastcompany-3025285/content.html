@@ -1,0 +1,71 @@
+<p>For media companies, the pace of technological change can be unforgiving. The <em>New York Times</em>, well-staffed as it may be, is no exception. To meet rapidly changing business goals and reader expectations, the tech team there recently pulled off a redesign that required overhauling the backend of one of the biggest news sites on the planet.</p>
+
+<p>As you might imagine, things got complicated.</p>
+
+<p>By the time the project--code-named "NYT 5" internally--kicked off two years ago, the problems were clear. As web standards, mobile device adoption, and reader expectations all barreled forward, the <a href="http://www.nytimes.com/" target="_blank">NYTimes.com</a> architecture had been gathering dust, resulting in hacked templates, messy code, and pages that didn't always play nice with the latest devices.</p>
+
+<p>Even worse, the old system wasn't allowing the <em>Times</em>'s developers and interactive journalists to iterate quickly, making it harder to deliver badly needed updates to impatient readers. These gripes, combined with business needs like increasing ad inventory, informed the first set of redesign mockups that starting make the rounds internally six months later.</p>
+
+<p>"As a company we had all agreed that the fixed width layout that we were using from 2006 was no longer cutting it with plethora of different devices that are available today," says Mike Finkel, Executive Director of Web Products Technology at the <em>New York Times</em>.</p>
+
+<p>"We were doing a lot of hacking to make our content work on our iPad app, iPhone app, and Android app. We all agreed that this was the time to do something new."</p>
+
+<p>As editorial, design, and business goals all came into sharper focus, the true breadth of the project revealed itself. By the time NYT 5 launched earlier this month, it wouldn't just include the freshly polished exterior--everything under the hood would be new, too.</p>
+
+<h3><a name="Modern_Publishing_Without_Hacking_The_CMS">Modern Publishing (Without Hacking The CMS)</a></h3>
+
+<p>If you're one of the many people whose jaws hit the floor upon seeing the publication's <a href="http://www.nytimes.com/projects/2012/snow-fall/" target="_blank">Snow Fall</a> story last year, consider yourself somewhat lucky. At the <em>Times</em>, this type of multimedia-rich layout has historically been born in spite of their publishing system, not thanks to it.</p>
+
+<p>Indeed, like many of the immersive web stories that followed, Snow Fall was built alongside the <em>Times</em>'s content management system, independent of their standard online editorial workflow.</p>
+
+<p>It's not just the interactive blockbusters that demand these kinds of arduous technical backflips. Smaller multimedia projects have historically employed a variety of template hacks and workarounds too. By overhauling the site's infrastructure, the tech team took the first and biggest step toward changing all that.</p>
+
+<p>"Every time the newsroom wanted to do something that fell outside of the realm of our standard layouts and publishing mechanisms, it was just a huge hack-fest to do it," says Finkel. "A lot of times they would have to publish their interactive pieces into a standard article template, but the published item was just a ton of JavaScript, HTML, and CSS coded to completely rewrite the <a href="https://en.wikipedia.org/wiki/Document_Object_Model" target="_blank">DOM</a>. They've been doing that for a several years now. The technical debt that amounts when you're continually hacking away at something is something that's really hard to overcome without starting from scratch."</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2014/01/3025285-inline-nytimes-code.jpg" alt=""/>
+</figure>
+
+<p>At the same time, even regular news articles were published in proprietary format, static HTML documents which lived in the <em>Times</em>'s data centers. This less-than-dynamic system made it hard to maintain a consistent look and feel across templates over time.</p>
+
+<p>As development manager Reed Emmons explained <a href="http://open.blogs.nytimes.com/2014/01/08/the-technology-behind-the-nytimes-com-redesign/" target="_blank">in a recent post</a> on the <em>New York Times</em> Open blog:</p>
+
+<blockquote><p> "Since the article’s HTML was fixed but the scripts and stylesheets inside it were dynamic, our front end team needed to maintain every template version that had ever been created. This is why an article published two years ago is a bit different than an article published a few weeks ago. Soft launching backward compatible CSS and waiting for it to uncache in every browser before launching a JavaScript change became common practice."</p></blockquote>
+
+<p>By comparison, the new infrastructure is much more dynamic. The team completely rebuilt the PHP rendering engine that pulls every page together as users navigate the site. The new framework is cleaner, more efficient, and--crucially--architected in such a way that building on top of it in the future won't create the sort of technical debt that has caused so many headaches over the years. It will also make building new features and apps easier, allowing developers to glue existing components together rather than starting from scratch.</p>
+
+<p>Rather than a brand new CMS built from the ground up, the editorial side was given a host of new features and capabilities, including a new publishing template and better control over multimedia assets. Part of that newfound freedom, Emmons explains, is automation that frees them from thinking too much about how the content is formatted. Among these time-savers is "an algorithm that paints images down the page in a way that makes sense contextually."</p>
+
+<p>For the editorial side, this is just phase one. Over time, publishing interactive mega-features like Snow Fall on-the-fly will become much easier.</p>
+
+<h3><a name="Building_A_More_Responsive_Layout">Building A More Responsive Layout</a></h3>
+
+<p>Never in human history has a technology been as quickly adopted as the smartphone. Indeed, by the time the NYT 5 project kicked off, "responsive design" was already maturing from buzzword to best practice. The <em>Boston Globe</em> launched its own cross-device-friendly design in 2011, with many other <a href="http://readwrite.com/2011/09/14/how-the-boston-globe-pulled-of#awesm=~otebZiYNrRRBbY" target="_blank">major publishers leaping onto the bandwagon</a>.</p>
+
+<p>For the <em>Times</em>, the first step toward catching up was an overhaul of the front-end architecture. To keep things structured, efficient, and easy to update, Emmons and his team cobbled together some of the most beloved JavaScript frameworks, including Backbone.js and RequireJS for structure, as well as web development standbys like jQuery, Modernizr, Underscore.js, Hammer.js, and SockJS.</p>
+
+<p>"We leveraged tools that have been very successful already and sort of glued them together," says Emmons. "There was a fair bit of tailoring to meet the needs for our organization, but all of the core principals of it are existing libraries that already exist and are well supported throughout the industry."</p>
+
+<p>On top of this skeleton of scripts, Emmons and his team built the next biggest piece of the NYT 5 puzzle: A homegrown, responsive JavaScript framework that would allow the <em>Times</em> to more effectively serve content to readers on whatever newfangled device they happen to be staring into on the subway.</p>
+
+<p>"There's probably a good hundred different ways that our articles can be rendered," says Emmons. "To serve all these interesting scenarios we needed a more custom solution. That's why we rolled our own responsive framework to get all these different breakpoints starting at 768 with the iPad portrait mode all the way up to 2030."</p>
+
+<p>The mission of the <em>Times</em>'s new responsive engine goes beyond the obvious need to deliver web-based news to iPads and Samsung Galaxy devices. It also allows the site to make intelligent decisions about rendering content based on the type of media elements displayed, the orientation of the device, and even the monetary value of the advertisements on the page.</p>
+
+<h3><a name="Speeding_Things_Up_For_Readers_And_Developers_Alike">Speeding Things Up For Readers And Developers Alike</a></h3>
+
+<p>Like any modern web design project, the NYT 5 initiative placed a heavy emphasis on speeding up the site. Things like consolidating the site's CSS stylesheets with <a href="http://www.lesscss.org/" target="_blank">Less</a> and reducing the number of JavaScript calls can go a long way toward improving page load times. And, of course, rebuilding the entire PHP rendering engine from the ground up doesn't hurt either.</p>
+
+<p>Of all the tools utilized throughout the project, few were quite as handy to Emmons and Finkel as Varnish, a front-end caching layer that helps with speed and scalability.</p>
+
+<p>"Varnish is a reverse proxy cache with a lot of customizability as far as like the types of things it caches, how quickly, how long it caches these things for, and whether we incrementally purge those cache entries," explains Finkel. "It's one of the biggest reasons we were able to make a lot of the more creative decisions on the backend. We knew we had this fantastic front-end cache layer to rely on."</p>
+
+<p>Between all this front-end streamlining and the rebuilding of how the server-side architecture works its magic, the <em>New York Times</em> site should, in theory, be noticeably faster to readers. Just as important, though, is the efficiency with which developers can now code new features atop a freshly rebuilt, modern platform.</p>
+
+<h3><a name="A_More_FutureProof_News_Site">A More Future-Proof News Site</a></h3>
+
+<p>Like the server-side overhaul, the reinvention of the site's front-end had as much to do with making developers happy as it did with wooing readers. Using industry standard JavaScript frameworks and streamlining the way new features are coded, for instance, makes future maintenance much, much easier.</p>
+
+<p>"We standardized everything so there's one way to code and it all fits into our framework," explains Emmons. "You could be a junior developer and understand the structure. It's about solving the product and business issues at hand rather than trying to figure out what data structure to use. We want to allow them to be creative with their solution without necessarily having to think about how to do it."</p>
+
+<p>This is a huge deal. The reason other publications were so easily able to beat the <em>Times</em> to the punch with things like responsive design is because its rusting architecture made it harder to push new iterations out in response to evolving reader habits. The expectations of those readers will continue to change at an unrelenting pace. The difference is that now, the code and developers behind NYTimes.com will be in a far better position to adapt.</p>

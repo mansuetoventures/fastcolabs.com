@@ -1,0 +1,87 @@
+<p>Here's a thought experiment: Imagine a demo day startup competition. How often do women-led startups win prestigious startup competitions when facing male-led companies, per capita? If you guessed that they win less often, you’d be 100% wrong.</p>
+
+<p>Women led startups indeed win just as many startup competitions as men, proportional to their entries--but the general under-representation of women in tech might have led you to make an incorrect assumption about this little scenario.</p>
+
+<p>In fact, lots of misperceptions exist about which startups will “make it." But discerning which factors really predict success is a problem that no one has managed to solve since the invention of the SAT.</p>
+
+<p>Now a company called YouNoodle is hoping that it can bring some of those under-recognized startups to the forefront, with hard data and a human touch.</p>
+
+<h4><a name="Two_Cofounders_Part_Ways">Two Cofounders Part Ways</a></h4>
+
+<p>This isn’t the first time YouNoodle has tried to change the way we all look at startups. Six years ago, YouNoodle made news with its controversial startup valuation algorithm. But the company eventually tossed that first product, started building the one we’re talking about today, and this past March, it raised $1.1 million in new funding to help see it through.</p>
+
+<p>Rebeca Hwang and Bob Goodson started the old YouNoodle in 2008 but would break up the company two years later. Goodson went on to found Quid, the data analytics company. Hwang decided to revamp YouNoodle with Torsten Kolind, who is now its CEO.</p>
+
+<p>The team knew they would need to design a study. Given that Kolind and Hwang both worked at the old YouNoodle, wrangling data is in their DNA. So for the last few years, Kolind and Hwang have been building up data from startup competitions they facilitate.</p>
+
+<p>YouNoodle’s recent “YN1K” study took data from 232 competitions that it helped run all across the globe in 2013. The acronym stands for YouNoodle 1000, a nod to the top 1,000 startups that the company ranked with its new rating algorithm from the competitions’ more than 17,000 entrants.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2014/04/3028515-inline-younoodle1.jpg" alt=""/>
+</figure>
+
+<p>“We saw ourselves as this company, just helping competitions and entities with software, but we’re now realizing that we have such an important dataset that we started trying to study it and understand across the world what are the things that explain, ‘How can you see differences between different competitions’ interests for startups across the world, you know, and basically in one industry, on one stage?’” explains Kolind.</p>
+
+<p>Here's what they found.</p>
+
+<h4><a name="Yes_Women_Are_Underrepresented">Yes, Women Are Underrepresented</a></h4>
+
+<p>“There is a lot of talk and a lot of evidence that points to the underrepresentation of women in general in the entrepreneurial community," Kolind says. "But at the very least, in these competitions, we weren’t able to see anything like that.”</p>
+
+<p>For 2013, the YN1K study showed that women-led startups comprise 28% of the top 1,000 startup-winners, the same percentage as the number that enters into competitions. YouNoodle stresses that this gender ratio drastically decreases in favor of startups headed by men by the first funding stage.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2014/04/3028515-inline-younoodle3.jpg" alt=""/>
+</figure>
+
+<p>“There is no particular bias for or against women when you look at winning competitions. It’s the same number, the same fraction that enters a competition in general, in 2013, as the ones we found in the top thousand,” says Kolind.</p>
+
+<p>That perspective could help defuse any counter-bias from the people who participate in and operate these sorts of demo day events.</p>
+
+<p>“What we like about competitions and the nature of competitions is that they’re unbiased. Everyone is evaluated on the same terms. And anything like education level, nationalities, gender just shouldn’t matter. And we believe that these competitions level the playing field,” he adds.</p>
+
+<h4><a name="Letting_The_Computer_Think_With_Help">Letting The Computer Think, With Help</a></h4>
+
+<p>YouNoodle’s data analyst and software engineer, Alexander Wesolowski, developed the algorithm behind YN1K’s results. “It’s all built in PHP at this stage because it’s a very effective way of getting it done and a very effective way of prototyping,” says Wesolowski.</p>
+
+<p>“It’s the framework we’ve used for the rest of the system. It’s a relational MySQL database, and PHP is just how we crunch most of the data,” he adds.</p>
+
+<p>First, Wesolowski’s algorithm aggregates all the scores per judge. “The 1,000 were selected based on how well they performed in their respective competitions, and this was obviously based on the scores that the judges gave them,” says Wesolowski. “That score was normalized across the other competitions.”</p>
+
+<p>“The second factor was how competitive the competition was, so how difficult it was to get to the top,” Wesolowski says. YouNoodle gave each competition a number from one to three, depending on how few entrants made it to the competition’s final round and whether it was a local, national, or international contest.</p>
+
+<p>“And the third factor was the nature of the competition. In particular, which stage it targets. There’s a very big difference between a competition that is just about creating a pitch, or pitching an idea, and a competition where you actually submit a finished product,” says Wesolowski.</p>
+
+<p>The algorithm pitted all of the competitions’ winners against the three factors, and the ones who scored the highest and won the most competitive competitions made it onto the YN1K list.</p>
+
+<p>“So that’s the subjective part. The only subjective part is the way we look at which competitions are more likely to contain high-quality applicants. It’s more fair to select more of the applicants from those competitions,” says Kolind.</p>
+
+<h4><a name="How_To_Handpick_The_Right_Variables">How To Handpick The Right Variables</a></h4>
+
+<p>YouNoodle chose the numerical weights to denote how competitive and what the nature of each individual competition was. “We basically had to use our own professional judgment from our team in order to figure out which weights to use,” Kolind says.</p>
+
+<p>“Of course, we’ll be looking at those over time and adjusting them as we go, but we had to start somewhere. We started simple,” he adds.</p>
+
+<p>According to the Nobel prize-winning economist Daniel Kahneman, the simplest algorithm is the best way to go. In his book <em>Thinking, Fast and Slow</em>, Kahneman talks about how selecting just a few factors in predicting an outcome is better than letting a complex statistical algorithm run its course over a wide series of factors.</p>
+
+<p>“One can do just as well by selecting a set of scores that have some validity for predicting the outcome and adjusting the values to make them comparable (by using standard scores or ranks),” Kahneman wrote.</p>
+
+<p>Gerd Gigerenzer, the social psychologist whose work Malcolm Gladwell popularized, has often trumpeted the power of intuition in selecting experimental variables. In a 2007 <em>New York Times</em> <a href="http://www.nytimes.com/2007/08/28/science/28conv.html?_r=0" target="_blank">interview</a>, Gigerenzer described a study he conducted to predict which Chicago high schools produced the highest dropout rates. He created an algorithm based on the type of pro-con decision-making lists that Benjamin Franklin liked to use.</p>
+
+<p>“And we were astonished to find the computer-based versions of Franklin’s bookkeeping method--a program that weighted 18 different cues--proved less accurate than going with the rule of thumb of ‘get one good reason and ignore the rest of the information,’” Gigerenzer said.</p>
+
+<h4><a name="YouNoodles_Data_Future">YouNoodle’s Data Future</a></h4>
+
+<p>Ricocheting into the direction that Quid did in 2010, YouNoodle plans on playing the data game for the time being.</p>
+
+<p>“We definitely like the unbiased nature of competitions. There’s certainly much more than just how it pertains to women. It’s also, in general, when you look across the world, you see an explosion of new startups,” Kolind says.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2014/04/3028515-inline-younoodle2.jpg" alt=""/>
+</figure>
+
+<p>With YouNoodle’s newest data capabilities, it plans to help startups everywhere better understand how they measure up in the greater startup world. “Everyone these days can do an app or do a little tech, web, mobile product. It’s the enablement of tech startups everywhere that will allow new ecosystems,” says Kolind.</p>
+
+<p>And YN1K won’t be its last study. “There will be many more to come,” says Kolind.</p>
+
+<p>But Kolind understands that a good algorithm mainly thrives on crucial human input. “We rely on thousands of locally appointed judges. So, not some crazy algorithm,” he says.</p>

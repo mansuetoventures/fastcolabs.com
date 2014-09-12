@@ -1,0 +1,57 @@
+<p>When Texas Senator Wendy Davis gave her 13-hour filibuster against an anti-abortion law last summer, journalists filled the web with a heap of multimedia: videos, tweets, GIFs, and Internet memes that often outshined their written articles. But the <em>Washington Post</em> blog “The Fix” didn’t make its readers choose between listening and reading its <a href="http://www.washingtonpost.com/blogs/the-fix/wp/2013/06/26/this-tweetstorm-was-planned-in-advance/" target="_blank">filibuster coverage</a>. By using <a href="http://soundcite.knightlab.com/" target="_blank">SoundCite</a>, a web tool that streams an audio clip behind the text, the <em>Post</em>’s account of Davis’s speech uniquely captured the event’s emotions in digestible snippets without awkwardly breaking up its written text.</p>
+
+<p>“When the Wendy Davis filibuster went down--which was inherently such an audio-rich event--we realized we could do something compelling with it,” Caitlin Dewey, the blog post’s author, wrote in an email.</p>
+
+<p>The tool’s original developer is Medill School of Journalism senior <a href="http://tylerjfisher.com/" target="_blank">Tyler Fisher</a>, who originally conceived SoundCite to improve the way online music articles weaved sound clips and their text together. An arrow appears next to the words that are animated by the audio, and a moving progress bar slides across the text, so you stay focused on reading. At just over a year old, SoundCite has not only made its appearance in the music-sphere, like at <a href="http://www.wbez.org/blogs/jim-derogatis/2013-05/chance-rapper-paints-giddy-yet-profound-picture-south-side-life-107164" target="_blank">WBEZ Chicago Public Radio</a>, but has also entered other types of newsrooms, like the <em>Washington Post</em>, <em>JSOnline</em>, and <em>Education Week</em>.</p>
+
+<p>Startups aimed at content publishers are growing in numbers, with tools like <a href="http://gui.de/" target="_blank">Gui.de</a> and <a href="http://gui.de/" target="_blank">SpokenLayer</a> and Readrboard offering to give publishers easy access to the kind of functionality that users have come to expect from other parts of the social web.</p>
+
+<p>Unlike these companies, however, Fisher doesn’t aspire to make money off of SoundCite. In fact, he sees the project as core to a new type of storytelling. “A lot of people don’t think about the usability of [multimedia], and I don’t think they think about how the multimedia is contributing to the story,” he says.</p>
+
+<h4><a name="An_App_For_Music_Critics">An App For Music Critics</a></h4>
+
+<p>SoundCite got its start when Fisher took an advanced design class at Medill in the spring of 2012. The class required that he develop a web tool to solve a journalistic problem.</p>
+
+<p>“In a past life, Tyler aspired to be a rock critic,” says <a href="https://twitter.com/jeremygilbert/" target="_blank">Jeremy Gilbert</a>, Tyler’s professor for the class. “He spent equal time writing what the music sounded like and writing what the music meant. With the clips, he wanted to concentrate on what the music meant and let the music play for you,” Gilbert says.</p>
+
+<p>“A lot of sites have good players, but you usually have to play the whole song. That break in the narrative isn’t good for the experience,” Gilbert adds.</p>
+
+<p>Fisher’s earliest version of SoundCite consisted of JavaScript, HTML, and CSS that relied on the user to create MP3s loaded directly in the HTML page. “It wasn’t powered by anything,” Gilbert says. “Users couldn’t easily pick out the start and end points they wanted.”</p>
+
+<p>“I was convinced that it could be used for much more than just music,” Gilbert says. Gilbert decided to work independently with Fisher after the class ended. Eventually, they were able to connect with <a href="http://developers.soundcloud.com/" target="_blank">SoundCloud</a>’s API, making it easier for non-coders to create and choose time points within the sound file. What’s more is users no longer had to wrangle MP3s onto their site; they could use SoundCloud’s uploading feature and let them deal with hosting the clip.</p>
+
+<h4><a name="Collaborating_With_Expert_Coders">Collaborating With Expert Coders</a></h4>
+
+<p>At that point, SoundCite still had JavaScript code that could interfere with other pages on a given website. Depending on where the tool was used, SoundCite’s version of JQuery was likely to interfere with pages that didn’t use that exact JQuery version.</p>
+
+<p>Knowing that they needed help from the experts, Fisher and Gilbert applied to have Northwestern's Knight Lab host and support continuing development of SoundCite. “We needed to harden the code,” says Gilbert. With no break in momentum, they transferred SoundCite from Gilbert’s personal server to the Knight Lab that summer.</p>
+
+<p>The <a href="http://knightlab.northwestern.edu/" target="_blank">Knight Lab</a>, which is jointly funded by the Knight and Robert R. McCormick foundations, selectively accepts journalism-driven tech projects, whether they are from a Medill class or elsewhere in the professional world, and helps push them to usability. It employs two full-time software developers.</p>
+
+<p>At the same time the Knight developers got up to speed on SoundCite, Fisher was accepted as a Knight Fellow for the 2012-2013 academic year. He essentially got paid to keep improving SoundCite while working in the lab.</p>
+
+<p>Solving the JQuery issue meant isolating the version of JQuery that SoundCite used. “We had to make sure it kept itself tidy and didn’t step on other things,” says Joe Germuska, the Knight Lab’s technology director, stressing that SoundCite’s loose JavaScript could have interfered with news sites’ advertising elements.</p>
+
+<p>Germuska looked to the Internet for help and found a solution on <a href="https://stackoverflow.com/" target="_blank">Stack Overflow</a>. “As is often the case, someone has already solved the problem. You just have to find it,” says Germuska.</p>
+
+<p>Another issue was rewriting the code so that non-coders wouldn’t be scared off by it when it came time to paste it into their pages. “We really had to work on usability and create clean code,” says Gilbert. “The Knight Lab really helped us with that.”</p>
+
+<h4><a name="Working_On_Mobile">Working On Mobile</a></h4>
+
+<p>“The main problem with SoundCite [now] is that it doesn’t work with mobile,” Fisher says. Mobile browsers don’t support Flash, and the SoundCloud API uses Flash to pass its clips to third-party applications. The solution would be to create in-house code so that SoundCite wouldn’t have to rely on Flash. This would mean hosting users’ sound clips on internal servers, and this isn’t an attractive option to Fisher.</p>
+
+<p>“We definitely don’t want to get in the business of hosting audio because of copyrights and all those legality issues,” says Fisher. “The problem with audio codecs is that the MP3 is owned by someone,” he says, “and some web browsers like Mozilla Firefox don’t want to pay for that, so they don’t support the MP3. Some browsers do play them. Some web browsers don’t support the WAV file, so nobody agrees on what types of audio files should be supported.” So it’s good that SoundCloud uses Flash because Flash is universal, he says.</p>
+
+<p>Besides, Fisher says optimizing SoundCite for mobile is outside of his scope. He is willing to give users documentation on how to host audio on their sites and has placed SoundCite’s code on GitHub. “Everything the Knight Lab does is open source. So anyone can modify the code if they want to,” he says. And someone has. Today, there is one <a href="https://github.com/wfsmith/soundcite-wordpress" target="_blank">WordPress plug-in</a> for SoundCite on GitHub.</p>
+
+<p>“The way people look at it is that the audio isn’t integral to the piece, so it doesn’t ruin the piece for mobile [when the clip isn’t there]. But it does add something,” Fisher says, bringing up the <em>Post</em> article.</p>
+
+<p>With the code available to everyone, users can tweak SoundCite to work for whatever needs they have, whether it’s mobile or fitting in with their web page’s scheme. “<em>Education Week</em> was able to <a href="http://www.edweek.org/ew/section/multimedia/the-peope-behind-the-effort.html" target="_blank">customize the look</a> of SoundCite because its HTML was publicly available,” says Fisher.</p>
+
+<h4><a name="Keeping_It_Open">Keeping It Open</a></h4>
+
+<p>The Knight Lab plans to continue encouraging journalists to use SoundCite and promote collaboration, as they have done in the past. “We approached [WBEZ] directly and guided them through an early implementation,” says Ryan Graff, communications director at the Knight Lab. “After that, the other projects were word of mouth.” In the case of the <em>Post</em> article, a <em>Post</em> intern knew Fisher and mentioned SoundCite to her colleagues.</p>
+
+<p>At the moment, Fisher is spending a chunk of the school year interning at National Public Radio and will return to Northwestern this spring. After graduating this June, he would ideally “be working with technology and news, somewhere in that intersection.” And Gilbert has since moved on from Northwestern and is now deputy director of digital for <em>National Geographic</em>.</p>
+
+<p>“I would hope that anyone who uses SoundCite would think first about what that is adding to their story and if that is necessary,” says Fisher. For web journalists who want their well-picked words read, adding multimedia might keep readers on their page for a few seconds, but it does not guarantee that their prose will command their attention. But SoundCite does writers justice by illuminating the text, keeping the reader’s focus on the writing. And that’s what matters.</p>

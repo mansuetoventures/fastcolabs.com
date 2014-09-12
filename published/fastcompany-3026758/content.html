@@ -1,0 +1,39 @@
+<p>How do you support 450 million users with only 32 engineers? For WhatsApp, acquired earlier this week by Facebook, the answer is Erlang, a programming language developed in the '80s that is finally having its moment in the spotlight.</p>
+
+<p>But with other languages starting to co-opt its ideas, does Erlang have a future?</p>
+
+<p><a href="http://www.erlang.org/" target="_blank">Erlang</a> was developed by Swedish telecom giant Ericsson over 25 years ago, and now it's finding a home at messaging apps like WhatsApp and <a href="http://www.tigertext.com/" target="_blank">TigerText</a>. Even Facebook was <a href="https://www.facebook.com/note.php?note_id=14218138919" target="_blank">singing the language’s praises</a> when it used Erlang to launch Facebook Chat back in 2009--the same year it turned down the job application of WhatsApp cofounder Brian Acton.</p>
+
+<h4><a name="Concurrency_Is_The_New_Black">Concurrency Is The New Black</a></h4>
+
+<p>"With Erlang you could build a messaging app with many connected users and not worry about how they communicate," says Chad DePue, CTO of <a href="http://whisper.sh/" target="_blank">Whisper</a>, an app for anonymous posts that has opted to use the language. Instead, he says, “You can worry about creating a great app.”</p>
+
+<p>Ericsson engineer Joe Armstrong developed Erlang with the logic of telecommunications in mind: millions of parallel conversations happening at the same time, with almost zero tolerance for downtime. Other programming languages can only give the illusion of managing all those conversations--some have gotten very good at keeping up appearances, but they aren't natural "multi-taskers." Erlang, in contrast, loves to multithread or "juggle" in this way--got a another spinning plate? Toss it over!</p>
+
+<p>"The language is very expressive,” says Igor Clark, a creative technologist. "You can talk at a high level and do quite a lot with its few key concepts.”</p>
+
+<p>In practical terms, that initially made Erlang very good at efficiently executing commands across processors within a single machine. Fast-forward to 2014, and it’s making Erlang very good at executing an even more bewildering volume of commands across the global networks of servers we have come to know as “the cloud.” For use cases in gaming, financial services, and anything that mimics the behavior of a real-time auction, that speed and reliability, at massive scale, is absolutely essential.</p>
+
+<p>Equally attractive to engineering teams, and highly unusual, is the way that Erlang allows for bug fixes and updates without downtime. In effect, you can change the lighting on your set or execute a costume change without a pause in the action. This Erlang property is a legacy of the telecom imperative: As DePue says, "When you're on the phone, you can't have someone hang up on you because they're upgrading the system.”</p>
+
+<h4><a name="Turning_The_Tables_On_Telecom">Turning The Tables On Telecom</a></h4>
+
+<p>Today the industry that open-sourced Erlang in 1998 is feeling less than generous. As WhatsApp, WeChat, Line, and other startups have blossomed, the messaging fees that telecoms once relied on have been rapidly eroding. KPN, a Dutch telecom, tried to block the upstarts from its network after seeing a drop in SMS revenue, but lost a battle in court over the practice.</p>
+
+<p>Some established players, such as Vodafone, have tried to build messaging services of their own, with little success. Nearly all have been tinkering with the mix and pricing of SMS and data in their users’ contracts.</p>
+
+<p>While the telecoms were busying themselves with payment plans, WhatsApp was focused on product. Its engineering team has repeatedly wowed the Erlang community with feats of scale and speed, jumping from 10,000 to over 2 million connections per server in just a few short years.</p>
+
+<p>Those achievements rest on the shoulders of Armstrong, whose signature project for Ericsson, AXD301, achieved a “nine nines” reliability (99.9999999%). But for now, at least, the young challengers are keeping the aging telecoms on their heels.</p>
+
+<h4><a name="To_Erlang_And_Beyond">To Erlang, And Beyond?</a></h4>
+
+<p>With such a strong track record, you might think that Erlang is poised for breakout adoption. The reality is a bit more complicated.</p>
+
+<p>Until now, the developer community around Erlang has remained small, and largely concentrated in Europe. The language’s syntax is admittedly “weird." And if you need to analyze complex data or prototype a simple web app, there are better tools. Moreover, newer languages and variations have been borrowing from Erlang principles, leading to an increasingly cluttered landscape, from Google’s <a href="https://code.google.com/p/go/" target="_blank">Go</a> to <a href="http://www.docker.com/" target="_blank">Docker</a>.</p>
+
+<p>There’s hope for Erlang in Elixir--<a href="http://joearms.github.io/2013/05/31/a-week-with-elixir.html" target="_blank">Armstrong recently bestowed his blessing</a>--which normalizes the Erlang syntax and could help the language take off in the same way that Rails did for Ruby. Projects like <a href="http://www.chicagoboss.org/about.htm" target="_blank">Chicago Boss</a> are also aiming to make the language more user-friendly. If a broader community does coalesce around Erlang, they will discover OTP (open telecom platform) libraries that more than make up for the language’s limited presence on GitHub.</p>
+
+<p>“They abstracted patterns from the software they were writing and made bulletproof libraries that you can piggyback on,” Clark says. "It’s the glue between the small parts and the top level.”</p>
+
+<p>The tipping point for adoption could be the one ecosystem with enough scale to dwarf mobile as we know it: the internet of things. Smart object hobbyists have been experimenting with Erlang as part of MQTT, a lightweight protocol for transferring messages between sensors. If you can SMS your thermostat, surely you can WhatsApp it, too?</p>

@@ -1,0 +1,75 @@
+<p>I recently needed to update how <a href="https://draftin.com" target="_blank">Draft</a>, an online word processor I created, supports comments. When I originally added comments, I kept them very simple; a list with a text box beneath--reminiscent of comments on a blog. To help people understand the context of the comment, you could hover your mouse over a comment, and if it contained any quoted text, it became highlighted in Draft, like this:</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2014/02/3026333-inline-draft-screenshot-001.png" alt=""/>
+</figure>
+
+<p>It did its job, but with room for improvement. For example, the context awareness wasn't very good. Also, users wanted to reply to a single comment.</p>
+
+<p>So I broke up comments on the page and aligned them with the text. It wasn't super easy, but I had it ready in a couple of days.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2014/02/3026333-inline-draft-screenshot-002.png" alt=""/>
+</figure>
+
+<p>The ability to reply to a single comment was ready in hours. But after I was done, I wanted to see if I could improve the "hover over a comment and highlight the text" bit.</p>
+
+<p>I realized the main editor technology would need to be changed to support better highlighting. So I spent weeks changing a core piece of my product, and even came close to releasing something, until I realized I broke the browser's native spell-check capabilities.</p>
+
+<p>I spent even more time learning how to incorporate a spell-check service--even brushed up on my probability theory and learned to derive <a href="http://norvig.com/spell-correct.html" target="_blank">Bayes' Theorem trying to write my own</a>.</p>
+
+<p>Eventually I got an English spell-check system in place. But then, I looked at a map of Draft's users: Half of them are outside of the United States in non-English-speaking countries.</p>
+
+<p>After weeks of effort, Draft's improvements still weren't ready.</p>
+
+<h4><a name="You_Can_Learn_A_Lot_From_A_Terrible_Drummer">You Can Learn A Lot From A Terrible Drummer</a></h4>
+
+<p>As I was worrying how I was going to fix my problems now with spell check, I watched the pilot episode of <a href="http://www.amazon.com/Sneak-Peek-HD/dp/B00GP3GT6A/ref%3Dsr_1_1?s=instant-video&amp;ie=UTF8&amp;qid=1391626053&amp;sr=1-1&amp;keywords=The+Tim+Ferriss+Experiment" target="_blank"><em>The Tim Ferriss Experiment</em></a>, a show starring Ferriss, the best-selling author who teaches people how to do impactful things in less time.</p>
+
+<p>Tim's entire method can be boiled down to the Pareto principle: For many events, 80% of the effects come from 20% of the causes. You want 80% of the benefit from exercise? Figure out the 20% of what's most important to get you there. Want to learn to be a great chef? Determine the 20% of what great chefs learn that has the most impact.</p>
+
+<p>Tim now has an entire TV show teaching people what can be done in as little as four days: learning a foreign language or building a business. But does he always succeed?</p>
+
+<p>In the pilot, Tim is challenged with learning to play the drums in just four days. On day 5, he'll be up on stage at a rock concert to play drums for the band Foreigner during one of their songs.</p>
+
+<p>So Tim starts learning how to play the drums. Intensely. He has the best tools and education money can buy. He's practicing all day and night. But it's not working. Doubt sets in:</p>
+
+<blockquote><p>I'm effectively having an anxiety attack.</p></blockquote>
+
+<p>With only about a day left, Foreigner came for a sneak peek at Tim's progress. Tim was awful. Kelly Hansen, the band's front man, scolds Tim:</p>
+
+<blockquote><p>This is no joke, man.</p></blockquote>
+
+<p>But the visit from Foreigner also brought this advice from the band's drummer:</p>
+
+<blockquote><p>Play the song. Don't play the drums.</p></blockquote>
+
+<p>You saw the light bulb turn on. Tim realized he had complicated his true goal. He was learning how to read music, play different types of drums, improvise, and use flourishes during the main heartbeat of the song. But none of those things mattered for the task at hand, which was playing a single song he had already picked out.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2014/02/3026333-inline-draft-post-tim-ferris.png" alt=""/>
+</figure>
+
+<p>With just a day left, Tim focused on just what he needed to learn the main heartbeat of the song, ignoring everything else. He was on stage a day later successfully rocking with the band: If that was possible, what other impossibles do I have in my life that I should really question?</p>
+
+<h4><a name="How_Starting_Over_Solved_My_Problem">How Starting Over Solved My Problem</a></h4>
+
+<p>That night after watching Tim, I walked the dog with my wife and talked with her about the episode. Had I just done the same thing with this new comments feature? The original goal was to improve comments, and now I'm creating my own spell check.</p>
+
+<p>So, I started all over again with a new focus and constrained to only the task at hand. The main editor technology in Draft would not change. I had to find a way to work around it. And, sure enough, I did.</p>
+
+<p>In just a few hours, I improved highlighting without replacing core parts of Draft. In a fraction of the time I had already spent, I was done. I shipped the new comments feature a few days later, and without all the complexity and risk of the path I was pursuing.</p>
+
+<blockquote><p><a href="http://t.co/pKWTjfZ11I">http://t.co/pKWTjfZ11I</a> leaped ahead of any other writing software with recent feature additions. <a href="https://twitter.com/natekontny" target="_blank">@natekontny</a> LOVE the in-line comments
+
+<p>— JAVIER SANDOVAL (@SpanishCurls) <a href="https://twitter.com/SpanishCurls/statuses/411648426774777856" target="_blank">December 14, 2013</a></p></blockquote></p>
+
+<p>I don't know why we are so good at making what could be a small problem so much more complex. It's easy to fall prey to letting our dreams and projects snowball into things we can't accomplish. And just like that, more of our time vanishes.</p>
+
+<p>The great news is that the solution is simple--constant self-reflection: What's the smallest possible thing I could do to accomplish my true goal? Have I made this much more complicated than it needs to be? Is there a way to do a fifth of what I'm doing right now?</p>
+
+<p>Or, in other words:</p>
+
+<p>Am I learning to play the drums, or could I just learn to play the song?</p>
+
+<p><em>Nate Kontny is the creator of <a href="https://draftin.com" target="_blank">Draft</a>, a collaborative platform to help make you a better writer. He’d love to meet you on <a href="https://twitter.com/natekontny" target="_blank">Twitter</a>.</em></p>

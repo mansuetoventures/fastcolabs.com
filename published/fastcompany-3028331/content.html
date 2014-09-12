@@ -1,0 +1,42 @@
+<p>The <a href="http://www.fastcolabs.com/3028265/how-i-narrowed-down-the-location-of-malaysia-air-using-monte-carlo-data-models" target="_self">article</a> we published yesterday on the missing Malaysia Air flight has--big surprise--received some <a href="http://www.reddit.com/r/MH370/comments/21fn8e/how_i_narrowed_down_the_location_of_malaysia_air/" target="_blank">criticism</a> and nitpicking on Reddit, which I’ll address below.</p>
+
+<h4><a name="Choosing_The_Heading">Choosing The Heading</a></h4>
+
+<p>The plane direction model is a state dependent (<a href="http://en.wikipedia.org/wiki/Markov_chain" target="_blank">Markov</a>) random walk which at each stage takes the previous heading (plane direction) into account in choosing the new heading. (Specifically, it’s <a href="http://en.wikipedia.org/wiki/Normal_distribution" target="_blank">normally distributed</a> with a mean of the previous heading and a fixed standard deviation; hence I summarize it as quasi-random due to the weighting). If the <a href="http://en.wikipedia.org/wiki/Standard_deviation" target="_blank">standard deviation</a> is large it will move closer to a <a href="http://en.wikipedia.org/wiki/Uniform_distribution_%28discrete%29" target="_blank">uniform distribution</a>, resulting in a stateless <a href="http://en.wikipedia.org/wiki/Random_walk" target="_blank">random walk</a>.</p>
+
+<hr />
+
+<h3><a name="See_the_post_that_sparked_this_discussion_here_urlhttpwwwfastcolabscom3028265howinarroweddownthelocationofmalaysiaairusingmontecarlodatamodelsHow_I_Narrowed_Down_The_Location_Of_Malaysia_Air_Using_Monte_Carlo_Data_Modelsurl_Then_read_our_followup_to_this_post_urlhttpwwwfastcolabscom3028569thisdatamodelshowsmh370couldnothaveflownaccidentallytoitsdestinationThis_Data_Model_Shows_MH370_Could_Not_Have_Flown_Accidentally_To_Its_Destinationurl_br__">See the post that sparked this discussion here: <a href="http://www.fastcolabs.com/3028265/how-i-narrowed-down-the-location-of-malaysia-air-using-monte-carlo-data-models" target="_self">How I Narrowed Down The Location Of Malaysia Air Using "Monte Carlo" Data Models</a>. Then read our followup to this post: <a href="http://www.fastcolabs.com/3028569/this-data-model-shows-mh370-could-not-have-flown-accidentally-to-its-destination" target="_self">This Data Model Shows MH370 Could Not Have Flown "Accidentally" To Its Destination</a> <br />
+</a></h3>
+
+<hr />
+
+<p>But this scenario is only realistic if we think that the plane picked a totally random direction every hour. Planes trying to get somewhere don’t tend to do that. So I make the assumption, through a smaller standard deviation, that the plane will tend to fly in the same direction it’s flying in. However, I’ll note that by using a normal distribution and varying the standard deviation, my model would have the capability to resemble a uniform distribution if that’s an assumption I chose to make.</p>
+
+<h4><a name="Adding_Additional_States_To_The_Model">Adding Additional States To The Model</a></h4>
+
+<p>The values that I chose for the standard deviation are a reasonable balance between constant flight direction and the ability to explore the space. Ultimately the model of the plane direction--the heading state--is only one input; we also have the ping data to help constrain where the plane goes.</p>
+
+<p>While it is true that even more states like altitude, speed, and remaining fuel would make for a richer model, that’s only true if there was the data to constrain it, which I’m not aware of. For now, heading alone, plus the 5th ping, gives a very reasonable result.</p>
+
+<h4><a name="Using_The_5th_Ping">Using The 5th Ping</a></h4>
+
+<p>There were 7 complete pings during the flight. Five occurred after the last radar sighting over <a href="http://en.wikipedia.org/wiki/Pulau_Perak" target="_blank">Pulau Perak</a> and those are the ones I refer to in the model. Each of these pings has a distance associated with it, and each distance has an error in the distance estimate. Unfortunately, Inmarsat and the Malaysian authorities have only released the distance of the last (5th) ping and have released no error estimates.</p>
+
+<p>My original plan was to constrain the plane position at each stage with the ping distance for that stage. This is done by taking the product of the probabilities from the ping distance and the heading (suitably <a href="http://en.wikipedia.org/wiki/Normalization_%28statistics%29" target="_blank">renormalized</a>). Since the ping distances for the intermediate pings are unavailable, I constrain each ping by the final ping distance.</p>
+
+<p>I assumed the ping error had a normal distribution with a standard deviation of 5%,10%, and 20% from the radius. Since we only have data for the last ping, the large error estimates effectively cover other pings also, according to the qualitative data <a href="http://www.washingtonpost.com/national/health-science/satellite-locates-malaysian-flight-370-still-flying-seven-hours-after-takeoff/2014/03/15/96627a24-ac86-11e3-a06a-e3230a43d6cb_graphic.html" target="_blank">schematic maps</a>, besides the 5th ping error which remains unstated by Inmarsat.</p>
+
+<h4><a name="Wind_Information">Wind Information</a></h4>
+
+<p>The airport locations come from a database for an entertainment oriented flight simulator (X-Plane), but the wind data--which I decided was insignificant for the model--came from a professional pilot who used a service actually used to file flight plans for real flights.</p>
+
+<p>Since it’s the same information commercial pilots use when planning to fly the plane, I trust it more than an Internet weather service which is unlikely to have data across the latitude and longitude range, and cruising altitude (35,000 ft.) MH370 is likely to have experienced.</p>
+
+<h4><a name="The_Overall_Goal">The Overall Goal</a></h4>
+
+<p>The goal of <a href="http://nbviewer.ipython.org/github/myhrvold/MH370_MCMC/blob/master/MH370_MC_ConorMyhrvold-bug_fixes.ipynb?create=1" target="_blank">this Monte Carlo model </a> is not to definitely show what happened, but help to explore space of the most likely scenarios using the information available to me. My model is not supposed to be the most complicated model--it model answers the simple question: With a few simple assumptions, how far can we go?</p>
+
+<p>The answer is, about as far as the experts have, but with much fewer resources (data, time, people). If more information on the Doppler analysis and the pings were released, I could incorporate that into my model to give an even better estimate of where the airplane is. It would be great if this data were made available.</p>
+
+<p>I also welcome any other suggestions, criticisms, and critiques, and data I can use.</p>

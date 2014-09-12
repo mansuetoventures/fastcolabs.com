@@ -1,0 +1,97 @@
+<p>Thanks to dwindling research budgets and the rising cost of science software, "open science" advocates may be succeeding at getting science to go open source. And it's thanks in part to a little-known language called R.</p>
+
+<p>R is free, open source statistical analysis software. Privately owned tools like MATLAB, the mathematical computing software, and SAS, the statistical tool, have historically been necessary tools in labs, much the way Microsoft Office was in offices. But the ballooning cost of the software and dwindling research budgets have prompted scientists to turn to R instead.</p>
+
+<p>Now a growing number of researchers have joined the R development community to create new libraries that branch away from statistical analysis and into parsing the growing quantity of scientific articles and data that find their way online. And it could change the way we do science in a major way.</p>
+
+<h4><a name="Rs_Origin_In_The_Science_World">R’s Origin In The Science World</a></h4>
+
+<p>Today, researchers use open source software to analyze data. And the R language is the de facto enabler for this trend, thanks to its early mainstay as a statistical analysis tool within scientific circles.</p>
+
+<p>“I first started using R back in 2005 when I was doing my PhD, and it was a very obscure language that very few people knew and that we used for statistics,” says Dr. Ted Hart, a member of the core development team of the <a href="http://ropensci.org/" target="_blank">rOpenSci</a> project, which develops R packages for scientists.</p>
+
+<p>“Most people I knew back then used SAS. It was just a giant, old, programming language, kind of like Fortran. It’s analyzed line by line and whatnot,” he says.</p>
+
+<p>But when Hart started his post-doc in 2011, the lab where he did research only used R. “It was taught by this evolutionary biologist, Dolph Schluter. Every grad student I knew used it, as opposed to when I was a grad student. And I think I was the only one [who didn’t use R] in my department. So I’ve seen that growth take off,” says Hart.</p>
+
+<p>Martin Fenner, the technical lead of the <a href="http://article-level-metrics.plos.org/" target="_blank">article-level metrics project</a> at the scientific publisher PLoS, agrees. “There’s just a lot of R, and everybody is just learning this as a student and is doing some sort of statistics,” Fenner says.</p>
+
+<p>Another benefit of R is that it costs no money and requires less administrative hurdles than would be needed to obtain licenses for large software packages, like SAS or MATLAB.</p>
+
+<p>“I work at a government agency, and I don’t think I can get access to MATLAB. I would have to write a long text justifying the expense for MATLAB. And somebody says, ‘Well you can just use this tool for free. Why are you arguing for MATLAB?’” says Hart.</p>
+
+<h4><a name="New_R_Projects">New R Projects</a></h4>
+
+<p>Hart’s rOpenSci team has been a cornerstone of R’s expansion outside of statistical analysis. “I think it’s definitely branching out,” he says.</p>
+
+<p>A big sea change was the need to meet digital formatting requirements of scientific data. Hart and the rest of the team have created a set of packages that enables researchers to more easily share and store their research in standardized formats. The idea is the more shareable research is, the more science will progress. This is the foundation of the open science movement.</p>
+
+<p>Large scientific publishers, like <em>Nature</em> and its forthcoming <em>Scientific Data</em> publication, are requiring researchers to submit their research data in specific metadata formats. Other scientific organizations also advocate pushing scientific data into various established repositories on the web in standardized formats.</p>
+
+<p>Some of rOpenSci’s R packages can help these scientists streamline their data formats to fit the scientific community’s data standards.</p>
+
+<p>“We have a package called <a href="https://github.com/ropensci/EML" target="_blank">EML</a>, which basically lets people work with R and also write valid XML metadata from R directly into what’s called EML, which is the Ecological Metadata Language that was developed by Matt Jones and the group at the National Center for Ecological Analysis and Synthesis at the UC Santa Barbara,” says Hart.</p>
+
+<p>The rOpenSci project has also given rise to new R ventures, like <a href="http://ropengov.github.io/" target="_blank">rOpenGov</a>. The rOpenSci team began to play with data from public sources and inspired a team to start a new project to focus on accessing open U.S. government data and studying social science problems. The rOpenGov project exploits APIs that are made available through the <a href="https://sunlightfoundation.com/" target="_blank">Sunlight Foundation</a>.</p>
+
+<p>The <a href="https://github.com/rOpenHealth" target="_blank">rOpenHealth</a> group now manages rOpenSci’s <a href="https://github.com/rOpenHealth/rpubmed" target="_blank">rpubmed</a> package, which interfaces with the National Institute of Health’s biomedical and life sciences PubMed database. The project aims to better leverage public health and research data in the health care world.</p>
+
+<h4><a name="R_For_WebNative_Applications">R For Web-Native Applications</a></h4>
+
+<p>Hart attributes a lot of the spread of R to how open data is on the web. “A lot of people have written a lot of packages that can access this data on the web and convert to formats that it comes back in, like XML or JSON,” he says.</p>
+
+<p>He cites people like <a href="https://github.com/duncantl" target="_blank">Duncan Temple Lang</a> at the University of California and Hadley Wickham, chief scientist of <a href="http://www.rstudio.com/about/" target="_blank">RStudio</a>. Wickham developed the <a href="https://github.com/hadley/httr" target="_blank">httr</a> package that rOpenSci uses to grab data from the web.</p>
+
+<p>Another big R contributor is Ramnath Vaidyanathan, of McGill University, who created <a href="http://rcharts.io/" target="_blank">rCharts</a>, <a href="http://rmaps.github.io/" target="_blank">rMaps</a>, and <a href="http://slidify.org/" target="_blank">Slidify</a>.</p>
+
+<p>“RCharts is the package that lets you push all of your data onto the web in JavaScript. And rMaps does something similar but with some of the open mapping formats, like Leaflet.js, which are JavaScript mapping visualizations and libraries. So it basically lets you take your data in R, and it converts it to these native formats so that you don’t have to know JavaScript,” says Hart.</p>
+
+<p>Vaidyanathan’s Slidify lets you create slide presentations using <a href="http://www.rstudio.com/ide/docs/authoring/using_markdown" target="_blank">R Markdown</a> that are ready to be shared on GitHub, Dropbox, or <a href="http://www.rpubs.com/" target="_blank">Rpubs</a>. Markdown is a markup language that prepares plain text for web readiness.</p>
+
+<p>“[Markdown] is something that I find very interesting because the distinction between code and defining something becomes very blurry. It all just becomes one document. The Python folks are doing something very similar,” says Fenner.</p>
+
+<p>“For example, I wrote a <em>PLoS Biology</em> article a few months ago, just giving some examples of article-level metrics. And, basically, there are five figures in there. The form of data is all done in R, and the R code is included in the article. You can just basically run this and get to the figures, with the data points included,” Fenner says.</p>
+
+<p>In addition, the rOpenSci team works closely with <a href="https://plot.ly/" target="_blank">plotly</a>, an online graphing tool. “We are in charge of working on their R interface for the web. So that’s one way to be able to take R data and make plots on the web.”</p>
+
+<h4><a name="Getting_Data_Easily_Through_APIs">Getting Data Easily Through APIs</a></h4>
+
+<p>PLoS, the open-access scientific publisher, recently released a public API to allow interested parties to search through its metadata and all its articles' text. The hope is that interested R developers will pick up these APIs to create meaningful applications to analyze a paper’s impact in the research community.</p>
+
+<p>“If you want to sit down and analyze hundreds of thousands of articles in a variety of ways, then R is probably a good choice. Especially if it’s something where you want to sit down for an afternoon and you don’t want to spend a few weeks programming something,” says Fenner.</p>
+
+<p>When Fenner uses the PLoS API, he prefers to use R to create visualizations, rather than producing reports with hundreds of numbers. “I really use R for visualization. I’m not interested in statistical analysis,” he says.</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2014/03/3028381-inline-screenshot-2014-03-28-105123.png" alt=""/>
+<figcaption>Views vs. citations for PLOS Biology articles published in 2010. Created by Fenner in R.</figcaption></figure>
+
+<p>“R is very good because there are packages that make it easy to get data from these APIs and then to sort of massage them into the right format,” he adds.</p>
+
+<p>R’s strength in working with APIs lies in its suite of packages, even if other languages can perform just as well without custom libraries. “Ruby is a little bit easier to interface with APIs because it’s more of a web-native kind of language than R is. But R works,” says Hart.</p>
+
+<p>“I mean, the reason R works is because people are putting in a lot of work to write the packages to do that. Like the httr package makes it really easy to get the data from the APIs,” he adds.</p>
+
+<h4><a name="Branching_Out_Of_Academia">Branching Out Of Academia</a></h4>
+
+<p>ROpenSci focuses on creating packages that interface with biological data, but the team is working to spread into different areas. “It’s kind of due to the fact that we’re all kind of ecologists. And that’s our expertise. We’re definitely trying to branch out,” says Hart. A grant from the Sloan Foundation has given rOpenSci the means to evangelize its work at various conferences and universities.</p>
+
+<p>“There’s a huge faction in the bioinformatics community. [<a href="http://www.bioconductor.org/" target="_blank">Bioconductor</a>] is almost like a huge suite of add-ons that you can get for R that is a bunch of packages that are used for bioinformatics. And I think that’s another area that’s an overlap between academic research and private industry,” Hart says, citing R’s growth in biotech.</p>
+
+<p>Hart mentions a company called Revolution Analytics that sells R to do business data analytics. “You know, some are loath to use the term big data and data analytics and data science. With the rise of that, I think R is getting way more traction in the business world, as well. And just because it has a lot of packages already built for some of the machine learning and statistical algorithms,” he says.</p>
+
+<h4><a name="The_R_Of_The_Future">The R Of The Future</a></h4>
+
+<p>Creating packages that interface with more types of data and output more web-friendly formats are key drivers for R development.</p>
+
+<p>“I would love to see it push the boundaries more on some of these web-native projects. And I think as you attract more seasoned developers into it, I think that package development will become more generalizable,” says Hart.</p>
+
+<p>And developing applications to make scientific research more searchable is just the beginning. “It will only be a few years’ time before we see how these things correlate. There’s a lot of things happening,” says Fenner.</p>
+
+<p>Hart sees the need to move toward creating stronger documentation and established roles for maintaining different packages that are submitted to such comprehensive storehouses. “To be perfectly frank with some of the scientific community, some of the algorithms I’ve seen for doing ecological research is hit or miss,” says Hart.</p>
+
+<p>“As it gains more traction, especially in the business world, it will attract more people who are actually programmers. You know, R is this ground-up community, and a lot of packages are written by scientists, and scientists are not programmers. I have a full-time job doing something else. I work on it in my spare time,” says Hart.</p>
+
+<p>Until then, Hart and the rest of the rOpenSci team will continue to push the language further into the scientific world. They will host a <a href="https://github.com/rOpenSci/hackathon" target="_blank">hackathon</a> at the end of the month, where top R developers, like RStudio’s chief scientist, have been invited.</p>
+
+<p>Even with the language’s ups and downs, one thing is certain for R’s place within scientific circles. It has a supportive community. “The threshold of using R is pretty low. I don’t think that it’s the easiest language to use, but everything is freely available. It’s a community where you can ask questions. So there’s no barrier to use it,” says Fenner.</p>

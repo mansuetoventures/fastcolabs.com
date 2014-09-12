@@ -1,0 +1,17 @@
+<p>Last August, the Tor browser network received a massive spike of 4 million signups. As it turned out, a botnet was installing Tor on victims' PCs and using the browsers to start mining Bitcoins. Pressed between a rock and a hard place, <a href="http://www.dailydot.com/technology/tor-botnet-microsoft-malware-remove/" target="_blank">Microsoft swiftly sent a remote command to uninstall the Sefnit-installed services</a>--a backdoor which ostensibly no one in Windows-land knew existed.</p>
+
+<p>As it turns out, Microsoft had accounted for this scenario--it's right there in Windows’ terms of service. As Microsoft explains in a <a href="https://blogs.technet.com/b/mmpc/archive/2014/01/09/tackling-the-sefnit-botnet-tor-hazard.aspx?Redirected=true" target="_blank">blog post</a>, once the Sefnit malware that infected these computers starts downloading components, it keeps the computer connected to the Tor network even if Sefnit is uninstalled. Since that particular old Tor client doesn’t self-update, it would remain an open door for reinfection and given Tor’s history of high-severity vulnerabilities, that was a weakness Microsoft couldn't abide.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2014/01/3025243-inline-tor1b.png" alt=""/>
+</figure>
+
+<p>This graph above tells the story week by week. Millions of computers that had been infected with the Win32/Sefnit malware powered up on August 19, 2013 and began using Tor. As Tor had just under a million users directly connected to the Tor network, a 400% spike in Tor network distributions over a two-week period was a pretty noticeable jump.</p>
+
+<p>As the Daily Dot’s Patrick Howell O’Neill <a href="http://www.dailydot.com/technology/tor-botnet-microsoft-malware-remove/" target="_blank">points out</a>, using an exploit to install software in the background of Windows was a mistake, as it caught Microsoft’s attention. The hackers also unintentionally formed a working relationship between Redmond and Tor developers: Microsoft says in its blog post that it “consulted with Tor developers” when deciding how to proceed. Tor developer Jacob Applebaum said that communication between Tor and the tech giant amounted to a single question: Whether a normal user would install Tor in the directory paths and as a service. Tor said that it was very unlikely--a solid clue to Microsoft that something nonhuman was installing Tor deep in Windows.</p>
+
+<p>At the 30th Chaos Communication Congress in Hamburg on Dec 27, Applebaum <a href="https://www.youtube.com/watch?v=CJNxbpbHA-I#t=16" target="_blank">shared details of the incident</a> and his fears of Microsoft’s ability to remotely rip pieces out of its OS at will. Tor executive director Andrew Lewman, however, was less concerned: Having Microsoft keep your operating system "secure" is part of the opt-in terms of service.</p>
+
+<figure class="inline-video inline"><iframe src="http://www.youtube.com/embed/CJNxbpbHA-I?rel=1&amp;autoplay=0" width="560" height="340" frameborder="0"></iframe></figure>
+
+<p><strong>Update:</strong> Our original article stated that Microsoft removed Tor in addition to the Sefnit infections. Microsoft removed the Sefnit infections but not the Tor service. A Microsoft spokesman clarifies: “Microsoft Malware Protection Center (MMPC) has protections to remove the services started by the Sefnit malware, but it does not uninstall Tor, remove any Tor binaries, or prevent users from using Tor.”</p>

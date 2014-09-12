@@ -1,0 +1,63 @@
+<p>So, what can you actually use Google Glass for? How about launching a rocket?</p>
+
+<p><a href="http://www.chaoticmoon.com/" target="_blank">Chaotic Moon</a>, an Austin-based dev shop, decided to test out their Glass by turning it into a heads-up display for a model rocket. Equipping the rocket with a GoPro camera and a collection of sensors, the team then wrote a Glass app that let them fire the rocket using a voice command. Once in the air, the rocket could collect data like temperature, altitude, speed and acceleration and, along with live video, stream it all back to the display on the Google Glass.</p>
+
+<p>"If we can launch a fucking rocket with it, then we can do anything," says Lee Billington, the project lead. "Is this the best use of it? Probably not," he says, but it's a hell of a proof of concept.</p>
+
+<h4><a name="How_To_Build_A_GlassPowered_Rocket">How To Build A Glass-Powered Rocket</a></h4>
+
+<p>As you might imagine, Google Glass-powered rocketry is an endeavor that requires a fair amount of hacking. To make it happen, the team at Chaotic Moon had to not only write a custom app for Glass, but rig up a complex daisy chain of hardware.</p>
+
+<p>"There are a lot of systems going on here, but if you do it right you can do some really cool stuff pretty quickly," says senior hardware engineer Bartley Gillan. "It kind of opens the world up to more stuff you can do with this wearable technology and sensors and video streaming."</p>
+
+<figure class="inline-video inline">
+<iframe height="360" width="640" src="http://www.fastcompany.com/embed/84432d54f5d92?poster=twistage" id="videoEmbedTwistage1" frameborder="0" scrolling="no"></iframe>
+</figure>
+
+<p>Beneath the nose cone of the Aerotech Mirage rocket, Gillan packed sensors for gathering telemetry data, an onboard battery, an Arduino, two radio systems, and a "heavily modified" GoPro Hero 3 video camera attached to a video transmitter. To fit the GoPro inside the rocket, Gillan had to remove its faceplate and grind down its plastic edges.</p>
+
+<p>At the center of the whole operation was a laptop running some custom software and acting as a technical bridge between the rocket and Google Glass. Plugged into the laptop's USB ports were two Arduinos: one for receiving the rocket's telemetry data (which was then passed along to the Google Glass display) and the other for powering the rocket's ignition (which was triggered by the voice command: "OK Glass, launch rocket").</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2014/02/3026081-inline-rocket-glass-diagram.png" alt=""/>
+</figure>
+
+<p>The laptop also received video from the GoPro and used a Java UDP server to then deliver it to the Glass display, which would use a dedicated mobile hotspot to connect to the Internet.</p>
+
+<h4><a name="Coding_With_The_Google_Glass_SDK">Coding With The Google Glass SDK</a></h4>
+
+<p>On the Glass side, the team coded a simple app that opened data connections to the laptop and then, after sending the launch command to the launch-specific Arduino, listened for new video and telemetry data.</p>
+
+<p>"Developing on Glass is almost identical to developing for Android," says Kevin Booth, a software developer at Chaotic Moon. "Coming from an Android background it was easy to get up and going with Glass. Within a few minutes I had a simple app running."</p>
+
+<p>Naturally, even seasoned Android developers coding for Glass will have some adjusting to do. Most notably, the display size for Glass is tiny compared to the screen of a smartphone or tablet and thus designing interfaces for it is a different process. "It's hard to get a sense of scale when you have no true idea how far the display is and how large the Android runtime thinks it is," says Booth.</p>
+
+<h4><a name="OK_Glass_Launch_Rocket">"OK Glass, Launch Rocket"</a></h4>
+
+<p>Once the hardware and software were polished off--a process that took about three weeks--the team awaited word from the Federal Aviation Administration about when their rocket could fly. After their first launch date was preempted by inclement weather, they finally headed out to Old Settlers Park in Round Rock, Texas on January 3 and set up shop.</p>
+
+<figure class="inline-video inline"><iframe src="http://player.vimeo.com/video/84074454" width="604" height="340" frameborder="0"></iframe></figure>
+
+<p>Then, with a simple voice command, the 3-2-1 countdown began and the rocket propelled skyward.</p>
+
+<p>The launch wasn't without its problems. Although the voice command worked and the flow of data between Glass and the rocket were smooth, the GoPro turned out to be a bit too heavy, only allowing the rocket to fly 500 feet off the ground (about half what they had originally hoped). Then, its parachute failed to deploy, causing the rocket to nearly impale a nearby horse. The rocket hit the ground in pieces, the GoPro so badly damaged that much of the footage was irretrievable.</p>
+
+<p>Still, for the team at Chaotic Moon, the launch was a resounding success. That's because its core purpose--firing the rocket and capturing real time data using Google Glass--was fulfilled. In the process, they managed to stretch a cutting edge piece of technology to its functional limits.</p>
+
+<h4><a name="The_Value_Of_Radical_Experimentation">The Value Of Radical Experimentation</a></h4>
+
+<p>Why bother launching a small rocket with Glass? Aside from wowing potential clients (and let's be honest--getting some decent press coverage), the purpose of the stunt was simple: experimentation. Like a growing number of creative agencies these days, Chaotic Moon feels a certain obligation to not only use the latest technologies, but tinker with them. This type of experimental research allows them to push new tech to its limits in a quest to figure out what's possible.</p>
+
+<p>Most of this experimentation happens in a hackerspace in a back room of Chaotic Moon's downtown Austin headquarters. It's there that the company's hardware gurus tinker with sensors and microcontrollers while programmers build new things with code. While much of what they're working on at any given time is being built for a particular client, about half of the tinkering is done just for the hell of it.</p>
+
+<p>But these guys aren't just screwing around. Even if a project doesn't lead directly to new business, there's often a payoff waiting down the road.</p>
+
+<p>"One way to look at it is as a prototype of a prototype," says Chris Boyles, Chaotic Moon's director of content. "We did this thing a while back called the Board of Awesomeness. It was a Kinect-powered, motion-controlled skateboard. We later built a shopping cart for Whole Foods that used that same Kinect technology to move with the shopper throughout the store. So the board was the fun 'what if' aspect. The shopping cart was more of a later stage prototype."</p>
+
+<p>The team's Glass experiment may not have an immediate practical application, but Boyles is able to rattle off a number of potential future use cases. Being based in Texas, one industry comes easily to mind.</p>
+
+<p>"A lot of these oil and gas companies have these drone-like devices that they're putting into scenarios where people just can't go, either into subterranean depths in the water," Boyles explains. "Same thing going up. So it's a question how to get the guys that controlling these drone-like objects some readily accessible information without them being tied to a bunch of different interfaces in a command center."</p>
+
+<p>Of course, a polished, real-world example like this may be a way off, given the fact that Glass rocket prototype came crashing to the ground.</p>
+
+<p>"Needless to say, NASA won't be calling us," jokes Boyles. "Unless they want an app."</p>

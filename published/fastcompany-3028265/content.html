@@ -1,0 +1,124 @@
+<p>While networks like CNN claim the search for the <a href="http://en.wikipedia.org/wiki/Malaysia_Airlines_Flight_370" target="_blank">missing Malaysia Air flight</a> have “gone low-tech,” in fact behind the scenes the opposite happened.</p>
+
+<p>Thanks to engineering ingenuity by <a href="http://en.wikipedia.org/wiki/Inmarsat" target="_blank">Inmarsat</a>, a satellite service, we now have a <a href="https://www.dropbox.com/s/t97h3mbmhx9hknp/INFORMATION%20PROVIDED%20TO%20MH370%20INVESTIGATION%20BY%20UK%20AIR%20ACCIDENTS%20INVESTIGATION%20BRANCH.pdf" target="_blank">very good idea of where the Boeing 777 wound up (PDF)</a>: far flung off the West Coast of Australia.</p>
+
+<p>Inmarsat figured this out by from analyzing the signals from engine pings that are automatically sent from the Rolls-Royce engine to a geostationary satellite, indicating that the engines are operational (and which could be used for transmitting other types of data, which <a href="http://en.wikipedia.org/wiki/Malaysia_Airlines" target="_blank">Malaysia Airlines</a> did not subscribe to). They can’t be turned off, and are isolated from the rest of the electronics on the plane. All other electronics off, hourly pings occur so long as the plane maintains power to the engines.</p>
+
+<hr />
+
+<h3><a name="See_Redditors_responses_to_this_article_and_a_urlhttpwwwfastcolabscom3028331moreaboutourmethodologytrackingmh370withmontecarlodatamodelsdiscussion_with_the_writer_hereurl_Then_read_our_followup_urlhttpwwwfastcolabscom3028569thisdatamodelshowsmh370couldnothaveflownaccidentallytoitsdestinationThis_Data_Model_Shows_MH370_Could_Not_Have_Flown_Accidentally_To_Its_Destinationurl_br__">See Redditors' responses to this article and a <a href="http://www.fastcolabs.com/3028331/more-about-our-methodology-tracking-mh370-with-monte-carlo-data-models" target="_self">discussion with the writer here</a>. Then read our followup: <a href="http://www.fastcolabs.com/3028569/this-data-model-shows-mh370-could-not-have-flown-accidentally-to-its-destination" target="_self">This Data Model Shows MH370 Could Not Have Flown "Accidentally" To Its Destination</a> <br />
+</a></h3>
+
+<hr />
+
+<p>The ping is a simple acknowledge/receive handshake that basically means the transmitter and recipient of the message are aware of each other’s connected status; in this case, an MH370 engine and the geostationary satellite. From the travel time of a ping, you should be able to backtrack the radial distance between the two. Since the geostationary satellite stays in the same place over Earth, it follows that the distance is the radius extending out from it, to the plane.</p>
+
+<h4><a name="Sleuthing_Out_The_Satellite">Sleuthing Out The Satellite</a></h4>
+
+<p>The Inmarsat satellite over the Indian Ocean recorded 5 pings after it was last sighted on Malaysian military radar, which means the airplane flew for over 5 but less than 6 hours. Publically, only the fifth ping arc was released, along with the airplane’s final known location and heading as inferred from Indonesian military radar. The geostationary satellite location was not, but I was able to sleuth it out online. With this information, plus basic knowledge of 777 specs, how can we find the likely locations of MH370?</p>
+
+<h4><a name="Monte_Carlo_Model">Monte Carlo Model</a></h4>
+
+<p>This was a question I started to address on March 15, using what’s known as a <a href="http://en.wikipedia.org/wiki/Monte_Carlo_method" target="_blank">Monte Carlo</a> model written in Python (recently popularized by the likes of Wall-Street-trader-turned-author <a href="http://en.wikipedia.org/wiki/Nassim_Taleb" target="_blank">Nassim Taleb</a> in <a href="http://en.wikipedia.org/wiki/Fooled_by_randomness" target="_blank"><em>Fooled By Randomness</em></a>), once it became apparent that finding the airplane’s final location would not be imminent. Technically, it’s a <a href="http://en.wikipedia.org/wiki/Markov_chain" target="_blank">Markov Chain</a> Monte Carlo approach (known as MCMC) because each step only depends on the present state (i.e., it’s memory-less), and not the entire history, although with only 5 update steps--one for each ping--it’s short. I made this model publically available <a href="http://nbviewer.ipython.org/github/myhrvold/MH370_MCMC/blob/master/MH370_MC_ConorMyhrvold-bug_fixes.ipynb?create=1" target="_blank">in an IPython notebook</a>, explaining the technical setup; anyone can download or view it, and I may improve and add to it over the coming weeks in a new version.</p>
+
+<p>The key modification I made from the data available was to modify the 5th ping arc by a normal distribution with the mean as the arc and a standard deviation, whose extent was 5,10, and 20% of the radial distance of the 5th ping arc, MH370’s position at  8:11 am. First, here are the results for 1,000 trials of each of those error margins, which show the plane overwhelmingly “choosing” to fly to the south. In each case yellow and turquoise dots (at the 1 and 2 hr mark) can give an indication of the relative proportion of times MH370 picked a northern or southern route:</p>
+
+<h4><a name="5_Error">5% Error</a></h4>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2014/03/3028265-inline-3-25-14-mh370-modeling-draft-fastcolabs-conor-myhrvolddocx6.png" alt=""/>
+</figure>
+
+<h4><a name="10_Error">10% Error</a></h4>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2014/03/3028265-inline-3-25-14-mh370-modeling-draft-fastcolabs-conor-myhrvolddocx5.png" alt=""/>
+</figure>
+
+<h4><a name="20_Error">20% Error</a></h4>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2014/03/3028265-inline-3-25-14-mh370-modeling-draft-fastcolabs-conor-myhrvolddocx4.png" alt=""/>
+</figure>
+
+<p>Wow, that’s a lot of dots! The smaller blue dots are the plane’s most likely position (note that the map projection distorts some of the relative locations at the extreme south of the map). There are actually 4 of them for each simulation, as I model where the plane went down ¼, ½, ¾, and 59/60 of an hour after the last ping--moving with same heading as the 5th ping, for simplicity’s sake, at 777 cruising speed.</p>
+
+<p>As you can see, the final position is highly dependent on the error margin of the 5th ping. In all cases, however, these results closely match Inmarsat’s internal analysis and the present search area, but without the additional pings and detailed information they had about the flight--and assuming much more error than they calculated they had, even in their worst-case scenario. Here’s how I got to this point.</p>
+
+<h4><a name="Getting_the_Data">Getting the Data</a></h4>
+
+<p>First, I followed the lead of WNYC’s <a href="http://project.wnyc.org/runways/" target="_blank">777 runway map</a> by downloading the original <a href="http://data.x-plane.com/index.html" target="_blank">XPlane</a> dataset<strong>(1)</strong> and parsing through it to plot all of the runways longer than 5,000 ft, considered to be a minimum distance for a <a href="http://www.slate.com/blogs/future_tense/2014/03/13/mh370_disappearance_could_the_missing_malaysia_airlines_plane_have_been.html" target="_blank">Boeing 777 to land</a> (but not take off), as black dots. These do not factor in, in terms of where the airplane is located, but do show near where a 777 could land, if it’s in the area.</p>
+
+<hr />
+
+<p>This project is also available as code: <a href="http://qa.nbviewer.ipython.org/github/myhrvold/MH370_MCMC/blob/master/MH370_MC_ConorMyhrvold-V2-Part1.ipynb?create=1" target="_blank">Part 1</a>, <a href="http://qa.nbviewer.ipython.org/github/myhrvold/MH370_MCMC/blob/master/MH370_MC_ConorMyhrvold-V2-Part2.ipynb?create=1" target="_blank">Part 2</a>, and <a href="http://qa.nbviewer.ipython.org/github/myhrvold/MH370_MCMC/blob/master/MH370_MC_ConorMyhrvold-V2-Part3.ipynb?create=1" target="_blank">Part 3</a>, and as a full file via <a href="https://github.com/myhrvold/MH370_MCMC" target="_blank">GithHub</a>.</p>
+
+<hr />
+
+<p>Next, I found the latitude &amp; longitude coordinate pairs of the plane’s known positions over time, along with Langkawi Island (an island nearby MH370’s last known location, Pulau Perak), and <a href="http://www.satellite-calculations.com/Satellite/Catalog/catalogID.php?23839" target="_blank">Inmarsat satellite 3-F1</a>, along with deriving the ping arc distance from the satellite, to the 5th ping using released information about MH370 (such as that it was 40º relative to the satellite) plus other 3-F1 specs like how high it is in the sky, which places the 5th ping on the map at the same place seen in <a href="http://www.nytimes.com/interactive/2014/03/15/world/asia/satellite-contact-map.html?_r=0" target="_blank">newspaper graphics</a>.</p>
+
+<p>Finally, the possibility of wind. I was able to get the wind through a flight simulator that active pilots used; they planned a flight for me, using the last known coordinates of the plane to the Maldives to get an Indian Ocean wind speed at cruising altitude, 35,000 feet, for the same 777 cruising speed I would use in my model. The wind at the time was 9 knots, which is almost nothing, so I disregarded it-- the wind effect would be negligible on fuel consumption, or the direction the plane would shift, compared to the main uncertainties I chose to model, which was the accuracy of the 5th ping radius.</p>
+
+<p>After varying that ping location by 5,10, and 20%--the main intentional variation held across my model--we now have a map ready for simulations:</p>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2014/03/3028265-inline-3-25-14-mh370-modeling-draft-fastcolabs-conor-myhrvolddocx3.png" alt=""/>
+</figure>
+
+<h4><a name="Running_the_Model">Running the Model</a></h4>
+
+<p>First, we assume how a Boeing 777 moves. Their typical cruising speed is 905 km/hr, and their big engines take a long time to spool up, which means it can take several minutes to execute a turn. So at each step, the plane’s new location is a determined by a weighted combination of a quasi-random heading and a permanent latitude longitude probability grid that reflected the 5th ping arc at each of the 5 time steps (building in the 5,10 or 20% error). Since I didn’t have the previous 4 pings, and the 5th ping is the most important if you care about where the plane ultimately ended up. The idea here is that we want to find where past the 5th ping arc the plane is likely to be found.</p>
+
+<p>The quasi-random heading was picked from a <a href="http://en.wikipedia.org/wiki/Normal_distribution" target="_blank">normal distribution</a> centered at 0º relative to the previous heading, with a <a href="http://en.wikipedia.org/wiki/Standard_deviation" target="_blank">standard deviation</a> of 30º, out of all integer angles from 0-359º. This means the odds of picking an angle other than 0º decline in a bell curve shape as you move away from a straight-ahead heading, and that an angle of 30º could be reasonably likely but angles greater than 90º highly unlikely. So the airplane could execute a turn but almost never double back on itself over the course of 1 hour.</p>
+
+<p>But the heading was just one of the two main components dictating the airplane’s next location. The probability grid was also quasi-random, a normal distribution over the entire span of latitudes (55ºN to 50ºS) and longitudes (50ºE to 130ºE) I wanted to examine; within the 777’s range from its last known position (which is <a href="http://online.wsj.com/news/articles/SB10001424052702304914904579434653903086282" target="_blank">up to 6 hours</a>). This means that the peak of the bell curve was centered on the ping arc line itself, and then decreased dramatically over distance as you moved away from the ping arc, all within the confines of the latitude/longitude grid. So at each step the plane would be strongly influenced to head toward the ping, even though was last sighted heading due west--the opposite direction from the ping arc--and normally will not want to execute a sharp turn. See the <a href="http://nbviewer.ipython.org/github/myhrvold/MH370_MCMC/blob/master/MH370_MC_ConorMyhrvold-bug_fixes.ipynb?create=1" target="_blank">actual code</a> for more technical explanations.</p>
+
+<p>Here are the Inmarsat 5th ping error plots for the first 5 pings, representing five hours after the plane was last detected:</p>
+
+<h4><a name="5_Error">5% Error</a></h4>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2014/03/3028265-inline-3-25-14-mh370-modeling-draft-fastcolabs-conor-myhrvolddocx2.png" alt=""/>
+</figure>
+
+<h4><a name="10_Error">10% Error</a></h4>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2014/03/3028265-inline-untitled.png" alt=""/>
+</figure>
+
+<h4><a name="20_Error">20% Error</a></h4>
+
+<figure class="inline-large inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-large/inline/2014/03/3028265-inline-3-25-14-mh370-modeling-draft-fastcolabs-conor-myhrvold.png" alt=""/>
+</figure>
+
+<p>After all that was done, and I had my 5th ping MH370 locations, I took the last heading (for the 5th ping), and projected the final 4 headings, as previously explained, and shown in the first set of figures.</p>
+
+<h4><a name="Conclusion">Conclusion</a></h4>
+
+<p>These results show is that irrespective of a large error margin on the 5th ping, the plane is much more likely to have ended up west of Australia rather to the north.<strong>(2)</strong></p>
+
+<p>The advantage of this Monte Carlo model is that it can provide a likelihood on the ultimate location of the aircraft, using a few key pieces of available information, without predicating the final assumption upon specific scenarios which may turn out to be speculative--as fears of hijacking, shadowing a flight across the Indian Ocean, or continuing due west past the Maldives in its original last reported heading, as many people pointed out could be plausible possibilities (including myself, before I completed the model).</p>
+
+<p>According to Inmarsat, the maximum error for the ping mark was still well under the 5% margin I modeled, as they benchmarked MH370 against several other planes flying that day from the satellite, where they knew the actual GPS coordinates. Which means that my most likely scenario from the numbers I have input thus far would be the 5% model, which shows the plane being in a relatively concentrated region west of Australia. The <em>New York Times</em> Hong Kong bureau was particularly helpful in connecting me with Inmarsat and other original sources of information hard to find online (as part of the rules of making this model, however, all are publically available).</p>
+
+<p>And, of course, anyone can download this code and input their own numbers or scenarios; the functions are written in a generalized manner that is not specific to the parameters I used.<strong>(3)</strong></p>
+
+<h4><a name="What_MH370_Means_For_The_Future">What MH370 Means For The Future</a></h4>
+
+<p><a href="http://en.wikipedia.org/wiki/Amelia_Earhart" target="_blank">Amelia Earhart</a>’s disappearance (along with that of her plane) is still among the greatest unsolved mysteries in aviation. But it is from an era when, from a communication perspective, the flying world was a much bigger place; when devices did not phone home or seamlessly connect to satellites, and when a lot more could go wrong in the air.</p>
+
+<p>Which is in part what makes the disappearance of a Boeing 777 in 2014--one of Boeing’s flagship and largest models, and with an <a href="http://archive.firstcoastnews.com/rss/article/319086/3/Boeing-777-Records-First-Fatalities-in-Its-18-Year-History" target="_blank">almost-perfect safety record</a>--all the more dramatic and surprising. The fact that MH370 disappeared without confirmation of a mayday call, or any sort of distress signal or sign that something was amiss, added to the mystery, which will be unraveled as investigations continue.</p>
+
+<p>One likely consequence of this latest disaster is that, by default, information about the airplane’s location will likely be required to be sent, along with an “engines operational” handshake that the plane used to communicate to the Inmarsat satellite--the saving grace in figuring out where the airplane went, and how far it flew for. The effort Insarmat has put into deducing location information indirectly from the ping data demonstrates that the existing type of data obtained from the flight is not set up to be analyzed for the very purpose which is now central to the investigation.</p>
+
+<p>One obvious conclusion from the difficulty of locating the MH370 over these past two plus weeks is that if rent-a-cars can have monitoring devices which track their whereabouts at all times, as can a several hundred dollar <a href="http://www.windowsphone.com/en-US/How-to/wp7/basics/find-a-lost-phone" target="_blank">Windows Phone</a> or iPhone with the swipe of a button, then so should an aircraft which costs over a quarter billion dollars. (A Boeing 777-200ER is listed at <a href="http://en.wikipedia.org/wiki/Boeing_777" target="_blank">$261.5 million</a> on Wikipedia.) Running such a location system on a separate electrical system, similar to the way in which engine pings are done, might be a one-time technical design challenge but is not as great (or possibly even as costly) as the recovery task for the MH370, in the coming weeks, months, or years until the final reports on what happened are released.</p>
+
+<p><em>Endnotes</em></p>
+
+<p><strong>(1)</strong> A flight simulator game--an easily accessible world runway database has been assembled, all under the name of entertainment.</p>
+
+<p><strong>(2)</strong> I focused the maps on this region, for this reason, but you can extrapolate how many times the plane went to the north by looking at the dots to the north of the plane’s original position after the first ping, i.e., when one hour had elapsed from when the plane was last sighted by radar.</p>
+
+<p><strong>(3)</strong> Although I argue they are a good tradeoff between simplicity and being realistic!</p>

@@ -1,0 +1,85 @@
+<p>Siri held lots of promise when Apple introduced it in iOS 6. However, in the two years since Siri’s release, the virtual assistant has improved little--offering clever ways to do simple tasks via voice command, but no more. That’s because Siri, and other virtual assistants like it, have built-in problems that doom it to be a simple system forever. But one Cambridge researcher thinks there’s a better way to make virtual assistants become the companions we all want--and, soon, will need.</p>
+
+<h4><a name="Whats_The_Matter_With_Siri">What’s The Matter With Siri?</a></h4>
+
+<p>That’s the question many of my friends have asked me. It’s one I, and anyone who has ever used Siri, have asked as well. That’s because, despite the promise of all that Siri and, more recently, Google Now, have to offer, the fact is neither virtual assistant is that good at handling more than your very basic requests.</p>
+
+<p>The way Siri and Google Now currently work is a user asks a question--essentially a verbal command that is translated into a binary command--and then Siri or Google Now uses a rules-based approach to finding the most relevant answer.</p>
+
+<p>The rules-based approach relies on Siri’s back-end (aka, servers in North Carolina) interpreting what you said and comparing it with known variables that are tagged and labeled and then following a flow chart from one variable to the next to get you your answer.</p>
+
+<p>This is great for simple questions like “What’s the weather in my area?” or “What movies has Scarlett Johansson been in?” It’s also to Apple’s credit that Siri has been able to answer more of these types of questions in new categories (sports, restaurants, politics) each year.</p>
+
+<p>But in order to expand its ability to answer questions, myriad new labels and new paths on the flowchart need to be added and created, making it more convoluted and crowded. And if Siri takes a user down the wrong path even once on a single branch of the flowchart it will always lead to the wrong answer or, almost just as bad, result in the entire query being rejected with a “Would you like to search the web for that?” Then the only option the user has is to start his query over from scratch.</p>
+
+<p>“Siri is a combination of a pretty decent front-end recognizer, pretty decent back-end, and a whole load of rules which have evolved over time as more and more people have worked on the system,” explains <a href="http://mi.eng.cam.ac.uk/%7Esjy/" target="_blank">Steve Young</a>, professor of Information Engineering in the Information Engineering Division at Cambridge University and an expert with more than three decades of experience in speech research and, more recently, spoken language systems. “This is, I think, the major problem and the major limitation.”</p>
+
+<p>“When Siri goes wrong, it goes badly wrong, and it doesn't have any graceful way of recovering from it. You more or less abandon what things you're trying to do and start again,” explains Young. “I know some of the guys who work on Siri and also on Google Now, and they will sort of admit that the rule-based systems are slightly getting somewhat out of hand. They're getting to classic positions where no one quite knows what all the rules do anymore, and worse than that, the rules are starting to interact.”</p>
+
+<p>“It’s because they're using rules to try to basically map words into concepts and, of course, language is very ambiguous, so it's very easy to get completely the wrong idea of what it is the user's talking about. My personal view is they're just heading into a dead end. You cannot build rule-based systems. The cost is enormous, and sooner or later you run out of steam, and clearly humans don't communicate like this anyway,” Young says.</p>
+
+<p>But Professor Young stresses that Apple and Google and other technology companies who are working on virtual assistants aren’t just wasting their time. He believes that in the near future being able to speak to your computer won’t just be a cool alternative to traditional human/computer interactions via keyboard, mouse, or touch screen--it will be a necessity.</p>
+
+<p>Young argues that as storing, analyzing, and quantifying big data, along with the continued exponential growth of the Internet and all other kinds of devices that will read and record the world around us, will result in so much information that there will come a point where using computers via traditional input methods could become so cumbersome there will eventually be no way we’ll be able to get to the most relevant information we are searching for. There will be just too much data to sift through via current means.</p>
+
+<p>The way to solve that, Young says, is through a truly functional virtual assistant on the level of Samantha in <em>Her</em> or JARVIS in <em>Iron Man</em>.</p>
+
+<p>“The whole point of a personal assistant is one that you can interact with and in a sort of a collaborative dialogue you can explore and get information and perform the goals that you want to perform. The only really natural and easy way to do that is with speech. It may be augmented by gestures and multi-modal things, maybe pointing at things occasionally on a screen, but basically it's natural speech that this depends on.”</p>
+
+<h4><a name="Who_Needs_Flowcharts">Who Needs Flowcharts?</a></h4>
+
+<p>The solution to Siri and Google Now’s cumbersome and ever-growing flow chart system is something almost anathema to all classical computer programmers: a system with no rules.</p>
+
+<p>And that’s exactly what Professor Young and a team of European researchers have been working on for the last seven years with a program called <a href="https://sites.google.com/site/parlanceprojectofficial/" target="_blank">PARLANCE</a> that is reaching an end this year. What they created will be rolled out as <a href="http://www.vocaliq.com" target="_blank">VocalIQ</a>, a cutting-edge statistical spoken dialogue system.</p>
+
+<p>The VocalIQ statistical spoken dialogue system (or VIQ for short) unlike Siri and Google Now, which work on flowchart systems, works by leveraging a small knowledge graph to begin with and then learns organically through conversation with the user about the world around it.</p>
+
+<p>“VIQ essentially builds large classifiers that takes the words you speak and it doesn't try to do any rule-based grammatical analysis,” Young says. “It takes the words you speak, but more than that, it takes all of the things it thinks you might have said--not just the most likely thing, but all of the alternatives--and uses that as a set of features to go into a classifier. The classifier is trained to essentially identify the relevant node in the knowledge graph.”</p>
+
+<p>If the relevant node in the knowledge graph is identified, great--the correct answer is returned. But if it’s not, VIQ doesn’t just give up like Siri and redirect you to a web search. Instead, it begins a conversation with the user so it can answer the question in the future.</p>
+
+<p>For example, let’s say a clean slate version of VIQ doesn’t know what a pizza is. The conversation might go something like this:</p>
+
+<p><strong>User:</strong> “Find me a restaurant. I really fancy a pizza.”</p>
+
+<p><strong>VIQ:</strong> “I don’t understand. What kind of food would you like to eat?”</p>
+
+<p><strong>User:</strong> “Pizza. It’s usually found at Italian restaurants.”</p>
+
+<p>At this point VIQ has learned many things (Pizza is a food. The user likes pizza. It is found at Italian restaurants.) and will remember them in the user’s future queries.</p>
+
+<p>The user can then carry on their conversation:</p>
+
+<p><strong>User:</strong> “I also like falafels, which are found at Greek restaurants, but I’m not a fan of foods with noodles in them. Those are usually found at Chinese restaurants.”</p>
+
+<p>Now VIQ has also learned what types of Greek food the user likes and what types of Chinese food the user dislikes. With Siri this information would be irrelevant, but VIQ will remember it for all future queries. The next time the user says “I’m hungry. What’s around me that I’d find good?” VIQ will know exactly what to search for based on your likes. Matter of fact, the system is so smart it doesn’t need your implicit confirmation that you like a certain type of food. Simply saying “Give me directions to” or “Book a table at” the pizza place tells VIQ you’re happy with the decision and it then adds a probability rating onto similar restaurants and types of food that make future conversations and suggestions more accurate.</p>
+
+<p>In other words, VIQ operates virtually how a child does: At first it knows nothing, then it begins building a “belief state” about the user and the world around the user, which it learns from conversation. It’s able to remember things, change its probability ratings for any one thing on its knowledge graph based on future conversations, and return more relevant results each time.</p>
+
+<p>“ VIQ is learning across whole dialogues,” Young says. “What the system's trying to do is to get a reward from the user. The system's reward is to satisfy the user's need. It might take a long conversation before the user gets what they want, but as long as the system ends up with a positive reward for that interaction, it propagates the reward back amongst everything it's done over the dialogue.”</p>
+
+<p>In the above example, if the user asks for a pizza and VIQ doesn't know what it is, but then eventually though conversation gets to the fact it's food at an Italian restaurant, VIQ gets a positive reward because it knows the user is obviously happy with this. It then reviews all the decisions it took and reinforces its belief state based on those decisions.</p>
+
+<p>“We call this reinforcement learning, and it does this every conversation,” Young says. “If I wasn't happy at the end of the dialogue, it would review what it did and think, ‘Well, I did some bad things there,’ and it'll do things to adjust things and next time it'll try something different.”</p>
+
+<p>“That's what I mean when I say there are no rules. It really is this completely data-driven system.”</p>
+
+<p>Through this process, the users themselves are labeling the data via their feedback to VIQ. While at first this is slower than the rules-based and labeling methods of Siri and Google Now, over time VIQ learns more, more accurately, increasing its knowledge and belief state, enabling it to answer far more while also putting a user’s queries into historical and personal context--something that Siri with its flowcharts could never dream of.</p>
+
+<h4><a name="Whoever_Owns_The_Agent_Owns_The_Future">Whoever Owns The Agent Owns The Future</a></h4>
+
+<p>Those that have seen <em>Her</em> or <em>Iron Man</em> may feel like the virtual assistants in those movies are something for the next century, but Young says we can expect them within 10 years.</p>
+
+<p>“We really are on the cusp," Young says. “Everything's coming together. The Internet is real now in a way it's never been real before. We really can move video and audio--anything we like--around the planet almost anywhere with zero latency. Computers are getting to be sufficiently powerful, and storage really isn't a barrier anymore.”</p>
+
+<p>“We've learned a huge amount about machine learning over the last few years, and big players like Google and Apple are in place who have sufficient reach and they're embracing users with a whole load of things that users want like content, access to purchasing and so on. Everything's coming together so that this idea of big data, learning on the fly during real interactions--this is about to take off. Once it does take off, we'll see progress much more rapidly than we were expecting.”</p>
+
+<p>But in order for an individual to sift through all that data progress will bring, we’ll need a much simpler human/computer interaction method than type, touch, or click.</p>
+
+<p>“It's a cliché, but speech is the natural way of communication of human beings,” Young says. And he says the big technology companies know that truly conversational virtual assistants are the next market that will be bigger than the smartphone.</p>
+
+<p>“When I go home and I walk in the door, I'm going to say, ‘Turn the lights on.’ ‘I fancy a pizza tonight.’ ‘Switch the oven on.’ When I go to the television set, I'm not going to want to reach for my controller or my smartphone or anything else. I’ll just say, ‘Turn the television on.’ ‘What's on the news?’ ‘Find me a movie.’”</p>
+
+<p>“You’ll want to be talking to the same agent, whether you're at home or you're at work, or you're traveling because that agent knows what you like, what you want. It doesn't have to ask you a whole load of dumb questions that you've answered before. This is really why Apple and Google are pumping money into this kind of technology and why companies like Amazon and Facebook are hiring speech people like there's no tomorrow.”</p>
+
+<p>“They want to own you. They want to be the supplier of your agent. Because if they own your agent, they're earning money from you. That's the end game here.”</p>

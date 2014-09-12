@@ -1,0 +1,25 @@
+<p>Picking out the different parts of a song after it’s been recorded is like naming every ingredient of a cooked dessert: It's difficult. With its new algorithmic approach, <a href="http://chordify.net/" target="_blank">Chordify</a> is the latest to attempt the dissection. The service not only displays sheet music for locally uploaded songs, but for a wide selection of streaming music found online.</p>
+
+<p>Unlike other reverse engineering solutions, Chordify makes it as simple as pasting in a link from Deezer, SoundCloud, or YouTube, turning them into sheet music you can play along with. The web service also uses the algorithmic approach based on cofounder and computer music researcher Bas De Haas’s PhD <a href="http://dspace.library.uu.nl/handle/1874/226713" target="_blank">dissertation from Utrecht University</a>.</p>
+
+<p>Instead of picking out every note in a piece of music, which is very difficult, Chordify looks at the big picture of songs. “The problem with ‘full polyphonic transcription’ is that the computer doesn’t know how many voices and instruments sound together and what the characteristics are of these instruments,” says De Haas. “When you transcribe chords, we examine the mixture as a whole and examine what the prominent frequencies are in the spectrum.”</p>
+
+<p>It’s obviously pretty complex under the hood, but boiled down, the service uses the <a href="http://www.vamp-plugins.org/" target="_blank">VAMP plug-in</a> to filter the audio and separate it into different parts. The downbeat position and chroma features are picked out and then put through <a href="http://hackage.haskell.org/package/HarmTrace" target="_blank">HarmTrace</a>, a system for automatically analyzing the harmony of music sequences which was developed by De Haas and his colleague Jose Pedro Magalhaes.</p>
+
+<p>“HarmTrace uses a model of Western tonal harmony to aid in the chord selection,” says De Haas. “A beat position where the audio matches a particular chord well, that chord is selected for the final transcription. However, in case there is more uncertainty about the sounding chord at a specific position in the song, the HarmTrace harmony model will select a chord based on how well it fits the rules of tonal harmony.”</p>
+
+<p>Curious about the real-world results, I quickly grabbed a link to an artist I know, <a href="http://thecowardschoir.com/" target="_blank">Andy Zipf</a>, and put his song through Chordify. I played along with the results for most of the song, but wanted to see if the chords were right, directly from the source. I sent Zipf a <a href="https://twitter.com/andyzipf/status/443221257161805826" target="_blank">message on Twitter</a> asking and he responded, “Looks correct.”</p>
+
+<figure class="inline-tweet inline"><iframe src="https://twitframe.com/show?url=https://twitter.com/andyzipf/status/443221257161805826" border="0" frameborder="0" height="470" width="605" ></iframe></figure>
+
+<p>Trying out a few different songs from different genres, all seemed to have similar results. In that, even if they weren’t correct, they were close enough to get started.</p>
+
+<p>Part of Chordify’s appeal is its simplicity. The service is free, supported with full-page ads similar to WeTransfer, so pasting in a link and learning a new song is only a few clicks away. The service's goal is ultimately to attract users to the premium membership, which touts extra features.</p>
+
+<p>Stepping back and looking at the digital music space, it seems there’s something brewing around the further dissection of music, whether it be by picking out the lyrics like Rap Genius is or providing tools to learn how to play the songs. A lot of companies are slowly moving in these directions in music to further target the more enthusiastic fans, if not make music creation more accessible to the masses.</p>
+
+<p>Last year, EveryBlock founder Adrian Holovaty launched <a href="http://www.soundslice.com/" target="_blank">Soundslice</a>, a less automated approach to transcribing music found in YouTube videos. There's also Mac app <a href="http://supermegaultragroovy.com/products/Capo/" target="_blank">Capo 3</a>, which added chord detection in the latest version, a feat that developer Chris Liscio confirmed was no easy undertaking.</p>
+
+<p>Liscio <a href="http://www.fastcolabs.com/3020632/how-do-you-reverse-engineer-a-song" target="_self">told FastCoLabs previously</a> that even if a song could be perfectly dissected and reverse engineered, he’s not sure he would do it. These programs are supposed to be tools to get people to play music and develop a skill and he doesn’t want to remove all barriers for people.</p>
+
+<p>It's still not an issue anyone has to worry about currently, but hopefully services like Chordify make it easier for the YouTube generation to pick up an instrument.</p>

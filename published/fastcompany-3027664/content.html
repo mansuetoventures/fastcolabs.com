@@ -1,0 +1,69 @@
+<p>Everyone knows Mozilla is a force for open source. But a lesser known story is their advancements in a revolutionary new open source language called Rust, which is what enables Mozilla's futuristic new browser to take advantage of computers with multi-core processors and machines with more than one processor.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2014/03/3027664-inline-mozilla-website-1.png" alt=""/>
+</figure>
+
+<p>The Rust language will power Mozilla's new browser, Servo, and its big selling point is efficiency. Because C++ crashes when it runs into memory allocation issues, it weakens any browser that uses the language. Mozilla designed Rust to be superior to C++ this way, more easily isolating tasks and promote a process known as "work stealing," which is when tasks from an overloaded processor are shifted over to another one.</p>
+
+<p>“Rust is targeted at C++ developers, and Mozilla has many of those. We do not expect it to take long for an experienced C++ hacker to acclimatize to Rust. So far initial experiences have shown that to be the case,” says Brendan Eich, chief technology officer and senior vice president of Engineering at Mozilla.</p>
+
+<p>Mozilla has no immediate plans to release Servo, since much of its success relies on Rust’s completion. Rust will be nearing a 1.0 release over the course of this year, but until then, it is in the hands of its myriad contributors.</p>
+
+<p>And those are good hands to be in. “Umbrella Security Labs has been <a href="http://labs.umbrella.com/2013/10/04/zeromq-helping-us-block-malicious-domains/" target="_blank">using Rust in production</a> to do reliable, real-time processing of DNS information. The Skylight service also <a href="https://www.skylight.io/" target="_blank">uses Rust to implement its Ruby on Rails application monitor</a>,” says Eich.</p>
+
+<h4><a name="A_More_Efficient_Browser">A More Efficient Browser</a></h4>
+
+<p>It is true that most browsers, including Mozilla Firefox, eventually patched up their browsers to incorporate the multi-thread programming that leverages our computer’s multi-processors. But their architectures are so convoluted as a result of the incremental changes that they are difficult to modify.</p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2014/03/3027664-inline-mozillaeoy2013en72dpifinal-1.jpg" alt=""/>
+</figure>
+
+<p>Servo won’t have this issue. Mozilla is building Servo’s browser stack architecture from scratch.</p>
+
+<p>Most of the hiccups that a browser runs into when loading a webpage are related to how it sequences the priority of its page elements. Conventionally, elements are loaded in a hierarchy so that they don’t affect each other’s positioning on the page.</p>
+
+<p>But with the help of Rust, Servo can pre-identify those page elements that don’t conflict in size and positioning and lay them out at the same time, in parallel.</p>
+
+<p>In total, six Mozilla engineers are working on Servo almost full-time, with other part-timers in the organization. Over a dozen engineers at Samsung do another chunk of the work, and the number of contributors is growing.</p>
+
+<p>Not surprisingly, Mozilla plans to widen their outreach and training to contributors as Rust matures. And in what might interest those volunteers, <a href="https://careers.mozilla.org/en-US/listings/" target="_blank">Mozilla is now hiring</a> three more paid engineers to work on Servo.</p>
+
+<h4><a name="The_Rust_Subreddit">The Rust Subreddit</a></h4>
+
+<p>Free-moving contributors from outside Mozilla most notably occupy the Rust subreddit. Run by Rust enthusiasts since 2010, it is a one-stop source of real-time updates on changes, issues, and even meeting minutes from Mozilla’s in-house Rust team.</p>
+
+<p>“The <a href="http://www.reddit.com/r/rust/" target="_blank">Rust subreddit</a> tends to be where news items of interest to the Servo and Rust community are posted or announcements of interesting new projects,” says Eich.</p>
+
+<p>Reddit user Azth founded the Rust Subreddit on December 2nd, 2010, though current co-moderator Ben Striegel says, “he seems to be more of a mildly interested outsider than an active contributor.” To be sure, the subreddit had almost no activity in the first years following its inception.</p>
+
+<p>Striegel had been following Rust developments since late 2011 and focused on removing undesirable and outdated features from the Rust compiler that takes Rust from source code to a bona fide programming language. But by the end of 2012, he saw that Rust’s contributor community was outgrowing the existing mailing list and IRC channels, both of which Mozilla runs.</p>
+
+<p>At first, Striegel thought about creating a dedicated website to host a forum but ultimately realized that Rust needed more reach than an insular site could provide.</p>
+
+<p>“I decided that we needed maximum visibility for faster growth, and it came down to Reddit or Google+. Though I wasn't exactly thrilled with either site in general, I decided I was more put-off by Google+'s real-names policy than by Reddit's typical anarchy,” says Striegel.</p>
+
+<p>So, in October 2012, Striegel asked Azth to appoint him as a moderator. Almost immediately, Striegel aggressively advertised the Rust subreddit in places where he thought Rust threads might pop up, like on the Programming subreddit and Hacker News. Rust’s subreddit eventually grew to a point where Striegel had to appoint another moderator.</p>
+
+<p>To make people’s roles more clear on Rust’s subreddit, Striegel created three Reddit-specific tags called “flairs”: the “contributor” flair, the “supercontributor” flair, and the “Mozilla” flair. While the “Mozilla” flair is reserved for Mozilla employees, the “contributor” and “supercontributor” flairs denote non-Mozilla Rust supporters.</p>
+
+<p>Now, there are 33 people on the subreddit with either a “contributor” or the more elitist “supercontributor” flair and nine with the “Mozilla” flair.</p>
+
+<h4><a name="Open_Communication_Philosophy">Open Communication Philosophy</a></h4>
+
+<p>Although Reddit is an unofficial communication channel at Mozilla, it is nonetheless a valuable one, “especially given how much work is done by people who aren't employees of Mozilla,” says Eich.</p>
+
+<p>That goes for any of the other communication channels that Mozilla operates on. It contributes heavily to Hacker News and StackOverflow, where Mozilla is now discussing plans to create a section dedicated only to Rust. And anything that shows up on its official broadcast channels, GitHub, IRC, and email on Google Groups, is available online right away.</p>
+
+<p>“Almost all the communication is publicly visible without any delay. We do this because that is the way Mozilla works, and because with a distributed team, it's the only way to keep everyone in the loop. This means you can see projects at every stage of development, well before they are ready for launch,” says Eich.</p>
+
+<p>“Most of the real work happens on GitHub. We use email for discussions that are too large for GitHub or where broad reach is desirable. IRC is for more casual discussions and Q&amp;A about various things,” adds Eich.</p>
+
+<p>If you were to peruse each of these channels on any given day, you would run across a few of the same people participating in discussions across each space. “This structure isn't too different than most other open source projects, except perhaps that Rust's large community gives rise to things like the Rust Reddit,” says Eich.</p>
+
+<p>Through its online presence, Mozilla gives generous guidance to its contributors, or the “Mozilla community” as they are called. And every now and then it sparks the right flame to get the broader community moving along.</p>
+
+<p>In a message exchange over Reddit Striegel wrote to me, “I spend a lot of time trawling websites looking for mentions of Rust (such as monitoring the "rust" tag on Stack Overflow and the "#rustlang" tag on Twitter), answering questions, correcting misinformation, and providing historical context. I also lurk in over a dozen programming language-related IRC channels on irc.freenode.net, listening for mentions of Rust in order to get a pulse on how we are perceived in the broader community.”</p>
+
+<p>If star Mozilla contributors like the Rust subreddit’s Striegel are any evidence, it seems that Mozilla has found the right tack when it comes to creating a community movement.</p>

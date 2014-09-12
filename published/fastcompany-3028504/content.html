@@ -1,0 +1,66 @@
+<p>In 2012, people generated 2.5 billion gigabytes of new data every single day. Though this data likely holds the answers to many of our pressing environmental, health, and economic global problems, it also might hold the answers to your personal, individual, local problems--if only there were an easy way to interpret it.</p>
+
+<p>That’s a problem that bothers a former Mozilla technical evangelist named <a href="http://rawkes.com/" target="_blank">Robin Hawkes</a> and his business partner <a href="http://petesmart.co.uk/" target="_blank">Peter Smart</a>. They've created something called <a href="http://vizicities.com/" target="_blank">ViziCities</a> to help people visualize and use global big data in their own lives.</p>
+
+<p>“Currently you have all this data that exists in spreadsheets,” Smart says. “Census data, crime data, population density data. To your average person, it’s not accessible. Most might not even know that they could even go and find that information about their local city, or maybe not even have the inclination to because the data is too frustrating to work through.”</p>
+
+<p>So what Smart and Hawkes put their mind to creating was a way to easily visualize big data and present it in a way any “average Joe” could immediately pick up on how to view, navigate, and manipulate it.</p>
+
+<h4><a name="The_Real_World_As_Inspired_By_SimCity">The Real World As Inspired By SimCity</a></h4>
+
+<p>But how? After all, most big data visualizations <a href="http://www.flickr.com/photos/marc_smith/6792756018/" target="_blank">look something like this Twitter node graph</a>, which resembles a big plateful of green spaghetti. While this may work quite well for data scientists, it’s not much use to the average person.</p>
+
+<p>The pair's solution is a SimCity for real life. ViziCities a fully interactive 3-D model of London that uses OpenStreetMap data, combined with 3-D-generated buildings to scale, mashed up with big data from sources ranging from the U.K. government to environmental agencies to Twitter. When complete it will allow anyone with a browser to explore the city with countless layers of past and real-time big data. That means citizens can view information about their local environment and act on it as never before--the promised benefits of big data to the average user.</p>
+
+<p>The solution they came up with merges the latest web technologies with a visualization system inspired by one of the most popular video games of all time.</p>
+
+<p>“We thought, ‘What if we could try and make something like SimCity for real life?’” Smart says. “What is standing in our way? Because ultimately, an experience like SimCity, where you as the mayor are able to see your city in its entirety, see how it's performing and see things like traffic and crime and pollution, see things like transport, suddenly became... well, imagine the possibilities for real life. What value could that bring to the real world?”</p>
+
+<p><br />
+<h4><a name="Giving_Maps_A_New_Objective">Giving Maps A New Objective</a></h4></p>
+
+<figure class="inline-small inline">
+<img src="http://www.fastcompany.com/multisite_files/fastcompany/imagecache/inline-small/inline/2014/04/3028504-inline-i-1-this-former-mozilla-engineer-turned-london-into-simcity-with-real-data.jpg" alt=""/><figcaption>Image: Flickr user <a href="https://www.flickr.com/photos/zabdiel/3028620509/" target="_blank">zabdiel</a></figcaption>
+</figure>
+
+<p>“From the dawn of civilization people have drawn straight lines to indicate how to get from A to B,” Hawkes says when I ask him why maps and not more conventional ways to visualize big data? “Ultimately the map is just a way to solve the problem and the tools used have always been tailored to the particular problems that people are trying to solve. For the most part, when you talk about navigation, 2-D maps do that really well.”</p>
+
+<p>But 3-D maps on the scale of ViziCities have the potential to do so much more, Smart argues. Currently Smart and Hawkes have built fully interactive 3-D models of London which allows anyone with a modern web browser to see the live status of trains moving through the tube system, the amount of flooding that would occur if the Thames barrier failed, and flight paths of planes over the city.</p>
+
+<p>“What we're trying to do, the problems we're trying to solve for people,” Smart says, “are ultimately creating an experience which is immediately intuitive, whether you're my grandma or whether you're the Head of Transport for London, you can come in and use this tool to understand complex data in a real-world environment. One which makes it immediately more tangible than a two-dimensional map, giving you more context, which makes it easier to make decisions based on all that data.”</p>
+
+<p>For these people, Smart argues, the project is less about making a pretty 3-D view of their city, which is already covered by things like Google Earth and Apple’s Flyover maps. It’s more about visualizing the local area in a way that they can understand, not just from 3-D buildings and 3-D objects, but overlaying all the big data a city generates daily.</p>
+
+<p>“What we're doing is making that two-dimensional big data really accessible to people,” Smart says. “We are creating an environment which is immediately engaging, and then we are using our visualization tools to then overlay this data that's become available.”</p>
+
+<h4><a name="Open_Web_Technologies_Make_It_Possible">Open Web Technologies Make It Possible</a></h4>
+
+<p>In the spirit of open source data, Smart and Hawkes want ViziCities to be as widely accessible as possible. That’s why they decided to make it platform agnostic by using the latest web technologies like Three.js (also known as WebGL) built upon data provided by OpenStreetMap.</p>
+
+<p>Matter of fact, Hawkes credits Mozilla’s and Google’s work on advancing the latest web technology in their browsers as being one of the main factors without which a project on the scale of ViziCities would have been impossible just a few year ago.</p>
+
+<p>“Something else that would have made this impossible was if OpenStreetMap didn't exist,” Hawkes adds. “We rely quite heavily on OpenStreetMap for pretty much all of the building outlines and geographic features. The existence of which is integral to the project, and it actually improves the project immensely compared to what we would have been able to have done with private data, or using data from other sources. That’s because the way that OpenStreetMap works is that it's updated often, it's updated by a community, and if things need changing you can change it in OpenStreetMap and it will update in ViziCities within minutes.”</p>
+
+<p>Another technology built into ViziCities is the Web Audio API championed in browsers like Chrome and Firefox. Audio isn’t something you normally think of when you think of maps, but Smart and Hawkes believe the more realistic you can make their SimCity version of the world, the more accessible and interesting it will be to the average user.</p>
+
+<p>“This came down to the experiential side of things,” Hawkes says. “We were trying to create something which was beyond a two-dimensional map, and actually felt more like the real-world environment that you were able to explore. We started doing some really creative things with audio. We began thinking about things like proximity to particular locations. We could actually have recorded audio specific to those locations. For example, in Underground Stations we could actually have the live announcements from the Underground chiming out as you were exploring that part of the city in ViziCities.”</p>
+
+<p>The use of audio in big data visualization opens up an entire new realm of possibility. Since many cities now have massive amounts of data on “noise pollution” for specific blocks of each city, it would be possible to translate that noise pollution data into actual city noises and play it back in ViziCities, allowing a user to hear, for example, how noisy it is on the street outside where he is thinking of buying an apartment.</p>
+
+<p>“What we want to do with this is use audio in a way that enhances the experience and makes you feel like you're actually there when necessary,” Smart says. “In the experiments that we've done it certainly does do that. You close your eyes and you feel like you're in a park when you're zoomed in in the park in ViziCities. So it really does add an incredible amount to it. And it's just audio--it's quite a simple feature.”</p>
+
+<h4><a name="A_Global_Network_Of_Developers_Is_Key">A Global Network Of Developers Is Key</a></h4>
+
+<p>By <a href="https://github.com/robhawkes/vizicities" target="_blank">releasing their code on GitHub</a> Smart and Hawkes hope other developers will begin building out 3-D models of their own real-world cities until every town, city, and suburb on the planet has been created.</p>
+
+<p>“What we'd like to see is developers taking live transport information and other live data they can use and visualize in ViziCities from their own cities, because the one thing that Peter and myself can't do is truly understand how things work in someone else's city,” Hawkes says. “The best people who understand that and can implement that are the people who live in those cities.”</p>
+
+<p>But it’s not just “serious” big data like census statistics, traffic information, and weather patterns that Smart and Hawke see developers visualizing in their virtual ViziCity.</p>
+
+<p>Case in point, the two ran a quick visualization experiment using APIs from Twitter showing real-time tweets appear floating in the air in the locations they were tweeted from.</p>
+
+<p>“It was a really, really fun experiment,” Smart says. “The moment that we actually saw live tweets coming in was just an incredible moment. We have this ambition to see them pop up like little balloons all over the city. But we aren’t limited to just that, as Twitter is one thing, but there are other API's that we'd love to leverage and provide the meta-layer to a city as well.”</p>
+
+<p>Thanks to the mass amount of open big data out there Smart and Hawkes believe the potential for ViziCities is only limited by third-party developers’ imaginations. And it is that potential which will feed the Average Joe’s desires to access big data, allowing them to act on it as they never could before.</p>
+
+<p>“I think that as we start to see advances in technology,” Smart says, “especially in browser-based technology, which is open and available to everyone, we'll start to see a new hunger within people to explore their own context and ultimately make better decisions about the areas in which they live, and we’ll also see entire communities or public authorities work to use these new technologies to better our environment as well.”</p>

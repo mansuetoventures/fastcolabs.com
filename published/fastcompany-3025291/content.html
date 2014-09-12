@@ -1,0 +1,43 @@
+<p>The question of how best to transport items across a network--be that traffic over the Internet, or cars over the U.S. highway system--is one that has challenged mathematicians and computer scientists for decades. <a href="http://arxiv.org/pdf/1304.2338v2.pdf" target="_blank">A new paper</a> by MIT researchers may be within one iteration of solving it.</p>
+
+<p>The paper puts forward a groundbreaking solution to the “<a href="https://en.wikipedia.org/wiki/Maximum_flow_problem" target="_blank">max flow</a>” problem: an algorithm which can greatly decrease the amount of time it takes to determine the most effective paths through a network. In doing so, it represents a leap forward in networking technology that could solve optimization problems as we currently know them.</p>
+
+<p>So how does it work?</p>
+
+<h3><a name="The_Max_Flow_Problem">The Max Flow Problem</a></h3>
+
+<p>In optimization theory, the “max flow” problem refers to to the process of figuring out how much capacity is available between any given start and end point. <a href="http://www.math.uiuc.edu/documenta/vol-ismp/33_schrijver-alexander-tmf.pdf" target="_blank">First surfacing in 1954</a> as a way of modeling the behavior of the Soviet railway network, the problem (and its potential solutions) can stand in for any number of things.</p>
+
+<p>“It’s an abstraction for a pretty wide range of constrained optimization problems,” says <a href="http://math.mit.edu/%7Ekelner/" target="_blank">Jonathan Kelner</a>, one of the recent paper’s authors, and an associate professor of Applied Mathematics at MIT as well as a member of MIT’s Computer Science and Artificial Intelligence Laboratory (CSAIL).</p>
+
+<p>Typically a network is represented as a graph, with a series of nodes or "vertices." The lines between vertices are called “edges,” with each edge carrying a maximum capacity limit. The job of max flow algorithms is to calculate the most efficient way to use this capacity without exceeding the constraints.</p>
+
+<p>The reason previous optimization algorithms could do with an overhaul is because the kind of networks we deal with on a regular basis are getting bigger and bigger.</p>
+
+<p>As with data sets, over the past few years there has been an explosion in the size of graphs being studied. If you’re looking to route Internet traffic, analyze data relating to the human genome, or look at all the connections on Facebook, the resulting graph can easily wind up possessing millions, billions--or potentially even trillions--of edges.</p>
+
+<h3><a name="Spotting_The_Bottlenecks">Spotting The Bottlenecks</a></h3>
+
+<p>The issue with this is that many of the traditional max flow algorithms work by approaching graphs one edge at a time: saturating it before moving to the next for an additional throughput. When dealing with larger graphs, the approach has the potential to consume massive amounts of time and resources. The result are algorithms which scale substantially worse than linearly--meaning that the more complex a problem becomes, the slower computers get at solving them.</p>
+
+<p>What makes the so-called KLOS algorithm (its name is taken from the last names of the researchers who worked on it: Jonathan Kelner, Yin Tat Lee, Lorenzo Orecchia, and Aaron Sidford) different is the way that it approaches the max flow problem. Instead of saturating edges one at a time, MIT’s algorithm sends flow along every path simultaneously.</p>
+
+<p>“We pretended the graph was a network of electrical resistors,” Kelner says--explaining an insight he first put forward in a co-authored paper back in 2011. “If you imagine tying a battery to the source and watching what the electrical current does, you would see that instead of picking one path an electrical current will travel along every path. You will almost never have an edge with zero electrical current on it.”</p>
+
+<p>A second neat quality of the KLOS algorithm is its ability to pinpoint bottlenecks or trouble spots on the graph, and then to use this knowledge to help increase flow, by sending the most optimal amount of flow over them. The result is an algorithm which scales with the size of the graph in close to linear time.</p>
+
+<h3><a name="Optimization_Reaches_Critical_Mass">Optimization Reaches Critical Mass</a></h3>
+
+<p>Currently the KLOS algorithm exists only in theory. That may change in the near future, however.</p>
+
+<p>“I consider the algorithm we published to be one iteration away from a real-world algorithm,” says Kelner. “The first goal of this project was to get the theory to work, and to prove that it is possible to get an algorithm with this scaling. I wouldn’t suggest implementing the algorithm as it’s currently written, but it does contain several insights that can applied in the case of a practical algorithm.”</p>
+
+<p>These insights, heuristics, and subcomponents can be used to make optimization problems more efficient and scaleable.</p>
+
+<p>“Max flow is a pervasive problem with numerous potential applications,” says <a href="http://toc.csail.mit.edu/user/94" target="_blank">Aaron Sidford</a>, one of the graduate students who also worked on the paper. “Thanks to this work we now have a several new techniques for quickly extracting information from graphs. This is an area worth studying because it is the generalization of so many other problems and often a good test best for algorithmic innovations. It’s something that we study theoretically, with the hope of eventually making practical improvements.”</p>
+
+<p>When it comes to optimization, the potential applications are almost unlimited. Online traffic routing problems, as noted, is one possible real-world implementation. Another might be in a resource-hungry field like data analysis or image segmentation.</p>
+
+<p>As graphs continue to get larger, the subject of optimization will only become more important. <a href="http://arxiv.org/abs/1304.2077" target="_blank">Another paper</a> published in 2013 by U.C. Berkeley computer scientist <a href="http://www.cs.berkeley.edu/%7Ejsherman/" target="_blank">Jonah Sherman</a> describes a different algorithm for scaling in near-linear time.</p>
+
+<p>“There’s a lot of really exciting work being done in this area at the moment,” says Sidford. “I feel like we have a critical mass in terms of the technology and ideas involved. I hope that our work is one data point in a larger class of new optimization methods.”</p>
